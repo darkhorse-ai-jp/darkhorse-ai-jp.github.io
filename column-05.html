@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バックテストとは？競馬AI予測の信頼性を確かめる方法 | DarkHorse AI</title>
+  <meta name="description" content="競馬AIのバックテストとは何か？なぜ必要なのか？どう解釈すべきかを初心者向けにわかりやすく解説。回収率・的中率・最大ドローダウンの見方も説明します。">
+  <meta property="og:title" content="バックテストとは？競馬AI予測の信頼性を確かめる方法 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .caution-box { background: #fff8e1; border: 1px solid var(--accent); padding: 16px 20px; border-radius: 8px; margin: 20px 0; }
+    .caution-box strong { color: var(--accent); }
+    .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+    .metric-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+    .metric-item .metric-name { font-size: .8rem; color: var(--muted); margin-bottom: 4px; }
+    .metric-item .metric-val { font-size: 1.3rem; font-weight: bold; color: var(--primary); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; AI解説</p>
+      <div style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">AI解説</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">
+        バックテストとは？<br>競馬AI予測の信頼性を確かめる方法
+      </h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年2月 | DarkHorse AI編集部</p>
+
+      <p>
+        「AIが競馬を予測する」という話を聞いても、「本当に儲かるのか？」と疑問に思う方は多いでしょう。
+        その答えを出すために欠かせないのが「バックテスト」です。
+        この記事では、バックテストとは何か・なぜ重要なのか・どう解釈すべきかをわかりやすく解説します。
+      </p>
+
+      <h2>バックテストとは「過去のシミュレーション」</h2>
+      <p>
+        バックテストとは、AIモデルを使って「過去のレースで実際に馬券を買っていたら
+        どうなっていたか」をシミュレーションすることです。
+      </p>
+      <p>
+        たとえば、2020〜2022年のデータでAIを学習させ、
+        2023年のレースに対してそのAIで予測・馬券購入をシミュレートします。
+        このとき、2023年のデータはAIが「見ていない」状態なので、
+        実際の予測に近い評価ができます。
+      </p>
+
+      <div class="caution-box">
+        <strong>重要：「学習に使ったデータ」でバックテストをするな</strong><br>
+        AIが学習に使ったデータで成績を評価すると、必ず良い結果が出ます。
+        試験の解答を見ながら解いたのと同じで、意味がありません。
+        必ず「学習に使っていない未来のデータ」でテストすることが不可欠です。
+        これを「時系列分割」と呼びます。
+      </div>
+
+      <h2>バックテストで見るべき3つの指標</h2>
+
+      <div class="metric-grid">
+        <div class="metric-item">
+          <div class="metric-name">回収率</div>
+          <div class="metric-val">ROI</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">的中率</div>
+          <div class="metric-val">Hit%</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-name">最大ドローダウン</div>
+          <div class="metric-val">MDD</div>
+        </div>
+      </div>
+
+      <h2>指標1：回収率（ROI）</h2>
+      <p>
+        投資した金額に対して、どれだけ回収できたかを示します。
+        「1,000円かけて900円戻ってきた」なら回収率90%。
+        競馬の控除率（JRAの取り分）は約25%なので、
+        <strong>回収率100%超えが「黒字」の基準</strong>です。
+      </p>
+      <ul>
+        <li>100%未満：赤字（長期的に資金が減っていく）</li>
+        <li>100〜110%：微益（現実的なゴール）</li>
+        <li>110%以上：高収益（過学習・偶然の可能性を疑う）</li>
+      </ul>
+
+      <h2>指標2：的中率</h2>
+      <p>
+        「波乱あり」と予測したレースのうち、実際に万馬券が出た割合です。
+        三連複5頭ボックスでの万馬券的中率は、
+        「波乱確率を閾値で絞り込む」ことで向上させることができます。
+      </p>
+      <p>
+        ただし、的中率が高くても配当が低ければ回収率は改善しません。
+        DarkHorse AIが「三連複10,000円以上」にフォーカスするのは、
+        低配当の的中では5頭ボックスのコスト（1,000円）を回収できないからです。
+      </p>
+
+      <h2>指標3：最大ドローダウン（MDD）</h2>
+      <p>
+        連敗が続いたときの「最大損失幅」を示します。
+        たとえば最大ドローダウンが「-50,000円」なら、
+        最悪の時期に5万円の赤字になった時期があるということです。
+      </p>
+      <p>
+        回収率が100%超えでも、最大ドローダウンが大きいと
+        精神的・資金的に耐えられずに途中でやめてしまうリスクがあります。
+        バックテストで最大ドローダウンを把握しておくことが重要です。
+      </p>
+
+      <h2>DarkHorseAIのバックテスト設計</h2>
+      <p>
+        DarkHorse AIでは以下のルールでバックテストを実施しています：
+      </p>
+      <ol>
+        <li><strong>時系列分割</strong>：学習データ（2018〜2022年）とテストデータ（2023年）を時系列で分割</li>
+        <li><strong>5頭ボックス固定</strong>：人気順1〜5番の三連複5頭ボックスを1レース1,000円で購入</li>
+        <li><strong>波乱確率フィルター</strong>：AIが「波乱確率50%以上」と判定したレースのみ参加</li>
+        <li><strong>評価指標</strong>：年間ROI・月次ROI・最大ドローダウン・参加レース数を計算</li>
+      </ol>
+
+      <div class="point-box">
+        <strong>バックテストの結果をどう見るか？</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>年間ROIが100%超えなら「有望なストラテジー」の証拠</li>
+          <li>月次ROIが大きくブレているなら、サンプル数が少ない可能性</li>
+          <li>最大ドローダウンが自分の許容範囲内かを必ず確認する</li>
+          <li>バックテスト成績が良くても、実運用では3ヶ月ペーパートレードを推奨</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事は参考情報です。馬券の購入は自己責任でお願いします。<a href="disclaimer.html">免責事項</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>競馬予測にAIを使うとはどういうことか？LightGBMをわかりやすく解説 | DarkHorse AI</title>
+  <meta name="description" content="競馬予測で使われるAI（機械学習）の仕組みをわかりやすく解説。LightGBMとは何か、なぜ競馬に向いているのか、データリークとは何かを初心者向けに説明します。">
+  <meta property="og:title" content="競馬AIとは？LightGBMをわかりやすく解説 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .analogy-box { background: #fff8e1; border: 1px solid var(--accent); padding: 16px 20px; border-radius: 8px; margin: 20px 0; }
+    .analogy-box strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; AI・テクノロジー</p>
+      <div style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">AI解説</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">
+        競馬予測にAIを使うとはどういうことか？<br>LightGBMをわかりやすく解説
+      </h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年1月 | DarkHorse AI編集部</p>
+
+      <p>
+        「AIが競馬を予測する」と聞くと、なんだか難しそうに聞こえます。
+        でも実は、AIがやっていることは「膨大な過去データから法則を見つけること」です。
+        この記事では、DarkHorse AIで使っているLightGBMという技術を、
+        プログラミングの知識がなくても理解できるように解説します。
+      </p>
+
+      <h2>AIは「経験豊富なベテラン予想家」のようなもの</h2>
+
+      <div class="analogy-box">
+        <strong>たとえ話：</strong><br>
+        「過去10万レースを全部記憶していて、それぞれのレース条件・結果・配当を
+        瞬時に参照できるベテラン予想家」をイメージしてください。<br><br>
+        その人は「頭数が多くて、1番人気のオッズが4倍以上で、重馬場のレースは、
+        三連複の配当が1万円を超えることが多い」という経験則を持っています。
+        <strong>AIはこれを自動的に学習します。</strong>
+      </div>
+
+      <h2>LightGBMとは何か？</h2>
+      <p>
+        LightGBMは、Microsoftが開発した機械学習アルゴリズムの一種です。
+        「決定木」と呼ばれる「条件分岐のロジック」を何千本も組み合わせて
+        予測精度を高める仕組みで、特に以下の特徴があります：
+      </p>
+      <ul>
+        <li><strong>速い</strong>：大量のデータを高速に処理できる</li>
+        <li><strong>正確</strong>：Kaggleなどのデータ分析コンテストで世界トップクラスの実績</li>
+        <li><strong>解釈しやすい</strong>：「どの特徴が予測に貢献したか」を数値で確認できる</li>
+      </ul>
+
+      <h2>「データリーク」という落とし穴</h2>
+      <p>
+        AIで競馬予測をするときに最も注意すべきなのが「データリーク」です。
+        聞き慣れない言葉ですが、競馬AI開発では致命的な問題になります。
+      </p>
+
+      <div class="analogy-box">
+        <strong>データリークのたとえ：</strong><br>
+        「この試験は合格率90%だ！」と言うAIがいたとします。
+        でも実はそのAIは、試験の「解答を見ながら」練習していたとしたら？
+        本番では全く使えません。<br><br>
+        競馬でのデータリークも同様で、
+        「レース結果がわかった後のデータ」を使って学習すると、
+        バックテストの成績は良くなりますが、実際には全く機能しません。
+      </div>
+
+      <p>DarkHorse AIでは以下のルールを厳守することでデータリークを防いでいます：</p>
+      <ul>
+        <li>騎手・調教師の成績は「そのレースの直前まで」の累積値のみ使用</li>
+        <li>学習データとテストデータは「時系列」で分割（未来のデータで過去を予測しない）</li>
+        <li>確定オッズのみを使用（最終確定値はレース後に確定するため慎重に扱う）</li>
+      </ul>
+
+      <h2>AIが出力する「波乱確率」とは</h2>
+      <p>
+        DarkHorse AIは各レースについて「三連複万馬券が出る確率」を0〜100%で出力します。
+        これはAIが「このレースの条件は、過去のデータから見て波乱が起きやすいパターンに
+        どれだけ近いか」を計算した結果です。
+      </p>
+      <p>
+        重要なのは、これが「絶対に当たる予測」ではなく、
+        「確率的な判断」だという点です。
+        波乱確率70%のレースでも、30%は波乱が起きません。
+        あくまで「参加する価値があるかどうかの判断基準」として使うものです。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>AIは「膨大な経験から法則を見つける」仕組み</li>
+          <li>LightGBMはデータ分析コンテストで世界トップクラスの実績を持つ</li>
+          <li>データリーク防止が競馬AI開発の最重要課題</li>
+          <li>「波乱確率」は絶対予測ではなく確率的な判断指標</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事は参考情報です。馬券の購入は自己責任でお願いします。<a href="disclaimer.html">免責事項</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

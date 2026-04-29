@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1番人気が飛ぶのはどんなとき？データで見る「波乱の法則」 | DarkHorse AI</title>
+  <meta name="description" content="競馬で1番人気が3着以内に入らない「番狂わせ」はいつ起きるのか？AIが過去データを分析し、1番人気が信頼できないレースのパターンを解説します。">
+  <meta property="og:title" content="1番人気が飛ぶのはどんなとき？データで見る波乱の法則 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .data-highlight { background: var(--primary); color: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: .9rem; font-weight: bold; }
+    .warning-box { background: #fde8e8; border-left: 4px solid var(--miss); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .warning-box strong { color: var(--miss); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; データ分析</p>
+      <div style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">データ分析</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">
+        1番人気が飛ぶのはどんなとき？<br>データで見る「波乱の法則」
+      </h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年1月 | DarkHorse AI編集部</p>
+
+      <p>
+        三連複で万馬券を取るためには、「1番人気が3着以内に入らない」か、
+        「入ったとしても2〜3番人気も沈む」必要があります。
+        では、1番人気が飛びやすいレースには、どんな共通点があるのでしょうか？
+        過去データを分析して見えてきたパターンを紹介します。
+      </p>
+
+      <div class="point-box">
+        <strong>この記事でわかること</strong><br>
+        1番人気の信頼度を下げる要因をデータで確認し、
+        「波乱が起きやすいレース」の見極め方を学びます。
+      </div>
+
+      <h2>そもそも1番人気はどれくらい来るのか？</h2>
+      <p>
+        JRAの全レースを通じた1番人気の連対率（2着以内）は約60〜65%、
+        3着以内に入る確率（複勝率）は約70〜75%程度です。
+        つまり、<span class="data-highlight">約4回に1回は1番人気が3着以内に入らない</span>ことになります。
+      </p>
+      <p>
+        しかし、この確率はレースの条件によって大きく変わります。
+        ある条件下では複勝率が50%を切ることもあり、
+        そのようなレースこそが万馬券のチャンスです。
+      </p>
+
+      <h2>パターン1：単勝オッズが3倍以上の「混戦1番人気」</h2>
+      <p>
+        単勝オッズが2倍以下の「断然人気」は複勝率が85%以上と非常に高く、
+        ほぼ確実に馬券内に絡みます。
+        しかし、1番人気のオッズが<span class="data-highlight">3倍以上</span>になると、
+        複勝率は65%前後まで下がります。
+      </p>
+      <p>
+        「1番人気」とは言っても、単勝3倍は「3頭が横一線の混戦」を意味することが多く、
+        どの馬が来ても不思議ではない状態です。
+        このようなレースでは、6〜10番人気の「穴馬」が突っ込んでくる確率が高まります。
+      </p>
+
+      <h2>パターン2：出走頭数が多い（フルゲート付近）</h2>
+      <p>
+        16頭や18頭のフルゲートに近いレースでは、
+        1番人気の複勝率が平均より5〜8ポイント低くなる傾向があります。
+        頭数が増えると展開の不確実性が増し、不利・包まれ・落馬など
+        実力以外の要素で人気馬が敗れる確率が上がるためです。
+      </p>
+
+      <div class="warning-box">
+        <strong>注意：頭数が少ないレースでの万馬券狙いは非効率</strong><br>
+        8頭以下の少頭数レースでは、1番人気の複勝率が80%を超えることも多く、
+        万馬券が出にくい環境です。
+        DarkHorse AIでも少頭数レースは波乱確率が低く評価されます。
+      </div>
+
+      <h2>パターン3：初距離・初コースの1番人気</h2>
+      <p>
+        前走と距離が大きく変わるレース（例：1200mから2000mへの大幅延長）や、
+        初めてのコース・競馬場で1番人気になる馬は、
+        実績が「別条件でのもの」であり、当該レースで同様のパフォーマンスが出るとは限りません。
+      </p>
+      <p>
+        特に、<span class="data-highlight">前走が短距離で今回が中長距離</span>、
+        あるいは<span class="data-highlight">前走がダートで今回が芝</span>というような
+        大きな条件変化のある1番人気は要注意です。
+      </p>
+
+      <h2>パターン4：悪化した馬場への対応力が未知数</h2>
+      <p>
+        芝の重・不良馬場では「道悪の適性」が問われます。
+        いくら良馬場実績が優秀な馬でも、道悪が苦手なら力を発揮できません。
+        しかし、オッズは過去の良馬場実績をもとに形成されるため、
+        道悪が苦手な人気馬が過剰支持になるケースがあります。
+      </p>
+
+      <h2>1番人気が信頼できるレースとは？</h2>
+      <p>
+        逆に、以下のような条件のレースでは1番人気が堅い傾向があります：
+      </p>
+      <ul>
+        <li>単勝オッズが2倍以下の「断然人気」</li>
+        <li>少頭数（8頭以下）で展開が読みやすいレース</li>
+        <li>同じコース・距離での実績が豊富な馬</li>
+        <li>良馬場での実績が際立つ馬が引き続き良馬場で走る</li>
+      </ul>
+      <p>
+        このようなレースで万馬券を狙っても効率が悪いため、
+        DarkHorse AIは上記条件のレースを波乱確率「低」と判定して参加を推奨しません。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ：1番人気が飛びやすい条件</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>単勝オッズ3倍以上の「混戦」1番人気</li>
+          <li>フルゲート付近の多頭数レース</li>
+          <li>初距離・初コースなど条件変化が大きい</li>
+          <li>道悪馬場での実績・適性が不明</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事はDarkHorse AIのデータ分析に基づく参考情報です。馬券の購入は自己責任でお願いします。<a href="disclaimer.html">免責事項</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

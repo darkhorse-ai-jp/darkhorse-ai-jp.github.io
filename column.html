@@ -18,6 +18,15 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
   </div>
 </header>
 
@@ -28,32 +37,89 @@
       <p style="color:var(--muted);font-size:.9rem;">データで読む競馬の面白さ</p>
     </div>
 
-    <div class="card">
-      <div class="section-title">記事一覧</div>
-      <ul class="article-list">
-        <li>
-          <span class="date">準備中</span>
-          <span style="color:#999;">万馬券が出やすいレースの条件とは？AIが分析した5つの共通点</span>
-        </li>
-        <li>
-          <span class="date">準備中</span>
-          <span style="color:#999;">1番人気が飛ぶのはどんなとき？データで見る「波乱の法則」</span>
-        </li>
-        <li>
-          <span class="date">準備中</span>
-          <span style="color:#999;">三連複ボックスで万馬券を狙う戦略：何頭ボックスが最適か</span>
-        </li>
-        <li>
-          <span class="date">準備中</span>
-          <span style="color:#999;">競馬とAI：LightGBMで予測する仕組みをわかりやすく解説</span>
-        </li>
-        <li>
-          <span class="date">準備中</span>
-          <span style="color:#999;">バックテストとは？競馬予測の信頼性を確かめる方法</span>
-        </li>
-      </ul>
-      <p style="color:#999;font-size:.85rem;margin-top:16px;">※記事は順次公開予定です。</p>
+    <!-- カテゴリフィルター -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+      <span style="background:var(--primary);color:#fff;font-size:.8rem;padding:4px 14px;border-radius:12px;">すべて</span>
+      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">データ分析</span>
+      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">馬券戦略</span>
+      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">AI解説</span>
     </div>
+
+    <!-- 公開済み記事 -->
+    <a href="column-01.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="column-card">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex:1;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.75rem;padding:2px 8px;border-radius:10px;">データ分析</span>
+              <span style="font-size:.78rem;color:var(--muted);">2024年1月</span>
+            </div>
+            <h3 style="font-size:1.05rem;color:var(--primary);margin-bottom:6px;line-height:1.5;">AIが分析してわかった 万馬券が出やすいレースの5つの条件</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">出走頭数・人気馬のオッズ・馬場状態など、三連複万馬券が出やすいレースに共通する5つの条件をデータで解説します。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="column-02.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="column-card">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex:1;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="display:inline-block;background:#e8f5e9;color:var(--hit);font-size:.75rem;padding:2px 8px;border-radius:10px;">馬券戦略</span>
+              <span style="font-size:.78rem;color:var(--muted);">2024年1月</span>
+            </div>
+            <h3 style="font-size:1.05rem;color:var(--primary);margin-bottom:6px;line-height:1.5;">三連複ボックスで万馬券を狙う戦略：何頭ボックスが最適か？</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">3〜8頭ボックスの点数・期待値・リスクをデータで比較。DarkHorse AIが5頭ボックスを採用する理由も解説。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="column-03.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="column-card">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex:1;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.75rem;padding:2px 8px;border-radius:10px;">AI解説</span>
+              <span style="font-size:.78rem;color:var(--muted);">2024年1月</span>
+            </div>
+            <h3 style="font-size:1.05rem;color:var(--primary);margin-bottom:6px;line-height:1.5;">競馬予測にAIを使うとはどういうことか？LightGBMをわかりやすく解説</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">LightGBMとは何か・なぜ競馬に向いているのか・データリークとは何かを、プログラミング知識なしで理解できるように解説します。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="column-04.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="column-card">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex:1;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.75rem;padding:2px 8px;border-radius:10px;">データ分析</span>
+              <span style="font-size:.78rem;color:var(--muted);">2024年1月</span>
+            </div>
+            <h3 style="font-size:1.05rem;color:var(--primary);margin-bottom:6px;line-height:1.5;">1番人気が飛ぶのはどんなとき？データで見る「波乱の法則」</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">単勝オッズ・頭数・条件変化など、1番人気が信頼できないレースのパターンをAIの分析結果からひも解きます。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="column-05.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="column-card">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="flex:1;">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+              <span style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.75rem;padding:2px 8px;border-radius:10px;">AI解説</span>
+              <span style="font-size:.78rem;color:var(--muted);">2024年2月</span>
+            </div>
+            <h3 style="font-size:1.05rem;color:var(--primary);margin-bottom:6px;line-height:1.5;">バックテストとは？競馬AI予測の信頼性を確かめる方法</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.6;">回収率・的中率・最大ドローダウンの見方と、信頼できるバックテストの設計方法を初心者向けに解説します。</p>
+          </div>
+        </div>
+      </div>
+    </a>
 
   </div>
 </main>

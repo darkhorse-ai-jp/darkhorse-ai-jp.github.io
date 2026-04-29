@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三連複ボックスで万馬券を狙う戦略：何頭ボックスが最適か | DarkHorse AI コラム</title>
+  <meta name="description" content="三連複ボックスで万馬券を狙う際の頭数選びを徹底解説。3頭〜8頭ボックスの点数・期待値・リスクをデータで比較。バックテストによる最適頭数の考察も。">
+  <meta property="og:title" content="三連複ボックス何頭が最適？データで検証 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; 馬券戦略</p>
+      <div style="display:inline-block;background:#e8f5e9;color:var(--hit);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">馬券戦略</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">
+        三連複ボックスで万馬券を狙う戦略<br>何頭ボックスが最適か？
+      </h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年1月 | DarkHorse AI編集部</p>
+
+      <p>
+        「波乱が起きそうなレースを見つけた。でも何頭ボックスで買えばいい？」
+        これは万馬券を狙う上で最も重要な判断の一つです。
+        頭数が多ければ的中率は上がりますが、その分投資額も増え、期待値が下がります。
+        データをもとに最適解を考えましょう。
+      </p>
+
+      <h2>三連複ボックスの点数と投資額</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>頭数</th><th>点数</th><th>投資額（1点100円）</th><th>万馬券での回収率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3頭ボックス</td><td>1点</td><td>100円</td><td>10,000円÷100円 = <strong>100倍</strong></td></tr>
+            <tr><td>4頭ボックス</td><td>4点</td><td>400円</td><td>10,000円÷400円 = <strong>25倍</strong></td></tr>
+            <tr><td>5頭ボックス</td><td>10点</td><td>1,000円</td><td>10,000円÷1,000円 = <strong>10倍</strong></td></tr>
+            <tr><td>6頭ボックス</td><td>20点</td><td>2,000円</td><td>10,000円÷2,000円 = <strong>5倍</strong></td></tr>
+            <tr><td>7頭ボックス</td><td>35点</td><td>3,500円</td><td>10,000円÷3,500円 ≈ <strong>2.9倍</strong></td></tr>
+            <tr><td>8頭ボックス</td><td>56点</td><td>5,600円</td><td>10,000円÷5,600円 ≈ <strong>1.8倍</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        8頭ボックスで万馬券を取っても、回収率は1.8倍（180%）にしかなりません。
+        配当が2万円以上でないと十分な利益が出ない計算です。
+      </p>
+
+      <h2>的中率のシミュレーション</h2>
+      <p>
+        16頭立てのレースで「人気順位上位N頭」をボックスで買った場合、
+        実際の1〜3着馬が全てそのN頭に含まれる確率は以下の通りです。
+      </p>
+      <ul>
+        <li><strong>上位3頭ボックス</strong>：上位3頭が1〜3着を独占 → 約15〜20%</li>
+        <li><strong>上位5頭ボックス</strong>：上位5頭内に1〜3着が全て収まる → 約45〜55%</li>
+        <li><strong>上位7頭ボックス</strong>：上位7頭内に1〜3着が全て収まる → 約70〜80%</li>
+      </ul>
+
+      <h2>DarkHorse AIの設定：5頭ボックスを採用する理由</h2>
+      <p>
+        DarkHorse AIのバックテストでは、<strong>人気順位1〜5番の5頭ボックス</strong>を採用しています。
+        その理由は以下の通りです：
+      </p>
+      <ol>
+        <li><strong>的中率と投資効率のバランス</strong>：5頭ボックスは的中率約50%を確保しつつ、10点（1,000円）の投資で万馬券時に10倍以上の回収が可能</li>
+        <li><strong>穴馬が含まれやすい</strong>：5番人気まで拡げることで、「4〜5番人気の穴馬」が入るケースをカバー</li>
+        <li><strong>資金管理のしやすさ</strong>：1レース1,000円という明確な投資額で資金計画が立てやすい</li>
+      </ol>
+
+      <div class="point-box">
+        <strong>実践的なアドバイス</strong>
+        <p style="margin:8px 0 0;">
+          「波乱確率が高い」と判断したレースでも、配当が5,000円以下の場合は5頭ボックスで赤字になります。
+          DarkHorse AIが「波乱」と定義するのは三連複10,000円以上のレース。
+          このハードルを設けることで、5頭ボックスでも十分な期待値を確保しています。
+        </p>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事は参考情報です。馬券の購入は自己責任でお願いします。<a href="disclaimer.html">免責事項</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
