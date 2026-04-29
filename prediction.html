@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>今週の万馬券推奨馬券 | DarkHorse AI – AIが選ぶ三連複ボックス</title>
-  <meta name="description" content="AIが分析した今週の万馬券（三連複10,000円以上）推奨レースと推奨馬券を公開。どの馬を買えばいいかを具体的に提示します。">
+  <title>今週の波乱レース予測 | DarkHorse AI – AIが選ぶ万馬券候補レース</title>
+  <meta name="description" content="AIが分析した今週の万馬券（三連複10,000円以上）候補レースを公開。軸馬・穴馬候補の区別、三連複が万馬券になる仕組みをわかりやすく解説。参考情報として無料提供。">
 
-  <meta property="og:title" content="今週の万馬券推奨馬券 | DarkHorse AI">
-  <meta property="og:description" content="AIが選んだ今週の注目レースと推奨馬券を無料公開。三連複ボックスでどの馬を買えばいいかを具体的に提示。">
+  <meta property="og:title" content="今週の波乱レース予測 | DarkHorse AI">
+  <meta property="og:description" content="AIが選んだ今週の万馬券候補レースを無料公開。どの馬が絡むと万馬券になるか、仕組みをわかりやすく解説します。">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://msalpha0123-source.github.io/darkhorse-site/prediction.html">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* 推奨馬券カード */
     .pick-card {
       background: #fff;
       border-radius: 12px;
@@ -47,61 +46,73 @@
     .pick-race-info { flex: 1; }
     .pick-race-name { font-size: 1rem; font-weight: bold; line-height: 1.3; }
     .pick-race-sub  { font-size: .78rem; opacity: .8; margin-top: 2px; }
-    .pick-prob-badge {
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .pick-prob-num {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .pick-prob-label { font-size: .68rem; opacity: .75; margin-top: 2px; }
+    .pick-prob-badge { text-align: center; flex-shrink: 0; }
+    .pick-prob-num  { font-size: 1.6rem; font-weight: bold; color: var(--accent); line-height: 1; }
+    .pick-prob-label{ font-size: .68rem; opacity: .75; margin-top: 2px; }
 
     .pick-body { padding: 16px 20px; }
 
-    /* 推奨買い目ボックス */
-    .buy-box {
-      background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
-      border: 2px solid var(--accent);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    /* 万馬券の仕組み説明ボックス */
+    .mechanism-box {
+      background: #f0f4f8;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: .83rem;
+      line-height: 1.7;
+      color: #444;
     }
-    .buy-label {
-      font-size: .8rem;
-      color: var(--muted);
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    .buy-ticket {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--primary);
-      letter-spacing: .05em;
-    }
-    .buy-amount {
-      margin-left: auto;
-      text-align: right;
-      flex-shrink: 0;
-    }
-    .buy-amount .amt { font-size: 1.1rem; font-weight: bold; color: var(--miss); }
-    .buy-amount .lbl { font-size: .72rem; color: var(--muted); }
+    .mechanism-box strong { color: var(--primary); }
 
     /* 馬リスト */
+    .horse-section-label {
+      font-size: .75rem;
+      font-weight: bold;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .horse-section-label .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
     .horse-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
-    .horse-item {
-      background: #f8f9fc;
+
+    /* 軸馬（1〜3番人気） */
+    .horse-item-anchor {
+      background: #eef2f8;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 3px solid var(--primary);
+    }
+    .horse-num-anchor {
+      background: var(--primary);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: bold;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* 穴馬候補（4〜5番人気） */
+    .horse-item-upset {
+      background: #fff8e1;
       border-radius: 8px;
       padding: 10px 12px;
       display: flex;
@@ -109,25 +120,51 @@
       gap: 10px;
       border-left: 3px solid var(--accent);
     }
-    .horse-num {
-      background: var(--primary);
+    .horse-num-upset {
+      background: var(--accent);
       color: #fff;
-      font-size: .85rem;
+      font-size: .82rem;
       font-weight: bold;
       width: 28px; height: 28px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
+
     .horse-info .name { font-size: .88rem; font-weight: bold; color: var(--primary); }
-    .horse-info .meta { font-size: .75rem; color: var(--muted); margin-top: 1px; }
+    .horse-info .meta { font-size: .73rem; color: var(--muted); margin-top: 1px; }
+
+    /* 三連複の仕組みフロー */
+    .sanrenpuku-flow {
+      background: linear-gradient(135deg, #f8f9fc 0%, #fff 100%);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      font-size: .82rem;
+    }
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 4px 0;
+    }
+    .flow-tag {
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+    .flow-arrow { color: var(--muted); font-size: .9rem; }
+    .flow-result { font-weight: bold; }
 
     .pick-conditions {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: 10px;
-      padding-top: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
       border-top: 1px solid var(--border);
     }
     .cond-tag {
@@ -163,17 +200,20 @@
       border-color: var(--primary);
     }
 
-    /* 見方説明 */
-    .how-to {
-      background: #f0f4f8;
+    /* 戦略説明 */
+    .strategy-box {
+      background: #fff;
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 16px 20px;
-      font-size: .85rem;
-      line-height: 1.8;
+      padding: 20px;
       margin-bottom: 24px;
+      font-size: .88rem;
+      line-height: 1.85;
     }
-    .how-to strong { color: var(--primary); }
+    .strategy-box h3 { font-size: .95rem; color: var(--primary); margin-bottom: 10px; }
   </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -186,7 +226,7 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" id="hamburger-btn">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" id="hamburger-btn">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -201,24 +241,44 @@
 <main>
   <div class="container">
     <div style="padding:28px 0 8px;">
-      <h1 style="font-size:1.6rem;color:var(--primary);">今週の万馬券推奨馬券</h1>
-      <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">更新日: —</p>
+      <h1 style="font-size:1.6rem;color:var(--primary);">今週の波乱レース予測</h1>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">対象期間: —</p>
     </div>
 
     <!-- 注意書き -->
-    <div style="background:#fff8e1;border-left:4px solid var(--accent);padding:12px 16px;border-radius:6px;margin-bottom:20px;font-size:.83rem;line-height:1.7;color:#555;">
-      ⚠️ <strong>ご確認ください</strong>：本予測はAIによる参考情報です。馬券の購入を保証・推奨するものではありません。
-      推奨馬券はバックテスト実績に基づく「人気順上位5頭の三連複ボックス」です。
-      投票は必ず自己判断・自己責任でお願いします。
+    <div style="background:#fde8e8;border-left:4px solid var(--miss);padding:12px 16px;border-radius:6px;margin-bottom:20px;font-size:.83rem;line-height:1.7;color:#555;">
+      ⚠️ <strong>重要なお知らせ</strong>：本予測はバックテスト検証中の参考情報です。
+      現時点の回収率は<strong>78〜82%</strong>（赤字）であり、馬券の購入を推奨するものではありません。
+      「AIがどのようにレースを分析するか」を学ぶ目的でご利用ください。
+      詳細は<a href="results.html">過去の成績</a>をご確認ください。
     </div>
 
-    <!-- 見方説明 -->
-    <div class="how-to">
-      <strong>📖 この画面の見方</strong><br>
-      AIが「万馬券が出やすい」と判断したレースを波乱確率の高い順に表示しています。
-      各レースに <strong>推奨買い目</strong>（人気順上位5頭の三連複ボックス）を掲載しています。<br>
-      <strong>参加目安：波乱確率40%以上</strong>のレース。1レース1,000円（5頭ボックス×100円）が基本投資額です。
-      <a href="column-02.html" style="color:var(--accent);font-weight:bold;">三連複ボックスとは？</a>
+    <!-- 戦略の仕組み説明 -->
+    <div class="strategy-box">
+      <h3>📖 この予測の仕組み — 万馬券はいつ成立するか</h3>
+      <p>三連複で万馬券（10,000円以上）になるには、<strong>1〜3番人気の馬が全員揃わない</strong>ことが必要です。</p>
+      <p style="margin-top:8px;">このサイトでは、AIが「荒れやすい」と判断したレースに対して
+      <strong>人気順1〜5番の5頭ボックス</strong>を掲載しています。
+      この戦略で万馬券を取るカギは <span style="color:var(--accent);font-weight:bold;">4〜5番人気の「穴馬候補」</span>です：</p>
+
+      <div style="margin:12px 0;padding:12px;background:#f8f9fc;border-radius:8px;font-size:.82rem;line-height:2;">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="background:var(--primary);color:#fff;padding:3px 10px;border-radius:10px;font-size:.75rem;">1〜3番人気（軸馬）</span>
+          <span style="color:var(--muted);">＋</span>
+          <span style="background:var(--accent);color:#fff;padding:3px 10px;border-radius:10px;font-size:.75rem;">4〜5番人気（穴馬候補）</span>
+          <span class="flow-arrow">→</span>
+          <span style="font-weight:bold;color:var(--miss);">三連複 万馬券 💥</span>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);">
+          例：1番人気（3倍）＋3番人気（8倍）＋5番人気（12倍） → <strong>三連複 15,000〜30,000円</strong>
+        </div>
+      </div>
+
+      <p style="font-size:.8rem;color:var(--muted);">
+        ※ 1〜3番人気が全員3着以内に入ると配当は3,000〜5,000円程度で万馬券にはなりません。
+        「荒れやすいレース」でこそ、4〜5番人気の穴馬が絡み万馬券が生まれます。
+        <a href="column-01.html">→ 万馬券が出やすいレースの条件を詳しく読む</a>
+      </p>
     </div>
 
     <!-- フィルター -->
@@ -229,26 +289,9 @@
       <button class="filter-btn" onclick="filterCards('mid', this)">波乱確率 中（40〜49%）</button>
     </div>
 
-    <!-- 推奨馬券カード一覧 -->
+    <!-- レースカード一覧 -->
     <div id="js-picks">
       <p style="text-align:center;color:#999;padding:40px;">データを読み込み中...</p>
-    </div>
-
-    <!-- 万馬券が出たら -->
-    <div class="card" style="margin-top:8px;">
-      <div class="section-title">推奨馬券の使い方</div>
-      <ol style="margin-left:20px;line-height:2;font-size:.9rem;">
-        <li>波乱確率が<strong>40%以上</strong>のレースを選ぶ</li>
-        <li>表示されている <strong>馬番（○番）</strong> の馬を確認する</li>
-        <li>JRAウィンズ・IPAT・楽天競馬などで <strong>三連複ボックス</strong> を選択</li>
-        <li>表示の <strong>5頭を選択</strong>して購入（10点・1,000円）</li>
-        <li>三連複の払戻が10,000円以上なら <strong>万馬券的中！</strong></li>
-      </ol>
-      <div style="margin-top:14px;padding:12px 16px;background:#e8f5e9;border-radius:8px;font-size:.85rem;">
-        💡 <strong>ポイント：</strong>
-        波乱確率が高くても外れることはあります。1レースへの投資は1,000円を目安に、
-        複数レースに分散することをおすすめします。
-      </div>
     </div>
 
   </div>
@@ -279,8 +322,8 @@ const VENUE_MAP = {
 function toggleMenu() {
   const nav = document.getElementById('mobile-nav');
   const btn = document.getElementById('hamburger-btn');
-  const isOpen = nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded', isOpen);
+  nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', nav.classList.contains('open'));
 }
 
 function filterCards(type, btn) {
@@ -288,9 +331,9 @@ function filterCards(type, btn) {
   btn.classList.add('active');
   document.querySelectorAll('.pick-card').forEach(card => {
     const prob = parseFloat(card.dataset.prob);
-    if (type === 'all') { card.style.display = ''; }
-    else if (type === 'high') { card.style.display = prob >= 50 ? '' : 'none'; }
-    else if (type === 'mid')  { card.style.display = (prob >= 40 && prob < 50) ? '' : 'none'; }
+    if (type === 'all') card.style.display = '';
+    else if (type === 'high') card.style.display = prob >= 50 ? '' : 'none';
+    else if (type === 'mid')  card.style.display = (prob >= 40 && prob < 50) ? '' : 'none';
   });
 }
 
@@ -299,41 +342,74 @@ fetch('data/prediction_latest.json')
   .then(data => {
     if (!data || !data.length) throw new Error('no data');
 
-    // 更新日
     const dateEl = document.getElementById('js-update-date');
-    if (data[0].race_date) dateEl.textContent = '対象期間: ' + data[0].race_date + ' 前後のレース（毎週金曜更新）';
+    if (data[0].race_date) {
+      dateEl.textContent = '対象期間: ' + data[0].race_date + ' 前後のレース（毎週金曜更新）';
+    }
 
     let html = '';
     data.forEach((r, i) => {
       const prob = Math.round(r.prob);
       const venue = VENUE_MAP[r.venue] || r.venue;
       const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
-      const distLabel = r.distance ? `${r.distance}m` : '';
-      const headLabel = r.head_count ? `${r.head_count}頭` : '';
+      const distLabel  = r.distance   ? `${r.distance}m`   : '';
+      const headLabel  = r.head_count ? `${r.head_count}頭立て` : '';
+      const probColor  = prob >= 70 ? '#e74c3c' : prob >= 50 ? '#e8a020' : '#27ae60';
 
-      // 波乱確率バッジ色
-      const probColor = prob >= 70 ? '#e74c3c' : prob >= 50 ? '#e8a020' : '#27ae60';
+      // 馬リスト：軸馬（1〜3番人気）と穴馬候補（4〜5番人気）に分けて表示
+      let anchorHtml = '';
+      let upsetHtml  = '';
 
-      // 推奨馬リスト HTML
-      let horsesHtml = '';
       if (r.horses && r.horses.length) {
-        horsesHtml = r.horses.map(h => {
-          const oddsStr = h.odds ? `${h.odds}倍` : '';
-          return `<div class="horse-item">
-            <div class="horse-num">${h.num}</div>
-            <div class="horse-info">
-              <div class="name">${h.name}</div>
-              <div class="meta">${h.popularity}番人気 ${oddsStr}</div>
-            </div>
-          </div>`;
-        }).join('');
-      } else {
-        horsesHtml = '<p style="color:#999;font-size:.85rem;">馬番データ準備中</p>';
+        r.horses.forEach(h => {
+          const oddsStr = h.odds ? `単勝 ${h.odds}倍` : '';
+          const isUpset = h.popularity >= 4;
+          if (isUpset) {
+            upsetHtml += `
+              <div class="horse-item-upset">
+                <div class="horse-num-upset">${h.num}</div>
+                <div class="horse-info">
+                  <div class="name">${h.name}</div>
+                  <div class="meta">${h.popularity}番人気　${oddsStr}</div>
+                </div>
+              </div>`;
+          } else {
+            anchorHtml += `
+              <div class="horse-item-anchor">
+                <div class="horse-num-anchor">${h.num}</div>
+                <div class="horse-info">
+                  <div class="name">${h.name}</div>
+                  <div class="meta">${h.popularity}番人気　${oddsStr}</div>
+                </div>
+              </div>`;
+          }
+        });
       }
 
-      // 買い目
-      const buyStr = r.buy_str || '—';
-      const betAmt = (r.bet_amount || 1000).toLocaleString();
+      // 万馬券成立パターンの例示
+      const upsetHorses = (r.horses || []).filter(h => h.popularity >= 4);
+      const anchorHorses = (r.horses || []).filter(h => h.popularity <= 3);
+      let patternHtml = '';
+      if (upsetHorses.length > 0 && anchorHorses.length > 0) {
+        const up1 = upsetHorses[0];
+        const an1 = anchorHorses[0];
+        const an2 = anchorHorses[1] || anchorHorses[0];
+        patternHtml = `
+          <div class="sanrenpuku-flow">
+            <div style="font-size:.75rem;color:var(--muted);font-weight:bold;margin-bottom:6px;">💡 万馬券になるパターン例</div>
+            <div class="flow-row">
+              <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
+              <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
+              <span style="color:var(--muted);font-size:.85rem;">＋</span>
+              <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴）</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-result" style="color:var(--miss);">万馬券 💥</span>
+            </div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">
+              ※ ${up1.popularity}番人気（単勝${up1.odds || '—'}倍）が3着以内に入ると高配当になりやすい
+            </div>
+          </div>`;
+      }
 
       html += `
       <div class="pick-card" data-prob="${r.prob}">
@@ -341,7 +417,7 @@ fetch('data/prediction_latest.json')
           <div class="pick-rank">${i + 1}</div>
           <div class="pick-race-info">
             <div class="pick-race-name">${venue} ${r.race_number}R｜${raceName}</div>
-            <div class="pick-race-sub">${r.race_date}（${r.surface} ${distLabel} ${headLabel}立て）</div>
+            <div class="pick-race-sub">${r.race_date}（${r.surface} ${distLabel} ${headLabel}）</div>
           </div>
           <div class="pick-prob-badge">
             <div class="pick-prob-num" style="color:${probColor}">${prob}%</div>
@@ -349,28 +425,31 @@ fetch('data/prediction_latest.json')
           </div>
         </div>
         <div class="pick-body">
-          <!-- 推奨買い目 -->
-          <div class="buy-box">
-            <div>
-              <div class="buy-label">推奨買い目（三連複ボックス）</div>
-              <div class="buy-ticket">🎫 ${buyStr} ボックス</div>
-            </div>
-            <div class="buy-amount">
-              <div class="amt">${betAmt}円</div>
-              <div class="lbl">投資額（10点×100円）</div>
-            </div>
-          </div>
 
-          <!-- 推奨馬 -->
-          <div style="font-size:.8rem;color:var(--muted);font-weight:bold;margin-bottom:8px;">推奨馬（人気順上位5頭）</div>
-          <div class="horse-list">${horsesHtml}</div>
+          ${patternHtml}
+
+          <!-- 軸馬 -->
+          <div class="horse-section-label">
+            <span class="dot" style="background:var(--primary);"></span>
+            軸馬（1〜3番人気）— 3着以内に来やすい本命馬
+          </div>
+          <div class="horse-list">${anchorHtml || '<p style="color:#999;font-size:.82rem;">データなし</p>'}</div>
+
+          <!-- 穴馬候補 -->
+          <div class="horse-section-label" style="margin-top:4px;">
+            <span class="dot" style="background:var(--accent);"></span>
+            穴馬候補（4〜5番人気）— <strong style="color:var(--accent);">これが絡むと万馬券</strong>
+          </div>
+          <div class="horse-list">${upsetHtml || '<p style="color:#999;font-size:.82rem;">データなし</p>'}</div>
 
           <!-- レース条件タグ -->
           <div class="pick-conditions">
-            <span class="cond-tag">出走 ${headLabel}</span>
+            <span class="cond-tag">${headLabel}</span>
             <span class="cond-tag">${r.surface} ${distLabel}</span>
             <span class="cond-tag">波乱確率 ${prob}%</span>
+            <span class="cond-tag">5頭ボックス 10点・1,000円</span>
           </div>
+
         </div>
       </div>`;
     });
@@ -382,7 +461,7 @@ fetch('data/prediction_latest.json')
       '<div style="text-align:center;padding:60px;color:#999;">' +
       '<div style="font-size:2rem;margin-bottom:12px;">🏇</div>' +
       '<p style="font-size:1rem;margin-bottom:8px;">予測データは毎週金曜日に更新されます</p>' +
-      '<p style="font-size:.85rem;">次の金曜日にまたご確認ください</p></div>';
+      '</div>';
   });
 </script>
 
