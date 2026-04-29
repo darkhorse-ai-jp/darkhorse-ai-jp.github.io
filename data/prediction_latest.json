@@ -59,8 +59,67 @@
     "bet_amount": 1000
   },
   {
+    "race_id": "202604010211",
+    "race_date": "2026-05-03",
+    "venue": "04",
+    "race_number": 11,
+    "race_name": "越後S",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 40.2,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "エティエンヌ",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "ユキマル",
+        "jockey": "石川",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "グッジョブ",
+        "jockey": "菊沢",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "サンライズパスカル",
+        "jockey": "富田",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "ショウナンアビアス",
+        "jockey": "ゴンサルベ",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
     "race_id": "202605020410",
-    "race_date": "2026-05-02",
+    "race_date": "2026-05-03",
     "venue": "05",
     "race_number": 10,
     "race_name": "ブリリアントS",
@@ -118,8 +177,67 @@
     "bet_amount": 1000
   },
   {
+    "race_id": "202608030410",
+    "race_date": "2026-05-03",
+    "venue": "08",
+    "race_number": 10,
+    "race_name": "朱雀S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 20,
+    "prob": 38.4,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "ダークエクリプス",
+        "jockey": "荻野琢",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "ブランデーロック",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "アンビバレント",
+        "jockey": "岩田望",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "トーセントラム",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "パクスロマーナ",
+        "jockey": "池添",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
     "race_id": "202605020409",
-    "race_date": "2026-05-02",
+    "race_date": "2026-05-03",
     "venue": "05",
     "race_number": 9,
     "race_name": "府中S",
@@ -236,6 +354,242 @@
     "bet_amount": 1000
   },
   {
+    "race_id": "202608030310",
+    "race_date": "2026-05-02",
+    "venue": "08",
+    "race_number": 10,
+    "race_name": "京極特別",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 21,
+    "prob": 37.1,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "ゴイゴイスー",
+        "jockey": "川須",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "アスクキングコング",
+        "jockey": "岩田望",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "ミロワール",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "フォーワンセルフ",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "アストラカ",
+        "jockey": "大野",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202604010110",
+    "race_date": "2026-05-02",
+    "venue": "04",
+    "race_number": 10,
+    "race_name": "胎内川特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1800,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 36.8,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "バガン",
+        "jockey": "小崎",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "アオカミ",
+        "jockey": "原田和",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "ビターグラッセ",
+        "jockey": "丸田",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "ウインルピナス",
+        "jockey": "菊沢",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "ナイトスラッガー",
+        "jockey": "丹内",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202608030412",
+    "race_date": "2026-05-03",
+    "venue": "08",
+    "race_number": 12,
+    "race_name": "東大路S",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1400,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 36.6,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "ナッカーフェイス",
+        "jockey": "秋山稔",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "クロニクル",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "ゲキザル",
+        "jockey": "小林脩",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "レイズカイザー",
+        "jockey": "吉村",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "テイエムヒショウ",
+        "jockey": "川須",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202604010111",
+    "race_date": "2026-05-02",
+    "venue": "04",
+    "race_number": 11,
+    "race_name": "三条S",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1800,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 36.0,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "サイモンブーケ",
+        "jockey": "古川奈",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "ウィンターダフネ",
+        "jockey": "柴田裕",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "メイショウポペット",
+        "jockey": "松本",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "トウカイポワール",
+        "jockey": "亀田",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "サンセットブライト",
+        "jockey": "横山琉",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
     "race_id": "202605020309",
     "race_date": "2026-05-02",
     "venue": "05",
@@ -295,32 +649,150 @@
     "bet_amount": 1000
   },
   {
-    "race_id": "202605020411",
-    "race_date": "2026-05-02",
-    "venue": "05",
-    "race_number": 11,
-    "race_name": "プリンシパルS",
+    "race_id": "202608030408",
+    "race_date": "2026-05-03",
+    "venue": "08",
+    "race_number": 8,
+    "race_name": "御池特別",
     "grade": "",
     "surface": "芝",
-    "distance": 2000,
+    "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 16,
-    "prob": 32.8,
+    "head_count": 21,
+    "prob": 35.0,
     "upset_level": "低",
     "horses": [
       {
         "num": 1,
         "post": 1,
-        "name": "メイショウハチコウ",
-        "jockey": "ディー",
+        "name": "アスクキングコング",
+        "jockey": "○○",
         "popularity": null,
         "odds": null
       },
       {
         "num": 2,
         "post": 2,
-        "name": "エーデルゼーレ",
+        "name": "ミロワール",
+        "jockey": "古川吉",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "バシレウスシチー",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "マルプリ",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "モズアンタレス",
+        "jockey": "北村友",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202604010210",
+    "race_date": "2026-05-03",
+    "venue": "04",
+    "race_number": 10,
+    "race_name": "邁進特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1000,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 23,
+    "prob": 34.5,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "アスクキングコング",
+        "jockey": "岩田望",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "バシレウスシチー",
+        "jockey": "小崎",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "スペルキャスター",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "マルプリ",
+        "jockey": "野中",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "スムースベルベット",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202608030311",
+    "race_date": "2026-05-02",
+    "venue": "08",
+    "race_number": 11,
+    "race_name": "ユニコーンS",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1900,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 34.3,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "セイントエルモズ",
+        "jockey": "吉村",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "ガムラスタン",
         "jockey": "○○",
         "popularity": null,
         "odds": null
@@ -328,24 +800,83 @@
       {
         "num": 3,
         "post": 3,
-        "name": "ショウグンマサムネ",
-        "jockey": "荻野極",
+        "name": "ソルチェリア",
+        "jockey": "幸",
         "popularity": null,
         "odds": null
       },
       {
         "num": 4,
         "post": 4,
-        "name": "カフジエメンタール",
-        "jockey": "武豊",
+        "name": "ガウラディスコ",
+        "jockey": "松若",
         "popularity": null,
         "odds": null
       },
       {
         "num": 5,
         "post": 5,
-        "name": "ベルウッドクレド",
-        "jockey": "大野",
+        "name": "ストロングエース",
+        "jockey": "秋山稔",
+        "popularity": null,
+        "odds": null
+      }
+    ],
+    "buy_str": "1－2－3－4－5",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202604010109",
+    "race_date": "2026-05-02",
+    "venue": "04",
+    "race_number": 9,
+    "race_name": "わらび賞",
+    "grade": "",
+    "surface": "ダート",
+    "distance": 1800,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 29,
+    "prob": 33.8,
+    "upset_level": "低",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "イルカンダ",
+        "jockey": "○○",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 2,
+        "post": 2,
+        "name": "ジャイアンバローズ",
+        "jockey": "丹内",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 3,
+        "post": 3,
+        "name": "ガムラスタン",
+        "jockey": "横山琉",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 4,
+        "post": 4,
+        "name": "オトシダマ",
+        "jockey": "伊藤",
+        "popularity": null,
+        "odds": null
+      },
+      {
+        "num": 5,
+        "post": 5,
+        "name": "タイセツナヒ",
+        "jockey": "田山",
         "popularity": null,
         "odds": null
       }
