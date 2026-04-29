@@ -19,6 +19,15 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
   </div>
 </header>
 
@@ -38,7 +47,7 @@
           お問い合わせフォームへ →
         </a>
         <p style="font-size:.8rem;color:var(--muted);margin-top:12px;">
-          ※Googleフォームが開きます。回答はGmailに届きます。
+          ※別タブでGoogleフォームが開きます。送信後はこのタブに戻ってご利用ください。
         </p>
       </div>
 
@@ -57,12 +66,19 @@
 </main>
 
 <footer>
-  <div class="footer-links">
-    <a href="disclaimer.html">免責事項</a>
-    <a href="privacy.html">プライバシーポリシー</a>
-    <a href="contact.html">お問い合わせ</a>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="index.html">トップ</a>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+      <a href="disclaimer.html">免責事項</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
   </div>
-  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
 </footer>
 
 </body>
