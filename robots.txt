@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://msalpha0123-source.github.io/darkhorse-site/sitemap.xml
+Sitemap: https://mspj0123.github.io/darkhorse-site/sitemap.xml

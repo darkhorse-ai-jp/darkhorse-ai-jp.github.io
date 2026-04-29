@@ -1,7 +1,7 @@
 {
   "anthropic_api_key": "sk-ant-ここにAPIキーを入力",
   "amazon_associate_id": "ここにアソシエイトIDを入力-22",
-  "site_base_url": "https://msalpha0123-source.github.io/darkhorse-site",
+  "site_base_url": "https://mspj0123.github.io/darkhorse-site",
   "auto_push_after_generate": false,
   "column_generation": {
     "articles_per_run": 1,
