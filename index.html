@@ -34,7 +34,6 @@
       "target": "https://msalpha0123-source.github.io/darkhorse-site/column.html"
     }
   }
-  
   </script>
 
   <link rel="stylesheet" href="css/style.css">
@@ -153,11 +152,11 @@
 <main id="main-content">
   <div class="container">
 
-    <!-- 週次更新バナー -->
-    <div class="update-banner fade-in">
+    <!-- 週次更新バナー（JS で動的更新） -->
+    <div class="update-banner fade-in" id="js-update-banner">
       <div class="update-dot"></div>
       <div>
-        <strong>最新予測データ公開中</strong>
+        <strong id="js-banner-title">予測データ読み込み中</strong>
         <span style="color:var(--muted);font-size:.82rem;margin-left:8px;" id="js-update-date"></span>
       </div>
       <a href="prediction.html" style="margin-left:auto;color:var(--primary);font-size:.85rem;white-space:nowrap;font-weight:bold;">
@@ -168,25 +167,25 @@
     <!-- ダッシュボード：クイックナビ -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px;">
       <a href="prediction.html" style="text-decoration:none;">
-        <div style="background:#1a3a5c;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <div style="background:#1a3a5c;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" class="nav-card-inner">
           <div style="font-size:2rem;">🏇</div>
           <div><div style="font-weight:bold;font-size:.95rem;">AI予測ギャラリー</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">波乱レース検証データ</div></div>
         </div>
       </a>
       <a href="results.html" style="text-decoration:none;">
-        <div style="background:#27ae60;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <div style="background:#27ae60;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" class="nav-card-inner">
           <div style="font-size:2rem;">📈</div>
           <div><div style="font-weight:bold;font-size:.95rem;">バックテスト成績</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">月別ROI・的中率</div></div>
         </div>
       </a>
       <a href="about.html" style="text-decoration:none;">
-        <div style="background:#8e44ad;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <div style="background:#8e44ad;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" class="nav-card-inner">
           <div style="font-size:2rem;">🤖</div>
           <div><div style="font-weight:bold;font-size:.95rem;">予測ロジック</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">AIの仕組みを解説</div></div>
         </div>
       </a>
       <a href="column.html" style="text-decoration:none;">
-        <div style="background:#e8a020;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        <div style="background:#e8a020;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" class="nav-card-inner">
           <div style="font-size:2rem;">📝</div>
           <div><div style="font-weight:bold;font-size:.95rem;">コラム記事</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">競馬×AI 解説5本</div></div>
         </div>
@@ -390,13 +389,17 @@
       // データの鮮度を判定してステータスバナーを表示
       const today = new Date();
       const raceDate = data[0].race_date ? new Date(data[0].race_date) : null;
-      const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
-      const statusEl  = document.getElementById('js-data-status');
+      // Math.round でタイムゾーンズレを防ぐ
+      const diffDays = raceDate ? Math.round((today - raceDate) / 86400000) : 9999;
+      const statusEl   = document.getElementById('js-data-status');
       const subtitleEl = document.getElementById('js-preview-subtitle');
+      const bannerTitle = document.getElementById('js-banner-title');
       if (diffDays > 14) {
-        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '📋 <strong>参考データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム予測は毎週金曜更新'; }
+        if (bannerTitle) bannerTitle.textContent = '参考データ表示中（過去の検証データ）';
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '📋 <strong>参考データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム予測は毎週金曜更新予定'; }
         if (subtitleEl) subtitleEl.textContent = '参考：過去の検証データ（' + data[0].race_date + '前後）';
       } else {
+        if (bannerTitle) bannerTitle.textContent = '最新予測データ公開中';
         if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '🟢 <strong>最新データ</strong>（' + data[0].race_date + '前後）'; statusEl.style.background = '#e9f7ef'; statusEl.style.borderColor = '#27ae60'; }
         if (subtitleEl) subtitleEl.textContent = data[0].race_date + ' のレース予測（上位3件）';
       }
@@ -414,13 +417,22 @@
         const raceName = r.race_name && r.race_name !== 'None' ? r.race_name : `${r.race_number}R`;
         const level = r.upset_level || (pct >= 60 ? '高' : pct >= 45 ? '中' : '低');
         const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
-        const buyStr = r.buy_str || '—';
-        const topHorse = r.horses && r.horses[0] ? r.horses[0] : null;
-        const upsetHorse = r.horses ? r.horses.find(h => h.popularity != null && h.popularity >= 4) : null;
+        // 人気・オッズが1頭でも確定しているか判定
+        const isConfirmed = (r.horses || []).some(h => h.popularity != null || h.odds != null);
+        const topHorse = isConfirmed && r.horses && r.horses[0] ? r.horses[0] : null;
+        const upsetHorse = isConfirmed ? (r.horses || []).find(h => h.popularity != null && h.popularity >= 4) : null;
+        // 買い目表示（未確定時はグレーアウト）
+        const buyHtml = isConfirmed
+          ? `<div style="background:#f8f9fc;border-radius:6px;padding:8px 12px;font-size:.82rem;">
+               🎫 <strong>${r.buy_str || '—'}</strong>　三連複（人気順1〜5番人気ボックス）・1,000円
+             </div>`
+          : `<div style="background:#fff8e1;border:1px dashed #f0a500;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#b7770d;">
+               ⚠️ <strong>出走確定前</strong>　馬番・買い目は金曜夜以降に確定します
+             </div>`;
         html += `
         <div style="background:#fff;border:1px solid var(--border);border-left:4px solid ${levelColor};border-radius:10px;padding:16px;margin-bottom:12px;">
           <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;">
-            <div style="flex:1;min-width:200px;">
+            <div style="flex:1;min-width:0;">
               <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
                 <span class="venue-badge ${vClass}">${venue}</span>
                 <span style="font-weight:bold;color:var(--primary);font-size:.95rem;">${r.race_number}R｜${raceName}</span>
@@ -431,12 +443,10 @@
                 ${r.weather ? '　' + r.weather : ''}${r.track_cond ? '　馬場:' + r.track_cond : ''}
               </div>
               ${topHorse ? `<div style="font-size:.82rem;margin-bottom:6px;">
-                <span style="color:var(--primary);font-weight:bold;">注目馬：</span>${topHorse.num}番 ${topHorse.name}${topHorse.odds ? '（' + topHorse.odds + '倍）' : ''}
-                ${upsetHorse ? `　<span style="color:var(--accent);font-weight:bold;">穴：</span>${upsetHorse.num}番 ${upsetHorse.name}${upsetHorse.odds ? '（' + upsetHorse.odds + '倍）' : ''}` : ''}
+                <span style="color:var(--primary);font-weight:bold;">注目馬：</span>${topHorse.name}${topHorse.odds ? '（' + topHorse.odds + '倍）' : ''}
+                ${upsetHorse ? `　<span style="color:var(--accent);font-weight:bold;">穴：</span>${upsetHorse.name}${upsetHorse.odds ? '（' + upsetHorse.odds + '倍）' : ''}` : ''}
               </div>` : ''}
-              <div style="background:#f8f9fc;border-radius:6px;padding:8px 12px;font-size:.82rem;">
-                🎫 <strong>${buyStr}</strong> 三連複ボックス・1,000円
-              </div>
+              ${buyHtml}
             </div>
             <div style="text-align:center;flex-shrink:0;padding:4px 8px;">
               <div style="font-size:1.7rem;font-weight:bold;color:${levelColor};line-height:1;">${pct}%</div>
@@ -456,6 +466,13 @@
 
 
 <script>
+  // FAQを外部クリックで閉じる
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.faq-item')) {
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    }
+  });
+
   // ① 現在ページのナビリンクをアクティブ表示
   (function() {
     const page = location.pathname.split('/').pop() || 'index.html';

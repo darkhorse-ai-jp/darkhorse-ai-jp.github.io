@@ -73,7 +73,6 @@
       }
     ]
   }
-  
   </script>
 
   <link rel="stylesheet" href="css/style.css">
@@ -227,6 +226,13 @@ function toggleFaq(btn) {
 
 
 <script>
+  // FAQを外部クリックで閉じる
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.faq-item')) {
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    }
+  });
+
   // ① 現在ページのナビリンクをアクティブ表示
   (function() {
     const page = location.pathname.split('/').pop() || 'index.html';

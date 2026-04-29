@@ -353,6 +353,11 @@
       <p style="text-align:center;color:#999;padding:40px;">データを読み込み中...</p>
     </div>
 
+    <!-- 予測リスト直下の免責注記 -->
+    <p style="font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.7;border-top:1px solid var(--border);padding-top:12px;">
+      ※本ページの情報は参考目的であり、馬券購入を推奨するものではありません。馬券購入は自己責任でお願いします。
+      <a href="disclaimer.html" style="color:var(--accent);">免責事項を見る</a>
+    </p>
   </div>
 </main>
 
@@ -518,6 +523,9 @@ function buildCards(data) {
         </div>
       </div>
       <div class="pick-body">
+        ${!isConfirmed ? `<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#b7770d;margin-bottom:10px;">
+          ⚠️ <strong>出走確定前の暫定情報です。</strong>馬番・人気・オッズは金曜夜以降に確定します。馬券購入は必ず確定情報をご確認ください。
+        </div>` : ''}
         ${patternHtml}
         <table class="horse-table">
           <thead>
@@ -532,7 +540,7 @@ function buildCards(data) {
         </table>
         ${isConfirmed
           ? `<div class="buy-box">
-          <span class="buy-label">三連複ボックス買い目</span>
+          <span class="buy-label">三連複ボックス買い目（人気順1〜5番人気）</span>
           <span class="buy-nums">${r.buy_str}</span>
           <span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span>
         </div>`
@@ -580,7 +588,8 @@ fetch('data/prediction_latest.json')
 
     buildVenueButtons(data);
     document.getElementById('js-picks').innerHTML = buildCards(data);
-    document.getElementById('js-count').textContent = `${data.length} 件表示中`;
+    // フィルターの初期状態を反映（buildCards後に必ず呼ぶ）
+    applyFilters();
   })
   .catch(() => {
     document.getElementById('js-picks').innerHTML =
