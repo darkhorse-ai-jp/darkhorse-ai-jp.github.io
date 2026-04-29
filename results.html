@@ -84,6 +84,7 @@
           <tr><td><strong>馬券種</strong></td><td>三連複ボックス（5頭）</td></tr>
           <tr><td><strong>賭け金</strong></td><td>1点100円（1レースあたり1,000円）</td></tr>
           <tr><td><strong>参加基準</strong></td><td id="js-threshold">波乱確率 — 以上のレースのみ参加</td></tr>
+          <tr><td><strong>データ期間</strong></td><td id="js-data-range">—</td></tr>
           <tr><td><strong>学習データ</strong></td><td id="js-train-period">—</td></tr>
           <tr><td><strong>検証データ</strong></td><td id="js-test-period">—</td></tr>
         </tbody>
@@ -112,6 +113,7 @@ fetch('data/stats.json')
     document.getElementById('js-hit-rate').textContent = d.hit_rate.toFixed(1) + '%';
     document.getElementById('js-drawdown').textContent = d.max_drawdown.toFixed(1) + '%';
     document.getElementById('js-threshold').textContent= '波乱確率 ' + Math.round(d.best_threshold * 100) + '% 以上のレースのみ参加';
+    document.getElementById('js-data-range').textContent   = d.data_range   || '—';
     document.getElementById('js-train-period').textContent = d.train_period || '—';
     document.getElementById('js-test-period').textContent  = d.test_period  || '—';
   })
@@ -120,10 +122,17 @@ fetch('data/stats.json')
 fetch('data/monthly_results.json')
   .then(r => r.json())
   .then(data => {
-    let html = '<table><thead><tr>'
+    const latest = data.length > 0 ? data[data.length - 1].year_month : null;
+    let notice = '';
+    if (latest) {
+      notice = `<p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">
+        ※ 現在のバックテスト期間: 〜<strong>${latest}</strong>。2024年以降のデータを順次追加予定。
+      </p>`;
+    }
+    let html = notice + '<table><thead><tr>'
       + '<th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th>'
       + '</tr></thead><tbody>';
-    data.forEach(r => {
+    [...data].reverse().forEach(r => {
       const roiPct = (r.roi * 100).toFixed(1);
       const roiClass = r.roi >= 1 ? 'hit' : 'miss';
       const nHit = r.n_hit != null ? r.n_hit + '件' : '—';

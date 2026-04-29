@@ -1,7 +1,7 @@
 {
   "total_races": 6350,
   "upset_rate": 31.7,
-  "model_auc": 0.6816,
+  "model_auc": 0.7931,
   "backtest_roi": 110.9,
   "hit_rate": 20.0,
   "max_drawdown": 20.6,
@@ -10,7 +10,8 @@
   "n_hit": 15,
   "total_bet": 75000,
   "total_payout": 83170,
-  "train_period": "2018年〜2022年",
+  "train_period": "2022年〜2023年1月〜10月",
   "test_period": "2023年（閾値0.55・75レース）",
+  "data_range": "2022年1月〜2023年10月",
   "updated_at": "2026-04-29"
 }

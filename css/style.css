@@ -101,7 +101,9 @@ nav a:hover, nav a.active {
 
 /* ===== ヒーロー ===== */
 .hero {
-  background: linear-gradient(135deg, var(--primary) 0%, #2c5f8a 60%, #1e4d7a 100%);
+  background:
+    linear-gradient(135deg, rgba(10,22,40,.82) 0%, rgba(44,95,138,.75) 55%, rgba(30,77,122,.88) 100%),
+    url('../images/hero.webp') center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 72px 20px 64px;
