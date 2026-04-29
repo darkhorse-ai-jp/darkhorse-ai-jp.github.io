@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DarkHorse AI | AI万馬券予測サイト – 三連複10,000円以上が出やすいレースを毎週公開</title>
-  <meta name="description" content="LightGBM（機械学習）で三連複万馬券（10,000円以上）が出やすいレースを毎週公開。2,900件以上のJRAデータを学習したAIが波乱確率をランキング形式で提供。">
+  <meta name="description" content="LightGBM（機械学習）で三連複万馬券（10,000円以上）が出やすいレースを毎週公開。9,000件以上のJRAデータを学習したAIが波乱確率をランキング形式で提供。">
 
   <!-- OGP -->
   <meta property="og:title" content="DarkHorse AI | AI万馬券予測サイト">
@@ -85,7 +85,7 @@
     <div class="hero-text">
       <div class="hero-badge">🏇 AI競馬予測 — 毎週無料公開中</div>
       <h1>今週<span>万馬券</span>を<br>狙うなら<br>この馬を買え</h1>
-      <p>AIが2,900件以上のJRAデータを分析し、<strong>三連複万馬券（10,000円以上）が出やすいレース</strong>を毎週金曜日に無料公開。</p>
+      <p>AIが<span id="js-hero-race-count">9,000件以上</span>のJRAデータを分析し、<strong>三連複万馬券（10,000円以上）が出やすいレース</strong>を毎週金曜日に無料公開。</p>
       <div class="hero-stats" style="justify-content:flex-start;">
         <div class="hero-stat">
           <span class="num" id="hs-races">2,900+</span>
@@ -196,7 +196,7 @@
     <div class="card-grid" style="margin-bottom:28px;">
       <div class="stat-card-v2 fade-in fade-in-delay-1">
         <div class="stat-icon-wrap" style="background:#e8f4fd;">📊</div>
-        <div><div class="stat-value" id="js-total-races">—</div><div class="stat-label">分析済みレース数<br><span style="font-size:.72rem;color:#aaa;">2022〜2023年 JRA</span></div></div>
+        <div><div class="stat-value" id="js-total-races">—</div><div class="stat-label">分析済みレース数<br><span style="font-size:.72rem;color:#aaa;">2022〜2024年 JRA</span></div></div>
       </div>
       <div class="stat-card-v2 fade-in fade-in-delay-1">
         <div class="stat-icon-wrap" style="background:#fef9e7;">💥</div>
@@ -243,7 +243,7 @@
           <div style="font-size:1.6rem;margin-bottom:8px;">📊</div>
           <strong style="color:var(--primary);">データドリブン</strong>
           <p style="font-size:.85rem;margin-top:8px;color:var(--muted);line-height:1.6;">
-            JRAの過去レースデータ2,900件以上を学習。出走頭数・オッズ分布・馬場状態など13種類の指標を活用。
+            JRAの過去レースデータ<span id="js-data-count">9,000件以上</span>を学習。出走頭数・オッズ分布・馬場状態など13種類の指標を活用。
           </p>
         </div>
         <div style="padding:18px;background:#f0f4f8;border-radius:var(--radius);border-top:3px solid var(--primary);">
@@ -373,6 +373,11 @@
       document.getElementById('tb-races').textContent  = d.total_races.toLocaleString() + '+';
       document.getElementById('tb-auc').textContent    = d.model_auc.toFixed(3);
       document.getElementById('js-update-date').textContent = '最終更新: ' + d.updated_at;
+      const racesFull = d.total_races.toLocaleString() + '件以上';
+      const heroCount = document.getElementById('js-hero-race-count');
+      if (heroCount) heroCount.textContent = racesFull;
+      const dataCount = document.getElementById('js-data-count');
+      if (dataCount) dataCount.textContent = racesFull;
     })
     .catch(() => {});
 

@@ -14,148 +14,117 @@
 
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ─── レースカード ─── */
-    .pick-card {
+    /* ─── 会場グループ ─── */
+    .venue-group {
       background: #fff;
       border-radius: 14px;
       box-shadow: 0 2px 14px rgba(0,0,0,.08);
       margin-bottom: 24px;
       overflow: hidden;
-      transition: box-shadow .2s, transform .15s;
     }
-    .pick-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.14); transform: translateY(-2px); }
-
-    /* ─── ヘッダー ─── */
-    .pick-header {
+    .venue-group-header {
       background: linear-gradient(135deg, var(--primary) 0%, #1e4d7a 100%);
       color: #fff;
-      padding: 16px 20px 12px;
-    }
-    .pick-header-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    .pick-rank {
-      background: var(--accent);
-      color: #fff;
-      font-size: .72rem;
-      font-weight: bold;
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .pick-race-info { flex: 1; min-width: 0; }
-    .pick-race-name {
-      font-size: 1.05rem;
-      font-weight: bold;
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .pick-race-sub  { font-size: .78rem; opacity: .8; margin-top: 3px; }
-
-    /* 波乱確率メーター */
-    .prob-meter-wrap { margin-top: 12px; }
-    .prob-meter-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: .75rem;
-      opacity: .85;
-      margin-bottom: 5px;
-    }
-    .prob-meter-bar {
-      height: 8px;
-      background: rgba(255,255,255,.25);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .prob-meter-fill {
-      height: 100%;
-      border-radius: 4px;
-      background: linear-gradient(90deg, #f9ca24, #f0932b, #eb4d4b);
-      transition: width .6s ease;
-    }
-    .prob-badge-row {
+      padding: 14px 20px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 12px;
       flex-wrap: wrap;
     }
-    .upset-badge {
-      font-size: .72rem;
-      font-weight: bold;
-      padding: 2px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.5);
-    }
-    .upset-high    { background: rgba(231,76,60,.8); }
-    .upset-mid     { background: rgba(230,126,34,.8); }
-    .upset-low     { background: rgba(39,174,96,.8);  }
-    .upset-pending { background: rgba(120,120,140,.7); font-size: .7rem; }
-    .grade-badge {
-      font-size: .72rem;
-      font-weight: bold;
-      padding: 2px 8px;
-      border-radius: 6px;
-      background: #f1c40f;
-      color: #333;
-    }
+    .venue-date { font-size: .85rem; opacity: .85; }
+    .venue-race-count { font-size: .78rem; opacity: .7; margin-left: auto; }
 
-    /* 天気・馬場バッジ */
-    .race-meta-badges {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-    .meta-badge {
-      font-size: .72rem;
-      padding: 2px 9px;
-      border-radius: 8px;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.25);
-    }
-    .track-good   { background: rgba(46,204,113,.25); }
-    .track-yaya   { background: rgba(241,196,15,.25); }
-    .track-heavy  { background: rgba(230,126,34,.25); }
-    .track-bad    { background: rgba(231,76,60,.25);  }
-
-    /* ─── ボディ ─── */
-    .pick-body { padding: 18px 20px; }
-
-    /* 馬テーブル */
-    .horse-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .83rem;
-      margin-bottom: 14px;
-    }
-    .horse-table thead th {
+    /* ─── スケジュールテーブル ─── */
+    .schedule-table-wrap { overflow-x: auto; }
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .schedule-table thead th {
       background: #f0f4f8;
       color: var(--muted);
       font-size: .72rem;
       font-weight: bold;
-      padding: 6px 10px;
+      padding: 8px 12px;
       text-align: left;
       letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .schedule-row {
+      cursor: pointer;
+      transition: background .15s;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .schedule-row:hover { background: #f8fafc; }
+    .schedule-row.row-open { background: #f0f4fb; }
+    .schedule-row td { padding: 11px 12px; vertical-align: middle; }
+    .r-num { font-weight: bold; color: var(--primary); width: 44px; white-space: nowrap; }
+    .r-name { min-width: 140px; font-weight: bold; color: var(--text); }
+    .r-dist { font-size: .8rem; color: var(--muted); white-space: nowrap; }
+    .r-heads { font-size: .8rem; color: var(--muted); white-space: nowrap; }
+    .r-prob { min-width: 150px; }
+    .grade-badge-sm {
+      font-size: .65rem; font-weight: bold; padding: 1px 5px; border-radius: 4px;
+      background: #f1c40f; color: #333; margin-left: 4px; vertical-align: middle;
+    }
+    .prob-bar-inline {
+      display: inline-block; width: 70px; height: 6px;
+      background: rgba(0,0,0,.08); border-radius: 3px; vertical-align: middle;
+      overflow: hidden; margin-right: 6px;
+    }
+    .prob-bar-fill { height: 100%; border-radius: 3px; }
+    .prob-pct { font-weight: bold; font-size: .88rem; vertical-align: middle; }
+    .upset-badge-sm {
+      font-size: .65rem; font-weight: bold; padding: 2px 8px; border-radius: 8px;
+      border: 1px solid rgba(0,0,0,.1); white-space: nowrap;
+    }
+    .upset-badge-sm.upset-high    { background: #fde8e8; color: #e74c3c; border-color: #e74c3c; }
+    .upset-badge-sm.upset-mid     { background: #fef3e0; color: #e8a020; border-color: #e8a020; }
+    .upset-badge-sm.upset-low     { background: #e9f7ef; color: #27ae60; border-color: #27ae60; }
+    .upset-badge-sm.upset-pending { background: #f0f4f8; color: #888; border-color: #ccc; }
+    /* 展開インジケーター */
+    .schedule-row .expand-icon { float: right; font-size: .75rem; color: var(--muted); margin-left: 6px; }
+
+    /* ─── 詳細アコーディオン ─── */
+    .detail-row td { padding: 0 !important; background: #fafbfe; }
+    .race-detail-inner { padding: 16px 20px; border-top: 2px dashed #e0e8f0; }
+    .detail-pending {
+      padding: 16px; text-align: center; color: var(--muted);
+      font-size: .87rem; background: #f5f7fa; border-radius: 8px;
+    }
+    .detail-unconfirmed {
+      background: #fff8e1; border: 1px solid #f0a500; border-radius: 6px;
+      padding: 8px 12px; font-size: .82rem; color: #b7770d; margin-bottom: 10px;
+    }
+    .detail-prob-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    }
+    .detail-prob-num { font-size: 1.5rem; font-weight: bold; line-height: 1; min-width: 56px; }
+    .detail-prob-bar {
+      flex: 1; height: 8px; background: rgba(0,0,0,.08); border-radius: 4px; overflow: hidden;
+    }
+
+    /* ─── 汎用バッジ ─── */
+    .upset-badge {
+      font-size: .72rem; font-weight: bold; padding: 2px 10px;
+      border-radius: 10px; border: 1px solid rgba(255,255,255,.5);
+    }
+    .upset-high    { background: rgba(231,76,60,.8); color: #fff; }
+    .upset-mid     { background: rgba(230,126,34,.8); color: #fff; }
+    .upset-low     { background: rgba(39,174,96,.8); color: #fff; }
+    .upset-pending { background: rgba(120,120,140,.7); color: #fff; font-size: .7rem; }
+    .grade-badge { font-size: .72rem; font-weight: bold; padding: 2px 8px; border-radius: 6px; background: #f1c40f; color: #333; }
+
+    /* ─── 馬テーブル ─── */
+    .horse-table { width: 100%; border-collapse: collapse; font-size: .83rem; margin-bottom: 14px; }
+    .horse-table thead th {
+      background: #f0f4f8; color: var(--muted); font-size: .72rem; font-weight: bold;
+      padding: 6px 10px; text-align: left; letter-spacing: .04em;
     }
     .horse-table tbody tr { border-bottom: 1px solid #f5f5f5; }
     .horse-table tbody tr:hover { background: #fafafa; }
     .horse-table tbody td { padding: 9px 10px; vertical-align: middle; }
-
     .h-num {
-      width: 32px; height: 32px;
-      border-radius: 50%;
+      width: 32px; height: 32px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: .82rem;
-      font-weight: bold;
-      color: #fff;
-      flex-shrink: 0;
+      font-size: .82rem; font-weight: bold; color: #fff; flex-shrink: 0;
     }
     .h-num-anchor { background: var(--primary); }
     .h-num-upset  { background: var(--accent); }
@@ -165,48 +134,22 @@
     .h-pop-upset  { color: var(--accent); font-weight: bold; }
     .h-odds { color: var(--text); font-weight: bold; }
     .upset-key-tag {
-      font-size: .7rem;
-      background: #fff3cd;
-      color: #b7770d;
-      padding: 1px 7px;
-      border-radius: 8px;
-      margin-left: 4px;
-      font-weight: bold;
+      font-size: .7rem; background: #fff3cd; color: #b7770d;
+      padding: 1px 7px; border-radius: 8px; margin-left: 4px; font-weight: bold;
     }
 
-    /* 三連複の仕組みフロー */
+    /* ─── パターン・買い目 ─── */
     .pattern-box {
       background: linear-gradient(135deg, #f8f9fc 0%, #fff 100%);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      font-size: .82rem;
+      border: 1px solid var(--border); border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: .82rem;
     }
     .pattern-box .title { font-size: .73rem; color: var(--muted); font-weight: bold; margin-bottom: 8px; }
-    .flow-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .flow-tag {
-      padding: 3px 10px;
-      border-radius: 10px;
-      font-size: .75rem;
-      font-weight: bold;
-    }
-
-    /* 買い目ボックス */
+    .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .flow-tag { padding: 3px 10px; border-radius: 10px; font-size: .75rem; font-weight: bold; }
     .buy-box {
-      background: #f0f4f8;
-      border-radius: 8px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      background: #f0f4f8; border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     }
     .buy-label { font-size: .75rem; color: var(--muted); white-space: nowrap; }
     .buy-nums  { font-size: 1rem; font-weight: bold; color: var(--primary); letter-spacing: .05em; }
@@ -215,45 +158,19 @@
     .buy-nums-unconfirmed { font-size: .92rem; font-weight: bold; color: #b7770d; }
     .buy-cost-note { margin-left: auto; font-size: .78rem; color: #b7770d; }
 
-    /* フィルターバー */
+    /* ─── フィルターバー ─── */
     .filter-section { margin-bottom: 20px; }
-    .filter-row {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 8px;
-    }
+    .filter-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
     .filter-label { font-size: .78rem; color: var(--muted); min-width: 60px; }
     .filter-btn {
-      background: #f0f4f8;
-      border: 1px solid var(--border);
-      color: var(--primary);
-      font-size: .78rem;
-      padding: 4px 13px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: all .15s;
+      background: #f0f4f8; border: 1px solid var(--border); color: var(--primary);
+      font-size: .78rem; padding: 4px 13px; border-radius: 16px; cursor: pointer; transition: all .15s;
     }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    /* 戦略説明 */
-    .strategy-box {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 24px;
-      font-size: .87rem;
-      line-height: 1.85;
-    }
-    .strategy-box h3 { font-size: .95rem; color: var(--primary); margin-bottom: 10px; }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
     @media (max-width: 600px) {
+      .r-dist, .r-heads { display: none; }
+      .prob-bar-inline { width: 50px; }
       .horse-table thead { display: none; }
       .horse-table tbody td { display: block; padding: 4px 10px; }
       .horse-table tbody td::before { content: attr(data-label); color: var(--muted); font-size: .72rem; margin-right: 6px; }
@@ -389,8 +306,6 @@ const VENUE_CLASS = {
   '05':'venue-tokyo','06':'venue-nakayama','07':'venue-chukyo','08':'venue-kyoto',
   '09':'venue-hanshin','10':'venue-kokura'
 };
-const WEATHER_ICON = {'晴':'☀️','曇':'☁️','雨':'🌧️','小雨':'🌦️','雪':'❄️'};
-const TRACK_CLASS  = {'良':'track-good','稍重':'track-yaya','重':'track-heavy','不良':'track-bad'};
 
 function toggleMenu() {
   const nav = document.getElementById('mobile-nav');
@@ -399,12 +314,10 @@ function toggleMenu() {
   btn.setAttribute('aria-expanded', nav.classList.contains('open'));
 }
 
-// フィルター状態
 const filters = { venue: 'all', surface: 'all', level: 'all' };
 
 function setFilter(key, val, btn) {
   filters[key] = val;
-  // 同じ行のボタンだけactiveを切り替え
   btn.closest('.filter-row').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   applyFilters();
@@ -412,160 +325,177 @@ function setFilter(key, val, btn) {
 
 function applyFilters() {
   let visible = 0;
-  document.querySelectorAll('.pick-card').forEach(card => {
-    const v = filters.venue   === 'all' || card.dataset.venue   === filters.venue;
-    const s = filters.surface === 'all' || card.dataset.surface === filters.surface;
-    const l = filters.level   === 'all' || card.dataset.level   === filters.level;
+  document.querySelectorAll('.schedule-row').forEach(row => {
+    const v = filters.venue   === 'all' || row.dataset.venue   === filters.venue;
+    const s = filters.surface === 'all' || row.dataset.surface === filters.surface;
+    const l = filters.level   === 'all' || row.dataset.level   === filters.level;
     const show = v && s && l;
-    card.style.display = show ? '' : 'none';
+    row.style.display = show ? '' : 'none';
+    const detailRow = document.getElementById('detail-' + row.dataset.id);
+    if (detailRow && !show) detailRow.style.display = 'none';
     if (show) visible++;
   });
+  // 表示対象行がない会場グループを隠す
+  document.querySelectorAll('.venue-group').forEach(group => {
+    const rows = Array.from(group.querySelectorAll('.schedule-row'));
+    const anyVisible = rows.some(r => r.style.display !== 'none');
+    group.style.display = anyVisible ? '' : 'none';
+  });
   document.getElementById('js-count').textContent = `${visible} 件表示中`;
+}
+
+function toggleRow(raceId) {
+  const detailRow = document.getElementById('detail-' + raceId);
+  const scheduleRow = document.querySelector(`.schedule-row[data-id="${raceId}"]`);
+  if (!detailRow) return;
+  const isOpen = detailRow.style.display !== 'none';
+  detailRow.style.display = isOpen ? 'none' : '';
+  if (scheduleRow) scheduleRow.classList.toggle('row-open', !isOpen);
 }
 
 let allData = [];
 
 function buildVenueButtons(data) {
-  const venues = [...new Set(data.map(r => VENUE_MAP[r.venue] || r.venue))];
-  const container = document.getElementById('venue-btns');
-  container.innerHTML = venues.map(v =>
+  const seen = new Set();
+  const venues = [];
+  data.forEach(r => {
+    const name = VENUE_MAP[r.venue] || r.venue;
+    if (!seen.has(name)) { seen.add(name); venues.push(name); }
+  });
+  document.getElementById('venue-btns').innerHTML = venues.map(v =>
     `<button class="filter-btn" onclick="setFilter('venue','${v}',this)">${v}</button>`
   ).join('');
 }
 
-function buildCards(data) {
-  let html = '';
-  data.forEach((r, i) => {
-    const prob   = r.prob;
-    const venue  = VENUE_MAP[r.venue] || r.venue;
-    const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
-    const dist   = r.distance   ? `${r.distance}m`      : '';
-    const heads  = r.head_count ? `${r.head_count}頭`   : '';
-    const isPending = r.status === 'pending' || r.prob == null;
-    const level  = r.upset_level || (prob >= 60 ? '高' : prob >= 45 ? '中' : '低');
-    const levelClass = isPending ? 'upset-pending' : (level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low');
-    const wIcon  = WEATHER_ICON[r.weather] || '';
-    const tClass = TRACK_CLASS[r.track_cond] || '';
-    const gradeBadge = r.grade ? `<span class="grade-badge">${r.grade}</span>` : '';
-    const weatherBadge = r.weather  ? `<span class="meta-badge">${wIcon} ${r.weather}</span>` : '';
-    const trackBadge  = r.track_cond ? `<span class="meta-badge ${tClass}">馬場 ${r.track_cond}</span>` : '';
+function buildRaceDetail(r) {
+  const isPending = r.status === 'pending' || r.prob == null;
+  const prob = r.prob;
+  const level = r.upset_level || (prob >= 60 ? '高' : prob >= 45 ? '中' : '低');
+  const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
+  const isConfirmed = (r.horses || []).some(h => h.popularity != null || h.odds != null);
 
-    // 馬番・人気が確定しているか判定（全馬のpopularity/oddsがnullなら未確定）
-    const isConfirmed = (r.horses || []).some(h => h.popularity != null || h.odds != null);
+  if (isPending) {
+    return `<div class="detail-pending">🕐 出走馬登録後、波乱確率を予測します。金曜夜以降に自動更新されます。</div>`;
+  }
 
-    // 馬テーブル行
-    const upsetHorses  = (r.horses || []).filter(h => h.popularity != null && h.popularity >= 4);
-    const anchorHorses = (r.horses || []).filter(h => h.popularity != null && h.popularity <= 3);
+  let html = `
+    <div class="detail-prob-row">
+      <div class="detail-prob-num" style="color:${levelColor}">${prob}%</div>
+      <div class="detail-prob-bar">
+        <div style="height:100%;background:${levelColor};width:${Math.min(prob,100)}%;border-radius:3px;"></div>
+      </div>
+      <span class="upset-badge-sm ${level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low'}">波乱度 ${level}</span>
+    </div>`;
+
+  if (!isConfirmed) {
+    html += `<div class="detail-unconfirmed">⚠️ 出走確定前の暫定情報。馬番・人気・オッズは金曜夜以降に確定します。</div>`;
+  }
+
+  if (r.horses && r.horses.length > 0) {
+    const upsetHorses  = r.horses.filter(h => h.popularity != null && h.popularity >= 4);
+    const anchorHorses = r.horses.filter(h => h.popularity != null && h.popularity <= 3);
     let rows = '';
-    (r.horses || []).forEach(h => {
+    r.horses.forEach(h => {
       const isUpset = h.popularity != null && h.popularity >= 4;
-      const numCls  = h.popularity == null ? '' : (isUpset ? 'h-num-upset' : 'h-num-anchor');
-      const popCls  = h.popularity == null ? '' : (isUpset ? 'h-pop-upset'  : 'h-pop-anchor');
-      const keyTag  = isUpset ? '<span class="upset-key-tag">穴</span>' : '';
+      const numCls = isUpset ? 'h-num-upset' : 'h-num-anchor';
+      const popCls = isUpset ? 'h-pop-upset' : 'h-pop-anchor';
+      const keyTag = isUpset ? '<span class="upset-key-tag">穴</span>' : '';
       rows += `
         <tr>
-          <td data-label="馬番"><div style="display:flex;align-items:center;gap:8px;">
-            <div class="h-num ${numCls}">${h.num}</div>
-          </div></td>
-          <td data-label="馬名">
-            <div class="h-name">${h.name}${keyTag}</div>
-            <div class="h-jockey">${h.jockey || ''}</div>
-          </td>
+          <td data-label="馬番"><div style="display:flex;align-items:center;gap:8px;"><div class="h-num ${numCls}">${h.num}</div></div></td>
+          <td data-label="馬名"><div class="h-name">${h.name}${keyTag}</div><div class="h-jockey">${h.jockey || ''}</div></td>
           <td data-label="人気" class="${popCls}">${h.popularity != null ? h.popularity + '番人気' : '未確定'}</td>
           <td data-label="単勝オッズ" class="h-odds">${h.odds ? h.odds + '倍' : '—'}</td>
         </tr>`;
     });
+    html += `<table class="horse-table">
+      <thead><tr><th>馬番</th><th>馬名 / 騎手</th><th>人気</th><th>単勝</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
 
-    // 万馬券パターン例
-    let patternHtml = '';
     if (upsetHorses.length > 0 && anchorHorses.length >= 2) {
-      const up1 = upsetHorses[0];
-      const an1 = anchorHorses[0];
-      const an2 = anchorHorses[1];
-      patternHtml = `
-        <div class="pattern-box">
-          <div class="title">💡 万馬券になるパターン例</div>
-          <div class="flow-row">
-            <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
-            <span style="color:var(--muted);">＋</span>
-            <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
-            <span style="color:var(--muted);">＋</span>
-            <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴 ${up1.odds || '—'}倍）</span>
-            <span style="color:var(--muted);">→</span>
-            <strong style="color:var(--miss);">三連複 万馬券 💥</strong>
-          </div>
-        </div>`;
+      const up1 = upsetHorses[0], an1 = anchorHorses[0], an2 = anchorHorses[1];
+      html += `<div class="pattern-box">
+        <div class="title">💡 万馬券になるパターン例</div>
+        <div class="flow-row">
+          <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
+          <span style="color:var(--muted);">＋</span>
+          <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
+          <span style="color:var(--muted);">＋</span>
+          <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴 ${up1.odds || '—'}倍）</span>
+          <span style="color:var(--muted);">→</span>
+          <strong style="color:var(--miss);">三連複 万馬券 💥</strong>
+        </div></div>`;
     }
+  }
+
+  html += isConfirmed
+    ? `<div class="buy-box"><span class="buy-label">三連複ボックス（人気順1〜5番人気）</span><span class="buy-nums">${r.buy_str}</span><span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span></div>`
+    : `<div class="buy-box buy-box-unconfirmed"><span class="buy-label">三連複ボックス買い目</span><span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span><span class="buy-cost-note">金曜夜以降に確定</span></div>`;
+
+  return html;
+}
+
+function buildVenueGroups(data) {
+  const groups = new Map();
+  data.forEach(r => {
+    const key = (r.race_date || '') + '__' + (r.venue || 'unknown');
+    if (!groups.has(key)) groups.set(key, { venue: r.venue || 'unknown', date: r.race_date || '', races: [] });
+    groups.get(key).races.push(r);
+  });
+
+  const WEEKDAYS = ['日','月','火','水','木','金','土'];
+  let html = '';
+
+  [...groups.keys()].sort().forEach(key => {
+    const g = groups.get(key);
+    const venueName = VENUE_MAP[g.venue] || g.venue;
+    const vClass = VENUE_CLASS[g.venue] || 'venue-default';
+    const weekday = g.date ? WEEKDAYS[new Date(g.date).getDay()] : '';
+
+    // レースを番号順にソート
+    g.races.sort((a, b) => (a.race_number || 0) - (b.race_number || 0));
 
     html += `
-    <div class="pick-card" data-prob="${prob}" data-venue="${venue}" data-surface="${r.surface}" data-level="${level}">
-      <div class="pick-header">
-        <div class="pick-header-top">
-          <div class="pick-rank">${i + 1}</div>
-          <div class="pick-race-info">
-            <div class="pick-race-name"><span class="venue-badge ${VENUE_CLASS[r.venue] || 'venue-default'}">${venue}</span> ${r.race_number}R｜${raceName} ${gradeBadge}</div>
-            <div class="pick-race-sub">${r.race_date}　${r.surface} ${dist}　${heads}立て</div>
-          </div>
-        </div>
-        <div class="race-meta-badges">
-          ${weatherBadge}${trackBadge}
-          <span class="meta-badge">📅 ${r.race_date}</span>
-        </div>
-        ${isPending ? `
-        <div class="prob-meter-wrap">
-          <div class="prob-badge-row">
-            <span class="upset-badge upset-pending">出走馬確定後に予測更新</span>
-          </div>
-        </div>` : `
-        <div class="prob-meter-wrap">
-          <div class="prob-meter-label">
-            <span>波乱確率</span>
-            <span><strong>${prob}%</strong></span>
-          </div>
-          <div class="prob-meter-bar">
-            <div class="prob-meter-fill" style="width:${Math.min(prob,100)}%"></div>
-          </div>
-          <div class="prob-badge-row">
-            <span class="upset-badge ${levelClass}">波乱度 ${level}</span>
-          </div>
-        </div>`}
+    <div class="venue-group">
+      <div class="venue-group-header">
+        <span class="venue-badge ${vClass}">${venueName}</span>
+        <span class="venue-date">${g.date}（${weekday}）</span>
+        <span class="venue-race-count">${g.races.length}レース</span>
       </div>
-      <div class="pick-body">
-        ${isPending ? `
-        <div style="background:#f5f5f5;border:1px solid #ccc;border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:.88rem;">
-          出走馬登録後、波乱確率を予測します。<br>金曜夜以降に自動更新されます。
-        </div>` : `
-        ${!isConfirmed ? `<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#b7770d;margin-bottom:10px;">
-          ⚠️ <strong>出走確定前の暫定情報です。</strong>馬番・人気・オッズは金曜夜以降に確定します。馬券購入は必ず確定情報をご確認ください。
-        </div>` : ''}
-        ${patternHtml}
-        <table class="horse-table">
-          <thead>
-            <tr>
-              <th>馬番</th>
-              <th>馬名 / 騎手</th>
-              <th>人気</th>
-              <th>単勝</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-        </table>
-        ${isConfirmed
-          ? `<div class="buy-box">
-          <span class="buy-label">三連複ボックス買い目（人気順1〜5番人気）</span>
-          <span class="buy-nums">${r.buy_str}</span>
-          <span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span>
-        </div>`
-          : `<div class="buy-box buy-box-unconfirmed">
-          <span class="buy-label">三連複ボックス買い目</span>
-          <span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span>
-          <span class="buy-cost-note">金曜夜以降に馬番・買い目が確定します</span>
-        </div>`
-        }`}
-      </div>
-    </div>`;
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead><tr><th>R</th><th>レース名</th><th>距離</th><th>頭数</th><th>波乱確率</th></tr></thead>
+          <tbody>`;
+
+    g.races.forEach(r => {
+      const isPending = r.status === 'pending' || r.prob == null;
+      const prob = r.prob;
+      const level = r.upset_level || (prob >= 60 ? '高' : prob >= 45 ? '中' : '低');
+      const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
+      const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
+      const dist = r.distance ? `${r.distance}m` : '';
+      const gradeBadge = r.grade ? `<span class="grade-badge-sm">${r.grade}</span>` : '';
+      const probHtml = isPending
+        ? `<span class="upset-badge-sm upset-pending">出走確認待ち</span>`
+        : `<div class="prob-bar-inline"><div class="prob-bar-fill" style="width:${Math.min(prob,100)}%;background:${levelColor};"></div></div><span class="prob-pct" style="color:${levelColor}">${prob}%</span>`;
+
+      html += `
+        <tr class="schedule-row" data-id="${r.race_id}" data-venue="${venueName}" data-surface="${r.surface || ''}" data-level="${level}" onclick="toggleRow('${r.race_id}')">
+          <td class="r-num">${r.race_number}R</td>
+          <td class="r-name">${raceName}${gradeBadge} <span class="expand-icon">▼</span></td>
+          <td class="r-dist">${r.surface || ''} ${dist}</td>
+          <td class="r-heads">${r.head_count ? r.head_count + '頭' : ''}</td>
+          <td class="r-prob">${probHtml}</td>
+        </tr>
+        <tr class="detail-row" id="detail-${r.race_id}" style="display:none;">
+          <td colspan="5"><div class="race-detail-inner">${buildRaceDetail(r)}</div></td>
+        </tr>`;
+    });
+
+    html += `</tbody></table></div></div>`;
   });
-  return html;
+
+  return html || '<p style="color:#999;text-align:center;padding:40px;">表示できるレースがありません</p>';
 }
 
 fetch('data/prediction_latest.json')
@@ -581,7 +511,6 @@ fetch('data/prediction_latest.json')
     const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
 
     if (diffDays > 14) {
-      // 過去データ → 明確に「検証ギャラリー」として案内
       dateEl.textContent = '検証データ期間: ' + data[0].race_date + ' 前後';
       bannerEl.style.display = '';
       bannerEl.innerHTML = `
@@ -599,8 +528,7 @@ fetch('data/prediction_latest.json')
     }
 
     buildVenueButtons(data);
-    document.getElementById('js-picks').innerHTML = buildCards(data);
-    // フィルターの初期状態を反映（buildCards後に必ず呼ぶ）
+    document.getElementById('js-picks').innerHTML = buildVenueGroups(data);
     applyFilters();
   })
   .catch(() => {
