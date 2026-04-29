@@ -18,6 +18,15 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
   </div>
 </header>
 
@@ -88,7 +97,7 @@ fetch('data/prediction_latest.json')
       + '</tr></thead><tbody>';
 
     data.forEach((r, i) => {
-      const pct = Math.round(r.prob * 100);
+      const pct = Math.round(r.prob);
       const badge = pct >= 70
         ? '<span class="badge badge-high">高</span>'
         : pct >= 50

@@ -1,12 +1,16 @@
 {
-  "total_races": 0,
-  "upset_rate": 0.0,
-  "model_auc": 0.0,
-  "backtest_roi": 0.0,
-  "hit_rate": 0.0,
-  "max_drawdown": 0.0,
-  "best_threshold": 0.5,
-  "train_period": "データ収集・学習中",
-  "test_period": "データ収集・学習中",
-  "updated_at": "準備中"
+  "total_races": 2946,
+  "upset_rate": 32.4,
+  "model_auc": 0.7646,
+  "backtest_roi": 81.5,
+  "hit_rate": 29.8,
+  "max_drawdown": 19.6,
+  "best_threshold": 0.3,
+  "participated_races": 1894,
+  "n_hit": 565,
+  "total_bet": 1894000,
+  "total_payout": 1543570,
+  "train_period": "2018年〜2022年（収集中）",
+  "test_period": "2023年",
+  "updated_at": "2026-04-29"
 }

@@ -18,6 +18,15 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
   </div>
 </header>
 
@@ -101,9 +110,27 @@
     <!-- コラム最新記事 -->
     <div class="card">
       <div class="section-title">最新コラム</div>
-      <ul class="article-list" id="js-latest-columns">
-        <li><span class="date">—</span><a href="column.html">コラム記事を準備中...</a></li>
+      <ul class="article-list">
+        <li>
+          <span class="date">2024年2月</span>
+          <a href="column-05.html">バックテストとは？競馬AI予測の信頼性を確かめる方法</a>
+        </li>
+        <li>
+          <span class="date">2024年1月</span>
+          <a href="column-04.html">1番人気が飛ぶのはどんなとき？データで見る「波乱の法則」</a>
+        </li>
+        <li>
+          <span class="date">2024年1月</span>
+          <a href="column-03.html">競馬予測にAIを使うとはどういうことか？LightGBMをわかりやすく解説</a>
+        </li>
+        <li>
+          <span class="date">2024年1月</span>
+          <a href="column-01.html">AIが分析してわかった 万馬券が出やすいレースの5つの条件</a>
+        </li>
       </ul>
+      <div style="text-align:right;margin-top:12px;">
+        <a href="column.html" style="font-size:.85rem;color:var(--accent);">コラム一覧を見る →</a>
+      </div>
     </div>
 
   </div>
@@ -128,9 +155,9 @@
     .then(r => r.json())
     .then(d => {
       document.getElementById('js-total-races').textContent = d.total_races.toLocaleString() + '件';
-      document.getElementById('js-upset-rate').textContent = (d.upset_rate * 100).toFixed(1) + '%';
+      document.getElementById('js-upset-rate').textContent = d.upset_rate.toFixed(1) + '%';
       document.getElementById('js-model-auc').textContent = d.model_auc.toFixed(3);
-      document.getElementById('js-backtest-roi').textContent = (d.backtest_roi * 100).toFixed(1) + '%';
+      document.getElementById('js-backtest-roi').textContent = d.backtest_roi.toFixed(1) + '%';
     })
     .catch(() => {});
 
@@ -143,7 +170,7 @@
         + '<th>日付</th><th>競馬場</th><th>レース</th><th>波乱確率</th><th>注目度</th>'
         + '</tr></thead><tbody>';
       top5.forEach(r => {
-        const pct = Math.round(r.prob * 100);
+        const pct = Math.round(r.prob);
         const badge = pct >= 70
           ? '<span class="badge badge-high">高</span>'
           : pct >= 50

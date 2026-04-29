@@ -1,1 +1,167 @@
-[]
+[
+  {
+    "race_id": "202310010110",
+    "race_date": "2023-10-01",
+    "venue": "01",
+    "race_number": 10,
+    "race_name": "響灘特別",
+    "surface": "ダート",
+    "distance": 1700,
+    "head_count": 16,
+    "prob": 46.1
+  },
+  {
+    "race_id": "202309010308",
+    "race_date": "2023-09-01",
+    "venue": "03",
+    "race_number": 8,
+    "race_name": "3歳1勝クラス",
+    "surface": "ダート",
+    "distance": 1800,
+    "head_count": 16,
+    "prob": 45.5
+  },
+  {
+    "race_id": "202308030712",
+    "race_date": "2023-08-03",
+    "venue": "07",
+    "race_number": 12,
+    "race_name": "3歳以上2勝クラス",
+    "surface": "芝",
+    "distance": 1200,
+    "head_count": 18,
+    "prob": 45.5
+  },
+  {
+    "race_id": "202310020608",
+    "race_date": "2023-10-02",
+    "venue": "06",
+    "race_number": 8,
+    "race_name": "3歳1勝クラス",
+    "surface": "ダート",
+    "distance": 1700,
+    "head_count": 16,
+    "prob": 45.5
+  },
+  {
+    "race_id": "202306010511",
+    "race_date": "2023-06-01",
+    "venue": "05",
+    "race_number": 11,
+    "race_name": "カーバンクルS",
+    "surface": "芝",
+    "distance": 1200,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202306050511",
+    "race_date": "2023-06-05",
+    "venue": "05",
+    "race_number": 11,
+    "race_name": "ターコイズS",
+    "surface": "芝",
+    "distance": 1600,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202303030512",
+    "race_date": "2023-03-03",
+    "venue": "05",
+    "race_number": 12,
+    "race_name": "3歳以上1勝クラス",
+    "surface": "芝",
+    "distance": 2000,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202307020511",
+    "race_date": "2023-07-02",
+    "venue": "05",
+    "race_number": 11,
+    "race_name": "鈴鹿S",
+    "surface": "ダート",
+    "distance": 1900,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202306050510",
+    "race_date": "2023-06-05",
+    "venue": "05",
+    "race_number": 10,
+    "race_name": "舞浜特別",
+    "surface": "ダート",
+    "distance": 1200,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202304040611",
+    "race_date": "2023-04-04",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "ルミエールAD",
+    "surface": "芝",
+    "distance": 1000,
+    "head_count": 18,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202305040710",
+    "race_date": "2023-05-04",
+    "venue": "07",
+    "race_number": 10,
+    "race_name": "甲斐路S",
+    "surface": "芝",
+    "distance": 2000,
+    "head_count": 16,
+    "prob": 45.3
+  },
+  {
+    "race_id": "202305040308",
+    "race_date": "2023-05-04",
+    "venue": "03",
+    "race_number": 8,
+    "race_name": "3歳以上1勝クラス",
+    "surface": "芝",
+    "distance": 1400,
+    "head_count": 16,
+    "prob": 44.8
+  },
+  {
+    "race_id": "202308020111",
+    "race_date": "2023-08-02",
+    "venue": "01",
+    "race_number": 11,
+    "race_name": "藤森S",
+    "surface": "ダート",
+    "distance": 1200,
+    "head_count": 16,
+    "prob": 44.8
+  },
+  {
+    "race_id": "202307030608",
+    "race_date": "2023-07-03",
+    "venue": "06",
+    "race_number": 8,
+    "race_name": "3歳以上1勝クラス",
+    "surface": "ダート",
+    "distance": 1400,
+    "head_count": 16,
+    "prob": 44.7
+  },
+  {
+    "race_id": "202307010304",
+    "race_date": "2023-07-01",
+    "venue": "03",
+    "race_number": 4,
+    "race_name": "3歳新馬",
+    "surface": "ダート",
+    "distance": 1200,
+    "head_count": 16,
+    "prob": 44.6
+  }
+]

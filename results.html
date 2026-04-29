@@ -18,6 +18,15 @@
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
   </div>
 </header>
 
@@ -93,10 +102,10 @@
 fetch('data/stats.json')
   .then(r => r.json())
   .then(d => {
-    document.getElementById('js-roi').textContent      = (d.backtest_roi * 100).toFixed(1) + '%';
+    document.getElementById('js-roi').textContent      = d.backtest_roi.toFixed(1) + '%';
     document.getElementById('js-auc').textContent      = d.model_auc.toFixed(3);
-    document.getElementById('js-hit-rate').textContent = (d.hit_rate * 100).toFixed(1) + '%';
-    document.getElementById('js-drawdown').textContent = (d.max_drawdown * 100).toFixed(1) + '%';
+    document.getElementById('js-hit-rate').textContent = d.hit_rate.toFixed(1) + '%';
+    document.getElementById('js-drawdown').textContent = d.max_drawdown.toFixed(1) + '%';
     document.getElementById('js-threshold').textContent= '波乱確率 ' + Math.round(d.best_threshold * 100) + '% 以上のレースのみ参加';
     document.getElementById('js-train-period').textContent = d.train_period || '—';
     document.getElementById('js-test-period').textContent  = d.test_period  || '—';
@@ -112,10 +121,11 @@ fetch('data/monthly_results.json')
     data.forEach(r => {
       const roiPct = (r.roi * 100).toFixed(1);
       const roiClass = r.roi >= 1 ? 'hit' : 'miss';
+      const nHit = r.n_hit != null ? r.n_hit + '件' : '—';
       html += `<tr>
         <td>${r.year_month}</td>
         <td>${r.n_races}件</td>
-        <td>${r.n_hit}件</td>
+        <td>${nHit}</td>
         <td>${r.total_bet.toLocaleString()}円</td>
         <td>${r.total_payout.toLocaleString()}円</td>
         <td class="${roiClass}">${roiPct}%</td>
