@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>今週の波乱レース予測 | DarkHorse AI – AIが選ぶ万馬券候補レース</title>
-  <meta name="description" content="AIが分析した今週の万馬券（三連複10,000円以上）候補レースを公開。軸馬・穴馬候補の区別、三連複が万馬券になる仕組みをわかりやすく解説。参考情報として無料提供。">
+  <title>AI波乱予測ギャラリー | DarkHorse AI – 過去レース検証データ公開</title>
+  <meta name="description" content="LightGBMが「波乱が起きやすい」と判定した過去レースをランキング形式で公開。軸馬・穴馬候補の区別、万馬券になる仕組みをデータで解説。AIバックテスト検証データ。">
 
   <meta property="og:title" content="今週の波乱レース予測 | DarkHorse AI">
   <meta property="og:description" content="AIが選んだ今週の万馬券候補レースを無料公開。どの馬が絡むと万馬券になるか、仕組みをわかりやすく解説します。">
@@ -288,7 +288,7 @@
 <main>
   <div class="container">
     <div style="padding:28px 0 8px;">
-      <h1 style="font-size:1.6rem;color:var(--primary);">AI波乱レース予測</h1>
+      <h1 style="font-size:1.6rem;color:var(--primary);">AI波乱予測ギャラリー</h1>
       <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">読み込み中...</p>
     </div>
 
@@ -558,16 +558,18 @@ fetch('data/prediction_latest.json')
     const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
 
     if (diffDays > 14) {
-      // 2週間以上古いデータ → サンプルデータ表示中の案内
-      dateEl.textContent = '表示中のデータ: ' + data[0].race_date + '（サンプル）';
+      // 過去データ → 明確に「検証ギャラリー」として案内
+      dateEl.textContent = '検証データ期間: ' + data[0].race_date + ' 前後';
       bannerEl.style.display = '';
       bannerEl.innerHTML = `
-        <div style="background:#fff8e1;border-left:4px solid #f0932b;padding:14px 18px;border-radius:8px;margin-bottom:20px;font-size:.85rem;line-height:1.8;color:#555;">
-          📅 <strong>現在、リアルタイム予測データを準備中です</strong><br>
-          表示しているのは<strong>テスト期間（${data[0].race_date} 前後）のサンプルデータ</strong>です。
-          AIの動作・表示形式の確認にご利用ください。<br>
-          実際の予測は毎週金曜日に更新予定です。
-          <a href="results.html" style="margin-left:8px;">→ 過去の成績・AIの精度を見る</a>
+        <div style="background:#e8f4fd;border:2px solid #3498db;padding:16px 20px;border-radius:10px;margin-bottom:20px;font-size:.88rem;line-height:1.9;color:#2c3e50;">
+          <div style="font-size:1rem;font-weight:bold;color:#1a5276;margin-bottom:8px;">📋 このページについて</div>
+          <p>ここで表示しているのは <strong>AIが過去に「波乱が起きやすい」と判定したレースの検証データ</strong>です（${data[0].race_date}前後）。</p>
+          <p style="margin-top:6px;">リアルタイムの週末予測は、毎週金曜日に出走表データを取得・更新する予定で現在準備中です。</p>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="results.html" style="background:#1a3a5c;color:#fff;padding:6px 16px;border-radius:16px;font-size:.82rem;text-decoration:none;font-weight:bold;">→ バックテスト成績を見る</a>
+            <a href="about.html" style="background:#f0f4f8;color:#1a3a5c;padding:6px 16px;border-radius:16px;font-size:.82rem;text-decoration:none;font-weight:bold;">→ AIの仕組みを見る</a>
+          </div>
         </div>`;
     } else {
       dateEl.textContent = '対象期間: ' + data[0].race_date + ' 前後のレース（毎週金曜更新）';

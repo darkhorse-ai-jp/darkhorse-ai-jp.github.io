@@ -163,41 +163,69 @@
       </a>
     </div>
 
-    <!-- 統計サマリー -->
-    <div class="card-grid">
-      <div class="stat-card fade-in fade-in-delay-1">
-        <div class="stat-icon">📊</div>
-        <div class="stat-value" id="js-total-races">—</div>
-        <div class="stat-label">分析済みレース数</div>
+    <!-- ダッシュボード：クイックナビ -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px;">
+      <a href="prediction.html" style="text-decoration:none;">
+        <div style="background:#1a3a5c;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:2rem;">🏇</div>
+          <div><div style="font-weight:bold;font-size:.95rem;">AI予測ギャラリー</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">波乱レース検証データ</div></div>
+        </div>
+      </a>
+      <a href="results.html" style="text-decoration:none;">
+        <div style="background:#27ae60;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:2rem;">📈</div>
+          <div><div style="font-weight:bold;font-size:.95rem;">バックテスト成績</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">月別ROI・的中率</div></div>
+        </div>
+      </a>
+      <a href="about.html" style="text-decoration:none;">
+        <div style="background:#8e44ad;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:2rem;">🤖</div>
+          <div><div style="font-weight:bold;font-size:.95rem;">予測ロジック</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">AIの仕組みを解説</div></div>
+        </div>
+      </a>
+      <a href="column.html" style="text-decoration:none;">
+        <div style="background:#e8a020;color:#fff;border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;transition:opacity .2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:2rem;">📝</div>
+          <div><div style="font-weight:bold;font-size:.95rem;">コラム記事</div><div style="font-size:.75rem;opacity:.75;margin-top:2px;">競馬×AI 解説5本</div></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 統計サマリー（v2カード） -->
+    <div class="card-grid" style="margin-bottom:28px;">
+      <div class="stat-card-v2 fade-in fade-in-delay-1">
+        <div class="stat-icon-wrap" style="background:#e8f4fd;">📊</div>
+        <div><div class="stat-value" id="js-total-races">—</div><div class="stat-label">分析済みレース数<br><span style="font-size:.72rem;color:#aaa;">2018〜2023年 JRA</span></div></div>
       </div>
-      <div class="stat-card fade-in fade-in-delay-1">
-        <div class="stat-icon">💥</div>
-        <div class="stat-value" id="js-upset-rate">—</div>
-        <div class="stat-label">万馬券発生率（実績）</div>
+      <div class="stat-card-v2 fade-in fade-in-delay-1">
+        <div class="stat-icon-wrap" style="background:#fef9e7;">💥</div>
+        <div><div class="stat-value" id="js-upset-rate">—</div><div class="stat-label">万馬券発生率<br><span style="font-size:.72rem;color:#aaa;">三連複1万円以上</span></div></div>
       </div>
-      <div class="stat-card fade-in fade-in-delay-2">
-        <div class="stat-icon">🤖</div>
-        <div class="stat-value" id="js-model-auc">—</div>
-        <div class="stat-label">モデル精度（AUC-ROC）</div>
+      <div class="stat-card-v2 fade-in fade-in-delay-2">
+        <div class="stat-icon-wrap" style="background:#f0e6ff;">🎯</div>
+        <div><div class="stat-value" id="js-model-auc">—</div><div class="stat-label">モデル精度（AUC）<br><span style="font-size:.72rem;color:#aaa;">1.0が満点・0.5がランダム</span></div></div>
       </div>
-      <div class="stat-card fade-in fade-in-delay-2">
-        <div class="stat-icon">📈</div>
-        <div class="stat-value" id="js-backtest-roi">—</div>
-        <div class="stat-label">バックテスト回収率</div>
+      <div class="stat-card-v2 fade-in fade-in-delay-2">
+        <div class="stat-icon-wrap" style="background:#e9f7ef;">📉</div>
+        <div><div class="stat-value" id="js-backtest-roi">—</div><div class="stat-label">バックテスト回収率<br><span style="font-size:.72rem;color:#aaa;">現在改善中・赤字注意</span></div></div>
       </div>
     </div>
 
-    <!-- 今週の予測プレビュー -->
+    <!-- AI予測ギャラリー プレビュー -->
     <div class="card">
-      <div class="section-title">今週の推奨馬券（上位3レース）</div>
-      <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px;">
-        AIが「三連複万馬券が出やすい」と判断したレースを波乱確率の高い順に表示しています。
-      </p>
+      <div class="section-header">
+        <div class="section-icon-wrap" style="background:#e8f0fe;">🔬</div>
+        <div>
+          <h2>AI予測ギャラリー（上位3件）</h2>
+          <p>AIが「波乱が起きやすい」と判定した過去レースの検証データ</p>
+        </div>
+      </div>
+      <div id="js-data-status" style="background:#e8f4fd;border-left:3px solid #3498db;padding:10px 14px;border-radius:6px;margin-bottom:16px;font-size:.82rem;color:#2c3e50;"></div>
       <div id="js-preview-table">
-        <p style="color:#999;text-align:center;padding:30px;">予測データを読み込み中...</p>
+        <p style="color:#999;text-align:center;padding:30px;">データを読み込み中...</p>
       </div>
       <div style="text-align:center;margin-top:20px;">
-        <a href="prediction.html" class="btn">全レースの予測を見る →</a>
+        <a href="prediction.html" class="btn">全件を見る →</a>
       </div>
     </div>
 
@@ -361,29 +389,64 @@
     .then(data => {
       if (!data.length) throw new Error('no data');
       const top3 = data.slice(0, 3);
+
+      // データの鮮度を判定してステータスバナーを表示
+      const today = new Date();
+      const raceDate = data[0].race_date ? new Date(data[0].race_date) : null;
+      const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
+      const statusEl = document.getElementById('js-data-status');
+      if (statusEl) {
+        if (diffDays > 14) {
+          statusEl.innerHTML = '📋 <strong>過去の検証データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム更新は準備中です';
+        } else {
+          statusEl.innerHTML = '🟢 <strong>最新データ表示中</strong>（' + data[0].race_date + '前後）— 毎週金曜日更新';
+          statusEl.style.background = '#e9f7ef';
+          statusEl.style.borderColor = '#27ae60';
+        }
+      }
+
+      const VENUE_CLASS_MAP = {
+        '01':'venue-sapporo','02':'venue-hakodate','03':'venue-fukushima','04':'venue-niigata',
+        '05':'venue-tokyo','06':'venue-nakayama','07':'venue-chukyo','08':'venue-kyoto',
+        '09':'venue-hanshin','10':'venue-kokura'
+      };
       let html = '';
       top3.forEach((r, i) => {
         const pct = Math.round(r.prob);
         const venue = VENUE_MAP[r.venue] || r.venue;
+        const vClass = VENUE_CLASS_MAP[r.venue] || 'venue-default';
         const raceName = r.race_name && r.race_name !== 'None' ? r.race_name : `${r.race_number}R`;
-        const probColor = pct >= 70 ? '#e74c3c' : pct >= 50 ? '#e8a020' : '#27ae60';
+        const level = r.upset_level || (pct >= 60 ? '高' : pct >= 45 ? '中' : '低');
+        const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
         const buyStr = r.buy_str || '—';
-        // 推奨馬名（最初の3頭）
-        const horseNames = r.horses ? r.horses.slice(0,3).map(h => `${h.num}番 ${h.name}`).join('・') + '…' : '—';
+        const topHorse = r.horses && r.horses[0] ? r.horses[0] : null;
+        const upsetHorse = r.horses ? r.horses.find(h => h.popularity >= 4) : null;
         html += `
-        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
-          <div style="background:var(--primary);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:.85rem;flex-shrink:0;">${i+1}</div>
-          <div style="flex:1;min-width:200px;">
-            <div style="font-weight:bold;color:var(--primary);font-size:.95rem;">${venue} ${r.race_number}R｜${raceName}</div>
-            <div style="font-size:.78rem;color:var(--muted);margin:2px 0 8px;">${r.race_date}　${r.surface} ${r.distance}m　${r.head_count}頭</div>
-            <div style="background:#fff8e1;border:1px solid var(--accent);border-radius:6px;padding:8px 12px;font-size:.85rem;">
-              🎫 <strong>推奨買い目：</strong>${buyStr} 三連複ボックス（1,000円）<br>
-              <span style="font-size:.78rem;color:var(--muted);margin-top:3px;display:block;">${horseNames}</span>
+        <div style="background:#fff;border:1px solid var(--border);border-left:4px solid ${levelColor};border-radius:10px;padding:16px;margin-bottom:12px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:200px;">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                <span class="venue-badge ${vClass}">${venue}</span>
+                <span style="font-weight:bold;color:var(--primary);font-size:.95rem;">${r.race_number}R｜${raceName}</span>
+                ${r.grade ? `<span style="background:#f1c40f;color:#333;font-size:.7rem;font-weight:bold;padding:1px 8px;border-radius:6px;">${r.grade}</span>` : ''}
+              </div>
+              <div style="font-size:.78rem;color:var(--muted);margin-bottom:10px;">
+                📅 ${r.race_date}　${r.surface} ${r.distance}m　${r.head_count}頭
+                ${r.weather ? '　' + r.weather : ''}${r.track_cond ? '　馬場:' + r.track_cond : ''}
+              </div>
+              ${topHorse ? `<div style="font-size:.82rem;margin-bottom:6px;">
+                <span style="color:var(--primary);font-weight:bold;">本命：</span>${topHorse.num}番 ${topHorse.name}（${topHorse.odds}倍）
+                ${upsetHorse ? `　<span style="color:var(--accent);font-weight:bold;">穴：</span>${upsetHorse.num}番 ${upsetHorse.name}（${upsetHorse.odds}倍）` : ''}
+              </div>` : ''}
+              <div style="background:#f8f9fc;border-radius:6px;padding:8px 12px;font-size:.82rem;">
+                🎫 <strong>${buyStr}</strong> 三連複ボックス・1,000円
+              </div>
             </div>
-          </div>
-          <div style="text-align:center;flex-shrink:0;">
-            <div style="font-size:1.6rem;font-weight:bold;color:${probColor};line-height:1;">${pct}%</div>
-            <div style="font-size:.7rem;color:var(--muted);">波乱確率</div>
+            <div style="text-align:center;flex-shrink:0;padding:4px 8px;">
+              <div style="font-size:1.7rem;font-weight:bold;color:${levelColor};line-height:1;">${pct}%</div>
+              <div style="font-size:.68rem;color:var(--muted);">波乱確率</div>
+              <div style="font-size:.72rem;font-weight:bold;color:${levelColor};margin-top:4px;">波乱度 ${level}</div>
+            </div>
           </div>
         </div>`;
       });
