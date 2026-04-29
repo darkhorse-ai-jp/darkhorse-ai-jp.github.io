@@ -87,7 +87,7 @@ def render(art, associate_id, all_articles):
     cat    = art["cat"]
     date   = art["date"]
     bg, col = CAT.get(cat, ("#f0f4f8", "var(--muted)"))
-    base_url = "https://msalpha0123-source.github.io/darkhorse-site"
+    base_url = "https://mspj0123.github.io/darkhorse-site"
 
     # ── 本文 ──
     body = f'      <p>\n        {art["intro"]}\n      </p>\n'
