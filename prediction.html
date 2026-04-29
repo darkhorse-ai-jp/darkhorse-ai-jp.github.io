@@ -236,7 +236,7 @@
         <button class="filter-btn active" onclick="setFilter('level','all',this)">すべて</button>
         <button class="filter-btn" onclick="setFilter('level','高',this)">高（60%+）</button>
         <button class="filter-btn" onclick="setFilter('level','中',this)">中（45〜59%）</button>
-        <button class="filter-btn" onclick="setFilter('level','低',this)">低（〜44%）</button>
+        <button class="filter-btn" onclick="setFilter('level','低',this)">低（30〜44%）</button>
       </div>
     </div>
 
@@ -254,6 +254,10 @@
         <p style="background:#fff3cd;border-left:3px solid #f0b429;padding:8px 12px;border-radius:4px;margin-bottom:12px;">
           ⚠️ 本予測はバックテスト検証中の参考情報です。現時点は赤字（回収率78〜82%）のため、馬券購入の推奨ではありません。
           <a href="results.html" style="color:var(--primary);">→ 成績詳細</a>
+        </p>
+        <p style="background:#f0f4f8;border-left:3px solid #3498db;padding:8px 12px;border-radius:4px;margin-bottom:12px;font-size:.82rem;">
+          📋 <strong>表示対象について：</strong>AIが波乱確率 <strong>30%以上</strong>と判定したレースのみ表示しています。
+          それ以下のレースはデータから除外されているため、8R以前など特定レースが表示されない場合があります。
         </p>
         <p><strong>📖 万馬券の仕組み：</strong>三連複で万馬券（10,000円以上）になるには、<strong>1〜3番人気が全員揃わない</strong>ことが必要です。</p>
         <div style="margin:10px 0;padding:10px;background:#f8f9fc;border-radius:8px;">
@@ -438,8 +442,12 @@ function buildRaceDetail(r) {
 function buildVenueGroups(data) {
   const groups = new Map();
   data.forEach(r => {
-    const key = (r.race_date || '') + '__' + (r.venue || 'unknown');
-    if (!groups.has(key)) groups.set(key, { venue: r.venue || 'unknown', date: r.race_date || '', races: [] });
+    // race_id前10桁（日付8桁 + 開催回2桁）でグループ化し、同一会場・同日の別開催を区別する
+    const key = (r.race_id || '').substring(0, 10) || ((r.race_date || '') + '__' + (r.venue || 'unknown'));
+    if (!groups.has(key)) {
+      const kaisai = r.race_id ? parseInt(r.race_id.substring(8, 10)) || 0 : 0;
+      groups.set(key, { venue: r.venue || 'unknown', date: r.race_date || '', kaisai, races: [] });
+    }
     groups.get(key).races.push(r);
   });
 
@@ -451,6 +459,7 @@ function buildVenueGroups(data) {
     const venueName = VENUE_MAP[g.venue] || g.venue;
     const vClass = VENUE_CLASS[g.venue] || 'venue-default';
     const weekday = g.date ? WEEKDAYS[new Date(g.date).getDay()] : '';
+    const kaisaiLabel = g.kaisai > 0 ? ` 第${g.kaisai}回` : '';
 
     // レースを番号順にソート
     g.races.sort((a, b) => (a.race_number || 0) - (b.race_number || 0));
@@ -459,6 +468,7 @@ function buildVenueGroups(data) {
     <div class="venue-group">
       <div class="venue-group-header">
         <span class="venue-badge ${vClass}">${venueName}</span>
+        <span style="font-size:.8rem;opacity:.75;font-weight:bold;">${kaisaiLabel}</span>
         <span class="venue-date">${g.date}（${weekday}）</span>
         <span class="venue-race-count">${g.races.length}レース</span>
       </div>

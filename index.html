@@ -373,7 +373,9 @@
       document.getElementById('tb-races').textContent  = d.total_races.toLocaleString() + '+';
       document.getElementById('tb-auc').textContent    = d.model_auc.toFixed(3);
       document.getElementById('js-update-date').textContent = '最終更新: ' + d.updated_at;
-      const racesFull = d.total_races.toLocaleString() + '件以上';
+      // 千単位に切り捨てて「9,000件以上」形式で表示
+      const roundedRaces = Math.floor(d.total_races / 1000) * 1000;
+      const racesFull = roundedRaces.toLocaleString() + '件以上';
       const heroCount = document.getElementById('js-hero-race-count');
       if (heroCount) heroCount.textContent = racesFull;
       const dataCount = document.getElementById('js-data-count');
