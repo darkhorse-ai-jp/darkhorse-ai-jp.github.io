@@ -8,18 +8,86 @@
     "surface": "ダート",
     "distance": 1700,
     "head_count": 16,
-    "prob": 46.1
+    "prob": 46.1,
+    "horses": [
+      {
+        "num": 12,
+        "name": "コンスタンティン",
+        "popularity": 1,
+        "odds": 4.2
+      },
+      {
+        "num": 7,
+        "name": "メイショウホマレ",
+        "popularity": 2,
+        "odds": 4.3
+      },
+      {
+        "num": 9,
+        "name": "カラレーション",
+        "popularity": 3,
+        "odds": 7.7
+      },
+      {
+        "num": 16,
+        "name": "メタルゴッド",
+        "popularity": 4,
+        "odds": 8.0
+      },
+      {
+        "num": 5,
+        "name": "ジュリエットパール",
+        "popularity": 5,
+        "odds": 8.1
+      }
+    ],
+    "buy_str": "12－7－9－16－5",
+    "bet_amount": 1000
   },
   {
-    "race_id": "202309010308",
-    "race_date": "2023-09-01",
-    "venue": "03",
-    "race_number": 8,
-    "race_name": "3歳1勝クラス",
+    "race_id": "202205010203",
+    "race_date": "2022-05-01",
+    "venue": "02",
+    "race_number": 3,
+    "race_name": "3歳未勝利",
     "surface": "ダート",
-    "distance": 1800,
+    "distance": 1600,
     "head_count": 16,
-    "prob": 45.5
+    "prob": 45.7,
+    "horses": [
+      {
+        "num": 13,
+        "name": "ピンキーウィンキー",
+        "popularity": 1,
+        "odds": 3.6
+      },
+      {
+        "num": 10,
+        "name": "アーレンダール",
+        "popularity": 2,
+        "odds": 5.2
+      },
+      {
+        "num": 9,
+        "name": "ソニンクヴァース",
+        "popularity": 3,
+        "odds": 6.0
+      },
+      {
+        "num": 11,
+        "name": "ルージュエピス",
+        "popularity": 4,
+        "odds": 6.5
+      },
+      {
+        "num": 8,
+        "name": "ハッピーバレー",
+        "popularity": 5,
+        "odds": 7.8
+      }
+    ],
+    "buy_str": "13－10－9－11－8",
+    "bet_amount": 1000
   },
   {
     "race_id": "202308030712",
@@ -30,7 +98,41 @@
     "surface": "芝",
     "distance": 1200,
     "head_count": 18,
-    "prob": 45.5
+    "prob": 45.5,
+    "horses": [
+      {
+        "num": 7,
+        "name": "レッドヒルシューズ",
+        "popularity": 1,
+        "odds": 3.2
+      },
+      {
+        "num": 6,
+        "name": "ティニア",
+        "popularity": 2,
+        "odds": 4.0
+      },
+      {
+        "num": 9,
+        "name": "プリモカリーナ",
+        "popularity": 3,
+        "odds": 7.7
+      },
+      {
+        "num": 5,
+        "name": "タツダイヤモンド",
+        "popularity": 4,
+        "odds": 10.9
+      },
+      {
+        "num": 17,
+        "name": "メイショウグラニー",
+        "popularity": 5,
+        "odds": 14.0
+      }
+    ],
+    "buy_str": "7－6－9－5－17",
+    "bet_amount": 1000
   },
   {
     "race_id": "202310020608",
@@ -41,18 +143,86 @@
     "surface": "ダート",
     "distance": 1700,
     "head_count": 16,
-    "prob": 45.5
+    "prob": 45.5,
+    "horses": [
+      {
+        "num": 6,
+        "name": "ブライトファントム",
+        "popularity": 1,
+        "odds": 3.4
+      },
+      {
+        "num": 1,
+        "name": "スマートサニー",
+        "popularity": 2,
+        "odds": 3.5
+      },
+      {
+        "num": 12,
+        "name": "コパノパサディナ",
+        "popularity": 3,
+        "odds": 8.1
+      },
+      {
+        "num": 11,
+        "name": "ロードラディウス",
+        "popularity": 4,
+        "odds": 8.9
+      },
+      {
+        "num": 8,
+        "name": "ウェザーコック",
+        "popularity": 5,
+        "odds": 10.1
+      }
+    ],
+    "buy_str": "6－1－12－11－8",
+    "bet_amount": 1000
   },
   {
-    "race_id": "202306010511",
-    "race_date": "2023-06-01",
-    "venue": "05",
-    "race_number": 11,
-    "race_name": "カーバンクルS",
-    "surface": "芝",
-    "distance": 1200,
+    "race_id": "202303020610",
+    "race_date": "2023-03-02",
+    "venue": "06",
+    "race_number": 10,
+    "race_name": "会津S",
+    "surface": "ダート",
+    "distance": 1150,
     "head_count": 16,
-    "prob": 45.3
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 3,
+        "name": "パウオレ",
+        "popularity": 1,
+        "odds": 4.1
+      },
+      {
+        "num": 4,
+        "name": "サザンエルフ",
+        "popularity": 2,
+        "odds": 5.0
+      },
+      {
+        "num": 1,
+        "name": "スプラウティング",
+        "popularity": 3,
+        "odds": 7.6
+      },
+      {
+        "num": 5,
+        "name": "イスラアネーロ",
+        "popularity": 4,
+        "odds": 7.8
+      },
+      {
+        "num": 2,
+        "name": "アイスリアン",
+        "popularity": 5,
+        "odds": 8.7
+      }
+    ],
+    "buy_str": "3－4－1－5－2",
+    "bet_amount": 1000
   },
   {
     "race_id": "202306050511",
@@ -63,51 +233,86 @@
     "surface": "芝",
     "distance": 1600,
     "head_count": 16,
-    "prob": 45.3
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 6,
+        "name": "フィアスプライド",
+        "popularity": 1,
+        "odds": 5.2
+      },
+      {
+        "num": 10,
+        "name": "ヒップホップソウル",
+        "popularity": 2,
+        "odds": 5.5
+      },
+      {
+        "num": 9,
+        "name": "サウンドビバーチェ",
+        "popularity": 3,
+        "odds": 6.8
+      },
+      {
+        "num": 12,
+        "name": "ソーダズリング",
+        "popularity": 4,
+        "odds": 7.3
+      },
+      {
+        "num": 15,
+        "name": "コナコースト",
+        "popularity": 5,
+        "odds": 7.6
+      }
+    ],
+    "buy_str": "6－10－9－12－15",
+    "bet_amount": 1000
   },
   {
-    "race_id": "202303030512",
-    "race_date": "2023-03-03",
-    "venue": "05",
-    "race_number": 12,
-    "race_name": "3歳以上1勝クラス",
-    "surface": "芝",
-    "distance": 2000,
-    "head_count": 16,
-    "prob": 45.3
-  },
-  {
-    "race_id": "202307020511",
-    "race_date": "2023-07-02",
-    "venue": "05",
-    "race_number": 11,
-    "race_name": "鈴鹿S",
-    "surface": "ダート",
-    "distance": 1900,
-    "head_count": 16,
-    "prob": 45.3
-  },
-  {
-    "race_id": "202306050510",
-    "race_date": "2023-06-05",
-    "venue": "05",
-    "race_number": 10,
-    "race_name": "舞浜特別",
-    "surface": "ダート",
-    "distance": 1200,
-    "head_count": 16,
-    "prob": 45.3
-  },
-  {
-    "race_id": "202304040611",
-    "race_date": "2023-04-04",
+    "race_id": "202209020612",
+    "race_date": "2022-09-02",
     "venue": "06",
-    "race_number": 11,
-    "race_name": "ルミエールAD",
-    "surface": "芝",
-    "distance": 1000,
-    "head_count": 18,
-    "prob": 45.3
+    "race_number": 12,
+    "race_name": "梅田S",
+    "surface": "ダート",
+    "distance": 1800,
+    "head_count": 16,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 13,
+        "name": "ヴォワドアンジェ",
+        "popularity": 1,
+        "odds": 4.7
+      },
+      {
+        "num": 12,
+        "name": "サトノロイヤル",
+        "popularity": 2,
+        "odds": 5.9
+      },
+      {
+        "num": 5,
+        "name": "ロッキーサンダー",
+        "popularity": 3,
+        "odds": 6.2
+      },
+      {
+        "num": 2,
+        "name": "ゴールドレガシー",
+        "popularity": 4,
+        "odds": 6.4
+      },
+      {
+        "num": 3,
+        "name": "フォルテデイマルミ",
+        "popularity": 5,
+        "odds": 8.4
+      }
+    ],
+    "buy_str": "13－12－5－2－3",
+    "bet_amount": 1000
   },
   {
     "race_id": "202305040710",
@@ -118,50 +323,355 @@
     "surface": "芝",
     "distance": 2000,
     "head_count": 16,
-    "prob": 45.3
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 1,
+        "name": "リフレーミング",
+        "popularity": 1,
+        "odds": 3.9
+      },
+      {
+        "num": 12,
+        "name": "サウンドウォリアー",
+        "popularity": 2,
+        "odds": 5.0
+      },
+      {
+        "num": 16,
+        "name": "チャンスザローゼス",
+        "popularity": 3,
+        "odds": 5.4
+      },
+      {
+        "num": 4,
+        "name": "ウインエクレール",
+        "popularity": 4,
+        "odds": 6.1
+      },
+      {
+        "num": 7,
+        "name": "ブラックシールド",
+        "popularity": 5,
+        "odds": 11.7
+      }
+    ],
+    "buy_str": "1－12－16－4－7",
+    "bet_amount": 1000
   },
   {
-    "race_id": "202305040308",
-    "race_date": "2023-05-04",
-    "venue": "03",
-    "race_number": 8,
+    "race_id": "202308010811",
+    "race_date": "2023-08-01",
+    "venue": "08",
+    "race_number": 11,
+    "race_name": "栗東S",
+    "surface": "ダート",
+    "distance": 1400,
+    "head_count": 16,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 9,
+        "name": "テイエムアトム",
+        "popularity": 1,
+        "odds": 4.0
+      },
+      {
+        "num": 3,
+        "name": "ブルベアイリーデ",
+        "popularity": 2,
+        "odds": 5.0
+      },
+      {
+        "num": 4,
+        "name": "タガノクリステル",
+        "popularity": 3,
+        "odds": 5.8
+      },
+      {
+        "num": 15,
+        "name": "ディアノイア",
+        "popularity": 4,
+        "odds": 6.9
+      },
+      {
+        "num": 10,
+        "name": "アイオライト",
+        "popularity": 5,
+        "odds": 10.2
+      }
+    ],
+    "buy_str": "9－3－4－15－10",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202206010211",
+    "race_date": "2022-06-01",
+    "venue": "02",
+    "race_number": 11,
+    "race_name": "ニューイヤーS",
+    "surface": "芝",
+    "distance": 1600,
+    "head_count": 16,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 7,
+        "name": "カラテ",
+        "popularity": 1,
+        "odds": 4.3
+      },
+      {
+        "num": 15,
+        "name": "サトノダムゼル",
+        "popularity": 2,
+        "odds": 6.1
+      },
+      {
+        "num": 3,
+        "name": "スマートリアン",
+        "popularity": 3,
+        "odds": 6.5
+      },
+      {
+        "num": 13,
+        "name": "グランデマーレ",
+        "popularity": 4,
+        "odds": 6.9
+      },
+      {
+        "num": 6,
+        "name": "リレーションシップ",
+        "popularity": 5,
+        "odds": 7.0
+      }
+    ],
+    "buy_str": "7－15－3－13－6",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202210020110",
+    "race_date": "2022-10-02",
+    "venue": "01",
+    "race_number": 10,
+    "race_name": "帆柱山特別",
+    "surface": "芝",
+    "distance": 1200,
+    "head_count": 18,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 11,
+        "name": "ショウナンラスボス",
+        "popularity": 1,
+        "odds": 5.2
+      },
+      {
+        "num": 4,
+        "name": "ララマカロン",
+        "popularity": 2,
+        "odds": 5.8
+      },
+      {
+        "num": 3,
+        "name": "ガリレイ",
+        "popularity": 3,
+        "odds": 6.3
+      },
+      {
+        "num": 14,
+        "name": "ジューンベロシティ",
+        "popularity": 4,
+        "odds": 6.6
+      },
+      {
+        "num": 2,
+        "name": "ミニーアイル",
+        "popularity": 5,
+        "odds": 9.4
+      }
+    ],
+    "buy_str": "11－4－3－14－2",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202210020609",
+    "race_date": "2022-10-02",
+    "venue": "06",
+    "race_number": 9,
+    "race_name": "ネモフィラ賞",
+    "surface": "ダート",
+    "distance": 1700,
+    "head_count": 16,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 6,
+        "name": "コパノニコルソン",
+        "popularity": 1,
+        "odds": 4.5
+      },
+      {
+        "num": 9,
+        "name": "オリ",
+        "popularity": 2,
+        "odds": 4.6
+      },
+      {
+        "num": 12,
+        "name": "ペプチドアケボシ",
+        "popularity": 3,
+        "odds": 6.5
+      },
+      {
+        "num": 7,
+        "name": "スピリトーゾ",
+        "popularity": 4,
+        "odds": 7.0
+      },
+      {
+        "num": 2,
+        "name": "テーオードレフォン",
+        "popularity": 5,
+        "odds": 8.0
+      }
+    ],
+    "buy_str": "6－9－12－7－2",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202304040611",
+    "race_date": "2023-04-04",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "ルミエールAD",
+    "surface": "芝",
+    "distance": 1000,
+    "head_count": 18,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 16,
+        "name": "アジアノジュンシン",
+        "popularity": 1,
+        "odds": 4.2
+      },
+      {
+        "num": 7,
+        "name": "マイヨアポア",
+        "popularity": 2,
+        "odds": 5.8
+      },
+      {
+        "num": 6,
+        "name": "トレンディスター",
+        "popularity": 3,
+        "odds": 6.4
+      },
+      {
+        "num": 13,
+        "name": "サトノファビュラス",
+        "popularity": 4,
+        "odds": 9.4
+      },
+      {
+        "num": 17,
+        "name": "クムシラコ",
+        "popularity": 5,
+        "odds": 15.0
+      }
+    ],
+    "buy_str": "16－7－6－13－17",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202210020407",
+    "race_date": "2022-10-02",
+    "venue": "04",
+    "race_number": 7,
+    "race_name": "4歳以上1勝クラス",
+    "surface": "ダート",
+    "distance": 1700,
+    "head_count": 16,
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 15,
+        "name": "バライロノキセキ",
+        "popularity": 1,
+        "odds": 3.9
+      },
+      {
+        "num": 13,
+        "name": "クーファイザナミ",
+        "popularity": 2,
+        "odds": 5.4
+      },
+      {
+        "num": 11,
+        "name": "イッツユアタイム",
+        "popularity": 3,
+        "odds": 5.7
+      },
+      {
+        "num": 3,
+        "name": "リキサンハート",
+        "popularity": 4,
+        "odds": 9.7
+      },
+      {
+        "num": 9,
+        "name": "アオイシチフク",
+        "popularity": 5,
+        "odds": 11.9
+      }
+    ],
+    "buy_str": "15－13－11－3－9",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202303030512",
+    "race_date": "2023-03-03",
+    "venue": "05",
+    "race_number": 12,
     "race_name": "3歳以上1勝クラス",
     "surface": "芝",
-    "distance": 1400,
+    "distance": 2000,
     "head_count": 16,
-    "prob": 44.8
-  },
-  {
-    "race_id": "202308020111",
-    "race_date": "2023-08-02",
-    "venue": "01",
-    "race_number": 11,
-    "race_name": "藤森S",
-    "surface": "ダート",
-    "distance": 1200,
-    "head_count": 16,
-    "prob": 44.8
-  },
-  {
-    "race_id": "202307030608",
-    "race_date": "2023-07-03",
-    "venue": "06",
-    "race_number": 8,
-    "race_name": "3歳以上1勝クラス",
-    "surface": "ダート",
-    "distance": 1400,
-    "head_count": 16,
-    "prob": 44.7
-  },
-  {
-    "race_id": "202307010304",
-    "race_date": "2023-07-01",
-    "venue": "03",
-    "race_number": 4,
-    "race_name": "3歳新馬",
-    "surface": "ダート",
-    "distance": 1200,
-    "head_count": 16,
-    "prob": 44.6
+    "prob": 45.3,
+    "horses": [
+      {
+        "num": 9,
+        "name": "アサカラキング",
+        "popularity": 1,
+        "odds": 3.9
+      },
+      {
+        "num": 3,
+        "name": "ネイチャーシップ",
+        "popularity": 2,
+        "odds": 5.3
+      },
+      {
+        "num": 16,
+        "name": "ボーンイングランデ",
+        "popularity": 3,
+        "odds": 6.3
+      },
+      {
+        "num": 5,
+        "name": "シャンドゥレール",
+        "popularity": 4,
+        "odds": 7.8
+      },
+      {
+        "num": 15,
+        "name": "マイネルカンパーナ",
+        "popularity": 5,
+        "odds": 8.8
+      }
+    ],
+    "buy_str": "9－3－16－5－15",
+    "bet_amount": 1000
   }
 ]

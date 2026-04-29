@@ -76,9 +76,9 @@
 
 <section class="hero" role="banner">
   <div class="hero-badge">🏇 AI競馬予測 — 毎週無料公開中</div>
-  <h1>AIが見つける<span>万馬券</span>レース</h1>
-  <p>機械学習（LightGBM）が2,900件以上のJRAデータを分析。<br>
-     三連複10,000円以上が出やすいレースを<strong>毎週金曜</strong>に公開します。</p>
+  <h1>今週<span>万馬券</span>を狙うなら<br>この馬を買え</h1>
+  <p>AIが2,900件以上のJRAデータを分析し、<strong>「どのレースの・どの馬を・いくらで買えばいいか」</strong>を<br>
+     毎週金曜日に無料公開。三連複万馬券（10,000円以上）を一緒に狙いにいきます。</p>
 
   <div class="hero-stats">
     <div class="hero-stat">
@@ -144,7 +144,7 @@
 
     <!-- 今週の予測プレビュー -->
     <div class="card">
-      <div class="section-title">今週の注目レース（波乱確率ランキング）</div>
+      <div class="section-title">今週の推奨馬券（上位3レース）</div>
       <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px;">
         AIが「三連複万馬券が出やすい」と判断したレースを波乱確率の高い順に表示しています。
       </p>
@@ -307,37 +307,41 @@
     })
     .catch(() => {});
 
-  // 今週の予測プレビュー（上位5件）
+  // 今週の予測プレビュー（上位3件をカード形式で）
+  const VENUE_MAP = {'01':'札幌','02':'函館','03':'福島','04':'新潟','05':'東京',
+    '06':'中山','07':'中京','08':'京都','09':'阪神','10':'小倉'};
+
   fetch('data/prediction_latest.json')
     .then(r => r.json())
     .then(data => {
       if (!data.length) throw new Error('no data');
-      const top5 = data.slice(0, 5);
-      let html = '<div class="table-wrap"><table><thead><tr>'
-        + '<th>日付</th><th>競馬場</th><th>レース名</th><th>波乱確率</th><th>注目度</th>'
-        + '</tr></thead><tbody>';
-      top5.forEach(r => {
+      const top3 = data.slice(0, 3);
+      let html = '';
+      top3.forEach((r, i) => {
         const pct = Math.round(r.prob);
-        const badge = pct >= 70
-          ? '<span class="badge badge-high">高</span>'
-          : pct >= 50
-            ? '<span class="badge badge-medium">中</span>'
-            : '<span class="badge badge-low">低</span>';
+        const venue = VENUE_MAP[r.venue] || r.venue;
         const raceName = r.race_name && r.race_name !== 'None' ? r.race_name : `${r.race_number}R`;
-        html += `<tr>
-          <td>${r.race_date}</td>
-          <td>${r.venue}</td>
-          <td>${raceName}</td>
-          <td>
-            <div class="prob-bar">
-              <div class="prob-bar-bg"><div class="prob-bar-fill" style="width:${pct}%"></div></div>
-              <span class="prob-text">${pct}%</span>
+        const probColor = pct >= 70 ? '#e74c3c' : pct >= 50 ? '#e8a020' : '#27ae60';
+        const buyStr = r.buy_str || '—';
+        // 推奨馬名（最初の3頭）
+        const horseNames = r.horses ? r.horses.slice(0,3).map(h => `${h.num}番 ${h.name}`).join('・') + '…' : '—';
+        html += `
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="background:var(--primary);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:.85rem;flex-shrink:0;">${i+1}</div>
+          <div style="flex:1;min-width:200px;">
+            <div style="font-weight:bold;color:var(--primary);font-size:.95rem;">${venue} ${r.race_number}R｜${raceName}</div>
+            <div style="font-size:.78rem;color:var(--muted);margin:2px 0 8px;">${r.race_date}　${r.surface} ${r.distance}m　${r.head_count}頭</div>
+            <div style="background:#fff8e1;border:1px solid var(--accent);border-radius:6px;padding:8px 12px;font-size:.85rem;">
+              🎫 <strong>推奨買い目：</strong>${buyStr} 三連複ボックス（1,000円）<br>
+              <span style="font-size:.78rem;color:var(--muted);margin-top:3px;display:block;">${horseNames}</span>
             </div>
-          </td>
-          <td>${badge}</td>
-        </tr>`;
+          </div>
+          <div style="text-align:center;flex-shrink:0;">
+            <div style="font-size:1.6rem;font-weight:bold;color:${probColor};line-height:1;">${pct}%</div>
+            <div style="font-size:.7rem;color:var(--muted);">波乱確率</div>
+          </div>
+        </div>`;
       });
-      html += '</tbody></table></div>';
       document.getElementById('js-preview-table').innerHTML = html;
     })
     .catch(() => {
