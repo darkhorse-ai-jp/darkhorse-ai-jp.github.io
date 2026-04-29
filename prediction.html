@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI波乱予測ギャラリー | DarkHorse AI – 過去レース検証データ公開</title>
-  <meta name="description" content="LightGBMが「波乱が起きやすい」と判定した過去レースをランキング形式で公開。軸馬・穴馬候補の区別、万馬券になる仕組みをデータで解説。AIバックテスト検証データ。">
+  <title>今週の予測 | DarkHorse AI – AI波乱レース予測</title>
+  <meta name="description" content="AIが「波乱が起きやすい」と判定したレースをランキング形式で公開。軸馬・穴馬候補の区別、万馬券になる仕組みをデータで解説。毎週金曜更新。">
 
   <meta property="og:title" content="今週の波乱レース予測 | DarkHorse AI">
   <meta property="og:description" content="AIが選んだ今週の万馬券候補レースを無料公開。どの馬が絡むと万馬券になるか、仕組みをわかりやすく解説します。">
@@ -287,49 +287,13 @@
 
 <main>
   <div class="container">
-    <div style="padding:28px 0 8px;">
-      <h1 style="font-size:1.6rem;color:var(--primary);">AI波乱予測ギャラリー</h1>
-      <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">読み込み中...</p>
+    <div style="padding:28px 0 8px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <h1 style="font-size:1.6rem;color:var(--primary);">今週の予測</h1>
+      <p style="color:var(--muted);font-size:.85rem;" id="js-update-date">読み込み中...</p>
     </div>
 
     <!-- データ状態バナー（JSで制御） -->
     <div id="js-data-banner" style="display:none;"></div>
-
-    <!-- 注意書き -->
-    <div style="background:#fde8e8;border-left:4px solid var(--miss);padding:12px 16px;border-radius:6px;margin-bottom:20px;font-size:.83rem;line-height:1.7;color:#555;">
-      ⚠️ <strong>重要なお知らせ</strong>：本予測はバックテスト検証中の参考情報です。
-      現時点の回収率は<strong>78〜82%</strong>（赤字）であり、馬券の購入を推奨するものではありません。
-      「AIがどのようにレースを分析するか」を学ぶ目的でご利用ください。
-      詳細は<a href="results.html">過去の成績</a>をご確認ください。
-    </div>
-
-    <!-- 戦略の仕組み説明 -->
-    <div class="strategy-box">
-      <h3>📖 この予測の仕組み — 万馬券はいつ成立するか</h3>
-      <p>三連複で万馬券（10,000円以上）になるには、<strong>1〜3番人気の馬が全員揃わない</strong>ことが必要です。</p>
-      <p style="margin-top:8px;">このサイトでは、AIが「荒れやすい」と判断したレースに対して
-      <strong>人気順1〜5番の5頭ボックス</strong>を掲載しています。
-      この戦略で万馬券を取るカギは <span style="color:var(--accent);font-weight:bold;">4〜5番人気の「穴馬候補」</span>です：</p>
-
-      <div style="margin:12px 0;padding:12px;background:#f8f9fc;border-radius:8px;font-size:.82rem;line-height:2;">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-          <span style="background:var(--primary);color:#fff;padding:3px 10px;border-radius:10px;font-size:.75rem;">1〜3番人気（軸馬）</span>
-          <span style="color:var(--muted);">＋</span>
-          <span style="background:var(--accent);color:#fff;padding:3px 10px;border-radius:10px;font-size:.75rem;">4〜5番人気（穴馬候補）</span>
-          <span class="flow-arrow">→</span>
-          <span style="font-weight:bold;color:var(--miss);">三連複 万馬券 💥</span>
-        </div>
-        <div style="margin-top:8px;color:var(--muted);">
-          例：1番人気（3倍）＋3番人気（8倍）＋5番人気（12倍） → <strong>三連複 15,000〜30,000円</strong>
-        </div>
-      </div>
-
-      <p style="font-size:.8rem;color:var(--muted);">
-        ※ 1〜3番人気が全員3着以内に入ると配当は3,000〜5,000円程度で万馬券にはなりません。
-        「荒れやすいレース」でこそ、4〜5番人気の穴馬が絡み万馬券が生まれます。
-        <a href="column-01.html">→ 万馬券が出やすいレースの条件を詳しく読む</a>
-      </p>
-    </div>
 
     <!-- フィルター -->
     <div class="filter-section">
@@ -355,6 +319,29 @@
 
     <!-- 件数表示 -->
     <p id="js-count" style="font-size:.82rem;color:var(--muted);margin-bottom:12px;"></p>
+
+    <!-- 折りたたみ：注意・仕組み説明 -->
+    <details class="accordion-notice" style="margin-bottom:16px;">
+      <summary style="cursor:pointer;padding:10px 14px;background:#f0f4f8;border-radius:8px;font-size:.85rem;color:var(--primary);font-weight:bold;list-style:none;display:flex;align-items:center;gap:8px;">
+        <span>ℹ️</span>
+        <span>このページについて・予測の仕組みを見る</span>
+        <span style="margin-left:auto;font-size:.75rem;color:var(--muted);">タップで開閉</span>
+      </summary>
+      <div style="padding:14px 16px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 8px 8px;font-size:.84rem;line-height:1.8;color:#555;">
+        <p style="background:#fff3cd;border-left:3px solid #f0b429;padding:8px 12px;border-radius:4px;margin-bottom:12px;">
+          ⚠️ 本予測はバックテスト検証中の参考情報です。現時点は赤字（回収率78〜82%）のため、馬券購入の推奨ではありません。
+          <a href="results.html" style="color:var(--primary);">→ 成績詳細</a>
+        </p>
+        <p><strong>📖 万馬券の仕組み：</strong>三連複で万馬券（10,000円以上）になるには、<strong>1〜3番人気が全員揃わない</strong>ことが必要です。</p>
+        <div style="margin:10px 0;padding:10px;background:#f8f9fc;border-radius:8px;">
+          <span style="background:var(--primary);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">1〜3番人気（軸）</span>
+          　＋
+          <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">4〜5番人気（穴）</span>
+          　→　<strong style="color:var(--miss);">三連複 万馬券 💥</strong>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);">例：1番人気(3倍)＋3番人気(8倍)＋5番人気(12倍) → 三連複 15,000〜30,000円　<a href="column-01.html">→ 詳しく読む</a></p>
+      </div>
+    </details>
 
     <!-- レースカード一覧 -->
     <div id="js-picks">
@@ -451,13 +438,13 @@ function buildCards(data) {
     const trackBadge  = r.track_cond ? `<span class="meta-badge ${tClass}">馬場 ${r.track_cond}</span>` : '';
 
     // 馬テーブル行
-    const upsetHorses  = (r.horses || []).filter(h => h.popularity >= 4);
-    const anchorHorses = (r.horses || []).filter(h => h.popularity <= 3);
+    const upsetHorses  = (r.horses || []).filter(h => h.popularity != null && h.popularity >= 4);
+    const anchorHorses = (r.horses || []).filter(h => h.popularity != null && h.popularity <= 3);
     let rows = '';
     (r.horses || []).forEach(h => {
-      const isUpset = h.popularity >= 4;
-      const numCls  = isUpset ? 'h-num-upset' : 'h-num-anchor';
-      const popCls  = isUpset ? 'h-pop-upset'  : 'h-pop-anchor';
+      const isUpset = h.popularity != null && h.popularity >= 4;
+      const numCls  = h.popularity == null ? '' : (isUpset ? 'h-num-upset' : 'h-num-anchor');
+      const popCls  = h.popularity == null ? '' : (isUpset ? 'h-pop-upset'  : 'h-pop-anchor');
       const keyTag  = isUpset ? '<span class="upset-key-tag">穴</span>' : '';
       rows += `
         <tr>
@@ -468,7 +455,7 @@ function buildCards(data) {
             <div class="h-name">${h.name}${keyTag}</div>
             <div class="h-jockey">${h.jockey || ''}</div>
           </td>
-          <td data-label="人気" class="${popCls}">${h.popularity}番人気</td>
+          <td data-label="人気" class="${popCls}">${h.popularity != null ? h.popularity + '番人気' : '未確定'}</td>
           <td data-label="単勝オッズ" class="h-odds">${h.odds ? h.odds + '倍' : '—'}</td>
         </tr>`;
     });

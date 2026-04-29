@@ -211,21 +211,21 @@
       </div>
     </div>
 
-    <!-- AI予測ギャラリー プレビュー -->
+    <!-- 今週の予測プレビュー -->
     <div class="card">
       <div class="section-header">
-        <div class="section-icon-wrap" style="background:#e8f0fe;">🔬</div>
+        <div class="section-icon-wrap" style="background:#fff3e0;">🏇</div>
         <div>
-          <h2>AI予測ギャラリー（上位3件）</h2>
-          <p>AIが「波乱が起きやすい」と判定した過去レースの検証データ</p>
+          <h2>今週の予測（上位3件）</h2>
+          <p id="js-preview-subtitle">AIが波乱と判定したレースをランキング表示</p>
         </div>
       </div>
-      <div id="js-data-status" style="background:#e8f4fd;border-left:3px solid #3498db;padding:10px 14px;border-radius:6px;margin-bottom:16px;font-size:.82rem;color:#2c3e50;"></div>
+      <div id="js-data-status" style="display:none;background:#e8f4fd;border-left:3px solid #3498db;padding:10px 14px;border-radius:6px;margin-bottom:16px;font-size:.82rem;color:#2c3e50;"></div>
       <div id="js-preview-table">
         <p style="color:#999;text-align:center;padding:30px;">データを読み込み中...</p>
       </div>
       <div style="text-align:center;margin-top:20px;">
-        <a href="prediction.html" class="btn">全件を見る →</a>
+        <a href="prediction.html" class="btn">今週の予測を全件見る →</a>
       </div>
     </div>
 
@@ -394,15 +394,14 @@
       const today = new Date();
       const raceDate = data[0].race_date ? new Date(data[0].race_date) : null;
       const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
-      const statusEl = document.getElementById('js-data-status');
-      if (statusEl) {
-        if (diffDays > 14) {
-          statusEl.innerHTML = '📋 <strong>過去の検証データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム更新は準備中です';
-        } else {
-          statusEl.innerHTML = '🟢 <strong>最新データ表示中</strong>（' + data[0].race_date + '前後）— 毎週金曜日更新';
-          statusEl.style.background = '#e9f7ef';
-          statusEl.style.borderColor = '#27ae60';
-        }
+      const statusEl  = document.getElementById('js-data-status');
+      const subtitleEl = document.getElementById('js-preview-subtitle');
+      if (diffDays > 14) {
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '📋 <strong>参考データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム予測は毎週金曜更新'; }
+        if (subtitleEl) subtitleEl.textContent = '参考：過去の検証データ（' + data[0].race_date + '前後）';
+      } else {
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '🟢 <strong>最新データ</strong>（' + data[0].race_date + '前後）'; statusEl.style.background = '#e9f7ef'; statusEl.style.borderColor = '#27ae60'; }
+        if (subtitleEl) subtitleEl.textContent = data[0].race_date + ' のレース予測（上位3件）';
       }
 
       const VENUE_CLASS_MAP = {
@@ -420,7 +419,7 @@
         const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
         const buyStr = r.buy_str || '—';
         const topHorse = r.horses && r.horses[0] ? r.horses[0] : null;
-        const upsetHorse = r.horses ? r.horses.find(h => h.popularity >= 4) : null;
+        const upsetHorse = r.horses ? r.horses.find(h => h.popularity != null && h.popularity >= 4) : null;
         html += `
         <div style="background:#fff;border:1px solid var(--border);border-left:4px solid ${levelColor};border-radius:10px;padding:16px;margin-bottom:12px;">
           <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;">
@@ -435,8 +434,8 @@
                 ${r.weather ? '　' + r.weather : ''}${r.track_cond ? '　馬場:' + r.track_cond : ''}
               </div>
               ${topHorse ? `<div style="font-size:.82rem;margin-bottom:6px;">
-                <span style="color:var(--primary);font-weight:bold;">本命：</span>${topHorse.num}番 ${topHorse.name}（${topHorse.odds}倍）
-                ${upsetHorse ? `　<span style="color:var(--accent);font-weight:bold;">穴：</span>${upsetHorse.num}番 ${upsetHorse.name}（${upsetHorse.odds}倍）` : ''}
+                <span style="color:var(--primary);font-weight:bold;">注目馬：</span>${topHorse.num}番 ${topHorse.name}${topHorse.odds ? '（' + topHorse.odds + '倍）' : ''}
+                ${upsetHorse ? `　<span style="color:var(--accent);font-weight:bold;">穴：</span>${upsetHorse.num}番 ${upsetHorse.name}${upsetHorse.odds ? '（' + upsetHorse.odds + '倍）' : ''}` : ''}
               </div>` : ''}
               <div style="background:#f8f9fc;border-radius:6px;padding:8px 12px;font-size:.82rem;">
                 🎫 <strong>${buyStr}</strong> 三連複ボックス・1,000円
