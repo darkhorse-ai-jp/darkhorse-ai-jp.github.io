@@ -34,6 +34,7 @@
       "target": "https://msalpha0123-source.github.io/darkhorse-site/column.html"
     }
   }
+  
   </script>
 
   <link rel="stylesheet" href="css/style.css">
@@ -55,7 +56,7 @@
       <a href="column.html">コラム</a>
       <a href="faq.html">FAQ</a>
     </nav>
-    <button class="hamburger" id="hamburger-btn" onclick="this.setAttribute('aria-expanded', document.getElementById('mobile-nav').classList.toggle('open'))" aria-label="メニュー">
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -344,6 +345,7 @@
     <p class="footer-copy">本サービスは参考情報の提供を目的としています。馬券購入は自己責任でお願いします。</p>
   </div>
 </footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
 
 <script>
   // ハンバーガーメニューのaria-expanded管理はボタンのonclickで処理
@@ -452,5 +454,44 @@
     });
 </script>
 
+
+<script>
+  // ① 現在ページのナビリンクをアクティブ表示
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  // ② ハンバーガーメニュー開放時に背景スクロールを無効化
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+
+  // ③ ページトップへ戻るボタン
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
 </body>
 </html>

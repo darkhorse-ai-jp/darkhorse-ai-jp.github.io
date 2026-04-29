@@ -6,7 +6,8 @@
   <title>お問い合わせ | DarkHorse AI</title>
   <link rel="stylesheet" href="css/style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017"
-     crossorigin="anonymous"></script>
+     crossorigin="anonymous">
+  </script>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
       <a href="column.html">コラム</a>
       <a href="faq.html">FAQ</a>
     </nav>
-    <button class="hamburger" id="hamburger-btn" onclick="this.setAttribute('aria-expanded', document.getElementById('mobile-nav').classList.toggle('open'))" aria-label="メニュー">
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -84,6 +85,48 @@
     <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
   </div>
 </footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
 
+
+<script>
+  // ① 現在ページのナビリンクをアクティブ表示
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  // ② ハンバーガーメニュー開放時に背景スクロールを無効化
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    // onclickに追加（元のonclickを上書きせず補完）
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    // ナビリンクをタップしたらメニューを閉じてスクロール解除
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+
+  // ③ ページトップへ戻るボタン
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
 </body>
 </html>
