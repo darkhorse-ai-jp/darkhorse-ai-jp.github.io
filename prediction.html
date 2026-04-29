@@ -265,12 +265,13 @@
   <div class="header-inner">
     <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
     <nav>
-      <a href="prediction.html" class="active">今週の予測</a>
+      <a href="prediction.html">今週の予測</a>
       <a href="results.html">過去の成績</a>
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
     </nav>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" id="hamburger-btn">
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -279,15 +280,20 @@
     <a href="results.html">過去の成績</a>
     <a href="about.html">予測ロジック</a>
     <a href="column.html">コラム</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">お問い合わせ</a>
   </div>
 </header>
 
 <main>
   <div class="container">
     <div style="padding:28px 0 8px;">
-      <h1 style="font-size:1.6rem;color:var(--primary);">今週の波乱レース予測</h1>
-      <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">対象期間: —</p>
+      <h1 style="font-size:1.6rem;color:var(--primary);">AI波乱レース予測</h1>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:4px;" id="js-update-date">読み込み中...</p>
     </div>
+
+    <!-- データ状態バナー（JSで制御） -->
+    <div id="js-data-banner" style="display:none;"></div>
 
     <!-- 注意書き -->
     <div style="background:#fde8e8;border-left:4px solid var(--miss);padding:12px 16px;border-radius:6px;margin-bottom:20px;font-size:.83rem;line-height:1.7;color:#555;">
@@ -540,8 +546,25 @@ fetch('data/prediction_latest.json')
     if (!data || !data.length) throw new Error('no data');
     allData = data;
 
-    const dateEl = document.getElementById('js-update-date');
-    if (data[0].race_date) {
+    const dateEl   = document.getElementById('js-update-date');
+    const bannerEl = document.getElementById('js-data-banner');
+    const today    = new Date();
+    const raceDate = data[0].race_date ? new Date(data[0].race_date) : null;
+    const diffDays = raceDate ? Math.floor((today - raceDate) / 86400000) : 9999;
+
+    if (diffDays > 14) {
+      // 2週間以上古いデータ → サンプルデータ表示中の案内
+      dateEl.textContent = '表示中のデータ: ' + data[0].race_date + '（サンプル）';
+      bannerEl.style.display = '';
+      bannerEl.innerHTML = `
+        <div style="background:#fff8e1;border-left:4px solid #f0932b;padding:14px 18px;border-radius:8px;margin-bottom:20px;font-size:.85rem;line-height:1.8;color:#555;">
+          📅 <strong>現在、リアルタイム予測データを準備中です</strong><br>
+          表示しているのは<strong>テスト期間（${data[0].race_date} 前後）のサンプルデータ</strong>です。
+          AIの動作・表示形式の確認にご利用ください。<br>
+          実際の予測は毎週金曜日に更新予定です。
+          <a href="results.html" style="margin-left:8px;">→ 過去の成績・AIの精度を見る</a>
+        </div>`;
+    } else {
       dateEl.textContent = '対象期間: ' + data[0].race_date + ' 前後のレース（毎週金曜更新）';
     }
 
