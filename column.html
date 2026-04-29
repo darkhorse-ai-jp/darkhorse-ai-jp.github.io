@@ -6,6 +6,23 @@
   <title>競馬コラム | DarkHorse AI</title>
   <meta name="description" content="競馬のデータ分析・万馬券の傾向・AI予測の解説など、競馬をデータで楽しむためのコラムを掲載。">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .col-filter-btn {
+      background: #f0f4f8;
+      color: var(--muted);
+      font-size: .8rem;
+      padding: 5px 14px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .col-filter-btn.active,
+    .col-filter-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+  </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017"
      crossorigin="anonymous">
   </script>
@@ -45,15 +62,15 @@
     </div>
 
     <!-- カテゴリフィルター -->
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
-      <span style="background:var(--primary);color:#fff;font-size:.8rem;padding:4px 14px;border-radius:12px;">すべて</span>
-      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">データ分析</span>
-      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">馬券戦略</span>
-      <span style="background:#f0f4f8;color:var(--muted);font-size:.8rem;padding:4px 14px;border-radius:12px;">AI解説</span>
+    <div id="col-filters" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+      <button class="col-filter-btn active" data-cat="all" onclick="filterColumns('all',this)">すべて</button>
+      <button class="col-filter-btn" data-cat="データ分析" onclick="filterColumns('データ分析',this)">データ分析</button>
+      <button class="col-filter-btn" data-cat="馬券戦略" onclick="filterColumns('馬券戦略',this)">馬券戦略</button>
+      <button class="col-filter-btn" data-cat="AI解説" onclick="filterColumns('AI解説',this)">AI解説</button>
     </div>
 
     <!-- 公開済み記事 -->
-    <a href="column-01.html" style="display:block;text-decoration:none;color:inherit;">
+    <a href="column-01.html" data-category="データ分析" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -68,7 +85,7 @@
       </div>
     </a>
 
-    <a href="column-02.html" style="display:block;text-decoration:none;color:inherit;">
+    <a href="column-02.html" data-category="馬券戦略" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -83,7 +100,7 @@
       </div>
     </a>
 
-    <a href="column-03.html" style="display:block;text-decoration:none;color:inherit;">
+    <a href="column-03.html" data-category="AI解説" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -98,7 +115,7 @@
       </div>
     </a>
 
-    <a href="column-04.html" style="display:block;text-decoration:none;color:inherit;">
+    <a href="column-04.html" data-category="データ分析" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -113,7 +130,7 @@
       </div>
     </a>
 
-    <a href="column-05.html" style="display:block;text-decoration:none;color:inherit;">
+    <a href="column-05.html" data-category="AI解説" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -181,6 +198,15 @@
     }, { passive: true });
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   })();
+
+  // コラムカテゴリフィルター
+  function filterColumns(cat, btn) {
+    document.querySelectorAll('#col-filters .col-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.col-card-wrap').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+    });
+  }
 </script>
 </body>
 </html>

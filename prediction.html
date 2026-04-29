@@ -210,6 +210,9 @@
     .buy-label { font-size: .75rem; color: var(--muted); white-space: nowrap; }
     .buy-nums  { font-size: 1rem; font-weight: bold; color: var(--primary); letter-spacing: .05em; }
     .buy-cost  { margin-left: auto; font-size: .8rem; color: var(--muted); white-space: nowrap; }
+    .buy-box-unconfirmed { background: #fff8e1; border: 1px dashed #f0a500; }
+    .buy-nums-unconfirmed { font-size: .92rem; font-weight: bold; color: #b7770d; }
+    .buy-cost-note { margin-left: auto; font-size: .78rem; color: #b7770d; }
 
     /* フィルターバー */
     .filter-section { margin-bottom: 20px; }
@@ -440,6 +443,9 @@ function buildCards(data) {
     const weatherBadge = r.weather  ? `<span class="meta-badge">${wIcon} ${r.weather}</span>` : '';
     const trackBadge  = r.track_cond ? `<span class="meta-badge ${tClass}">馬場 ${r.track_cond}</span>` : '';
 
+    // 馬番・人気が確定しているか判定（全馬のpopularity/oddsがnullなら未確定）
+    const isConfirmed = (r.horses || []).some(h => h.popularity != null || h.odds != null);
+
     // 馬テーブル行
     const upsetHorses  = (r.horses || []).filter(h => h.popularity != null && h.popularity >= 4);
     const anchorHorses = (r.horses || []).filter(h => h.popularity != null && h.popularity <= 3);
@@ -524,11 +530,18 @@ function buildCards(data) {
           </thead>
           <tbody>${rows}</tbody>
         </table>
-        <div class="buy-box">
+        ${isConfirmed
+          ? `<div class="buy-box">
           <span class="buy-label">三連複ボックス買い目</span>
           <span class="buy-nums">${r.buy_str}</span>
           <span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span>
-        </div>
+        </div>`
+          : `<div class="buy-box buy-box-unconfirmed">
+          <span class="buy-label">三連複ボックス買い目</span>
+          <span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span>
+          <span class="buy-cost-note">金曜夜以降に馬番・買い目が確定します</span>
+        </div>`
+        }
       </div>
     </div>`;
   });

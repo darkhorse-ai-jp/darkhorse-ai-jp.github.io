@@ -1,5 +1,6 @@
 /* ===== リセット & 基本設定 ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
 
 :root {
   --primary: #1a3a5c;
