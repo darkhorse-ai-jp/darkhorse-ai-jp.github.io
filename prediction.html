@@ -385,6 +385,11 @@ const VENUE_MAP = {
   '01':'札幌','02':'函館','03':'福島','04':'新潟','05':'東京',
   '06':'中山','07':'中京','08':'京都','09':'阪神','10':'小倉'
 };
+const VENUE_CLASS = {
+  '01':'venue-sapporo','02':'venue-hakodate','03':'venue-fukushima','04':'venue-niigata',
+  '05':'venue-tokyo','06':'venue-nakayama','07':'venue-chukyo','08':'venue-kyoto',
+  '09':'venue-hanshin','10':'venue-kokura'
+};
 const WEATHER_ICON = {'晴':'☀️','曇':'☁️','雨':'🌧️','小雨':'🌦️','雪':'❄️'};
 const TRACK_CLASS  = {'良':'track-good','稍重':'track-yaya','重':'track-heavy','不良':'track-bad'};
 
@@ -495,7 +500,7 @@ function buildCards(data) {
         <div class="pick-header-top">
           <div class="pick-rank">${i + 1}</div>
           <div class="pick-race-info">
-            <div class="pick-race-name">${gradeBadge} ${venue} ${r.race_number}R｜${raceName}</div>
+            <div class="pick-race-name"><span class="venue-badge ${VENUE_CLASS[r.venue] || 'venue-default'}">${venue}</span> ${r.race_number}R｜${raceName} ${gradeBadge}</div>
             <div class="pick-race-sub">${r.race_date}　${r.surface} ${dist}　${heads}立て</div>
           </div>
         </div>

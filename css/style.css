@@ -583,3 +583,191 @@ footer a:hover { color: #fff; background: rgba(255,255,255,.08); text-decoration
   .card-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 1.45rem; }
 }
+
+/* ===== 競馬場カラーバッジシステム ===== */
+.venue-badge {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: bold;
+  padding: 2px 9px;
+  border-radius: 8px;
+  color: #fff;
+  letter-spacing: .04em;
+  margin-right: 4px;
+}
+.venue-sapporo  { background: #00897b; }
+.venue-hakodate { background: #0097a7; }
+.venue-fukushima{ background: #388e3c; }
+.venue-niigata  { background: #689f38; }
+.venue-tokyo    { background: #1565c0; }
+.venue-nakayama { background: #7b1fa2; }
+.venue-chukyo   { background: #e65100; }
+.venue-kyoto    { background: #c62828; }
+.venue-hanshin  { background: #ad1457; }
+.venue-kokura   { background: #bf360c; }
+.venue-default  { background: #546e7a; }
+
+/* ===== ヒーロー2カラムレイアウト ===== */
+.hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+.hero-text { flex: 1; text-align: left; }
+.hero-illust {
+  flex-shrink: 0;
+  width: 280px;
+  opacity: .92;
+}
+@media (max-width: 768px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-illust { width: 180px; order: -1; }
+  .hero-text { text-align: center; }
+  .btn-outline { margin-left: 0; margin-top: 10px; }
+}
+
+/* ===== レーシング区切り線 ===== */
+.racing-divider {
+  text-align: center;
+  margin: 8px 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .1em;
+}
+.racing-divider::before,
+.racing-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ===== ビジュアル統計カード ===== */
+.stat-card-v2 {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 5px solid var(--accent);
+  transition: box-shadow .2s, transform .15s;
+}
+.stat-card-v2:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.stat-card-v2 .stat-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.stat-card-v2 .stat-value { font-size: 1.7rem; font-weight: bold; color: var(--primary); line-height: 1; }
+.stat-card-v2 .stat-label { font-size: .78rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* ===== 競馬場ショーケース ===== */
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+.venue-tile {
+  border-radius: 10px;
+  padding: 12px 6px;
+  text-align: center;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.venue-tile:hover { transform: scale(1.06); box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+.venue-tile .vtile-name { font-size: .85rem; display: block; margin-bottom: 3px; }
+.venue-tile .vtile-icon { font-size: 1.2rem; }
+@media (max-width: 600px) {
+  .venue-grid { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .venue-tile { padding: 8px 4px; font-size: .7rem; }
+}
+
+/* ===== 予測ページXシェアボタン ===== */
+.race-share {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.race-share-label { font-size: .75rem; color: var(--muted); }
+.share-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 16px;
+  background: #000;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.share-x:hover { opacity: .8; text-decoration: none; color: #fff; }
+.share-line-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 16px;
+  background: #06C755;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.share-line-btn:hover { opacity: .8; text-decoration: none; color: #fff; }
+
+/* ===== "注目馬" ハイライトタグ ===== */
+.featured-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #f1c40f, #e67e22);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: bold;
+  padding: 1px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ===== セクションヘッダー強化 ===== */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.section-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.section-header h2 {
+  font-size: 1.15rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+.section-header p { font-size: .82rem; color: var(--muted); margin-top: 2px; }
