@@ -93,9 +93,10 @@
       border-radius: 10px;
       border: 1px solid rgba(255,255,255,.5);
     }
-    .upset-high { background: rgba(231,76,60,.8); }
-    .upset-mid  { background: rgba(230,126,34,.8); }
-    .upset-low  { background: rgba(39,174,96,.8);  }
+    .upset-high    { background: rgba(231,76,60,.8); }
+    .upset-mid     { background: rgba(230,126,34,.8); }
+    .upset-low     { background: rgba(39,174,96,.8);  }
+    .upset-pending { background: rgba(120,120,140,.7); font-size: .7rem; }
     .grade-badge {
       font-size: .72rem;
       font-weight: bold;
@@ -440,8 +441,9 @@ function buildCards(data) {
     const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
     const dist   = r.distance   ? `${r.distance}m`      : '';
     const heads  = r.head_count ? `${r.head_count}頭`   : '';
+    const isPending = r.status === 'pending' || r.prob == null;
     const level  = r.upset_level || (prob >= 60 ? '高' : prob >= 45 ? '中' : '低');
-    const levelClass = level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low';
+    const levelClass = isPending ? 'upset-pending' : (level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low');
     const wIcon  = WEATHER_ICON[r.weather] || '';
     const tClass = TRACK_CLASS[r.track_cond] || '';
     const gradeBadge = r.grade ? `<span class="grade-badge">${r.grade}</span>` : '';
@@ -509,6 +511,12 @@ function buildCards(data) {
           ${weatherBadge}${trackBadge}
           <span class="meta-badge">📅 ${r.race_date}</span>
         </div>
+        ${isPending ? `
+        <div class="prob-meter-wrap">
+          <div class="prob-badge-row">
+            <span class="upset-badge upset-pending">出走馬確定後に予測更新</span>
+          </div>
+        </div>` : `
         <div class="prob-meter-wrap">
           <div class="prob-meter-label">
             <span>波乱確率</span>
@@ -520,9 +528,13 @@ function buildCards(data) {
           <div class="prob-badge-row">
             <span class="upset-badge ${levelClass}">波乱度 ${level}</span>
           </div>
-        </div>
+        </div>`}
       </div>
       <div class="pick-body">
+        ${isPending ? `
+        <div style="background:#f5f5f5;border:1px solid #ccc;border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:.88rem;">
+          出走馬登録後、波乱確率を予測します。<br>金曜夜以降に自動更新されます。
+        </div>` : `
         ${!isConfirmed ? `<div style="background:#fff8e1;border:1px solid #f0a500;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#b7770d;margin-bottom:10px;">
           ⚠️ <strong>出走確定前の暫定情報です。</strong>馬番・人気・オッズは金曜夜以降に確定します。馬券購入は必ず確定情報をご確認ください。
         </div>` : ''}
@@ -549,7 +561,7 @@ function buildCards(data) {
           <span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span>
           <span class="buy-cost-note">金曜夜以降に馬番・買い目が確定します</span>
         </div>`
-        }
+        }`}
       </div>
     </div>`;
   });
