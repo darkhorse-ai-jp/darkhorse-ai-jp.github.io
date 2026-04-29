@@ -2,6 +2,73 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { overflow-x: hidden; max-width: 100%; }
 
+/* ===== アフィリエイト・広告関連 ===== */
+.pr-badge {
+  display: inline-block;
+  font-size: .65rem;
+  background: #f0f4f8;
+  color: var(--muted);
+  border: 1px solid #dde;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 4px;
+  letter-spacing: .03em;
+}
+.affiliate-books {
+  background: #fafbfc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 20px 16px;
+  margin-top: 28px;
+}
+.affiliate-books h3 {
+  font-size: .9rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.book-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity .2s;
+}
+.book-card:last-child { border-bottom: none; }
+.book-card:hover { opacity: .8; text-decoration: none; }
+.book-cover {
+  width: 56px;
+  height: 78px;
+  background: #e8eaf6;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border: 1px solid #dde;
+}
+.book-info { flex: 1; min-width: 0; }
+.book-title { font-size: .88rem; font-weight: bold; color: var(--primary); line-height: 1.5; margin-bottom: 4px; }
+.book-author { font-size: .78rem; color: var(--muted); margin-bottom: 4px; }
+.book-desc { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+.book-btn {
+  display: inline-block;
+  margin-top: 6px;
+  background: #ff9900;
+  color: #fff;
+  font-size: .72rem;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
 /* ===== クイックナビカード hover ===== */
 .nav-card-inner:hover { opacity: .88; }
 
