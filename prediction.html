@@ -14,141 +14,181 @@
 
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* ─── レースカード ─── */
     .pick-card {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.09);
-      margin-bottom: 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.08);
+      margin-bottom: 24px;
       overflow: hidden;
-      transition: box-shadow .2s;
+      transition: box-shadow .2s, transform .15s;
     }
-    .pick-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.14); }
+    .pick-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.14); transform: translateY(-2px); }
 
+    /* ─── ヘッダー ─── */
     .pick-header {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #1e4d7a 100%);
       color: #fff;
-      padding: 14px 20px;
+      padding: 16px 20px 12px;
+    }
+    .pick-header-top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
-      flex-wrap: wrap;
     }
     .pick-rank {
       background: var(--accent);
       color: #fff;
-      font-size: .75rem;
+      font-size: .72rem;
       font-weight: bold;
-      width: 28px; height: 28px;
+      width: 30px; height: 30px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+      margin-top: 2px;
     }
-    .pick-race-info { flex: 1; }
-    .pick-race-name { font-size: 1rem; font-weight: bold; line-height: 1.3; }
-    .pick-race-sub  { font-size: .78rem; opacity: .8; margin-top: 2px; }
-    .pick-prob-badge { text-align: center; flex-shrink: 0; }
-    .pick-prob-num  { font-size: 1.6rem; font-weight: bold; color: var(--accent); line-height: 1; }
-    .pick-prob-label{ font-size: .68rem; opacity: .75; margin-top: 2px; }
+    .pick-race-info { flex: 1; min-width: 0; }
+    .pick-race-name {
+      font-size: 1.05rem;
+      font-weight: bold;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pick-race-sub  { font-size: .78rem; opacity: .8; margin-top: 3px; }
 
-    .pick-body { padding: 16px 20px; }
+    /* 波乱確率メーター */
+    .prob-meter-wrap { margin-top: 12px; }
+    .prob-meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .75rem;
+      opacity: .85;
+      margin-bottom: 5px;
+    }
+    .prob-meter-bar {
+      height: 8px;
+      background: rgba(255,255,255,.25);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .prob-meter-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #f9ca24, #f0932b, #eb4d4b);
+      transition: width .6s ease;
+    }
+    .prob-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .upset-badge {
+      font-size: .72rem;
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.5);
+    }
+    .upset-high { background: rgba(231,76,60,.8); }
+    .upset-mid  { background: rgba(230,126,34,.8); }
+    .upset-low  { background: rgba(39,174,96,.8);  }
+    .grade-badge {
+      font-size: .72rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #f1c40f;
+      color: #333;
+    }
 
-    /* 万馬券の仕組み説明ボックス */
-    .mechanism-box {
+    /* 天気・馬場バッジ */
+    .race-meta-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .meta-badge {
+      font-size: .72rem;
+      padding: 2px 9px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .track-good   { background: rgba(46,204,113,.25); }
+    .track-yaya   { background: rgba(241,196,15,.25); }
+    .track-heavy  { background: rgba(230,126,34,.25); }
+    .track-bad    { background: rgba(231,76,60,.25);  }
+
+    /* ─── ボディ ─── */
+    .pick-body { padding: 18px 20px; }
+
+    /* 馬テーブル */
+    .horse-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .83rem;
+      margin-bottom: 14px;
+    }
+    .horse-table thead th {
       background: #f0f4f8;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: bold;
+      padding: 6px 10px;
+      text-align: left;
+      letter-spacing: .04em;
+    }
+    .horse-table tbody tr { border-bottom: 1px solid #f5f5f5; }
+    .horse-table tbody tr:hover { background: #fafafa; }
+    .horse-table tbody td { padding: 9px 10px; vertical-align: middle; }
+
+    .h-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .82rem;
+      font-weight: bold;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .h-num-anchor { background: var(--primary); }
+    .h-num-upset  { background: var(--accent); }
+    .h-name { font-weight: bold; color: var(--text); font-size: .9rem; }
+    .h-jockey { font-size: .75rem; color: var(--muted); margin-top: 1px; }
+    .h-pop-anchor { color: var(--primary); font-weight: bold; }
+    .h-pop-upset  { color: var(--accent); font-weight: bold; }
+    .h-odds { color: var(--text); font-weight: bold; }
+    .upset-key-tag {
+      font-size: .7rem;
+      background: #fff3cd;
+      color: #b7770d;
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin-left: 4px;
+      font-weight: bold;
+    }
+
+    /* 三連複の仕組みフロー */
+    .pattern-box {
+      background: linear-gradient(135deg, #f8f9fc 0%, #fff 100%);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: 8px;
       padding: 12px 16px;
       margin-bottom: 16px;
-      font-size: .83rem;
-      line-height: 1.7;
-      color: #444;
-    }
-    .mechanism-box strong { color: var(--primary); }
-
-    /* 馬リスト */
-    .horse-section-label {
-      font-size: .75rem;
-      font-weight: bold;
-      color: var(--muted);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .horse-section-label .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .horse-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    /* 軸馬（1〜3番人気） */
-    .horse-item-anchor {
-      background: #eef2f8;
-      border-radius: 8px;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-left: 3px solid var(--primary);
-    }
-    .horse-num-anchor {
-      background: var(--primary);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: bold;
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* 穴馬候補（4〜5番人気） */
-    .horse-item-upset {
-      background: #fff8e1;
-      border-radius: 8px;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-left: 3px solid var(--accent);
-    }
-    .horse-num-upset {
-      background: var(--accent);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: bold;
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .horse-info .name { font-size: .88rem; font-weight: bold; color: var(--primary); }
-    .horse-info .meta { font-size: .73rem; color: var(--muted); margin-top: 1px; }
-
-    /* 三連複の仕組みフロー */
-    .sanrenpuku-flow {
-      background: linear-gradient(135deg, #f8f9fc 0%, #fff 100%);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 14px;
       font-size: .82rem;
     }
+    .pattern-box .title { font-size: .73rem; color: var(--muted); font-weight: bold; margin-bottom: 8px; }
     .flow-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
-      margin: 4px 0;
     }
     .flow-tag {
       padding: 3px 10px;
@@ -156,40 +196,37 @@
       font-size: .75rem;
       font-weight: bold;
     }
-    .flow-arrow { color: var(--muted); font-size: .9rem; }
-    .flow-result { font-weight: bold; }
 
-    .pick-conditions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-    .cond-tag {
+    /* 買い目ボックス */
+    .buy-box {
       background: #f0f4f8;
-      color: var(--primary);
-      font-size: .75rem;
-      padding: 3px 10px;
-      border-radius: 12px;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
+    .buy-label { font-size: .75rem; color: var(--muted); white-space: nowrap; }
+    .buy-nums  { font-size: 1rem; font-weight: bold; color: var(--primary); letter-spacing: .05em; }
+    .buy-cost  { margin-left: auto; font-size: .8rem; color: var(--muted); white-space: nowrap; }
 
     /* フィルターバー */
-    .filter-bar {
+    .filter-section { margin-bottom: 20px; }
+    .filter-row {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
       align-items: center;
+      margin-bottom: 8px;
     }
-    .filter-label { font-size: .82rem; color: var(--muted); }
+    .filter-label { font-size: .78rem; color: var(--muted); min-width: 60px; }
     .filter-btn {
       background: #f0f4f8;
       border: 1px solid var(--border);
       color: var(--primary);
-      font-size: .82rem;
-      padding: 5px 14px;
+      font-size: .78rem;
+      padding: 4px 13px;
       border-radius: 16px;
       cursor: pointer;
       transition: all .15s;
@@ -205,12 +242,19 @@
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 20px;
+      padding: 18px 20px;
       margin-bottom: 24px;
-      font-size: .88rem;
+      font-size: .87rem;
       line-height: 1.85;
     }
     .strategy-box h3 { font-size: .95rem; color: var(--primary); margin-bottom: 10px; }
+
+    @media (max-width: 600px) {
+      .horse-table thead { display: none; }
+      .horse-table tbody td { display: block; padding: 4px 10px; }
+      .horse-table tbody td::before { content: attr(data-label); color: var(--muted); font-size: .72rem; margin-right: 6px; }
+      .horse-table tbody tr { border-bottom: 2px solid #f0f4f8; padding: 8px 0; display: block; }
+    }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017"
      crossorigin="anonymous"></script>
@@ -282,12 +326,29 @@
     </div>
 
     <!-- フィルター -->
-    <div class="filter-bar">
-      <span class="filter-label">絞り込み：</span>
-      <button class="filter-btn active" onclick="filterCards('all', this)">すべて</button>
-      <button class="filter-btn" onclick="filterCards('high', this)">波乱確率 高（50%+）</button>
-      <button class="filter-btn" onclick="filterCards('mid', this)">波乱確率 中（40〜49%）</button>
+    <div class="filter-section">
+      <div class="filter-row">
+        <span class="filter-label">競馬場：</span>
+        <button class="filter-btn active" onclick="setFilter('venue','all',this)">すべて</button>
+        <span id="venue-btns"></span>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">馬場：</span>
+        <button class="filter-btn active" onclick="setFilter('surface','all',this)">すべて</button>
+        <button class="filter-btn" onclick="setFilter('surface','芝',this)">芝</button>
+        <button class="filter-btn" onclick="setFilter('surface','ダート',this)">ダート</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">波乱度：</span>
+        <button class="filter-btn active" onclick="setFilter('level','all',this)">すべて</button>
+        <button class="filter-btn" onclick="setFilter('level','高',this)">高（60%+）</button>
+        <button class="filter-btn" onclick="setFilter('level','中',this)">中（45〜59%）</button>
+        <button class="filter-btn" onclick="setFilter('level','低',this)">低（〜44%）</button>
+      </div>
     </div>
+
+    <!-- 件数表示 -->
+    <p id="js-count" style="font-size:.82rem;color:var(--muted);margin-bottom:12px;"></p>
 
     <!-- レースカード一覧 -->
     <div id="js-picks">
@@ -318,6 +379,8 @@ const VENUE_MAP = {
   '01':'札幌','02':'函館','03':'福島','04':'新潟','05':'東京',
   '06':'中山','07':'中京','08':'京都','09':'阪神','10':'小倉'
 };
+const WEATHER_ICON = {'晴':'☀️','曇':'☁️','雨':'🌧️','小雨':'🌦️','雪':'❄️'};
+const TRACK_CLASS  = {'良':'track-good','稍重':'track-yaya','重':'track-heavy','不良':'track-bad'};
 
 function toggleMenu() {
   const nav = document.getElementById('mobile-nav');
@@ -326,141 +389,171 @@ function toggleMenu() {
   btn.setAttribute('aria-expanded', nav.classList.contains('open'));
 }
 
-function filterCards(type, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+// フィルター状態
+const filters = { venue: 'all', surface: 'all', level: 'all' };
+
+function setFilter(key, val, btn) {
+  filters[key] = val;
+  // 同じ行のボタンだけactiveを切り替え
+  btn.closest('.filter-row').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  let visible = 0;
   document.querySelectorAll('.pick-card').forEach(card => {
-    const prob = parseFloat(card.dataset.prob);
-    if (type === 'all') card.style.display = '';
-    else if (type === 'high') card.style.display = prob >= 50 ? '' : 'none';
-    else if (type === 'mid')  card.style.display = (prob >= 40 && prob < 50) ? '' : 'none';
+    const v = filters.venue   === 'all' || card.dataset.venue   === filters.venue;
+    const s = filters.surface === 'all' || card.dataset.surface === filters.surface;
+    const l = filters.level   === 'all' || card.dataset.level   === filters.level;
+    const show = v && s && l;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
   });
+  document.getElementById('js-count').textContent = `${visible} 件表示中`;
+}
+
+let allData = [];
+
+function buildVenueButtons(data) {
+  const venues = [...new Set(data.map(r => VENUE_MAP[r.venue] || r.venue))];
+  const container = document.getElementById('venue-btns');
+  container.innerHTML = venues.map(v =>
+    `<button class="filter-btn" onclick="setFilter('venue','${v}',this)">${v}</button>`
+  ).join('');
+}
+
+function buildCards(data) {
+  let html = '';
+  data.forEach((r, i) => {
+    const prob   = r.prob;
+    const venue  = VENUE_MAP[r.venue] || r.venue;
+    const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
+    const dist   = r.distance   ? `${r.distance}m`      : '';
+    const heads  = r.head_count ? `${r.head_count}頭`   : '';
+    const level  = r.upset_level || (prob >= 60 ? '高' : prob >= 45 ? '中' : '低');
+    const levelClass = level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low';
+    const wIcon  = WEATHER_ICON[r.weather] || '';
+    const tClass = TRACK_CLASS[r.track_cond] || '';
+    const gradeBadge = r.grade ? `<span class="grade-badge">${r.grade}</span>` : '';
+    const weatherBadge = r.weather  ? `<span class="meta-badge">${wIcon} ${r.weather}</span>` : '';
+    const trackBadge  = r.track_cond ? `<span class="meta-badge ${tClass}">馬場 ${r.track_cond}</span>` : '';
+
+    // 馬テーブル行
+    const upsetHorses  = (r.horses || []).filter(h => h.popularity >= 4);
+    const anchorHorses = (r.horses || []).filter(h => h.popularity <= 3);
+    let rows = '';
+    (r.horses || []).forEach(h => {
+      const isUpset = h.popularity >= 4;
+      const numCls  = isUpset ? 'h-num-upset' : 'h-num-anchor';
+      const popCls  = isUpset ? 'h-pop-upset'  : 'h-pop-anchor';
+      const keyTag  = isUpset ? '<span class="upset-key-tag">穴</span>' : '';
+      rows += `
+        <tr>
+          <td data-label="馬番"><div style="display:flex;align-items:center;gap:8px;">
+            <div class="h-num ${numCls}">${h.num}</div>
+          </div></td>
+          <td data-label="馬名">
+            <div class="h-name">${h.name}${keyTag}</div>
+            <div class="h-jockey">${h.jockey || ''}</div>
+          </td>
+          <td data-label="人気" class="${popCls}">${h.popularity}番人気</td>
+          <td data-label="単勝オッズ" class="h-odds">${h.odds ? h.odds + '倍' : '—'}</td>
+        </tr>`;
+    });
+
+    // 万馬券パターン例
+    let patternHtml = '';
+    if (upsetHorses.length > 0 && anchorHorses.length >= 2) {
+      const up1 = upsetHorses[0];
+      const an1 = anchorHorses[0];
+      const an2 = anchorHorses[1];
+      patternHtml = `
+        <div class="pattern-box">
+          <div class="title">💡 万馬券になるパターン例</div>
+          <div class="flow-row">
+            <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
+            <span style="color:var(--muted);">＋</span>
+            <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
+            <span style="color:var(--muted);">＋</span>
+            <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴 ${up1.odds || '—'}倍）</span>
+            <span style="color:var(--muted);">→</span>
+            <strong style="color:var(--miss);">三連複 万馬券 💥</strong>
+          </div>
+        </div>`;
+    }
+
+    html += `
+    <div class="pick-card" data-prob="${prob}" data-venue="${venue}" data-surface="${r.surface}" data-level="${level}">
+      <div class="pick-header">
+        <div class="pick-header-top">
+          <div class="pick-rank">${i + 1}</div>
+          <div class="pick-race-info">
+            <div class="pick-race-name">${gradeBadge} ${venue} ${r.race_number}R｜${raceName}</div>
+            <div class="pick-race-sub">${r.race_date}　${r.surface} ${dist}　${heads}立て</div>
+          </div>
+        </div>
+        <div class="race-meta-badges">
+          ${weatherBadge}${trackBadge}
+          <span class="meta-badge">📅 ${r.race_date}</span>
+        </div>
+        <div class="prob-meter-wrap">
+          <div class="prob-meter-label">
+            <span>波乱確率</span>
+            <span><strong>${prob}%</strong></span>
+          </div>
+          <div class="prob-meter-bar">
+            <div class="prob-meter-fill" style="width:${Math.min(prob,100)}%"></div>
+          </div>
+          <div class="prob-badge-row">
+            <span class="upset-badge ${levelClass}">波乱度 ${level}</span>
+          </div>
+        </div>
+      </div>
+      <div class="pick-body">
+        ${patternHtml}
+        <table class="horse-table">
+          <thead>
+            <tr>
+              <th>馬番</th>
+              <th>馬名 / 騎手</th>
+              <th>人気</th>
+              <th>単勝</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="buy-box">
+          <span class="buy-label">三連複ボックス買い目</span>
+          <span class="buy-nums">${r.buy_str}</span>
+          <span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span>
+        </div>
+      </div>
+    </div>`;
+  });
+  return html;
 }
 
 fetch('data/prediction_latest.json')
-  .then(r => r.json())
+  .then(res => res.json())
   .then(data => {
     if (!data || !data.length) throw new Error('no data');
+    allData = data;
 
     const dateEl = document.getElementById('js-update-date');
     if (data[0].race_date) {
       dateEl.textContent = '対象期間: ' + data[0].race_date + ' 前後のレース（毎週金曜更新）';
     }
 
-    let html = '';
-    data.forEach((r, i) => {
-      const prob = Math.round(r.prob);
-      const venue = VENUE_MAP[r.venue] || r.venue;
-      const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
-      const distLabel  = r.distance   ? `${r.distance}m`   : '';
-      const headLabel  = r.head_count ? `${r.head_count}頭立て` : '';
-      const probColor  = prob >= 70 ? '#e74c3c' : prob >= 50 ? '#e8a020' : '#27ae60';
-
-      // 馬リスト：軸馬（1〜3番人気）と穴馬候補（4〜5番人気）に分けて表示
-      let anchorHtml = '';
-      let upsetHtml  = '';
-
-      if (r.horses && r.horses.length) {
-        r.horses.forEach(h => {
-          const oddsStr = h.odds ? `単勝 ${h.odds}倍` : '';
-          const isUpset = h.popularity >= 4;
-          if (isUpset) {
-            upsetHtml += `
-              <div class="horse-item-upset">
-                <div class="horse-num-upset">${h.num}</div>
-                <div class="horse-info">
-                  <div class="name">${h.name}</div>
-                  <div class="meta">${h.popularity}番人気　${oddsStr}</div>
-                </div>
-              </div>`;
-          } else {
-            anchorHtml += `
-              <div class="horse-item-anchor">
-                <div class="horse-num-anchor">${h.num}</div>
-                <div class="horse-info">
-                  <div class="name">${h.name}</div>
-                  <div class="meta">${h.popularity}番人気　${oddsStr}</div>
-                </div>
-              </div>`;
-          }
-        });
-      }
-
-      // 万馬券成立パターンの例示
-      const upsetHorses = (r.horses || []).filter(h => h.popularity >= 4);
-      const anchorHorses = (r.horses || []).filter(h => h.popularity <= 3);
-      let patternHtml = '';
-      if (upsetHorses.length > 0 && anchorHorses.length > 0) {
-        const up1 = upsetHorses[0];
-        const an1 = anchorHorses[0];
-        const an2 = anchorHorses[1] || anchorHorses[0];
-        patternHtml = `
-          <div class="sanrenpuku-flow">
-            <div style="font-size:.75rem;color:var(--muted);font-weight:bold;margin-bottom:6px;">💡 万馬券になるパターン例</div>
-            <div class="flow-row">
-              <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
-              <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
-              <span style="color:var(--muted);font-size:.85rem;">＋</span>
-              <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴）</span>
-              <span class="flow-arrow">→</span>
-              <span class="flow-result" style="color:var(--miss);">万馬券 💥</span>
-            </div>
-            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">
-              ※ ${up1.popularity}番人気（単勝${up1.odds || '—'}倍）が3着以内に入ると高配当になりやすい
-            </div>
-          </div>`;
-      }
-
-      html += `
-      <div class="pick-card" data-prob="${r.prob}">
-        <div class="pick-header">
-          <div class="pick-rank">${i + 1}</div>
-          <div class="pick-race-info">
-            <div class="pick-race-name">${venue} ${r.race_number}R｜${raceName}</div>
-            <div class="pick-race-sub">${r.race_date}（${r.surface} ${distLabel} ${headLabel}）</div>
-          </div>
-          <div class="pick-prob-badge">
-            <div class="pick-prob-num" style="color:${probColor}">${prob}%</div>
-            <div class="pick-prob-label">波乱確率</div>
-          </div>
-        </div>
-        <div class="pick-body">
-
-          ${patternHtml}
-
-          <!-- 軸馬 -->
-          <div class="horse-section-label">
-            <span class="dot" style="background:var(--primary);"></span>
-            軸馬（1〜3番人気）— 3着以内に来やすい本命馬
-          </div>
-          <div class="horse-list">${anchorHtml || '<p style="color:#999;font-size:.82rem;">データなし</p>'}</div>
-
-          <!-- 穴馬候補 -->
-          <div class="horse-section-label" style="margin-top:4px;">
-            <span class="dot" style="background:var(--accent);"></span>
-            穴馬候補（4〜5番人気）— <strong style="color:var(--accent);">これが絡むと万馬券</strong>
-          </div>
-          <div class="horse-list">${upsetHtml || '<p style="color:#999;font-size:.82rem;">データなし</p>'}</div>
-
-          <!-- レース条件タグ -->
-          <div class="pick-conditions">
-            <span class="cond-tag">${headLabel}</span>
-            <span class="cond-tag">${r.surface} ${distLabel}</span>
-            <span class="cond-tag">波乱確率 ${prob}%</span>
-            <span class="cond-tag">5頭ボックス 10点・1,000円</span>
-          </div>
-
-        </div>
-      </div>`;
-    });
-
-    document.getElementById('js-picks').innerHTML = html;
+    buildVenueButtons(data);
+    document.getElementById('js-picks').innerHTML = buildCards(data);
+    document.getElementById('js-count').textContent = `${data.length} 件表示中`;
   })
   .catch(() => {
     document.getElementById('js-picks').innerHTML =
       '<div style="text-align:center;padding:60px;color:#999;">' +
-      '<div style="font-size:2rem;margin-bottom:12px;">🏇</div>' +
-      '<p style="font-size:1rem;margin-bottom:8px;">予測データは毎週金曜日に更新されます</p>' +
+      '<div style="font-size:2.5rem;margin-bottom:12px;">🏇</div>' +
+      '<p>予測データは毎週金曜日に更新されます</p>' +
       '</div>';
   });
 </script>
