@@ -8,9 +8,8 @@ DarkHorse AI コラム自動生成スクリプト
   python3 scripts/generate_column.py --dry-run # 生成せずトピック一覧を表示
 
 事前準備:
-  1. cp .env.example .env
-  2. .env に ANTHROPIC_API_KEY を設定
-  3. config.json の amazon_associate_id を設定
+  1. cp config.example.json config.json
+  2. config.json の anthropic_api_key と amazon_associate_id を設定
 """
 
 import argparse
@@ -25,7 +24,6 @@ from pathlib import Path
 SITE_DIR = Path(__file__).parent.parent
 CONFIG_FILE = SITE_DIR / "config.json"
 TOPICS_FILE = Path(__file__).parent / "column_topics.json"
-ENV_FILE = SITE_DIR / ".env"
 
 CATEGORY_COLORS = {
     "データ分析": {"bg": "#fde8e8", "color": "var(--miss)"},
@@ -36,19 +34,11 @@ CATEGORY_COLORS = {
 MONTHS_JA = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
 
 
-def load_env():
-    """Load .env file into os.environ."""
-    if not ENV_FILE.exists():
-        return
-    for line in ENV_FILE.read_text().splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, _, val = line.partition("=")
-        os.environ.setdefault(key.strip(), val.strip())
-
-
 def load_config() -> dict:
+    if not CONFIG_FILE.exists():
+        print("[エラー] config.json が見つかりません。")
+        print("  cp config.example.json config.json  を実行して設定してください。")
+        sys.exit(1)
     with open(CONFIG_FILE) as f:
         return json.load(f)
 
@@ -390,7 +380,6 @@ def main():
     parser.add_argument("--apply-id", action="store_true", help="全HTMLのアフィリエイトIDを更新するだけ")
     args = parser.parse_args()
 
-    load_env()
     config = load_config()
     topics_data = load_topics()
 
@@ -410,11 +399,10 @@ def main():
         return
 
     # Claude API チェック
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("[エラー] ANTHROPIC_API_KEY が設定されていません。")
-        print("  .env ファイルを作成して ANTHROPIC_API_KEY を設定してください。")
-        print("  参考: .env.example")
+    api_key = config.get("anthropic_api_key", "")
+    if not api_key or api_key.startswith("sk-ant-ここに"):
+        print("[エラー] config.json の anthropic_api_key が設定されていません。")
+        print("  config.json を開いて anthropic_api_key に実際のキーを入力してください。")
         sys.exit(1)
 
     import anthropic
