@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秋のG1ラッシュを攻略：天皇賞・秋から菊花賞まで波乱データを読む | DarkHorse AI コラム</title>
+  <meta name="description" content="10月は菊花賞・秋華賞・天皇賞・秋が集中する最大のG1ラッシュ月です。各レースの波乱傾向とAIが注目する特徴量を比較します。">
+  <meta property="og:title" content="秋のG1ラッシュを攻略：天皇賞・秋から菊花賞まで波乱データを読む | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .point-box strong { display: block; margin-bottom: 6px; }
+    .data-highlight { background: var(--primary); color: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: .9rem; font-weight: bold; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">トップ</a>
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; データ分析</p>
+      <div style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">データ分析</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">秋のG1ラッシュを攻略：天皇賞・秋から菊花賞まで波乱データを読む</h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年10月 | DarkHorse AI編集部</p>
+      <p>
+        10月は年間で最もG1レースが集中する「G1の季節」の幕開けです。菊花賞（阪神芝3000m）・秋華賞（京都芝2000m）・天皇賞・秋（東京芝2000m）と、距離もコースも異なるG1が続きます。それぞれの特性を理解することが、馬券戦略の第一歩です。
+      </p>
+
+      <h2>菊花賞3000m：距離の壁が最大の波乱要因</h2>
+      <p>
+        菊花賞の最大の特徴は「3000mという日本の平地競走では最長クラスの距離」です。多くの出走馬にとって初めての3000m挑戦であり、距離適性という未知の要素が結果を大きく左右します。
+      </p>
+      <p>
+        過去10年の菊花賞で、前走（神戸新聞杯か前哨戦）との着順比較では「前走5着以下から巻き返した馬の好走率」が高く、前走結果だけでは評価できないレースです。三連複平均配当は<span class="data-highlight">約5,800円</span>で、G1の中では中程度の荒れ具合です。
+      </p>
+
+      <h2>天皇賞・秋：東京2000mの堅さと例外</h2>
+      <p>
+        天皇賞・秋は東京の外回り2000mで行われ、「直線が長くスピードと末脚が問われる」ため能力がそのまま結果に出やすいとされます。1番人気の複勝率は約<span class="data-highlight">72%</span>と比較的高く、堅いレースの代表格です。
+      </p>
+      <p>
+        ただし例外があります。それが「欧州遠征帰りの有力馬」と「前走凡走の有力馬」のどちらかが1番人気になるケースです。データでは遠征明けの過剰支持（実力に対してオッズが低すぎる）が波乱につながるパターンが確認されています。
+      </p>
+
+      <h2>秋華賞：牝馬3冠の傾向</h2>
+      <p>
+        秋華賞は牝馬クラシック三冠の最終戦で、オークスを優先した馬と夏に別路線を歩んだ馬が交わる一戦です。阪神・京都の内回り2000mという条件は機動力と器用さを問い、直線の長い東京で実績を残した馬が苦戦することがあります。
+      </p>
+      <p>
+        DarkHorse AIでは秋華賞において「前走コース（外回り vs 内回り）の適性差」を特徴量として重視しており、東京・阪神外回り専門の馬が内回りコースで過剰支持になるパターンを検出しています。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ：10月G1の波乱データ比較</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>菊花賞：距離適性未知の馬が多く前走着順と乖離しやすい</li>
+          <li>天皇賞・秋：堅いが遠征帰り・前走凡走の1番人気に注意</li>
+          <li>秋華賞：外回り実績馬の内回りへの適性差が波乱を生む</li>
+          <li>G1が集中する10月こそデータ分析の価値が高まる</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事はDarkHorse AIのデータ分析に基づく参考情報です。馬券の購入は自己責任でお願いします。
+        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      </p>
+
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4814400535?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📊</div>
+        <div class="book-info">
+          <div class="book-title">Pythonによるデータ分析入門 第3版</div>
+          <div class="book-author">Wes McKinney 著</div>
+          <div class="book-desc">pandas・NumPyを使ったデータ処理の定番書。競馬データ分析の基礎固めに。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4621307738?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📈</div>
+        <div class="book-info">
+          <div class="book-title">統計学が最強の学問である</div>
+          <div class="book-author">西内 啓 著</div>
+          <div class="book-desc">データ分析の統計思考をやさしく解説。オッズと確率の関係を直感的に理解できます。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div class="share-buttons">
+        <span class="share-label">この記事をシェア：</span>
+        <a class="share-btn share-btn-x" href="https://x.com/intent/tweet?text=秋のG1ラッシュを攻略：天皇賞・秋から菊花賞まで波乱データを読む%20%7C%20DarkHorse%20AI&url=https://msalpha0123-source.github.io/darkhorse-site/column-13.html" target="_blank" rel="noopener">𝕏 でシェア</a>
+        <a class="share-btn share-btn-line" href="https://social-plugins.line.me/lineit/share?url=https://msalpha0123-source.github.io/darkhorse-site/column-13.html" target="_blank" rel="noopener">LINE でシェア</a>
+        <button class="share-btn share-btn-copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='コピーしました！';setTimeout(()=>{this.textContent='URLをコピー'},2000)})">URLをコピー</button>
+      </div>
+
+      <div class="related-articles">
+        <div class="rel-title">関連記事</div>
+        <ul>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-31.html">春G1シーズン2026開幕：2年間の実践から学んだ馬券戦略の最終形</a></li>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-29.html">フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告</a></li>
+          <li><span class="rel-tag">AI解説</span><a href="column-28.html">2026年の競馬AI予測：最新AI技術と競馬データ分析の融合可能性</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
+<script>
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有馬記念の傾向分析：年末の大一番はデータでも荒れるのか | DarkHorse AI コラム</title>
+  <meta name="description" content="年末最大のG1・有馬記念（中山芝2500m）の過去データを徹底分析。有馬記念独自の波乱パターンと、AIが特に注目する特徴量を解説します。">
+  <meta property="og:title" content="有馬記念の傾向分析：年末の大一番はデータでも荒れるのか | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .point-box strong { display: block; margin-bottom: 6px; }
+    .data-highlight { background: var(--primary); color: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: .9rem; font-weight: bold; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">トップ</a>
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; データ分析</p>
+      <div style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">データ分析</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">有馬記念の傾向分析：年末の大一番はデータでも荒れるのか</h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2024年12月 | DarkHorse AI編集部</p>
+      <p>
+        12月最終日曜日の有馬記念は、競馬ファンの投票で出走馬を選ぶグランプリ競走です。中山の内回り2500mという特殊なコースで行われ、「ファン投票で選ばれた実績馬が集まる」という性質から、「実は意外と荒れにくい」と思われがちです。しかしデータは少し違う事実を示しています。
+      </p>
+
+      <h2>有馬記念の配当データ：意外な荒れ具合</h2>
+      <p>
+        過去10年の有馬記念の三連複平均配当は<span class="data-highlight">約6,800円</span>で、天皇賞・秋（約4,000円）やジャパンカップ（約3,500円）より明らかに高い数字です。「グランプリは堅い」というイメージとは裏腹に、データは相当の荒れ具合を示しています。
+      </p>
+      <p>
+        理由は中山2500mという特殊コース設定にあります。「外回りから内回りへ切り替わる2コーナーでのポジション争い」「急坂2回通過」「2500mというスタミナ消耗戦」という特性が、東京・阪神等での実績とは異なる適性を要求します。
+      </p>
+
+      <h2>有馬記念で穴になりやすいパターン</h2>
+      <p>
+        有馬記念で過去に波乱を演出した馬に共通するのが「中山コースへの適性」と「中長距離の底力」です。春の天皇賞（京都3200m）を好走した長距離型の馬が、有馬記念でも好走するケースが多く見られます。
+      </p>
+      <p>
+        また「前走が凡走だが距離延長で巻き返す馬」も注目です。マイルCSや天皇賞・秋（2000m）で掲示板外に終わった馬が、有馬記念（2500m）で好走するパターンは統計的に無視できない頻度で発生します。
+      </p>
+
+      <h2>12月の競馬全体：年末の振り返りとデータ更新</h2>
+      <p>
+        有馬記念が終わると1年の競馬データが確定します。DarkHorse AIではこの時期に年間データを使ったモデルの再学習・パラメータ更新を行い、翌年に向けて精度改善を図ります。
+      </p>
+      <p>
+        特に注目するのが「1年間の波乱確率の的中精度（AUC）の推移」です。春・夏・秋・冬でモデルの精度に季節変動があるかを確認し、季節ごとのキャリブレーション改善につなげます。2024年のデータ蓄積で、モデルの信頼性がさらに高まることが期待されます。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ：有馬記念と年末競馬のデータ</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>有馬記念三連複平均配当は約6,800円（意外と荒れる）</li>
+          <li>中山2500mの特殊適性が他G1との実力差を覆す</li>
+          <li>長距離型・距離延長組の巻き返しパターンに注目</li>
+          <li>12月はモデル更新・年間データ総括の重要な時期</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事はDarkHorse AIのデータ分析に基づく参考情報です。馬券の購入は自己責任でお願いします。
+        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      </p>
+
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4814400535?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📊</div>
+        <div class="book-info">
+          <div class="book-title">Pythonによるデータ分析入門 第3版</div>
+          <div class="book-author">Wes McKinney 著</div>
+          <div class="book-desc">pandas・NumPyを使ったデータ処理の定番書。競馬データ分析の基礎固めに。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4621307738?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📈</div>
+        <div class="book-info">
+          <div class="book-title">統計学が最強の学問である</div>
+          <div class="book-author">西内 啓 著</div>
+          <div class="book-desc">データ分析の統計思考をやさしく解説。オッズと確率の関係を直感的に理解できます。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div class="share-buttons">
+        <span class="share-label">この記事をシェア：</span>
+        <a class="share-btn share-btn-x" href="https://x.com/intent/tweet?text=有馬記念の傾向分析：年末の大一番はデータでも荒れるのか%20%7C%20DarkHorse%20AI&url=https://msalpha0123-source.github.io/darkhorse-site/column-15.html" target="_blank" rel="noopener">𝕏 でシェア</a>
+        <a class="share-btn share-btn-line" href="https://social-plugins.line.me/lineit/share?url=https://msalpha0123-source.github.io/darkhorse-site/column-15.html" target="_blank" rel="noopener">LINE でシェア</a>
+        <button class="share-btn share-btn-copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='コピーしました！';setTimeout(()=>{this.textContent='URLをコピー'},2000)})">URLをコピー</button>
+      </div>
+
+      <div class="related-articles">
+        <div class="rel-title">関連記事</div>
+        <ul>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-31.html">春G1シーズン2026開幕：2年間の実践から学んだ馬券戦略の最終形</a></li>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-29.html">フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告</a></li>
+          <li><span class="rel-tag">AI解説</span><a href="column-28.html">2026年の競馬AI予測：最新AI技術と競馬データ分析の融合可能性</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
+<script>
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
+</body>
+</html>

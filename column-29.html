@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告 | DarkHorse AI コラム</title>
+  <meta name="description" content="2026年のフェブラリーステークス（G1・東京ダート1600m）に向けたデータ分析と、ダート路線の最新トレンドを解説。AIスコアの信頼性向上についても報告します。">
+  <meta property="og:title" content="フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .point-box strong { display: block; margin-bottom: 6px; }
+    .data-highlight { background: var(--primary); color: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: .9rem; font-weight: bold; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">トップ</a>
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; 馬券戦略</p>
+      <div style="display:inline-block;background:#e8f5e9;color:var(--hit);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">馬券戦略</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告</h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2026年2月 | DarkHorse AI編集部</p>
+      <p>
+        2026年最初のG1、フェブラリーステークスが近づいています。2025年のダート路線を振り返りながら、2026年のダート最強馬決定戦に向けた分析をお届けします。また昨年から継続して改善してきたAIモデルのダート予測精度の最新状況も報告します。
+      </p>
+
+      <h2>ダート路線2025〜2026年のトレンド変化</h2>
+      <p>
+        2025〜2026年のダート路線で最も大きな変化は「地方競馬からの参戦馬の活躍増加」です。NAR（地方競馬全国協会）との交流競走が活発化し、川崎・大井・浦和などの地方馬がJRAの重賞・G1で好走するケースが増えています。
+      </p>
+      <p>
+        これはAI予測にとって新たな課題です。地方競馬でのパフォーマンスをJRAのデータと統合して評価する仕組みが必要で、2026年モデルでは「交流競走出走実績」を新たな特徴量として追加しています。
+      </p>
+
+      <h2>フェブラリーS2026の注目条件</h2>
+      <p>
+        フェブラリーSは東京ダート1600mで行われますが、2026年は例年より積雪・凍結の影響を受けた馬場状態になる可能性があります。ダートの含水率が高い状態（不良に近い稍重）では、通常とは異なる馬場適性が問われます。
+      </p>
+      <p>
+        過去データでは「前走が不良ダートでの好走馬」が東京の特殊な稍重で再度好走するパターンが見られます。DarkHorse AIのダートモデルでは「前走馬場状態×今回馬場状態の組み合わせ」を特徴量に加えており、この条件検出に対応しています。
+      </p>
+
+      <h2>AIスコアのダート精度：2026年版の改善報告</h2>
+      <p>
+        2025年のダートデータを追加した2026年版モデルでは、ダートレースのAUCが<span class="data-highlight">0.761</span>（前年比+0.012）に改善しました。特に地方交流馬の評価精度と「道悪ダートでの予測」が向上しています。
+      </p>
+      <p>
+        ただし芝のAUC（0.781）には届いておらず、ダート予測はまだ改善余地があります。2026年は地方競馬データの積極的な取り込みを進め、ダート全体の予測精度を芝と同水準に引き上げることを目標にしています。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ：フェブラリーS2026と最新ダート予測</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>地方馬の活躍増加が2026年ダート予測の新課題</li>
+          <li>道悪ダートは前走馬場状態との組み合わせ特徴量が有効</li>
+          <li>2026年版ダートAUCは0.761（前年比+0.012改善）</li>
+          <li>地方競馬データ統合でダート精度を芝レベルへ引き上げる目標</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事はDarkHorse AIのデータ分析に基づく参考情報です。馬券の購入は自己責任でお願いします。
+        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      </p>
+
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4478025819?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">🎲</div>
+        <div class="book-info">
+          <div class="book-title">ギャンブルで勝つ唯一の方法 数学的思考</div>
+          <div class="book-author">エドワード・O・ソープ 著</div>
+          <div class="book-desc">ケリー基準・期待値戦略の原点。長期的に優位性を保つ賭け方の理論的根拠を学べます。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4621307738?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📈</div>
+        <div class="book-info">
+          <div class="book-title">統計学が最強の学問である</div>
+          <div class="book-author">西内 啓 著</div>
+          <div class="book-desc">データ分析の統計思考をやさしく解説。オッズと確率の関係を直感的に理解できます。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div class="share-buttons">
+        <span class="share-label">この記事をシェア：</span>
+        <a class="share-btn share-btn-x" href="https://x.com/intent/tweet?text=フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告%20%7C%20DarkHorse%20AI&url=https://msalpha0123-source.github.io/darkhorse-site/column-29.html" target="_blank" rel="noopener">𝕏 でシェア</a>
+        <a class="share-btn share-btn-line" href="https://social-plugins.line.me/lineit/share?url=https://msalpha0123-source.github.io/darkhorse-site/column-29.html" target="_blank" rel="noopener">LINE でシェア</a>
+        <button class="share-btn share-btn-copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='コピーしました！';setTimeout(()=>{this.textContent='URLをコピー'},2000)})">URLをコピー</button>
+      </div>
+
+      <div class="related-articles">
+        <div class="rel-title">関連記事</div>
+        <ul>
+          <li><span class="rel-tag">データ分析</span><a href="column-30.html">高松宮記念2026：3年分のスプリント分析から見えてきたパターン</a></li>
+          <li><span class="rel-tag">AI解説</span><a href="column-28.html">2026年の競馬AI予測：最新AI技術と競馬データ分析の融合可能性</a></li>
+          <li><span class="rel-tag">データ分析</span><a href="column-27.html">有馬記念2025と2025年競馬AI予測の総括：1年間の成果と課題</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
+<script>
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
+</body>
+</html>

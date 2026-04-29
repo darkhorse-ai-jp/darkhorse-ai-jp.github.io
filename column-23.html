@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新馬戦・未勝利戦はなぜ荒れやすいのか：デビュー戦の波乱メカニズム | DarkHorse AI コラム</title>
+  <meta name="description" content="競馬で最も荒れやすいと言われる新馬戦・未勝利戦（1勝クラス）の波乱メカニズムをデータで解説。夏の新馬シーズンに活用できる分析視点を紹介します。">
+  <meta property="og:title" content="新馬戦・未勝利戦はなぜ荒れやすいのか：デビュー戦の波乱メカニズム | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .point-box strong { display: block; margin-bottom: 6px; }
+    .data-highlight { background: var(--primary); color: #fff; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: .9rem; font-weight: bold; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">トップ</a>
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="column.html">コラム</a> &gt; データ分析</p>
+      <div style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.8rem;padding:2px 10px;border-radius:10px;margin-bottom:12px;">データ分析</div>
+      <h1 style="font-size:1.6rem;color:var(--primary);margin-bottom:8px;line-height:1.4;">新馬戦・未勝利戦はなぜ荒れやすいのか：デビュー戦の波乱メカニズム</h1>
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:24px;">2025年8月 | DarkHorse AI編集部</p>
+      <p>
+        競馬の中で最も予測が難しいとされるのが新馬戦です。データが少ない・能力が未知数・騎手のエスコートも初めてと、あらゆる要素が不確実な状況です。夏は新馬戦が最も多く行われる季節であり、この波乱の仕組みを理解しておくことは万馬券狙いの基礎知識です。
+      </p>
+
+      <h2>新馬戦のデータ問題：過去0戦の馬をどう評価するか</h2>
+      <p>
+        新馬戦の最大の問題は「過去レースデータがない」ことです。AIが学習に使う特徴量（前走着順・上がりタイム・騎手勝率など）の多くが使えません。そのため新馬戦の波乱確率スコアは「レース条件（頭数・馬場）」と「騎手・調教師の実績」に大きく依存することになります。
+      </p>
+      <p>
+        過去データを見ると、新馬戦の三連複万馬券発生率は<span class="data-highlight">約26%</span>と全レース平均（約16%）の約1.6倍です。「知識の空白」が生む波乱という意味で、新馬戦は最も純粋な形の波乱集積地です。
+      </p>
+
+      <h2>未勝利戦の傾向：2走目以降で激変する評価</h2>
+      <p>
+        未勝利戦（勝ち上がりまで1〜2勝のレース）も波乱が多いカテゴリです。デビューから数戦で急成長する馬がいる一方、人気先行で実力が伴わない馬も混在します。
+      </p>
+      <p>
+        特に注目したいのが「前走で大きく負けた馬の巻き返し」です。未勝利戦では前走着順が悪くても、「スタートで出遅れた」「不利を受けた」といった理由での凡走馬が人気を落としてオッズが上がります。DarkHorse AIでは「前走出遅れフラグ」「前走不利フラグ」を特徴量に組み込み、こうしたケースを検出します。
+      </p>
+
+      <h2>夏の新馬シーズンをどう活用するか</h2>
+      <p>
+        夏の新馬シーズン（7〜9月）は年間の新馬戦の約半数が集中します。この時期の新馬戦は北海道（函館・札幌）と小倉での開催が多く、「洋芝適性」「直線の短いコース適性」という要素が特に重要です。
+      </p>
+      <p>
+        AIではこれらのコース特性フラグを新馬戦にも適用していますが、過去データが少ない分、騎手の新馬勝率（デビュー戦での勝率）が予測の補助情報として重要な役割を果たします。
+      </p>
+
+      <div class="point-box">
+        <strong>まとめ：新馬戦・未勝利戦の波乱ポイント</strong>
+        <ul style="margin:8px 0 0 0;">
+          <li>新馬戦の万馬券発生率は全レース平均の約1.6倍</li>
+          <li>過去データがない分、騎手・調教師実績への依存度が高い</li>
+          <li>前走出遅れ・不利のフラグが穴馬検出に有効</li>
+          <li>夏の北海道新馬は洋芝適性フラグが重要な特徴量</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--border);">
+        ※本記事はDarkHorse AIのデータ分析に基づく参考情報です。馬券の購入は自己責任でお願いします。
+        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      </p>
+
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4814400535?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📊</div>
+        <div class="book-info">
+          <div class="book-title">Pythonによるデータ分析入門 第3版</div>
+          <div class="book-author">Wes McKinney 著</div>
+          <div class="book-desc">pandas・NumPyを使ったデータ処理の定番書。競馬データ分析の基礎固めに。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4621307738?tag=ここにアソシエイトIDを入力-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📈</div>
+        <div class="book-info">
+          <div class="book-title">統計学が最強の学問である</div>
+          <div class="book-author">西内 啓 著</div>
+          <div class="book-desc">データ分析の統計思考をやさしく解説。オッズと確率の関係を直感的に理解できます。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div class="share-buttons">
+        <span class="share-label">この記事をシェア：</span>
+        <a class="share-btn share-btn-x" href="https://x.com/intent/tweet?text=新馬戦・未勝利戦はなぜ荒れやすいのか：デビュー戦の波乱メカニズム%20%7C%20DarkHorse%20AI&url=https://msalpha0123-source.github.io/darkhorse-site/column-23.html" target="_blank" rel="noopener">𝕏 でシェア</a>
+        <a class="share-btn share-btn-line" href="https://social-plugins.line.me/lineit/share?url=https://msalpha0123-source.github.io/darkhorse-site/column-23.html" target="_blank" rel="noopener">LINE でシェア</a>
+        <button class="share-btn share-btn-copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='コピーしました！';setTimeout(()=>{this.textContent='URLをコピー'},2000)})">URLをコピー</button>
+      </div>
+
+      <div class="related-articles">
+        <div class="rel-title">関連記事</div>
+        <ul>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-31.html">春G1シーズン2026開幕：2年間の実践から学んだ馬券戦略の最終形</a></li>
+          <li><span class="rel-tag">馬券戦略</span><a href="column-29.html">フェブラリーS2026：ダート路線の変化とAI予測精度の最新報告</a></li>
+          <li><span class="rel-tag">AI解説</span><a href="column-28.html">2026年の競馬AI予測：最新AI技術と競馬データ分析の融合可能性</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+<button id="back-to-top" aria-label="ページトップへ">&#8679;</button>
+<script>
+  (function() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a, .mobile-nav a').forEach(a => {
+      if (a.getAttribute('href') === page) a.setAttribute('aria-current', 'page');
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('hamburger-btn');
+    const nav = document.getElementById('mobile-nav');
+    if (!btn || !nav) return;
+    const origClick = btn.onclick;
+    btn.onclick = function(e) {
+      if (origClick) origClick.call(this, e);
+      document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    };
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  })();
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+</script>
+</body>
+</html>
