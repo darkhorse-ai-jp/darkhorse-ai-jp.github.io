@@ -221,13 +221,22 @@ def render(art, associate_id, all_articles):
 </html>"""
 
 
+def _date_sort_key(art):
+    """'YYYY年MM月' 形式の date フィールドを (year, month) タプルに変換してソートキーにする。"""
+    import re as _re
+    m = _re.search(r'(\d{4})年(\d{1,2})月', art.get("date", ""))
+    if m:
+        return (int(m.group(1)), int(m.group(2)))
+    return (0, 0)
+
+
 def rebuild_column_index(all_articles):
-    """column.html のカード一覧を最新順（id降順）で再構築する。"""
+    """column.html のカード一覧を記事の日付降順で再構築する。"""
     col_html = SITE_DIR / "column.html"
     content = col_html.read_text()
 
     cards = ""
-    for art in sorted(all_articles, key=lambda a: int(a["id"]), reverse=True):
+    for art in sorted(all_articles, key=_date_sort_key, reverse=True):
         col_id = art["id"]
         cat = art["cat"]
         bg, col = CAT.get(cat, ("#f0f4f8", "var(--muted)"))
