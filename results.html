@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>過去の成績・バックテスト結果 | DarkHorse AI</title>
+  <meta name="description" content="DarkHorse AIの過去の予測成績とバックテスト結果を公開。的中率・回収率・月次ROIを透明性高く掲載。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div style="padding:24px 0 8px;">
+      <h1 style="font-size:1.6rem;color:var(--primary);">過去の成績・バックテスト結果</h1>
+      <p style="color:var(--muted);font-size:.9rem;">予測精度を透明性高く公開しています</p>
+    </div>
+
+    <!-- バックテスト サマリー -->
+    <div class="card-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="js-roi">—</div>
+        <div class="stat-label">バックテスト回収率</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="js-auc">—</div>
+        <div class="stat-label">モデル精度（AUC-ROC）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="js-hit-rate">—</div>
+        <div class="stat-label">的中率</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="js-drawdown">—</div>
+        <div class="stat-label">最大ドローダウン</div>
+      </div>
+    </div>
+
+    <!-- 注意書き -->
+    <div style="background:#e8f4fd;border-left:4px solid #2980b9;padding:12px 16px;border-radius:4px;margin-bottom:24px;font-size:.85rem;">
+      📌 バックテストは過去データによる検証結果です。将来の成績を保証するものではありません。
+    </div>
+
+    <!-- 月次成績 -->
+    <div class="card">
+      <div class="section-title">月次回収率</div>
+      <div class="table-wrap" id="js-monthly-table">
+        <p style="text-align:center;color:#999;padding:20px;">データを読み込み中...</p>
+      </div>
+    </div>
+
+    <!-- バックテスト条件 -->
+    <div class="card">
+      <div class="section-title">バックテスト条件</div>
+      <table style="font-size:.9rem;" id="js-conditions-table">
+        <tbody>
+          <tr><td><strong>対象レース</strong></td><td>JRAレース全般（新馬戦・障害除く）</td></tr>
+          <tr><td><strong>馬券種</strong></td><td>三連複ボックス（5頭）</td></tr>
+          <tr><td><strong>賭け金</strong></td><td>1点100円（1レースあたり1,000円）</td></tr>
+          <tr><td><strong>参加基準</strong></td><td id="js-threshold">波乱確率 — 以上のレースのみ参加</td></tr>
+          <tr><td><strong>学習データ</strong></td><td id="js-train-period">—</td></tr>
+          <tr><td><strong>検証データ</strong></td><td id="js-test-period">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="about.html">予測ロジック</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+<script>
+fetch('data/stats.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('js-roi').textContent      = (d.backtest_roi * 100).toFixed(1) + '%';
+    document.getElementById('js-auc').textContent      = d.model_auc.toFixed(3);
+    document.getElementById('js-hit-rate').textContent = (d.hit_rate * 100).toFixed(1) + '%';
+    document.getElementById('js-drawdown').textContent = (d.max_drawdown * 100).toFixed(1) + '%';
+    document.getElementById('js-threshold').textContent= '波乱確率 ' + Math.round(d.best_threshold * 100) + '% 以上のレースのみ参加';
+    document.getElementById('js-train-period').textContent = d.train_period || '—';
+    document.getElementById('js-test-period').textContent  = d.test_period  || '—';
+  })
+  .catch(() => {});
+
+fetch('data/monthly_results.json')
+  .then(r => r.json())
+  .then(data => {
+    let html = '<table><thead><tr>'
+      + '<th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th>'
+      + '</tr></thead><tbody>';
+    data.forEach(r => {
+      const roiPct = (r.roi * 100).toFixed(1);
+      const roiClass = r.roi >= 1 ? 'hit' : 'miss';
+      html += `<tr>
+        <td>${r.year_month}</td>
+        <td>${r.n_races}件</td>
+        <td>${r.n_hit}件</td>
+        <td>${r.total_bet.toLocaleString()}円</td>
+        <td>${r.total_payout.toLocaleString()}円</td>
+        <td class="${roiClass}">${roiPct}%</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('js-monthly-table').innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById('js-monthly-table').innerHTML =
+      '<p style="text-align:center;color:#999;padding:20px;">バックテスト実施後に公開予定です。</p>';
+  });
+</script>
+
+</body>
+</html>

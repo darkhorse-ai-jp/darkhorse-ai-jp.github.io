@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今週の万馬券予測 | DarkHorse AI</title>
+  <meta name="description" content="AIが分析した今週の万馬券（三連複10,000円以上）が出やすいレース一覧。波乱確率ランキング形式で公開。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div style="padding:24px 0 8px;">
+      <h1 style="font-size:1.6rem;color:var(--primary);">今週の万馬券予測</h1>
+      <p style="color:var(--muted);font-size:.9rem;" id="js-update-date">更新日: —</p>
+    </div>
+
+    <!-- 注意書き -->
+    <div style="background:#fff8e1;border-left:4px solid var(--accent);padding:12px 16px;border-radius:4px;margin-bottom:24px;font-size:.85rem;">
+      ⚠️ 本予測はAIによる参考情報です。馬券購入を推奨するものではありません。
+      投票は必ず自己判断・自己責任でお願いします。
+    </div>
+
+    <!-- 予測テーブル -->
+    <div class="card">
+      <div class="section-title">波乱確率ランキング</div>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px;">
+        波乱確率が高いほど、AIが「三連複万馬券になりやすい」と判断したレースです。
+      </p>
+      <div class="table-wrap" id="js-prediction-table">
+        <p style="text-align:center;color:#999;padding:40px;">データを読み込み中...</p>
+      </div>
+    </div>
+
+    <!-- 見方の説明 -->
+    <div class="card">
+      <div class="section-title">予測の見方</div>
+      <table style="font-size:.9rem;">
+        <thead>
+          <tr><th>項目</th><th>説明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>波乱確率</strong></td><td>AIが「このレースで三連複万馬券が出る」と予測した確率。50%以上が参加目安。</td></tr>
+          <tr><td><strong>注目度：高</strong></td><td>波乱確率70%以上。AIが特に波乱と判断したレース。</td></tr>
+          <tr><td><strong>注目度：中</strong></td><td>波乱確率50〜69%。参加を検討する価値あり。</td></tr>
+          <tr><td><strong>注目度：低</strong></td><td>波乱確率50%未満。参考程度にご確認ください。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a href="about.html">予測ロジック</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+<script>
+fetch('data/prediction_latest.json')
+  .then(r => r.json())
+  .then(data => {
+    if (data.length > 0 && data[0].generated_at) {
+      document.getElementById('js-update-date').textContent = '更新日: ' + data[0].generated_at;
+    }
+
+    let html = '<table><thead><tr>'
+      + '<th>#</th><th>日付</th><th>競馬場</th><th>R</th><th>レース名</th>'
+      + '<th>波乱確率</th><th>注目度</th>'
+      + '</tr></thead><tbody>';
+
+    data.forEach((r, i) => {
+      const pct = Math.round(r.prob * 100);
+      const badge = pct >= 70
+        ? '<span class="badge badge-high">高</span>'
+        : pct >= 50
+          ? '<span class="badge badge-medium">中</span>'
+          : '<span class="badge badge-low">低</span>';
+      html += `<tr>
+        <td>${i + 1}</td>
+        <td>${r.race_date}</td>
+        <td>${r.venue}</td>
+        <td>${r.race_number}R</td>
+        <td>${r.race_name || '—'}</td>
+        <td>
+          <div class="prob-bar">
+            <div class="prob-bar-bg"><div class="prob-bar-fill" style="width:${pct}%"></div></div>
+            <span class="prob-text">${pct}%</span>
+          </div>
+        </td>
+        <td>${badge}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+    document.getElementById('js-prediction-table').innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById('js-prediction-table').innerHTML =
+      '<p style="text-align:center;color:#999;padding:40px;">予測データは毎週金曜日に更新されます。しばらくお待ちください。</p>';
+  });
+</script>
+
+</body>
+</html>

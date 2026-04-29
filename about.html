@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>予測ロジック解説 | DarkHorse AI</title>
+  <meta name="description" content="DarkHorse AIの予測ロジックを解説。LightGBMを使った機械学習で万馬券レースを予測する仕組みをわかりやすく説明します。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div style="padding:24px 0 16px;">
+      <h1 style="font-size:1.6rem;color:var(--primary);">予測ロジック解説</h1>
+      <p style="color:var(--muted);font-size:.9rem;">DarkHorse AIの仕組みを透明性高く公開します</p>
+    </div>
+
+    <div class="card">
+      <div class="section-title">全体の流れ</div>
+      <div style="background:#f0f4f8;border-radius:8px;padding:20px;font-family:monospace;font-size:.9rem;line-height:2;">
+        過去5年分のJRAレースデータ収集<br>
+        　↓<br>
+        特徴量エンジニアリング（約13種類の指標を計算）<br>
+        　↓<br>
+        LightGBM で学習（時系列分割・データリーク防止）<br>
+        　↓<br>
+        各レースの「波乱確率」を予測<br>
+        　↓<br>
+        閾値以上のレースのみ参加 → 三連複ボックスで馬券購入
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">使用している特徴量（指標）</div>
+
+      <p style="margin-bottom:16px;font-size:.9rem;">
+        以下の3レイヤーの指標を組み合わせて「波乱が起きやすいか」を判断します。
+      </p>
+
+      <h3 style="margin-bottom:8px;color:var(--primary);">Layer 1：レース条件</h3>
+      <div class="table-wrap" style="margin-bottom:20px;">
+        <table style="font-size:.9rem;">
+          <thead><tr><th>指標</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>出走頭数</td><td>頭数が多いほど波乱が起きやすい傾向</td></tr>
+            <tr><td>コース（芝/ダート）</td><td>芝とダートで波乱傾向が異なる</td></tr>
+            <tr><td>距離</td><td>距離によって得意な馬が変わる</td></tr>
+            <tr><td>馬場状態</td><td>重・不良馬場は荒れやすい</td></tr>
+            <tr><td>開催月</td><td>季節による傾向の違い</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-bottom:8px;color:var(--primary);">Layer 2：出走馬の実績</h3>
+      <div class="table-wrap" style="margin-bottom:20px;">
+        <table style="font-size:.9rem;">
+          <thead><tr><th>指標</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>騎手の累積勝率</td><td>そのレース時点までの累積値（未来データ不使用）</td></tr>
+            <tr><td>調教師の累積勝率</td><td>同上</td></tr>
+            <tr><td>馬の直近3走平均着順</td><td>近況の調子を数値化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-bottom:8px;color:var(--primary);">Layer 3：波乱度指標</h3>
+      <div class="table-wrap">
+        <table style="font-size:.9rem;">
+          <thead><tr><th>指標</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>1番人気の単勝オッズ</td><td>オッズが高い＝信頼度が低い＝波乱が起きやすい</td></tr>
+            <tr><td>オッズの分散</td><td>各馬のオッズのばらつきが大きい＝実力差が不明確</td></tr>
+            <tr><td>上位3頭のオッズ差</td><td>混戦かどうかの指標</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">データリーク防止の取り組み</div>
+      <p style="margin-bottom:12px;font-size:.9rem;">
+        機械学習における「データリーク」とは、予測時点では知り得ない未来の情報を
+        学習に使ってしまう問題です。これが起きると、バックテストで良い結果が出ても
+        実際には全く機能しません。
+      </p>
+      <p style="font-size:.9rem;">DarkHorse AIでは以下の対策を徹底しています：</p>
+      <ul style="font-size:.9rem;margin:12px 0 0 20px;line-height:2;">
+        <li>学習・検証データは<strong>時系列で分割</strong>（ランダム分割は禁止）</li>
+        <li>騎手・調教師の成績は<strong>そのレース以前のデータのみ</strong>で計算</li>
+        <li>確定オッズのみ使用（レース後に確定する情報は不使用）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="section-title">モデルについて</div>
+      <p style="font-size:.9rem;margin-bottom:12px;">
+        <strong>LightGBM</strong>（Light Gradient Boosting Machine）は、
+        構造化データの予測において世界的に実績のある機械学習アルゴリズムです。
+        Kaggle等のデータ分析コンテストでも広く使われており、
+        競馬のような構造化データの予測に特に向いています。
+      </p>
+      <p style="font-size:.9rem;">
+        「三連複万馬券が出るか否か」を<strong>二値分類問題</strong>として解き、
+        各レースの波乱確率（0〜100%）を出力します。
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="disclaimer.html">免責事項</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
