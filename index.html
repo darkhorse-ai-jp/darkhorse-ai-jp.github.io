@@ -3,26 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarkHorse AI | AI万馬券予測サイト</title>
-  <meta name="description" content="AIと機械学習（LightGBM）を使って三連複万馬券（10,000円以上）が出やすいレースを予測します。データサイエンスに基づく透明性の高い競馬予測サービス。">
+  <title>DarkHorse AI | AI万馬券予測サイト – 三連複10,000円以上が出やすいレースを毎週公開</title>
+  <meta name="description" content="LightGBM（機械学習）で三連複万馬券（10,000円以上）が出やすいレースを毎週公開。2,900件以上のJRAデータを学習したAIが波乱確率をランキング形式で提供。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="DarkHorse AI | AI万馬券予測サイト">
+  <meta property="og:description" content="AIが分析した「三連複万馬券が出やすいレース」を毎週無料公開。機械学習（LightGBM）を使ったデータドリブンな競馬予測。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://msalpha0123-source.github.io/darkhorse-site/">
+  <meta property="og:image" content="https://msalpha0123-source.github.io/darkhorse-site/img/og-image.png">
+  <meta property="og:site_name" content="DarkHorse AI">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DarkHorse AI | AI万馬券予測サイト">
+  <meta name="twitter:description" content="AIが分析した三連複万馬券が出やすいレースを毎週公開。機械学習×競馬予測。">
+  <meta name="twitter:image" content="https://msalpha0123-source.github.io/darkhorse-site/img/og-image.png">
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DarkHorse AI",
+    "url": "https://msalpha0123-source.github.io/darkhorse-site/",
+    "description": "機械学習で三連複万馬券が出やすいレースを予測するサービス",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://msalpha0123-source.github.io/darkhorse-site/column.html"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://msalpha0123-source.github.io/darkhorse-site/">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">本文へスキップ</a>
 
 <header>
   <div class="header-inner">
     <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
-    <nav>
+    <nav aria-label="メインナビゲーション">
       <a href="prediction.html">今週の予測</a>
       <a href="results.html">過去の成績</a>
       <a href="about.html">予測ロジック</a>
       <a href="column.html">コラム</a>
     </nav>
-    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニューを開く" aria-expanded="false" id="hamburger-btn">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="モバイルメニュー">
     <a href="prediction.html">今週の予測</a>
     <a href="results.html">過去の成績</a>
     <a href="about.html">予測ロジック</a>
@@ -30,31 +64,79 @@
   </div>
 </header>
 
-<section class="hero">
-  <h1>AIが予測する<span>万馬券</span>レース</h1>
-  <p>機械学習（LightGBM）で三連複10,000円以上が出やすいレースを分析。<br>
-     データサイエンスに基づく透明性の高い競馬予測をお届けします。</p>
-  <a href="prediction.html" class="btn">今週の予測を見る</a>
+<!-- 信頼バナー -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="item"><span>📊</span><span><strong id="tb-races">2,900+</strong> レース分析済み</span></div>
+    <div class="item"><span>🎯</span><span>AUC-ROC <strong id="tb-auc">0.765</strong></span></div>
+    <div class="item"><span>🆓</span><span><strong>完全無料</strong>・会員登録不要</span></div>
+    <div class="item"><span>🔄</span><span>毎週<strong>金曜</strong>更新</span></div>
+  </div>
+</div>
+
+<section class="hero" role="banner">
+  <div class="hero-badge">🏇 AI競馬予測 — 毎週無料公開中</div>
+  <h1>AIが見つける<span>万馬券</span>レース</h1>
+  <p>機械学習（LightGBM）が2,900件以上のJRAデータを分析。<br>
+     三連複10,000円以上が出やすいレースを<strong>毎週金曜</strong>に公開します。</p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num" id="hs-races">2,900+</span>
+      <span class="lbl">分析レース数</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="num" id="hs-uprate">32%</span>
+      <span class="lbl">万馬券発生率</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <span class="num" id="hs-auc">0.765</span>
+      <span class="lbl">モデル精度(AUC)</span>
+    </div>
+  </div>
+
+  <div>
+    <a href="prediction.html" class="btn">今週の予測を見る →</a>
+    <a href="about.html" class="btn-outline">ロジックを確認する</a>
+  </div>
 </section>
 
-<main>
+<main id="main-content">
   <div class="container">
 
+    <!-- 週次更新バナー -->
+    <div class="update-banner fade-in">
+      <div class="update-dot"></div>
+      <div>
+        <strong>最新予測データ公開中</strong>
+        <span style="color:var(--muted);font-size:.82rem;margin-left:8px;" id="js-update-date"></span>
+      </div>
+      <a href="prediction.html" style="margin-left:auto;color:var(--primary);font-size:.85rem;white-space:nowrap;font-weight:bold;">
+        予測を見る →
+      </a>
+    </div>
+
     <!-- 統計サマリー -->
-    <div class="card-grid" style="margin-top:32px;">
-      <div class="stat-card">
+    <div class="card-grid">
+      <div class="stat-card fade-in fade-in-delay-1">
+        <div class="stat-icon">📊</div>
         <div class="stat-value" id="js-total-races">—</div>
         <div class="stat-label">分析済みレース数</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card fade-in fade-in-delay-1">
+        <div class="stat-icon">💥</div>
         <div class="stat-value" id="js-upset-rate">—</div>
         <div class="stat-label">万馬券発生率（実績）</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card fade-in fade-in-delay-2">
+        <div class="stat-icon">🤖</div>
         <div class="stat-value" id="js-model-auc">—</div>
         <div class="stat-label">モデル精度（AUC-ROC）</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card fade-in fade-in-delay-2">
+        <div class="stat-icon">📈</div>
         <div class="stat-value" id="js-backtest-roi">—</div>
         <div class="stat-label">バックテスト回収率</div>
       </div>
@@ -62,48 +144,52 @@
 
     <!-- 今週の予測プレビュー -->
     <div class="card">
-      <div class="section-title">今週の注目レース（波乱度ランキング）</div>
+      <div class="section-title">今週の注目レース（波乱確率ランキング）</div>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px;">
+        AIが「三連複万馬券が出やすい」と判断したレースを波乱確率の高い順に表示しています。
+      </p>
       <div id="js-preview-table">
-        <p style="color:#999;text-align:center;padding:20px;">予測データを読み込み中...</p>
+        <p style="color:#999;text-align:center;padding:30px;">予測データを読み込み中...</p>
       </div>
-      <div style="text-align:center;margin-top:16px;">
-        <a href="prediction.html" class="btn">全レースの予測を見る</a>
+      <div style="text-align:center;margin-top:20px;">
+        <a href="prediction.html" class="btn">全レースの予測を見る →</a>
       </div>
     </div>
 
     <!-- このサイトについて -->
     <div class="card">
       <div class="section-title">DarkHorse AIとは</div>
-      <p style="margin-bottom:12px;">
-        DarkHorse AIは、過去の競馬データをもとにAI（機械学習）で
+      <p style="margin-bottom:16px;line-height:1.8;">
+        DarkHorse AIは、過去のJRAレースデータをAI（機械学習）で学習し、
         <strong>「三連複万馬券（10,000円以上）が出やすいレース」</strong>を予測するサービスです。
+        感覚・勘に頼らず、データと統計に基づいた透明性の高い情報を無料で公開します。
       </p>
       <div class="card-grid">
-        <div style="padding:16px;background:#f0f4f8;border-radius:8px;">
-          <div style="font-size:1.5rem;margin-bottom:8px;">📊</div>
-          <strong>データドリブン</strong>
-          <p style="font-size:.85rem;margin-top:6px;color:var(--muted);">
-            過去5年分のJRAレースデータを学習。感覚ではなく統計に基づく予測。
+        <div style="padding:18px;background:#f0f4f8;border-radius:var(--radius);border-top:3px solid var(--primary);">
+          <div style="font-size:1.6rem;margin-bottom:8px;">📊</div>
+          <strong style="color:var(--primary);">データドリブン</strong>
+          <p style="font-size:.85rem;margin-top:8px;color:var(--muted);line-height:1.6;">
+            JRAの過去レースデータ2,900件以上を学習。出走頭数・オッズ分布・馬場状態など13種類の指標を活用。
           </p>
         </div>
-        <div style="padding:16px;background:#f0f4f8;border-radius:8px;">
-          <div style="font-size:1.5rem;margin-bottom:8px;">🔍</div>
-          <strong>透明性の高いロジック</strong>
-          <p style="font-size:.85rem;margin-top:6px;color:var(--muted);">
-            使用している特徴量・モデルの仕組みをすべて公開。ブラックボックスなし。
+        <div style="padding:18px;background:#f0f4f8;border-radius:var(--radius);border-top:3px solid var(--primary);">
+          <div style="font-size:1.6rem;margin-bottom:8px;">🔍</div>
+          <strong style="color:var(--primary);">ロジックを完全公開</strong>
+          <p style="font-size:.85rem;margin-top:8px;color:var(--muted);line-height:1.6;">
+            使用している特徴量・モデルの仕組みをすべて公開。ブラックボックスなし。<a href="about.html">詳細を見る</a>
           </p>
         </div>
-        <div style="padding:16px;background:#f0f4f8;border-radius:8px;">
-          <div style="font-size:1.5rem;margin-bottom:8px;">📈</div>
-          <strong>バックテスト実施済み</strong>
-          <p style="font-size:.85rem;margin-top:6px;color:var(--muted);">
-            過去データで厳密にバックテストを実施。実績に基づく信頼性。
+        <div style="padding:18px;background:#f0f4f8;border-radius:var(--radius);border-top:3px solid var(--primary);">
+          <div style="font-size:1.6rem;margin-bottom:8px;">📈</div>
+          <strong style="color:var(--primary);">バックテスト済み</strong>
+          <p style="font-size:.85rem;margin-top:8px;color:var(--muted);line-height:1.6;">
+            過去データで厳密にバックテストを実施。成績データも透明性高く公開。<a href="results.html">成績を見る</a>
           </p>
         </div>
       </div>
-      <p style="font-size:.85rem;color:var(--muted);">
-        ※本サービスは参考情報の提供を目的としており、投票を推奨するものではありません。
-        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      <p style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        ※本サービスは参考情報の提供を目的としており、馬券購入を推奨するものではありません。
+        <a href="disclaimer.html">免責事項</a>
       </p>
     </div>
 
@@ -125,11 +211,42 @@
         </li>
         <li>
           <span class="date">2024年1月</span>
+          <a href="column-02.html">三連複ボックスで万馬券を狙う戦略：何頭ボックスが最適か？</a>
+        </li>
+        <li>
+          <span class="date">2024年1月</span>
           <a href="column-01.html">AIが分析してわかった 万馬券が出やすいレースの5つの条件</a>
         </li>
       </ul>
       <div style="text-align:right;margin-top:12px;">
-        <a href="column.html" style="font-size:.85rem;color:var(--accent);">コラム一覧を見る →</a>
+        <a href="column.html" style="font-size:.85rem;color:var(--accent);font-weight:bold;">コラム一覧を見る →</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <div class="section-title">よくある質問</div>
+      <div id="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">予測データはいつ更新されますか？</button>
+          <div class="faq-a">毎週金曜日に翌週末（土日）のレース予測を更新します。予測データはトップページの「今週の予測」からご確認いただけます。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">波乱確率とは何ですか？</button>
+          <div class="faq-a">AIが「このレースで三連複万馬券（10,000円以上）が出る」と判断した確率です。過去データのパターンと現在のレース条件（頭数・オッズ・馬場など）を照合して算出します。確率50%以上のレースを参加目安としています。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">三連複ボックスとはどういう買い方ですか？</button>
+          <div class="faq-a">指定した頭数の馬を選び、その馬たちが1〜3着を独占する全ての組み合わせを購入する方法です。DarkHorse AIでは人気順上位5頭（1〜5番人気）の三連複5頭ボックス（10点・1,000円）を基本としています。詳しくは<a href="column-02.html">こちらのコラム</a>で解説しています。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">LightGBMとは何ですか？</button>
+          <div class="faq-a">Microsoftが開発した機械学習アルゴリズムの一種で、Kaggle等のデータ分析コンテストで世界トップクラスの実績を持ちます。競馬のような構造化データ（表形式のデータ）の予測に特に優れています。詳しくは<a href="column-03.html">こちらのコラム</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">利用は無料ですか？</button>
+          <div class="faq-a">はい、完全無料です。会員登録・メールアドレスの登録も不要です。すべての予測データとコラム記事は無料でご覧いただけます。</div>
+        </div>
       </div>
     </div>
 
@@ -137,27 +254,56 @@
 </main>
 
 <footer>
-  <div class="footer-links">
-    <a href="disclaimer.html">免責事項</a>
-    <a href="privacy.html">プライバシーポリシー</a>
-    <a href="contact.html">お問い合わせ</a>
-    <a href="about.html">予測ロジック</a>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="index.html">トップ</a>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+      <a href="disclaimer.html">免責事項</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+    <p class="footer-copy">本サービスは参考情報の提供を目的としています。馬券購入は自己責任でお願いします。</p>
   </div>
-  <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
-  <p style="margin-top:8px;font-size:.8rem;">
-    ※本サービスは参考情報の提供を目的としています。馬券購入は自己責任でお願いします。
-  </p>
 </footer>
 
 <script>
+  // ハンバーガーメニューのaria-expanded管理
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.contains('open');
+    hamburgerBtn.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // FAQ アコーディオン
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   // 統計データの読み込み
   fetch('data/stats.json')
     .then(r => r.json())
     .then(d => {
-      document.getElementById('js-total-races').textContent = d.total_races.toLocaleString() + '件';
-      document.getElementById('js-upset-rate').textContent = d.upset_rate.toFixed(1) + '%';
-      document.getElementById('js-model-auc').textContent = d.model_auc.toFixed(3);
-      document.getElementById('js-backtest-roi').textContent = d.backtest_roi.toFixed(1) + '%';
+      const fmtRaces = d.total_races.toLocaleString() + '件';
+      document.getElementById('js-total-races').textContent = fmtRaces;
+      document.getElementById('js-upset-rate').textContent  = d.upset_rate.toFixed(1) + '%';
+      document.getElementById('js-model-auc').textContent   = d.model_auc.toFixed(3);
+      document.getElementById('js-backtest-roi').textContent= d.backtest_roi.toFixed(1) + '%';
+      // ヒーロー・信頼バーも更新
+      document.getElementById('hs-races').textContent  = d.total_races.toLocaleString() + '件';
+      document.getElementById('hs-uprate').textContent = d.upset_rate.toFixed(1) + '%';
+      document.getElementById('hs-auc').textContent    = d.model_auc.toFixed(3);
+      document.getElementById('tb-races').textContent  = d.total_races.toLocaleString() + '+';
+      document.getElementById('tb-auc').textContent    = d.model_auc.toFixed(3);
+      document.getElementById('js-update-date').textContent = '最終更新: ' + d.updated_at;
     })
     .catch(() => {});
 
@@ -165,9 +311,10 @@
   fetch('data/prediction_latest.json')
     .then(r => r.json())
     .then(data => {
+      if (!data.length) throw new Error('no data');
       const top5 = data.slice(0, 5);
       let html = '<div class="table-wrap"><table><thead><tr>'
-        + '<th>日付</th><th>競馬場</th><th>レース</th><th>波乱確率</th><th>注目度</th>'
+        + '<th>日付</th><th>競馬場</th><th>レース名</th><th>波乱確率</th><th>注目度</th>'
         + '</tr></thead><tbody>';
       top5.forEach(r => {
         const pct = Math.round(r.prob);
@@ -176,10 +323,11 @@
           : pct >= 50
             ? '<span class="badge badge-medium">中</span>'
             : '<span class="badge badge-low">低</span>';
+        const raceName = r.race_name && r.race_name !== 'None' ? r.race_name : `${r.race_number}R`;
         html += `<tr>
           <td>${r.race_date}</td>
           <td>${r.venue}</td>
-          <td>${r.race_name}</td>
+          <td>${raceName}</td>
           <td>
             <div class="prob-bar">
               <div class="prob-bar-bg"><div class="prob-bar-fill" style="width:${pct}%"></div></div>
@@ -193,8 +341,8 @@
       document.getElementById('js-preview-table').innerHTML = html;
     })
     .catch(() => {
-      document.getElementById('js-preview-table').innerHTML
-        = '<p style="color:#999;text-align:center;padding:20px;">予測データは毎週金曜日に更新されます。</p>';
+      document.getElementById('js-preview-table').innerHTML =
+        '<p style="color:#999;text-align:center;padding:30px;">予測データは毎週金曜日に更新されます。しばらくお待ちください。</p>';
     });
 </script>
 

@@ -51,6 +51,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://msalpha0123-source.github.io/darkhorse-site/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://msalpha0123-source.github.io/darkhorse-site/disclaimer.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

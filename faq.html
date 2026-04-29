@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よくある質問（FAQ） | DarkHorse AI – AI競馬予測</title>
+  <meta name="description" content="DarkHorse AIのよくある質問。波乱確率の見方・三連複ボックスの買い方・LightGBMとは何か・バックテスト結果の解釈など、初心者の疑問に答えます。">
+  <meta property="og:title" content="よくある質問（FAQ） | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://msalpha0123-source.github.io/darkhorse-site/faq.html">
+
+  <!-- FAQ構造化データ（Googleリッチリザルト狙い） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "予測データはいつ更新されますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "毎週金曜日に翌週末（土日）のレース予測を更新します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "波乱確率とは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIが「このレースで三連複万馬券（10,000円以上）が出る」と判断した確率です。過去データのパターンと現在のレース条件（頭数・オッズ・馬場など）を照合して算出します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "三連複ボックスとはどういう買い方ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "指定した頭数の馬を選び、その馬たちが1〜3着を独占する全ての組み合わせを購入する方法です。5頭ボックスは10点・1,000円の投資になります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "LightGBMとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoftが開発した機械学習アルゴリズムで、Kaggle等のデータ分析コンテストで世界トップクラスの実績を持ちます。競馬のような構造化データの予測に特に優れています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利用は無料ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、完全無料です。会員登録・メールアドレスの登録も不要です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "バックテストとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIモデルを使って「過去のレースで実際に馬券を買っていたらどうなっていたか」をシミュレーションすることです。将来の成績を保証するものではありませんが、戦略の有効性を評価するために使用します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "データリークとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIの学習に「将来の情報」を誤って混入させてしまうことです。競馬AIでは特に注意が必要で、DarkHorse AIでは時系列分割と累積統計量の適切な計算により防いでいます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://msalpha0123-source.github.io/darkhorse-site/faq.html">
+  <style>
+    .faq-section { max-width: 760px; }
+    .faq-section h2 { font-size: 1.1rem; color: var(--primary); border-left: 4px solid var(--accent); padding-left: 12px; margin: 32px 0 16px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="about.html">予測ロジック</a>
+      <a href="column.html">コラム</a>
+    </nav>
+    <button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="prediction.html">今週の予測</a>
+    <a href="results.html">過去の成績</a>
+    <a href="about.html">予測ロジック</a>
+    <a href="column.html">コラム</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="faq-section" style="padding:32px 0;">
+
+      <nav aria-label="パンくず" class="breadcrumb">
+        <a href="index.html">トップ</a>
+        <span class="sep">›</span>
+        <span>よくある質問</span>
+      </nav>
+
+      <h1 style="font-size:1.7rem;color:var(--primary);margin:16px 0 8px;">よくある質問（FAQ）</h1>
+      <p style="color:var(--muted);margin-bottom:32px;">DarkHorse AIに関するよくある疑問をまとめました。</p>
+
+      <h2>サービスについて</h2>
+      <div id="faq-service">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">DarkHorse AIはどんなサービスですか？</button>
+          <div class="faq-a">機械学習（LightGBM）を使って、JRAの競馬レースで「三連複万馬券（10,000円以上）が出やすいレース」を予測するサービスです。データサイエンスの実戦演習として開発しており、予測ロジック・バックテスト結果を完全公開しています。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">利用は無料ですか？</button>
+          <div class="faq-a">はい、完全無料です。会員登録・メールアドレスの登録も一切不要です。すべての予測データとコラム記事を無料でご覧いただけます。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">予測データはいつ更新されますか？</button>
+          <div class="faq-a">毎週金曜日に翌週末（土日）のレース予測を更新します。更新後はトップページの「今週の予測」から最新の波乱確率ランキングをご確認いただけます。</div>
+        </div>
+      </div>
+
+      <h2>予測の見方</h2>
+      <div id="faq-prediction">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">波乱確率とは何ですか？</button>
+          <div class="faq-a">AIが「このレースで三連複万馬券（10,000円以上）が出る」と判断した確率（0〜100%）です。過去データのパターンと現在のレース条件（頭数・オッズ分布・馬場状態など）を比較して算出します。<br><br>波乱確率70%以上を「高」、50〜69%を「中」、50%未満を「低」と分類しています。参加の目安は50%以上を推奨します。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">波乱確率が高いレースは必ず万馬券になりますか？</button>
+          <div class="faq-a">なりません。波乱確率70%でも30%は万馬券にならないことを意味します。あくまで「過去データから見た統計的な傾向」であり、絶対的な予測ではありません。馬券の購入は必ず自己判断・自己責任でお願いします。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">三連複ボックスとはどういう買い方ですか？</button>
+          <div class="faq-a">指定した頭数の馬を選び、その馬たちが1〜3着を独占する全ての組み合わせを購入する方法です。DarkHorse AIでは人気順上位5頭（1〜5番人気）の5頭ボックス（10点・1レースあたり1,000円）を基本としています。<br><br>詳しくは<a href="column-02.html">「三連複ボックスで万馬券を狙う戦略」</a>をご覧ください。</div>
+        </div>
+      </div>
+
+      <h2>AIの仕組み</h2>
+      <div id="faq-ai">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">LightGBMとは何ですか？</button>
+          <div class="faq-a">Microsoftが開発した機械学習アルゴリズムで、Kaggle等のデータ分析コンテストで世界トップクラスの実績を持ちます。競馬のような構造化データ（表形式のデータ）の予測に特に優れており、高速かつ正確に学習できるのが特徴です。<br><br>詳しくは<a href="column-03.html">「LightGBMをわかりやすく解説」</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">データリークとは何ですか？なぜ重要なのですか？</button>
+          <div class="faq-a">AIの学習に「将来の情報」を誤って混入させてしまうことです。例えば「レース後に確定する情報」を使って学習すると、バックテストの成績は良くなりますが実際には全く使えない予測になります。<br><br>DarkHorse AIでは時系列分割・累積統計量の適切な計算など、複数の対策を実装しています。詳しくは<a href="about.html">予測ロジック解説</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">バックテストとは何ですか？</button>
+          <div class="faq-a">AIモデルを使って「過去のレースで実際に馬券を買っていたらどうなっていたか」をシミュレーションすることです。将来の成績を保証するものではありませんが、戦略の有効性を客観的に評価するために使用します。<br><br>DarkHorse AIのバックテスト結果は<a href="results.html">過去の成績</a>ページで公開しています。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">AUC-ROCとは何ですか？</button>
+          <div class="faq-a">分類モデルの予測精度を示す指標です。0.5〜1.0の値を取り、1.0に近いほど精度が高いことを意味します。完全にランダムな予測は0.5、DarkHorse AIのモデルはAUC約0.77で、「波乱が起きやすいレース」をランダムより有意に識別できていることを示します。</div>
+        </div>
+      </div>
+
+      <h2>その他</h2>
+      <div id="faq-other">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">どんなレースが対象ですか？</button>
+          <div class="faq-a">JRAの全レースを対象としています。ただし新馬戦・障害レースは過去実績データが少なく予測精度が低いため除外しています。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">問い合わせはどこからできますか？</button>
+          <div class="faq-a"><a href="contact.html">お問い合わせページ</a>からご連絡ください。</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;padding:20px;background:#f0f4f8;border-radius:var(--radius);font-size:.85rem;color:var(--muted);">
+        ※本サービスは参考情報の提供を目的としており、馬券の購入を推奨するものではありません。
+        馬券の購入は必ず自己判断・自己責任でお願いします。
+        詳細は<a href="disclaimer.html">免責事項</a>をご確認ください。
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="index.html">トップ</a>
+      <a href="prediction.html">今週の予測</a>
+      <a href="results.html">過去の成績</a>
+      <a href="column.html">コラム</a>
+      <a href="faq.html">FAQ</a>
+      <a href="disclaimer.html">免責事項</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
