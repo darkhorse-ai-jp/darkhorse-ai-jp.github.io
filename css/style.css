@@ -713,12 +713,24 @@ footer a:hover { color: #fff; background: rgba(255,255,255,.08); text-decoration
 .hero-illust {
   flex-shrink: 0;
   width: 280px;
-  opacity: .92;
 }
+.hero-illust img { display: block; width: 100%; height: auto; }
 @media (max-width: 768px) {
-  .hero-inner { flex-direction: column; text-align: center; }
-  .hero-illust { width: 180px; order: -1; }
-  .hero-text { text-align: center; }
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding-bottom: 140px;
+  }
+  .hero-illust {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 130px;
+    opacity: .85;
+  }
+  .hero-text { text-align: center; width: 100%; }
   .btn-outline { margin-left: 0; margin-top: 10px; }
 }
 
