@@ -1,2 +1,7 @@
 .env
 config.json
+
+data/darkhorse.db
+scripts/__pycache__/
+__pycache__/
+*.pyc
