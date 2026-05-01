@@ -130,10 +130,45 @@
 
     <!-- AIおやじのひとこと -->
     <div class="oyaji-comment fade-in" style="display:flex;align-items:flex-end;gap:12px;margin-bottom:24px;">
-      <img src="images/character/icon-normal.png" alt="AIおやじ" style="width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);flex-shrink:0;object-fit:cover;">
+      <img src="images/character/icon-normal.png" alt="AIおやじ" id="oyaji-icon-btn"
+           style="width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);flex-shrink:0;object-fit:cover;cursor:pointer;"
+           title="AIおやじって何者？タップして自己紹介を見る">
       <div style="position:relative;background:#fff;border:2px solid var(--accent);border-radius:16px 16px 16px 4px;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,.07);max-width:480px;">
-        <div style="font-size:.72rem;color:var(--accent);font-weight:bold;margin-bottom:4px;">AIおやじ のひとこと</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <span style="font-size:.72rem;color:var(--accent);font-weight:bold;">AIおやじ のひとこと</span>
+          <a href="column-33.html" style="font-size:.68rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:8px;padding:1px 6px;">AIおやじとは？</a>
+        </div>
         <p id="js-oyaji-comment" style="margin:0;font-size:.88rem;line-height:1.7;color:var(--text);">今週も予測データができたぞ。俺にはむずかしいことはわからんが、AIがそう言うんだから間違いない。確認してみてくれ。</p>
+        <div id="js-oyaji-date" style="font-size:.7rem;color:var(--muted);margin-top:6px;"></div>
+      </div>
+    </div>
+
+    <!-- AIおやじ自己紹介ポップアップ -->
+    <div id="oyaji-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+      <div style="background:#fff;border-radius:16px;max-width:440px;width:100%;padding:28px 24px;box-shadow:0 8px 32px rgba(0,0,0,.2);position:relative;max-height:80vh;overflow-y:auto;">
+        <button onclick="document.getElementById('oyaji-modal').style.display='none'"
+                style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);">✕</button>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+          <img src="images/character/icon-normal.png" alt="AIおやじ" style="width:72px;height:72px;border-radius:50%;border:3px solid var(--accent);object-fit:cover;">
+          <div>
+            <div style="font-weight:bold;font-size:1.1rem;">AIおやじ</div>
+            <div style="font-size:.8rem;color:var(--muted);">競馬歴40年・万馬券ハンター</div>
+          </div>
+        </div>
+        <p style="font-size:.9rem;line-height:1.8;color:var(--text);">
+          はじめまして。競馬歴40年のおっさんじゃ。<br>
+          AIと組んで万馬券を狙う挑戦を続けとる。<br>
+          むずかしいことはわからんが、<strong>「データは嘘をつかんらしい」</strong>という言葉を信じてやっとる。
+        </p>
+        <p style="font-size:.9rem;line-height:1.8;color:var(--text);">
+          毎週金曜日に波乱確率の高いレースを公開中。<br>
+          勝った話も負けた話も、正直に書いていくつもりじゃ。
+        </p>
+        <div style="margin-top:16px;text-align:center;">
+          <a href="column-33.html" style="display:inline-block;background:var(--primary);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:bold;">
+            自己紹介コラムを読む →
+          </a>
+        </div>
       </div>
     </div>
 
@@ -477,6 +512,30 @@
         btn.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
       });
+    });
+  })();
+
+  // ④ AIおやじのひとこと（oyaji_comment.json から読み込み）
+  fetch('data/oyaji_comment.json')
+    .then(r => r.json())
+    .then(d => {
+      const el = document.getElementById('js-oyaji-comment');
+      const dt = document.getElementById('js-oyaji-date');
+      if (el && d.comment) el.textContent = d.comment;
+      if (dt && d.updated_at) dt.textContent = d.updated_at + ' 更新';
+    })
+    .catch(() => {});
+
+  // ⑤ AIおやじアイコンタップでポップアップ
+  (function() {
+    const btn = document.getElementById('oyaji-icon-btn');
+    const modal = document.getElementById('oyaji-modal');
+    if (!btn || !modal) return;
+    btn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
     });
   })();
 
