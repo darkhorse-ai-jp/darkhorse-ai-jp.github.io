@@ -1,7 +1,7 @@
 [
   {
     "race_id": "202410010611",
-    "race_date": "2024-10-01",
+    "race_date": "2024-01-28",
     "venue": "06",
     "race_number": 11,
     "race_name": "巌流島S",
@@ -11,7 +11,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 76.5,
+    "prob": 73.6,
     "upset_level": "高",
     "horses": [
       {
@@ -60,7 +60,7 @@
   },
   {
     "race_id": "202310010611",
-    "race_date": "2023-10-01",
+    "race_date": "2023-01-29",
     "venue": "06",
     "race_number": 11,
     "race_name": "巌流島S",
@@ -70,7 +70,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 76.0,
+    "prob": 73.2,
     "upset_level": "高",
     "horses": [
       {
@@ -118,67 +118,8 @@
     "bet_amount": 1000
   },
   {
-    "race_id": "202210020611",
-    "race_date": "2022-10-02",
-    "venue": "06",
-    "race_number": 11,
-    "race_name": "下関S",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1200,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 18,
-    "prob": 75.9,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 3,
-        "post": 2,
-        "name": "グランレイ",
-        "jockey": "藤懸",
-        "popularity": 1,
-        "odds": 4.1
-      },
-      {
-        "num": 16,
-        "post": 8,
-        "name": "ダノンシティ",
-        "jockey": "浜中",
-        "popularity": 2,
-        "odds": 4.8
-      },
-      {
-        "num": 4,
-        "post": 2,
-        "name": "オメガラヴィサン",
-        "jockey": "横山和",
-        "popularity": 3,
-        "odds": 6.2
-      },
-      {
-        "num": 2,
-        "post": 1,
-        "name": "マリーナ",
-        "jockey": "川須",
-        "popularity": 4,
-        "odds": 7.5
-      },
-      {
-        "num": 14,
-        "post": 7,
-        "name": "サトノファビュラス",
-        "jockey": "丸田",
-        "popularity": 5,
-        "odds": 8.9
-      }
-    ],
-    "buy_str": "3－16－4－2－14",
-    "bet_amount": 1000
-  },
-  {
     "race_id": "202210040809",
-    "race_date": "2022-10-04",
+    "race_date": "2022-09-04",
     "venue": "08",
     "race_number": 9,
     "race_name": "宗像特別",
@@ -188,7 +129,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 75.6,
+    "prob": 72.6,
     "upset_level": "高",
     "horses": [
       {
@@ -236,8 +177,126 @@
     "bet_amount": 1000
   },
   {
+    "race_id": "202304040611",
+    "race_date": "2023-10-29",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "ルミエールAD",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1000,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 72.6,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 16,
+        "post": 8,
+        "name": "アジアノジュンシン",
+        "jockey": "永島",
+        "popularity": 1,
+        "odds": 4.2
+      },
+      {
+        "num": 7,
+        "post": 4,
+        "name": "マイヨアポア",
+        "jockey": "津村",
+        "popularity": 2,
+        "odds": 5.8
+      },
+      {
+        "num": 6,
+        "post": 3,
+        "name": "トレンディスター",
+        "jockey": "亀田",
+        "popularity": 3,
+        "odds": 6.4
+      },
+      {
+        "num": 13,
+        "post": 7,
+        "name": "サトノファビュラス",
+        "jockey": "丸田",
+        "popularity": 4,
+        "odds": 9.4
+      },
+      {
+        "num": 17,
+        "post": 8,
+        "name": "クムシラコ",
+        "jockey": "江田照",
+        "popularity": 5,
+        "odds": 15.0
+      }
+    ],
+    "buy_str": "16－7－6－13－17",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202610010810",
+    "race_date": "2026-02-15",
+    "venue": "08",
+    "race_number": 10,
+    "race_name": "大濠特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 72.4,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 7,
+        "post": 4,
+        "name": "ハリウッドメモリー",
+        "jockey": "横山琉",
+        "popularity": 1,
+        "odds": 4.1
+      },
+      {
+        "num": 5,
+        "post": 3,
+        "name": "インブロリオ",
+        "jockey": "丹内",
+        "popularity": 2,
+        "odds": 5.5
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "メイショウセイロウ",
+        "jockey": "吉田隼",
+        "popularity": 3,
+        "odds": 6.1
+      },
+      {
+        "num": 10,
+        "post": 5,
+        "name": "バンディート",
+        "jockey": "角田和",
+        "popularity": 4,
+        "odds": 8.2
+      },
+      {
+        "num": 13,
+        "post": 7,
+        "name": "スムースベルベット",
+        "jockey": "嶋田",
+        "popularity": 5,
+        "odds": 10.5
+      }
+    ],
+    "buy_str": "7－5－16－10－13",
+    "bet_amount": 1000
+  },
+  {
     "race_id": "202310020110",
-    "race_date": "2023-10-02",
+    "race_date": "2023-02-11",
     "venue": "01",
     "race_number": 10,
     "race_name": "大濠特別",
@@ -247,7 +306,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 75.5,
+    "prob": 72.4,
     "upset_level": "高",
     "horses": [
       {
@@ -295,67 +354,185 @@
     "bet_amount": 1000
   },
   {
-    "race_id": "202207030812",
-    "race_date": "2022-07-03",
-    "venue": "08",
-    "race_number": 12,
-    "race_name": "朱雀S",
+    "race_id": "202510020411",
+    "race_date": "2025-07-06",
+    "venue": "04",
+    "race_number": 11,
+    "race_name": "北九州記念",
     "grade": "",
     "surface": "芝",
     "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 16,
-    "prob": 74.2,
+    "head_count": 18,
+    "prob": 72.2,
     "upset_level": "高",
     "horses": [
       {
-        "num": 16,
-        "post": 8,
-        "name": "マリーナ",
-        "jockey": "坂井",
+        "num": 9,
+        "post": 5,
+        "name": "ヤマニンアルリフラ",
+        "jockey": "団野",
         "popularity": 1,
-        "odds": 4.3
+        "odds": 5.7
+      },
+      {
+        "num": 15,
+        "post": 7,
+        "name": "ロードフォアエース",
+        "jockey": "川田",
+        "popularity": 2,
+        "odds": 5.8
+      },
+      {
+        "num": 17,
+        "post": 8,
+        "name": "キタノエクスプレス",
+        "jockey": "国分優",
+        "popularity": 3,
+        "odds": 7.4
       },
       {
         "num": 6,
         "post": 3,
-        "name": "オパールシャルム",
-        "jockey": "江田照",
-        "popularity": 2,
-        "odds": 6.0
-      },
-      {
-        "num": 10,
-        "post": 5,
-        "name": "サトノファビュラス",
-        "jockey": "丸田",
-        "popularity": 3,
-        "odds": 7.3
-      },
-      {
-        "num": 1,
-        "post": 1,
-        "name": "ロジーナ",
-        "jockey": "斎藤",
+        "name": "メイショウソラフネ",
+        "jockey": "酒井",
         "popularity": 4,
-        "odds": 7.5
+        "odds": 8.6
       },
       {
-        "num": 3,
-        "post": 2,
-        "name": "カヌメラビーチ",
-        "jockey": "吉田隼",
+        "num": 18,
+        "post": 8,
+        "name": "ヨシノイースター",
+        "jockey": "内田博",
         "popularity": 5,
         "odds": 9.7
       }
     ],
-    "buy_str": "16－6－10－1－3",
+    "buy_str": "9－15－17－6－18",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202210020611",
+    "race_date": "2022-02-27",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "下関S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 71.3,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 3,
+        "post": 2,
+        "name": "グランレイ",
+        "jockey": "藤懸",
+        "popularity": 1,
+        "odds": 4.1
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "ダノンシティ",
+        "jockey": "浜中",
+        "popularity": 2,
+        "odds": 4.8
+      },
+      {
+        "num": 4,
+        "post": 2,
+        "name": "オメガラヴィサン",
+        "jockey": "横山和",
+        "popularity": 3,
+        "odds": 6.2
+      },
+      {
+        "num": 2,
+        "post": 1,
+        "name": "マリーナ",
+        "jockey": "川須",
+        "popularity": 4,
+        "odds": 7.5
+      },
+      {
+        "num": 14,
+        "post": 7,
+        "name": "サトノファビュラス",
+        "jockey": "丸田",
+        "popularity": 5,
+        "odds": 8.9
+      }
+    ],
+    "buy_str": "3－16－4－2－14",
+    "bet_amount": 1000
+  },
+  {
+    "race_id": "202304040311",
+    "race_date": "2023-10-21",
+    "venue": "03",
+    "race_number": 11,
+    "race_name": "北陸S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 70.9,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 2,
+        "post": 1,
+        "name": "サンティーテソーロ",
+        "jockey": "佐々木",
+        "popularity": 1,
+        "odds": 4.0
+      },
+      {
+        "num": 17,
+        "post": 8,
+        "name": "ブッシュガーデン",
+        "jockey": "富田",
+        "popularity": 2,
+        "odds": 6.6
+      },
+      {
+        "num": 1,
+        "post": 1,
+        "name": "オタルエバー",
+        "jockey": "石橋脩",
+        "popularity": 3,
+        "odds": 6.7
+      },
+      {
+        "num": 8,
+        "post": 4,
+        "name": "イルクオーレ",
+        "jockey": "吉田豊",
+        "popularity": 4,
+        "odds": 7.6
+      },
+      {
+        "num": 12,
+        "post": 6,
+        "name": "ブレスレスリー",
+        "jockey": "角田和",
+        "popularity": 5,
+        "odds": 8.5
+      }
+    ],
+    "buy_str": "2－17－1－8－12",
     "bet_amount": 1000
   },
   {
     "race_id": "202404010711",
-    "race_date": "2024-04-01",
+    "race_date": "2024-05-18",
     "venue": "07",
     "race_number": 11,
     "race_name": "大日岳特別",
@@ -365,7 +542,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 16,
-    "prob": 73.6,
+    "prob": 70.6,
     "upset_level": "高",
     "horses": [
       {
@@ -414,7 +591,7 @@
   },
   {
     "race_id": "202303030511",
-    "race_date": "2023-03-03",
+    "race_date": "2023-11-18",
     "venue": "05",
     "race_number": 11,
     "race_name": "キビタキS",
@@ -424,7 +601,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 16,
-    "prob": 73.5,
+    "prob": 70.5,
     "upset_level": "高",
     "horses": [
       {
@@ -472,67 +649,8 @@
     "bet_amount": 1000
   },
   {
-    "race_id": "202304040611",
-    "race_date": "2023-04-04",
-    "venue": "06",
-    "race_number": 11,
-    "race_name": "ルミエールAD",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1000,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 18,
-    "prob": 73.4,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 16,
-        "post": 8,
-        "name": "アジアノジュンシン",
-        "jockey": "永島",
-        "popularity": 1,
-        "odds": 4.2
-      },
-      {
-        "num": 7,
-        "post": 4,
-        "name": "マイヨアポア",
-        "jockey": "津村",
-        "popularity": 2,
-        "odds": 5.8
-      },
-      {
-        "num": 6,
-        "post": 3,
-        "name": "トレンディスター",
-        "jockey": "亀田",
-        "popularity": 3,
-        "odds": 6.4
-      },
-      {
-        "num": 13,
-        "post": 7,
-        "name": "サトノファビュラス",
-        "jockey": "丸田",
-        "popularity": 4,
-        "odds": 9.4
-      },
-      {
-        "num": 17,
-        "post": 8,
-        "name": "クムシラコ",
-        "jockey": "江田照",
-        "popularity": 5,
-        "odds": 15.0
-      }
-    ],
-    "buy_str": "16－7－6－13－17",
-    "bet_amount": 1000
-  },
-  {
     "race_id": "202510010412",
-    "race_date": "2025-10-01",
+    "race_date": "2025-02-02",
     "venue": "04",
     "race_number": 12,
     "race_name": "4歳以上1勝クラス",
@@ -542,7 +660,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 73.1,
+    "prob": 70.4,
     "upset_level": "高",
     "horses": [
       {
@@ -590,8 +708,67 @@
     "bet_amount": 1000
   },
   {
+    "race_id": "202410020412",
+    "race_date": "2024-02-18",
+    "venue": "04",
+    "race_number": 12,
+    "race_name": "4歳以上1勝クラス",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 70.4,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 3,
+        "post": 2,
+        "name": "ヴァルトラウテ",
+        "jockey": "鮫島駿",
+        "popularity": 1,
+        "odds": 5.7
+      },
+      {
+        "num": 10,
+        "post": 5,
+        "name": "タガノスペルノヴァ",
+        "jockey": "吉田隼",
+        "popularity": 2,
+        "odds": 6.2
+      },
+      {
+        "num": 4,
+        "post": 2,
+        "name": "レディメローラ",
+        "jockey": "幸",
+        "popularity": 3,
+        "odds": 7.4
+      },
+      {
+        "num": 15,
+        "post": 7,
+        "name": "ウインアステロイド",
+        "jockey": "丸山元",
+        "popularity": 4,
+        "odds": 9.0
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "アエリーゾ",
+        "jockey": "▲川端",
+        "popularity": 5,
+        "odds": 9.7
+      }
+    ],
+    "buy_str": "3－10－4－15－16",
+    "bet_amount": 1000
+  },
+  {
     "race_id": "202410020410",
-    "race_date": "2024-10-02",
+    "race_date": "2024-02-18",
     "venue": "04",
     "race_number": 10,
     "race_name": "唐戸特別",
@@ -601,7 +778,7 @@
     "weather": "",
     "track_cond": "",
     "head_count": 18,
-    "prob": 72.9,
+    "prob": 70.3,
     "upset_level": "高",
     "horses": [
       {
@@ -649,239 +826,62 @@
     "bet_amount": 1000
   },
   {
-    "race_id": "202610010810",
-    "race_date": "2026-10-01",
+    "race_id": "202207030812",
+    "race_date": "2022-05-29",
     "venue": "08",
-    "race_number": 10,
-    "race_name": "大濠特別",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1200,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 18,
-    "prob": 72.6,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 7,
-        "post": 4,
-        "name": "ハリウッドメモリー",
-        "jockey": "横山琉",
-        "popularity": 1,
-        "odds": 4.1
-      },
-      {
-        "num": 5,
-        "post": 3,
-        "name": "インブロリオ",
-        "jockey": "丹内",
-        "popularity": 2,
-        "odds": 5.5
-      },
-      {
-        "num": 16,
-        "post": 8,
-        "name": "メイショウセイロウ",
-        "jockey": "吉田隼",
-        "popularity": 3,
-        "odds": 6.1
-      },
-      {
-        "num": 10,
-        "post": 5,
-        "name": "バンディート",
-        "jockey": "角田和",
-        "popularity": 4,
-        "odds": 8.2
-      },
-      {
-        "num": 13,
-        "post": 7,
-        "name": "スムースベルベット",
-        "jockey": "嶋田",
-        "popularity": 5,
-        "odds": 10.5
-      }
-    ],
-    "buy_str": "7－5－16－10－13",
-    "bet_amount": 1000
-  },
-  {
-    "race_id": "202401010111",
-    "race_date": "2024-01-01",
-    "venue": "01",
-    "race_number": 11,
-    "race_name": "TVh賞",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1200,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 72.6,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 16,
-        "post": 8,
-        "name": "エイシンフェンサー",
-        "jockey": "川又",
-        "popularity": 1,
-        "odds": 4.5
-      },
-      {
-        "num": 5,
-        "post": 3,
-        "name": "ドーバーホーク",
-        "jockey": "横山武",
-        "popularity": 2,
-        "odds": 5.0
-      },
-      {
-        "num": 8,
-        "post": 4,
-        "name": "オウバイトウリ",
-        "jockey": "浜中",
-        "popularity": 3,
-        "odds": 6.8
-      },
-      {
-        "num": 3,
-        "post": 2,
-        "name": "トーセンサンダー",
-        "jockey": "大野",
-        "popularity": 4,
-        "odds": 8.2
-      },
-      {
-        "num": 11,
-        "post": 6,
-        "name": "オードゥメール",
-        "jockey": "藤岡佑",
-        "popularity": 5,
-        "odds": 9.2
-      }
-    ],
-    "buy_str": "16－5－8－3－11",
-    "bet_amount": 1000
-  },
-  {
-    "race_id": "202404010811",
-    "race_date": "2024-04-01",
-    "venue": "08",
-    "race_number": 11,
-    "race_name": "韋駄天S",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1000,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 72.4,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 13,
-        "post": 7,
-        "name": "チェイスザドリーム",
-        "jockey": "丸山",
-        "popularity": 1,
-        "odds": 4.2
-      },
-      {
-        "num": 16,
-        "post": 8,
-        "name": "ファイアダンサー",
-        "jockey": "丹内",
-        "popularity": 2,
-        "odds": 4.5
-      },
-      {
-        "num": 12,
-        "post": 6,
-        "name": "ロードベイリーフ",
-        "jockey": "佐々木",
-        "popularity": 3,
-        "odds": 6.4
-      },
-      {
-        "num": 2,
-        "post": 1,
-        "name": "ブーケファロス",
-        "jockey": "杉原",
-        "popularity": 4,
-        "odds": 7.4
-      },
-      {
-        "num": 7,
-        "post": 4,
-        "name": "アビッグチア",
-        "jockey": "柴田善",
-        "popularity": 5,
-        "odds": 12.7
-      }
-    ],
-    "buy_str": "13－16－12－2－7",
-    "bet_amount": 1000
-  },
-  {
-    "race_id": "202410020412",
-    "race_date": "2024-10-02",
-    "venue": "04",
     "race_number": 12,
-    "race_name": "4歳以上1勝クラス",
+    "race_name": "朱雀S",
     "grade": "",
     "surface": "芝",
     "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 18,
-    "prob": 72.3,
+    "head_count": 16,
+    "prob": 70.2,
     "upset_level": "高",
     "horses": [
       {
-        "num": 3,
-        "post": 2,
-        "name": "ヴァルトラウテ",
-        "jockey": "鮫島駿",
+        "num": 16,
+        "post": 8,
+        "name": "マリーナ",
+        "jockey": "坂井",
         "popularity": 1,
-        "odds": 5.7
+        "odds": 4.3
+      },
+      {
+        "num": 6,
+        "post": 3,
+        "name": "オパールシャルム",
+        "jockey": "江田照",
+        "popularity": 2,
+        "odds": 6.0
       },
       {
         "num": 10,
         "post": 5,
-        "name": "タガノスペルノヴァ",
-        "jockey": "吉田隼",
-        "popularity": 2,
-        "odds": 6.2
-      },
-      {
-        "num": 4,
-        "post": 2,
-        "name": "レディメローラ",
-        "jockey": "幸",
+        "name": "サトノファビュラス",
+        "jockey": "丸田",
         "popularity": 3,
-        "odds": 7.4
+        "odds": 7.3
       },
       {
-        "num": 15,
-        "post": 7,
-        "name": "ウインアステロイド",
-        "jockey": "丸山元",
+        "num": 1,
+        "post": 1,
+        "name": "ロジーナ",
+        "jockey": "斎藤",
         "popularity": 4,
-        "odds": 9.0
+        "odds": 7.5
       },
       {
-        "num": 16,
-        "post": 8,
-        "name": "アエリーゾ",
-        "jockey": "▲川端",
+        "num": 3,
+        "post": 2,
+        "name": "カヌメラビーチ",
+        "jockey": "吉田隼",
         "popularity": 5,
         "odds": 9.7
       }
     ],
-    "buy_str": "3－10－4－15－16",
+    "buy_str": "16－6－10－1－3",
     "bet_amount": 1000
   }
 ]
