@@ -290,14 +290,14 @@
           📋 <strong>表示対象について：</strong>AIが波乱確率 <strong>30%以上</strong>と判定したレースのみ表示しています。
           それ以下のレースはデータから除外されているため、8R以前など特定レースが表示されない場合があります。
         </p>
-        <p><strong>📖 万馬券の仕組み：</strong>三連複で万馬券（10,000円以上）になるには、<strong>1〜3番人気が全員揃わない</strong>ことが必要です。</p>
+        <p><strong>📖 買い方の戦略：</strong>「軸（1〜2番人気）＋穴（4〜12番人気）流し」で万馬券を狙います。</p>
         <div style="margin:10px 0;padding:10px;background:#f8f9fc;border-radius:8px;">
-          <span style="background:var(--primary);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">1〜3番人気（軸）</span>
+          <span style="background:#1d4ed8;color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">軸：1〜2番人気</span>
           　＋
-          <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">4〜5番人気（穴）</span>
+          <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">穴：4〜12番人気</span>
           　→　<strong style="color:var(--miss);">三連複 万馬券 💥</strong>
         </div>
-        <p style="font-size:.8rem;color:var(--muted);">例：1番人気(3倍)＋3番人気(8倍)＋5番人気(12倍) → 三連複 15,000〜30,000円　<a href="column-01.html">→ 詳しく読む</a></p>
+        <p style="font-size:.8rem;color:var(--muted);">例：1番人気(3倍)＋2番人気(5倍)＋8番人気(30倍) → 三連複 30,000〜80,000円　<a href="column-01.html">→ 詳しく読む</a></p>
       </div>
     </details>
 
@@ -445,18 +445,20 @@ function buildRaceDetail(r) {
   }
 
   if (r.horses && r.horses.length > 0) {
-    const upsetHorses  = r.horses.filter(h => h.popularity != null && h.popularity >= 4);
-    const anchorHorses = r.horses.filter(h => h.popularity != null && h.popularity <= 3);
+    const anchorHorses = r.horses.filter(h => h.role === 'anchor' || (h.role == null && h.popularity != null && h.popularity <= 2));
+    const upsetHorses  = r.horses.filter(h => h.role === 'upset'  || (h.role == null && h.popularity != null && h.popularity >= 4));
     let rows = '';
     r.horses.forEach(h => {
-      const isUpset = h.popularity != null && h.popularity >= 4;
+      const isUpset = h.role === 'upset' || (h.role == null && h.popularity != null && h.popularity >= 4);
       const numCls = isUpset ? 'h-num-upset' : 'h-num-anchor';
       const popCls = isUpset ? 'h-pop-upset' : 'h-pop-anchor';
-      const keyTag = isUpset ? '<span class="upset-key-tag">穴</span>' : '';
+      const roleTag = isUpset
+        ? '<span class="upset-key-tag">穴</span>'
+        : '<span style="font-size:.7rem;background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:8px;margin-left:4px;font-weight:bold;">軸</span>';
       rows += `
         <tr>
           <td data-label="馬番"><div style="display:flex;align-items:center;gap:8px;"><div class="h-num ${numCls}">${h.num}</div></div></td>
-          <td data-label="馬名"><div class="h-name">${h.name}${keyTag}</div><div class="h-jockey">${h.jockey || ''}</div></td>
+          <td data-label="馬名"><div class="h-name">${h.name}${roleTag}</div><div class="h-jockey">${h.jockey || ''}</div></td>
           <td data-label="人気" class="${popCls}">${h.popularity != null ? h.popularity + '番人気' : '未確定'}</td>
           <td data-label="単勝オッズ" class="h-odds">${h.odds ? h.odds + '倍' : '—'}</td>
         </tr>`;
@@ -465,14 +467,15 @@ function buildRaceDetail(r) {
       <thead><tr><th>馬番</th><th>馬名 / 騎手</th><th>人気</th><th>単勝</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
 
-    if (upsetHorses.length > 0 && anchorHorses.length >= 2) {
-      const up1 = upsetHorses[0], an1 = anchorHorses[0], an2 = anchorHorses[1];
+    if (upsetHorses.length > 0 && anchorHorses.length >= 1) {
+      const an1 = anchorHorses[0];
+      const an2 = anchorHorses[1] || null;
+      const up1 = upsetHorses[0];
       html += `<div class="pattern-box">
-        <div class="title">💡 万馬券になるパターン例</div>
+        <div class="title">💡 万馬券になるパターン例（軸＋穴流し）</div>
         <div class="flow-row">
-          <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an1.num}番 ${an1.name}</span>
-          <span style="color:var(--muted);">＋</span>
-          <span class="flow-tag" style="background:#eef2f8;color:var(--primary);">${an2.num}番 ${an2.name}</span>
+          <span class="flow-tag" style="background:#dbeafe;color:#1d4ed8;">${an1.num}番 ${an1.name}（軸）</span>
+          ${an2 ? `<span style="color:var(--muted);">＋</span><span class="flow-tag" style="background:#dbeafe;color:#1d4ed8;">${an2.num}番 ${an2.name}（軸）</span>` : ''}
           <span style="color:var(--muted);">＋</span>
           <span class="flow-tag" style="background:#fff3cd;color:#b7770d;font-weight:bold;">${up1.num}番 ${up1.name}（穴 ${up1.odds || '—'}倍）</span>
           <span style="color:var(--muted);">→</span>
@@ -481,9 +484,16 @@ function buildRaceDetail(r) {
     }
   }
 
+  const buyPoints = r.buy_points || 10;
+  const betAmt    = r.bet_amount || buyPoints * 300;
+  const isAxisFlow = r.buy_str && r.buy_str.includes('軸');
   html += isConfirmed
-    ? `<div class="buy-box"><span class="buy-label">三連複ボックス（人気順1〜5番人気）</span><span class="buy-nums">${r.buy_str}</span><span class="buy-cost">10点　${(r.bet_amount || 1000).toLocaleString()}円</span></div>`
-    : `<div class="buy-box buy-box-unconfirmed"><span class="buy-label">三連複ボックス買い目</span><span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span><span class="buy-cost-note">金曜夜以降に確定</span></div>`;
+    ? `<div class="buy-box">
+        <span class="buy-label">${isAxisFlow ? '三連複 軸＋穴流し' : '三連複ボックス'}</span>
+        <span class="buy-nums">${r.buy_str}</span>
+        <span class="buy-cost">${buyPoints}点　${betAmt.toLocaleString()}円</span>
+       </div>`
+    : `<div class="buy-box buy-box-unconfirmed"><span class="buy-label">三連複 軸＋穴流し 買い目</span><span class="buy-nums-unconfirmed">⚠️ 出走馬・馬番確定前</span><span class="buy-cost-note">金曜夜以降に確定</span></div>`;
 
   return html;
 }
