@@ -137,6 +137,23 @@
       font-size: .7rem; background: #fff3cd; color: #b7770d;
       padding: 1px 7px; border-radius: 8px; margin-left: 4px; font-weight: bold;
     }
+    /* ─── 選定理由タグ ─── */
+    .reason-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px; }
+    .reason-tag {
+      font-size: .65rem; padding: 1px 6px; border-radius: 6px;
+      background: #ecfdf5; color: #065f46; border: 1px solid #6ee7b7;
+      white-space: nowrap; font-weight: bold;
+    }
+    .reason-tag.reason-trend    { background: #fff7ed; color: #9a3412; border-color: #fdba74; }
+    .reason-tag.reason-jockey   { background: #eff6ff; color: #1e40af; border-color: #93c5fd; }
+    .reason-tag.reason-interval { background: #f5f3ff; color: #5b21b6; border-color: #c4b5fd; }
+    /* ─── 推奨バッジ ─── */
+    .osusume-badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: .62rem; font-weight: bold; padding: 2px 7px; border-radius: 6px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff; white-space: nowrap; margin-left: 5px; vertical-align: middle;
+    }
 
     /* ─── パターン・買い目 ─── */
     .pattern-box {
@@ -290,12 +307,15 @@
           📋 <strong>表示対象について：</strong>AIが波乱確率 <strong>30%以上</strong>と判定したレースのみ表示しています。
           それ以下のレースはデータから除外されているため、8R以前など特定レースが表示されない場合があります。
         </p>
-        <p><strong>📖 買い方の戦略：</strong>「軸（1〜2番人気）＋穴（4〜12番人気）流し」で万馬券を狙います。</p>
+        <p><strong>📖 買い方の戦略：</strong>「軸（1〜2番人気）＋穴（6〜15番人気）流し」で万馬券を狙います。穴馬はAIが過去成績・距離適性・騎手変更・休養間隔などからスコアリングして選定しています。</p>
         <div style="margin:10px 0;padding:10px;background:#f8f9fc;border-radius:8px;">
           <span style="background:#1d4ed8;color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">軸：1〜2番人気</span>
           　＋
-          <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">穴：4〜12番人気</span>
+          <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:10px;font-size:.78rem;">穴：6〜15番人気（スコア上位）</span>
           　→　<strong style="color:var(--miss);">三連複 万馬券 💥</strong>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:#ecfdf5;border-radius:6px;font-size:.78rem;color:#065f46;">
+          <strong>穴馬スコアリング指標：</strong>近3走の人気超え実績・上昇トレンド・距離/馬場適性・騎手変更ボーナス・最適休養間隔
         </div>
         <p style="font-size:.8rem;color:var(--muted);">例：1番人気(3倍)＋2番人気(5倍)＋8番人気(30倍) → 三連複 30,000〜80,000円　<a href="column-01.html">→ 詳しく読む</a></p>
       </div>
@@ -455,10 +475,22 @@ function buildRaceDetail(r) {
       const roleTag = isUpset
         ? '<span class="upset-key-tag">穴</span>'
         : '<span style="font-size:.7rem;background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:8px;margin-left:4px;font-weight:bold;">軸</span>';
+      // 選定理由タグ
+      let reasonsHtml = '';
+      if (isUpset && h.reasons && h.reasons.length > 0) {
+        const tagHtml = h.reasons.map(reason => {
+          let cls = 'reason-tag';
+          if (reason.includes('上昇') || reason.includes('激走')) cls += ' reason-trend';
+          else if (reason.includes('騎手')) cls += ' reason-jockey';
+          else if (reason.includes('間隔')) cls += ' reason-interval';
+          return `<span class="${cls}">${reason}</span>`;
+        }).join('');
+        reasonsHtml = `<div class="reason-tags">${tagHtml}</div>`;
+      }
       rows += `
         <tr>
           <td data-label="馬番"><div style="display:flex;align-items:center;gap:8px;"><div class="h-num ${numCls}">${h.num}</div></div></td>
-          <td data-label="馬名"><div class="h-name">${h.name}${roleTag}</div><div class="h-jockey">${h.jockey || ''}</div></td>
+          <td data-label="馬名"><div class="h-name">${h.name}${roleTag}</div><div class="h-jockey">${h.jockey || ''}</div>${reasonsHtml}</td>
           <td data-label="人気" class="${popCls}">${h.popularity != null ? h.popularity + '番人気' : '未確定'}</td>
           <td data-label="単勝オッズ" class="h-odds">${h.odds ? h.odds + '倍' : '—'}</td>
         </tr>`;
