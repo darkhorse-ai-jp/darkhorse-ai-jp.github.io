@@ -64,6 +64,21 @@
       </div>
     </div>
 
+    <!-- 推奨戦略ハイライト -->
+    <div id="js-opt-box" style="display:none;background:linear-gradient(135deg,#f5f0ff,#ede9fe);border:1px solid #a855f7;border-left:4px solid #7c3aed;border-radius:10px;padding:16px 20px;margin-bottom:20px;">
+      <div style="font-size:.8rem;font-weight:bold;color:#7c3aed;margin-bottom:8px;">💡 推奨戦略（条件絞り込み）</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <div style="text-align:center;">
+          <div id="js-opt-roi" style="font-size:2rem;font-weight:bold;color:#7c3aed;">—</div>
+          <div style="font-size:.75rem;color:#6d28d9;">推奨戦略 回収率</div>
+        </div>
+        <div style="font-size:.82rem;color:#4c1d95;line-height:1.8;">
+          <span id="js-opt-strategy">—</span><br>
+          <span style="font-size:.75rem;color:#6d28d9;">参加 <span id="js-opt-count">—</span>件 ／ 最大DD <span id="js-opt-dd">—</span></span>
+        </div>
+      </div>
+    </div>
+
     <!-- 注意書き -->
     <div style="background:#e8f4fd;border-left:4px solid #2980b9;padding:12px 16px;border-radius:4px;margin-bottom:24px;font-size:.85rem;">
       📌 バックテストは過去データによる検証結果です。将来の成績を保証するものではありません。
@@ -83,8 +98,8 @@
       <table style="font-size:.9rem;" id="js-conditions-table">
         <tbody>
           <tr><td><strong>対象レース</strong></td><td>JRAレース全般（新馬戦・障害除く）</td></tr>
-          <tr><td><strong>馬券種</strong></td><td>三連複ボックス（5頭）</td></tr>
-          <tr><td><strong>賭け金</strong></td><td>1点100円（1レースあたり1,000円）</td></tr>
+          <tr><td><strong>馬券種</strong></td><td>三連複 軸（1〜2番人気）＋穴（4〜12番人気）流し</td></tr>
+          <tr><td><strong>賭け金</strong></td><td>1点300円（軸2頭×穴3頭=3点・900円/レース）</td></tr>
           <tr><td><strong>参加基準</strong></td><td id="js-threshold">波乱確率 — 以上のレースのみ参加</td></tr>
           <tr><td><strong>データ期間</strong></td><td id="js-data-range">—</td></tr>
           <tr><td><strong>学習データ</strong></td><td id="js-train-period">—</td></tr>
@@ -119,6 +134,13 @@ fetch('data/stats.json')
     document.getElementById('js-data-range').textContent   = d.data_range   || '—';
     document.getElementById('js-train-period').textContent = d.train_period || '—';
     document.getElementById('js-test-period').textContent  = d.test_period  || '—';
+    if (d.opt_roi) {
+      document.getElementById('js-opt-box').style.display = '';
+      document.getElementById('js-opt-roi').textContent      = d.opt_roi.toFixed(1) + '%';
+      document.getElementById('js-opt-strategy').textContent = d.opt_strategy || '—';
+      document.getElementById('js-opt-count').textContent    = d.opt_participated || '—';
+      document.getElementById('js-opt-dd').textContent       = (d.opt_max_drawdown || 0).toFixed(1) + '%';
+    }
   })
   .catch(() => {});
 
