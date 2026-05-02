@@ -70,11 +70,16 @@
       <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
         <div style="text-align:center;">
           <div id="js-opt-roi" style="font-size:2rem;font-weight:bold;color:#7c3aed;">—</div>
-          <div style="font-size:.75rem;color:#6d28d9;">推奨戦略 回収率</div>
+          <div style="font-size:.75rem;color:#6d28d9;">全期間 回収率</div>
+        </div>
+        <div id="js-opt-test-block" style="text-align:center;display:none;">
+          <div id="js-opt-test-roi" style="font-size:2rem;font-weight:bold;color:#059669;">—</div>
+          <div style="font-size:.75rem;color:#047857;">テストデータ 回収率</div>
         </div>
         <div style="font-size:.82rem;color:#4c1d95;line-height:1.8;">
           <span id="js-opt-strategy">—</span><br>
-          <span style="font-size:.75rem;color:#6d28d9;">参加 <span id="js-opt-count">—</span>件 ／ 最大DD <span id="js-opt-dd">—</span></span>
+          <span style="font-size:.75rem;color:#6d28d9;">参加 <span id="js-opt-count">—</span>件 ／ 最大DD <span id="js-opt-dd">—</span></span><br>
+          <span id="js-opt-test-note" style="font-size:.72rem;color:#047857;display:none;">テストデータ（未来相当） <span id="js-opt-test-count">—</span>件参加</span>
         </div>
       </div>
     </div>
@@ -140,6 +145,12 @@ fetch('data/stats.json')
       document.getElementById('js-opt-strategy').textContent = d.opt_strategy || '—';
       document.getElementById('js-opt-count').textContent    = d.opt_participated || '—';
       document.getElementById('js-opt-dd').textContent       = (d.opt_max_drawdown || 0).toFixed(1) + '%';
+      if (d.opt_test_roi) {
+        document.getElementById('js-opt-test-block').style.display = '';
+        document.getElementById('js-opt-test-roi').textContent     = d.opt_test_roi.toFixed(1) + '%';
+        document.getElementById('js-opt-test-note').style.display  = '';
+        document.getElementById('js-opt-test-count').textContent   = d.opt_test_participated || '—';
+      }
     }
   })
   .catch(() => {});

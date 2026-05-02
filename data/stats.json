@@ -12,10 +12,13 @@
   "total_payout": 5584530,
   "train_period": "2022年01月〜2025年06月",
   "test_period": "2025年06月〜2026年03月",
-  "updated_at": "2026-05-02",
-  "opt_roi": 68.3,
-  "opt_hit_rate": 8.7,
-  "opt_participated": 230,
-  "opt_max_drawdown": 39.9,
-  "opt_strategy": "軸+穴流し・2200m以上・函館東京阪神小倉除外・閾値35%"
+  "updated_at": "2026-05-03",
+  "opt_roi": 91.9,
+  "opt_hit_rate": 9.0,
+  "opt_participated": 1385,
+  "opt_max_drawdown": 22.8,
+  "opt_strategy": "軸+穴流し・1800m以上・東京京都除外・閾値35%",
+  "opt_test_roi": 151.7,
+  "opt_test_participated": 289,
+  "opt_test_hit_rate": 13.1
 }
