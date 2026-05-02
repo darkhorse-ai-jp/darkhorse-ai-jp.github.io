@@ -158,6 +158,23 @@
     .buy-nums-unconfirmed { font-size: .92rem; font-weight: bold; color: #b7770d; }
     .buy-cost-note { margin-left: auto; font-size: .78rem; color: #b7770d; }
 
+    /* ─── 100万馬券候補バッジ ─── */
+    .hyakuman-badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: .65rem; font-weight: bold; padding: 2px 8px; border-radius: 8px;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff; white-space: nowrap; margin-left: 6px; vertical-align: middle;
+      box-shadow: 0 1px 4px rgba(124,58,237,.3);
+    }
+    .hyakuman-alert {
+      background: linear-gradient(135deg, #f5f0ff, #ede9fe);
+      border: 1px solid #a855f7; border-left: 4px solid #7c3aed;
+      border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: .83rem;
+    }
+    .hyakuman-alert .title { font-size: .78rem; font-weight: bold; color: #7c3aed; margin-bottom: 6px; }
+    .hyakuman-strategy { background: #fff; border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: .8rem; }
+    .hyakuman-strategy li { margin: 3px 0; color: #4c1d95; }
+
     /* ─── フィルターバー ─── */
     .filter-section { margin-bottom: 20px; }
     .filter-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
@@ -247,6 +264,11 @@
         <button class="filter-btn" onclick="setFilter('level','中',this)">中（45〜59%）</button>
         <button class="filter-btn" onclick="setFilter('level','低',this)">低（30〜44%）</button>
       </div>
+      <div class="filter-row">
+        <span class="filter-label">特別：</span>
+        <button class="filter-btn active" onclick="setFilter('hyakuman','all',this)">すべて</button>
+        <button class="filter-btn" style="background:#f5f0ff;border-color:#a855f7;color:#7c3aed;" onclick="setFilter('hyakuman','true',this)">💰 100万馬券候補</button>
+      </div>
     </div>
 
     <!-- 件数表示 -->
@@ -327,7 +349,7 @@ function toggleMenu() {
   btn.setAttribute('aria-expanded', nav.classList.contains('open'));
 }
 
-const filters = { venue: 'all', surface: 'all', level: 'all' };
+const filters = { venue: 'all', surface: 'all', level: 'all', hyakuman: 'all' };
 
 function setFilter(key, val, btn) {
   filters[key] = val;
@@ -339,10 +361,11 @@ function setFilter(key, val, btn) {
 function applyFilters() {
   let visible = 0;
   document.querySelectorAll('.schedule-row').forEach(row => {
-    const v = filters.venue   === 'all' || row.dataset.venue   === filters.venue;
-    const s = filters.surface === 'all' || row.dataset.surface === filters.surface;
-    const l = filters.level   === 'all' || row.dataset.level   === filters.level;
-    const show = v && s && l;
+    const v = filters.venue    === 'all' || row.dataset.venue    === filters.venue;
+    const s = filters.surface  === 'all' || row.dataset.surface  === filters.surface;
+    const l = filters.level    === 'all' || row.dataset.level    === filters.level;
+    const h = filters.hyakuman === 'all' || row.dataset.hyakuman === filters.hyakuman;
+    const show = v && s && l && h;
     row.style.display = show ? '' : 'none';
     const detailRow = document.getElementById('detail-' + row.dataset.id);
     if (detailRow && !show) detailRow.style.display = 'none';
@@ -398,7 +421,24 @@ function buildRaceDetail(r) {
         <div style="height:100%;background:${levelColor};width:${Math.min(prob,100)}%;border-radius:3px;"></div>
       </div>
       <span class="upset-badge-sm ${level === '高' ? 'upset-high' : level === '中' ? 'upset-mid' : 'upset-low'}">波乱度 ${level}</span>
+      ${r.hyakuman_flag ? `<span class="hyakuman-badge" style="font-size:.72rem;padding:3px 10px;">💰 100万馬券候補</span>` : ''}
     </div>`;
+
+  if (r.hyakuman_flag) {
+    const top1o = r.top1_odds ? `1番人気オッズ ${r.top1_odds}倍・` : '';
+    html += `<div class="hyakuman-alert">
+      <div class="title">💰 100万馬券候補レースです</div>
+      <div>${top1o}${r.head_count}頭立て・波乱確率${prob}% — 超高配当が狙えるレースです。</div>
+      <div class="hyakuman-strategy">
+        <strong style="color:#7c3aed;">おすすめ戦略（超穴ボックス）</strong>
+        <ul style="margin:4px 0 0 16px;padding:0;">
+          <li>8番人気以下から3〜4頭選んで三連複ボックス</li>
+          <li>1点あたり100〜200円で複数点購入（総額500〜1,000円）</li>
+          <li>的中率は低いが、当たれば100万円超えも現実的</li>
+        </ul>
+      </div>
+    </div>`;
+  }
 
   if (!isConfirmed) {
     html += `<div class="detail-unconfirmed">⚠️ 出走確定前の暫定情報。馬番・人気・オッズは金曜夜以降に確定します。</div>`;
@@ -493,14 +533,15 @@ function buildVenueGroups(data) {
       const raceName = (r.race_name && r.race_name !== 'None') ? r.race_name : `${r.race_number}R`;
       const dist = r.distance ? `${r.distance}m` : '';
       const gradeBadge = r.grade ? `<span class="grade-badge-sm">${r.grade}</span>` : '';
+      const hyakumanBadge = r.hyakuman_flag ? `<span class="hyakuman-badge">💰 100万馬券候補</span>` : '';
       const probHtml = isPending
         ? `<span class="upset-badge-sm upset-pending">出走確認待ち</span>`
         : `<div class="prob-bar-inline"><div class="prob-bar-fill" style="width:${Math.min(prob,100)}%;background:${levelColor};"></div></div><span class="prob-pct" style="color:${levelColor}">${prob}%</span>`;
 
       html += `
-        <tr class="schedule-row" data-id="${r.race_id}" data-venue="${venueName}" data-surface="${r.surface || ''}" data-level="${level}" onclick="toggleRow('${r.race_id}')">
+        <tr class="schedule-row" data-id="${r.race_id}" data-venue="${venueName}" data-surface="${r.surface || ''}" data-level="${level}" data-hyakuman="${r.hyakuman_flag ? 'true' : 'false'}" onclick="toggleRow('${r.race_id}')">
           <td class="r-num">${r.race_number}R</td>
-          <td class="r-name">${raceName}${gradeBadge} <span class="expand-icon">▼</span></td>
+          <td class="r-name">${raceName}${gradeBadge}${hyakumanBadge} <span class="expand-icon">▼</span></td>
           <td class="r-dist">${r.surface || ''} ${dist}</td>
           <td class="r-heads">${r.head_count ? r.head_count + '頭' : ''}</td>
           <td class="r-prob">${probHtml}</td>
