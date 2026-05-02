@@ -2,393 +2,393 @@
   {
     "year_month": "2022-01",
     "total_bet": 119700,
-    "total_payout": 99670,
+    "total_payout": 125040,
     "n_races": 133,
-    "n_hit": 26,
-    "roi": 0.8326649958228906
+    "n_hit": 11,
+    "roi": 1.0446115288220552
   },
   {
     "year_month": "2022-02",
     "total_bet": 126000,
-    "total_payout": 107830,
+    "total_payout": 86430,
     "n_races": 140,
-    "n_hit": 23,
-    "roi": 0.8557936507936508
+    "n_hit": 14,
+    "roi": 0.685952380952381
   },
   {
     "year_month": "2022-03",
     "total_bet": 114300,
-    "total_payout": 113100,
+    "total_payout": 74730,
     "n_races": 127,
-    "n_hit": 26,
-    "roi": 0.989501312335958
+    "n_hit": 11,
+    "roi": 0.6538057742782152
   },
   {
     "year_month": "2022-04",
     "total_bet": 133200,
-    "total_payout": 136540,
+    "total_payout": 138250,
     "n_races": 148,
-    "n_hit": 30,
-    "roi": 1.025075075075075
+    "n_hit": 14,
+    "roi": 1.037912912912913
   },
   {
     "year_month": "2022-05",
     "total_bet": 136800,
-    "total_payout": 107520,
+    "total_payout": 119740,
     "n_races": 152,
-    "n_hit": 22,
-    "roi": 0.7859649122807018
+    "n_hit": 17,
+    "roi": 0.8752923976608187
   },
   {
     "year_month": "2022-06",
     "total_bet": 118800,
-    "total_payout": 86680,
+    "total_payout": 193380,
     "n_races": 132,
-    "n_hit": 21,
-    "roi": 0.7296296296296296
+    "n_hit": 11,
+    "roi": 1.6277777777777778
   },
   {
     "year_month": "2022-07",
     "total_bet": 140400,
-    "total_payout": 131060,
+    "total_payout": 139230,
     "n_races": 156,
-    "n_hit": 27,
-    "roi": 0.9334757834757835
+    "n_hit": 22,
+    "roi": 0.9916666666666667
   },
   {
     "year_month": "2022-08",
     "total_bet": 130500,
-    "total_payout": 142390,
+    "total_payout": 90240,
     "n_races": 145,
-    "n_hit": 40,
-    "roi": 1.0911111111111111
+    "n_hit": 15,
+    "roi": 0.6914942528735633
   },
   {
     "year_month": "2022-09",
     "total_bet": 112500,
-    "total_payout": 88290,
+    "total_payout": 245420,
     "n_races": 125,
-    "n_hit": 20,
-    "roi": 0.7848
+    "n_hit": 17,
+    "roi": 2.181511111111111
   },
   {
     "year_month": "2022-10",
     "total_bet": 144900,
-    "total_payout": 130350,
+    "total_payout": 95770,
     "n_races": 161,
-    "n_hit": 36,
-    "roi": 0.8995859213250518
+    "n_hit": 16,
+    "roi": 0.6609385783298827
   },
   {
     "year_month": "2022-11",
     "total_bet": 126000,
-    "total_payout": 91140,
+    "total_payout": 88240,
     "n_races": 140,
-    "n_hit": 24,
-    "roi": 0.7233333333333334
+    "n_hit": 12,
+    "roi": 0.7003174603174603
   },
   {
     "year_month": "2022-12",
     "total_bet": 144900,
-    "total_payout": 127310,
+    "total_payout": 71300,
     "n_races": 161,
-    "n_hit": 28,
-    "roi": 0.8786059351276743
+    "n_hit": 11,
+    "roi": 0.49206349206349204
   },
   {
     "year_month": "2023-01",
     "total_bet": 152100,
-    "total_payout": 112690,
+    "total_payout": 179900,
     "n_races": 169,
-    "n_hit": 25,
-    "roi": 0.7408941485864563
+    "n_hit": 24,
+    "roi": 1.182774490466798
   },
   {
     "year_month": "2023-02",
     "total_bet": 133200,
-    "total_payout": 122570,
+    "total_payout": 68930,
     "n_races": 148,
-    "n_hit": 25,
-    "roi": 0.9201951951951952
+    "n_hit": 11,
+    "roi": 0.5174924924924925
   },
   {
     "year_month": "2023-03",
     "total_bet": 112500,
-    "total_payout": 121560,
+    "total_payout": 109110,
     "n_races": 125,
-    "n_hit": 23,
-    "roi": 1.0805333333333333
+    "n_hit": 8,
+    "roi": 0.9698666666666667
   },
   {
     "year_month": "2023-04",
     "total_bet": 144000,
-    "total_payout": 125570,
+    "total_payout": 79350,
     "n_races": 160,
-    "n_hit": 35,
-    "roi": 0.8720138888888889
+    "n_hit": 11,
+    "roi": 0.5510416666666667
   },
   {
     "year_month": "2023-05",
     "total_bet": 116100,
-    "total_payout": 92410,
+    "total_payout": 77470,
     "n_races": 129,
-    "n_hit": 23,
-    "roi": 0.7959517657192076
+    "n_hit": 9,
+    "roi": 0.6672695951765719
   },
   {
     "year_month": "2023-06",
     "total_bet": 114300,
-    "total_payout": 106880,
+    "total_payout": 72920,
     "n_races": 127,
-    "n_hit": 21,
-    "roi": 0.9350831146106736
+    "n_hit": 9,
+    "roi": 0.6379702537182852
   },
   {
     "year_month": "2023-07",
     "total_bet": 142200,
-    "total_payout": 132900,
+    "total_payout": 105390,
     "n_races": 158,
-    "n_hit": 35,
-    "roi": 0.9345991561181435
+    "n_hit": 14,
+    "roi": 0.7411392405063291
   },
   {
     "year_month": "2023-10",
     "total_bet": 125100,
-    "total_payout": 148910,
+    "total_payout": 139750,
     "n_races": 139,
-    "n_hit": 25,
-    "roi": 1.190327737809752
+    "n_hit": 14,
+    "roi": 1.1171063149480416
   },
   {
     "year_month": "2023-11",
     "total_bet": 116100,
-    "total_payout": 132850,
+    "total_payout": 58700,
     "n_races": 129,
-    "n_hit": 30,
-    "roi": 1.1442721791559
+    "n_hit": 9,
+    "roi": 0.5055986218776917
   },
   {
     "year_month": "2023-12",
     "total_bet": 137700,
-    "total_payout": 106400,
+    "total_payout": 91680,
     "n_races": 153,
-    "n_hit": 28,
-    "roi": 0.7726942628903414
+    "n_hit": 14,
+    "roi": 0.6657952069716776
   },
   {
     "year_month": "2024-01",
     "total_bet": 133200,
-    "total_payout": 139350,
+    "total_payout": 113250,
     "n_races": 148,
-    "n_hit": 27,
-    "roi": 1.0461711711711712
+    "n_hit": 12,
+    "roi": 0.8502252252252253
   },
   {
     "year_month": "2024-02",
     "total_bet": 111600,
-    "total_payout": 90960,
+    "total_payout": 103000,
     "n_races": 124,
-    "n_hit": 24,
-    "roi": 0.8150537634408602
+    "n_hit": 15,
+    "roi": 0.9229390681003584
   },
   {
     "year_month": "2024-03",
     "total_bet": 108000,
-    "total_payout": 97790,
+    "total_payout": 61450,
     "n_races": 120,
-    "n_hit": 22,
-    "roi": 0.9054629629629629
+    "n_hit": 13,
+    "roi": 0.5689814814814815
   },
   {
     "year_month": "2024-04",
     "total_bet": 117000,
-    "total_payout": 73600,
+    "total_payout": 58100,
     "n_races": 130,
-    "n_hit": 19,
-    "roi": 0.629059829059829
+    "n_hit": 10,
+    "roi": 0.4965811965811966
   },
   {
     "year_month": "2024-05",
     "total_bet": 119700,
-    "total_payout": 65390,
+    "total_payout": 142410,
     "n_races": 133,
-    "n_hit": 20,
-    "roi": 0.546282372598162
+    "n_hit": 14,
+    "roi": 1.1897243107769424
   },
   {
     "year_month": "2024-06",
     "total_bet": 139500,
-    "total_payout": 152290,
+    "total_payout": 156670,
     "n_races": 155,
-    "n_hit": 41,
-    "roi": 1.09168458781362
+    "n_hit": 17,
+    "roi": 1.1230824372759856
   },
   {
     "year_month": "2024-07",
     "total_bet": 113400,
-    "total_payout": 123050,
+    "total_payout": 91550,
     "n_races": 126,
-    "n_hit": 26,
-    "roi": 1.0850970017636685
+    "n_hit": 13,
+    "roi": 0.8073192239858906
   },
   {
     "year_month": "2024-08",
     "total_bet": 124200,
-    "total_payout": 91800,
+    "total_payout": 157340,
     "n_races": 138,
-    "n_hit": 22,
-    "roi": 0.7391304347826086
+    "n_hit": 11,
+    "roi": 1.26682769726248
   },
   {
     "year_month": "2024-09",
     "total_bet": 99000,
-    "total_payout": 93930,
+    "total_payout": 77330,
     "n_races": 110,
-    "n_hit": 21,
-    "roi": 0.9487878787878787
+    "n_hit": 12,
+    "roi": 0.7811111111111111
   },
   {
     "year_month": "2024-10",
     "total_bet": 111600,
-    "total_payout": 115340,
+    "total_payout": 59360,
     "n_races": 124,
-    "n_hit": 30,
-    "roi": 1.0335125448028675
+    "n_hit": 14,
+    "roi": 0.5318996415770609
   },
   {
     "year_month": "2024-11",
     "total_bet": 143100,
-    "total_payout": 88250,
+    "total_payout": 216080,
     "n_races": 159,
-    "n_hit": 23,
-    "roi": 0.616701607267645
+    "n_hit": 18,
+    "roi": 1.5099930118798044
   },
   {
     "year_month": "2024-12",
     "total_bet": 133200,
-    "total_payout": 84940,
+    "total_payout": 101170,
     "n_races": 148,
-    "n_hit": 19,
-    "roi": 0.6376876876876877
+    "n_hit": 13,
+    "roi": 0.7595345345345346
   },
   {
     "year_month": "2025-01",
     "total_bet": 138600,
-    "total_payout": 120170,
+    "total_payout": 38580,
     "n_races": 154,
-    "n_hit": 29,
-    "roi": 0.867027417027417
+    "n_hit": 9,
+    "roi": 0.27835497835497836
   },
   {
     "year_month": "2025-02",
     "total_bet": 153900,
-    "total_payout": 121620,
+    "total_payout": 162100,
     "n_races": 171,
-    "n_hit": 32,
-    "roi": 0.7902534113060429
+    "n_hit": 21,
+    "roi": 1.0532813515269657
   },
   {
     "year_month": "2025-03",
     "total_bet": 158400,
-    "total_payout": 151130,
+    "total_payout": 132980,
     "n_races": 176,
-    "n_hit": 36,
-    "roi": 0.9541035353535353
+    "n_hit": 19,
+    "roi": 0.839520202020202
   },
   {
     "year_month": "2025-04",
     "total_bet": 127800,
-    "total_payout": 91620,
+    "total_payout": 94830,
     "n_races": 142,
-    "n_hit": 27,
-    "roi": 0.7169014084507043
+    "n_hit": 16,
+    "roi": 0.742018779342723
   },
   {
     "year_month": "2025-05",
     "total_bet": 147600,
-    "total_payout": 152260,
+    "total_payout": 29420,
     "n_races": 164,
-    "n_hit": 26,
-    "roi": 1.0315718157181573
+    "n_hit": 7,
+    "roi": 0.19932249322493226
   },
   {
     "year_month": "2025-06",
     "total_bet": 129600,
-    "total_payout": 116690,
+    "total_payout": 94590,
     "n_races": 144,
-    "n_hit": 30,
-    "roi": 0.9003858024691358
+    "n_hit": 15,
+    "roi": 0.7298611111111111
   },
   {
     "year_month": "2025-07",
     "total_bet": 126900,
-    "total_payout": 98820,
+    "total_payout": 138350,
     "n_races": 141,
-    "n_hit": 22,
-    "roi": 0.7787234042553192
+    "n_hit": 10,
+    "roi": 1.0902285263987392
   },
   {
     "year_month": "2025-08",
     "total_bet": 150300,
-    "total_payout": 172950,
+    "total_payout": 185620,
     "n_races": 167,
-    "n_hit": 44,
-    "roi": 1.1506986027944113
+    "n_hit": 24,
+    "roi": 1.2349966733200266
   },
   {
     "year_month": "2025-09",
     "total_bet": 92700,
-    "total_payout": 55400,
+    "total_payout": 62510,
     "n_races": 103,
-    "n_hit": 13,
-    "roi": 0.5976267529665588
+    "n_hit": 12,
+    "roi": 0.6743257820927724
   },
   {
     "year_month": "2025-10",
     "total_bet": 123300,
-    "total_payout": 157900,
+    "total_payout": 87240,
     "n_races": 137,
-    "n_hit": 30,
-    "roi": 1.2806163828061639
+    "n_hit": 8,
+    "roi": 0.7075425790754258
   },
   {
     "year_month": "2025-11",
     "total_bet": 144000,
-    "total_payout": 86990,
+    "total_payout": 101420,
     "n_races": 160,
-    "n_hit": 27,
-    "roi": 0.6040972222222222
+    "n_hit": 16,
+    "roi": 0.7043055555555555
   },
   {
     "year_month": "2025-12",
     "total_bet": 142200,
-    "total_payout": 94270,
+    "total_payout": 128540,
     "n_races": 158,
-    "n_hit": 28,
-    "roi": 0.6629395218002813
+    "n_hit": 20,
+    "roi": 0.9039381153305204
   },
   {
     "year_month": "2026-01",
     "total_bet": 136800,
-    "total_payout": 128940,
+    "total_payout": 202240,
     "n_races": 152,
-    "n_hit": 37,
-    "roi": 0.9425438596491228
+    "n_hit": 17,
+    "roi": 1.4783625730994152
   },
   {
     "year_month": "2026-02",
     "total_bet": 140400,
-    "total_payout": 96750,
+    "total_payout": 208420,
     "n_races": 156,
-    "n_hit": 27,
-    "roi": 0.6891025641025641
+    "n_hit": 17,
+    "roi": 1.4844729344729344
   },
   {
     "year_month": "2026-03",
     "total_bet": 128700,
-    "total_payout": 95540,
+    "total_payout": 129010,
     "n_races": 143,
-    "n_hit": 30,
-    "roi": 0.7423465423465423
+    "n_hit": 14,
+    "roi": 1.0024087024087025
   }
 ]

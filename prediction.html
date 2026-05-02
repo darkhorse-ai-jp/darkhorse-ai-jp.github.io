@@ -475,9 +475,15 @@ function buildRaceDetail(r) {
       const roleTag = isUpset
         ? '<span class="upset-key-tag">穴</span>'
         : '<span style="font-size:.7rem;background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:8px;margin-left:4px;font-weight:bold;">軸</span>';
-      // 選定理由タグ
+      // 選定理由タグ（穴馬）/ 3着内率バッジ（軸馬）
       let reasonsHtml = '';
-      if (isUpset && h.reasons && h.reasons.length > 0) {
+      if (!isUpset && h.top3_rate != null) {
+        // 軸馬: 3着内率を表示
+        const pct = Math.round(h.top3_rate * 100);
+        const rateColor = pct >= 60 ? '#065f46' : pct >= 45 ? '#92400e' : '#1e40af';
+        const rateBg    = pct >= 60 ? '#d1fae5' : pct >= 45 ? '#fef3c7' : '#dbeafe';
+        reasonsHtml = `<div class="reason-tags"><span class="reason-tag" style="background:${rateBg};color:${rateColor};border-color:${rateBg};">複勝率 ${pct}%</span></div>`;
+      } else if (isUpset && h.reasons && h.reasons.length > 0) {
         const tagHtml = h.reasons.map(reason => {
           let cls = 'reason-tag';
           if (reason.includes('上昇') || reason.includes('激走')) cls += ' reason-trend';
