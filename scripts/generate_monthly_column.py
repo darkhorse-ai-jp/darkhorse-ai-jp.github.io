@@ -302,7 +302,7 @@ def make_article_dict(stats: dict, col_id: str) -> dict:
 
 def get_next_col_id(site_dir: Path) -> str:
     """既存の column-XX.html を調べて次の ID を返す（2桁ゼロ埋め）。"""
-    existing = [p.stem for p in site_dir.glob("column-[0-9]*.html")]
+    existing = [p.stem for p in site_dir.glob("columns/column-[0-9]*.html")]
     ids = []
     for stem in existing:
         try:
@@ -358,7 +358,7 @@ def generate(month_str: str, push: bool = False, dry_run: bool = False) -> None:
     all_articles = ARTICLES + [art]
     html = render(art, associate_id, all_articles)
 
-    out_path = SITE_DIR / f"column-{col_id}.html"
+    out_path = SITE_DIR / "columns" / f"column-{col_id}.html"
     out_path.write_text(html)
     print(f"[OK] 生成: {out_path.name}  「{art['title']}」")
 
@@ -393,7 +393,7 @@ def _append_metadata(art: dict) -> None:
 
 def _git_push(site_dir: Path, col_id: str) -> None:
     files = [
-        f"column-{col_id}.html",
+        f"columns/column-{col_id}.html",
         "column.html",
         "scripts/article_data.py",
     ]

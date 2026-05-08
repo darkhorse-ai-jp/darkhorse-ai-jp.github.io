@@ -322,7 +322,7 @@ def update_column_index(topic: dict, col_id: str):
     cat_color = cat_style["color"]
 
     new_card = f"""
-    <a href="column-{col_id}.html" data-category="{category}" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
+    <a href="columns/column-{col_id}.html" data-category="{category}" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -414,7 +414,7 @@ def main():
         sys.exit(0)
 
     col_id = topic["id"]
-    output_file = SITE_DIR / f"column-{col_id}.html"
+    output_file = SITE_DIR / "columns" / f"column-{col_id}.html"
 
     print(f"記事を生成します: [{topic['category']}] {topic['title']}")
     print("Claude API を呼び出し中...")

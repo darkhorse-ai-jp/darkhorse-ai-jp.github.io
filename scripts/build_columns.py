@@ -124,7 +124,7 @@ def render(art, associate_id, all_articles):
 
     # ── SNSシェア ──
     enc = title.replace(" ", "%20")
-    page_url = f"{base_url}/column-{col_id}.html"
+    page_url = f"{base_url}/columns/column-{col_id}.html"
     body += f"""
       <div class="share-buttons">
         <span class="share-label">この記事をシェア：</span>
@@ -141,7 +141,7 @@ def render(art, associate_id, all_articles):
     if related:
         rel_items = ""
         for r in related:
-            rel_items += f'          <li><span class="rel-tag">{r["cat"]}</span><a href="column-{r["id"]}.html">{r["title"]}</a></li>\n'
+            rel_items += f'          <li><span class="rel-tag">{r["cat"]}</span><a href="column-{r['id']}.html">{r["title"]}</a></li>\n'
         body += f"""
       <div class="related-articles">
         <div class="rel-title">関連記事</div>
@@ -242,7 +242,7 @@ def rebuild_column_index(all_articles):
         bg, col = CAT.get(cat, ("#f0f4f8", "var(--muted)"))
         desc_short = art["desc"][:85] + ("…" if len(art["desc"]) > 85 else "")
         cards += f"""
-    <a href="column-{col_id}.html" data-category="{cat}" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
+    <a href="columns/column-{col_id}.html" data-category="{cat}" class="col-card-wrap" style="display:block;text-decoration:none;color:inherit;">
       <div class="column-card">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="flex:1;">
@@ -289,7 +289,7 @@ def main():
         if "intro" not in art:  # 既存記事（01-05）はスキップ
             continue
         html = render(art, associate_id, ARTICLES)
-        out = SITE_DIR / f"column-{art['id']}.html"
+        out = SITE_DIR / "columns" / f"column-{art['id']}.html"
         out.write_text(html)
         print(f"  生成: column-{art['id']}.html  [{art['cat']}] {art['title'][:30]}…")
         generated += 1
