@@ -23,17 +23,47 @@
 
   <!-- 構造化データ -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "DarkHorse AI",
-    "url": "https://darkhorse-ai-jp.github.io/",
-    "description": "機械学習で三連複万馬券が出やすいレースを予測するサービス",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://darkhorse-ai-jp.github.io/column.html"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/",
+      "description": "機械学習（LightGBM）で三連複万馬券が出やすいJRAレースを毎週予測・公開する無料サービス",
+      "inLanguage": "ja",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://darkhorse-ai-jp.github.io/column.html"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/",
+      "logo": "https://darkhorse-ai-jp.github.io/images/ogp.webp",
+      "description": "AIと競馬歴40年の経験を組み合わせて三連複万馬券を狙う競馬予測サービス",
+      "founder": {
+        "@type": "Person",
+        "name": "AIおやじ（丸山源三）",
+        "description": "競馬歴40年・AIと組んで万馬券を狙う昭和生まれのおやじ"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "DarkHorse AI 競馬予測",
+      "applicationCategory": "SportApplication",
+      "operatingSystem": "Web",
+      "url": "https://darkhorse-ai-jp.github.io/",
+      "description": "LightGBMで14,117レースを学習した競馬万馬券予測AI。AUC-ROC 0.755、バックテストROI 151.7%。",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      }
     }
-  }
+  ]
   </script>
 
   <link rel="stylesheet" href="css/style.css">
