@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特徴量エンジニアリングで万馬券を掴め | DarkHorse AI コラム</title>
+  <meta name="description" content="競馬AIの精度を左右する特徴量エンジニアリングを解説。DarkHorse AIが14,117レース分析で見出した重要指標と、ROI151.7%を実現した特徴量設計の考え方を紹介。">
+  <meta property="og:title" content="特徴量エンジニアリングで万馬券を掴め | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .oyaji-bubble { background: #fff3cd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; position: relative; border: 1px solid #ffc107; font-style: italic; line-height: 1.8; }
+    .oyaji-bubble::before { content: "AIおやじ"; display: block; font-size: .75rem; font-weight: bold; color: #e67e00; margin-bottom: 6px; font-style: normal; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "特徴量エンジニアリングで万馬券を掴め",
+    "description": "競馬AIの精度を左右する特徴量エンジニアリングを解説。DarkHorse AIが14,117レース分析で見出した重要指標と、ROI151.7%を実現した特徴量設計の考え方を紹介。",
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-06-01",
+    "url": "https://darkhorse-ai-jp.github.io/columns/column-36.html",
+    "inLanguage": "ja",
+    "author": {
+      "@type": "Person",
+      "name": "AIおやじ（丸山源三）"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/"
+    },
+    "articleSection": "AI解説",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://darkhorse-ai-jp.github.io/columns/column-36.html"
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="../index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="../prediction.html">今週の予測</a>
+      <a href="../results.html">過去の成績</a>
+      <a href="../about.html">予測ロジック</a>
+      <a href="../column.html">コラム</a>
+      <a href="../faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../index.html">トップ</a>
+    <a href="../prediction.html">今週の予測</a>
+    <a href="../results.html">過去の成績</a>
+    <a href="../about.html">予測ロジック</a>
+    <a href="../column.html">コラム</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="../column.html">コラム</a> &gt; AI解説</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+        <span style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.75rem;padding:2px 8px;border-radius:10px;">AI解説</span>
+        <span style="font-size:.78rem;color:var(--muted);">2026年6月</span>
+      </div>
+      <h1 style="font-size:1.55rem;line-height:1.4;margin-bottom:24px;">特徴量エンジニアリングで万馬券を掴め</h1>
+
+
+<h2>第1章　そもそも「特徴量」って何じゃ？</h2>
+
+<p>競馬AIの話になると必ず出てくる「特徴量（Feature）」という言葉。横文字が多くて嫌になるが、要するに<strong>AIが予測するときに見ている"判断材料"</strong>のことじゃ。人間で言えば、新聞の印や馬体重、パドックの気配、あるいはオッズの動き——そういった「予想の根拠」をデータとして数値化したものが特徴量である。</p>
+
+<p>ただし、人間が「なんとなくこの馬、調子良さそうじゃのう」と感じるものと、AIが扱う特徴量には大きな違いがある。AIは<strong>数万レース分のデータから、統計的に意味のあるパターン</strong>を見つけ出す。人間の直感が10年分の記憶なら、AIは数字で裏付けられた10万レースの記憶を持っているようなものだ。</p>
+
+<div class="oyaji-bubble">「ワシも40年の経験があるが、さすがに全レースの着順なんぞ覚えとらん。AIの記憶力には脱帽じゃ……データは嘘をつかんらしいからのう」</div>
+
+<h2>第2章　DarkHorse AIが重視する特徴量カテゴリ</h2>
+
+<p>では、実際に競馬AIではどんな特徴量が使われているのか。DarkHorse AIが<strong>14,117レース</strong>のデータを分析する中で、特に予測精度に寄与した特徴量は、大きく以下のカテゴリに分けられる。</p>
+
+<div class="point-box">
+<strong>ポイント：DarkHorse AIの主要特徴量カテゴリ</strong>
+<ul>
+<li><strong>①走破タイム系</strong>：過去走の走破タイム、上がり3Fタイム、補正タイム（馬場差・ペース補正）</li>
+<li><strong>②適性系</strong>：距離適性、コース適性、馬場状態適性（良・稍重・重・不良）</li>
+<li><strong>③コンディション系</strong>：馬体重変動、休養明け日数、ローテーション間隔</li>
+<li><strong>④血統系</strong>：種牡馬の距離別成績、母父の馬場適性</li>
+<li><strong>⑤レース文脈系</strong>：枠順バイアス、展開予測（ハイペース/スローペース）、出走頭数</li>
+</ul>
+</div>
+
+<p>重要なのは、単純な数値をそのまま入れるのではなく、<strong>「加工」して初めて意味を持つ</strong>ということだ。例えば走破タイムひとつ取っても、1600mと2400mでは比較できない。馬場状態が重なら時計がかかる。こういった条件差を補正して「その馬の本当の能力値」に近づける作業——これこそが特徴量エンジニアリングの核心である。</p>
+
+<h2>第3章　万馬券予測に効く"意外な"特徴量</h2>
+
+<p>面白いのは、<strong>人間が軽視しがちなデータほどAIにとっては宝の山</strong>だったりすることだ。</p>
+
+<p>DarkHorse AIの分析では、「休養明け2戦目×距離短縮」「前走4コーナー通過順位の変化量」「同コース・同距離での騎手別リーディング」といった<strong>複合的な特徴量</strong>が、単体の指標よりも予測力を大きく向上させた。特に「前走との条件変化」を捉える差分系の特徴量は、人気薄の激走——つまり万馬券の種を見つけるのに極めて有効だった。</p>
+
+<p>こうした特徴量の積み重ねにより、DarkHorse AIは予測モデルの<strong>AUC（予測精度の指標）で0.755</strong>を達成している。AUC 0.5が「コイン投げ」レベル、1.0が完全予測であることを考えると、0.755は競馬という不確実性の高い領域において相当に優秀な数値だ。</p>
+
+<div class="oyaji-bubble">「ワシが長年やってきた"休み明けの2戦目は走る"ってやつ、ちゃんとデータでも裏付けられとったんじゃな。今回はちゃんと理屈がある……と、カミさんにも説明できるわい」</div>
+
+<h2>第4章　特徴量の「選び方」が収支を分ける</h2>
+
+<p>ここで注意したいのは、<strong>特徴量は多ければ多いほど良いわけではない</strong>ということだ。無関係なデータや、ノイズの多い特徴量を入れすぎると、AIは「過学習（オーバーフィッティング）」を起こし、過去のデータには合うが未来のレースには当たらないモデルになってしまう。</p>
+
+<p>DarkHorse AIでは、特徴量の重要度を定量的に評価し、予測に貢献しないものを定期的に除外する仕組みを導入している。この「引き算の美学」こそが、バックテストにおける<strong>ROI 151.7%</strong>——つまり投資額の1.5倍以上のリターンを実現した要因のひとつだ。100の特徴量を闇雲に放り込むより、厳選した30の特徴量のほうが成績が良い、ということは珍しくない。</p>
+
+<div class="point-box">
+<strong>ポイント：特徴量設計の3原則</strong>
+<ul>
+<li><strong>原則①</strong>：生データをそのまま使わず、必ず「意味のある加工」を施す</li>
+<li><strong>原則②</strong>：単体より「組み合わせ」で威力を発揮する複合特徴量を設計する</li>
+<li><strong>原則③</strong>：定期的に特徴量の重要度を見直し、不要なものは削る</li>
+</ul>
+</div>
+
+<h2>第5章　データと経験、両方あってこその競馬予想</h2>
+
+<p>ここまで読んで「じゃあ人間の経験なんて要らんのか」と思った方もいるかもしれない。だが、実はその逆だ。<strong>良い特徴量を「思いつく」のは、競馬を深く知っている人間</strong>だからこそできる仕事である。</p>
+
+<p>「休み明け2戦目は叩いた効果が出る」「内枠有利のコースがある」「この種牡馬の産駒は重馬場で走る」——こうしたドメイン知識（競馬の専門知識）が、AIに与えるべき特徴量のヒントになる。つまり、競馬歴40年の知見とAIの計算力が組み合わさったとき、最も強力な予測が生まれるのだ。</p>
+
+<p>DarkHorse AIが目指しているのは、まさにこの<strong>「人間の知恵 × AIの計算力」</strong>の融合である。特徴量エンジニアリングは、その融合の接点にある最も重要なプロセスと言えるだろう。</p>
+
+<div class="oyaji-bubble">「40年メシの種にならんかった競馬の知識が、AIのエサになるとは……人生何が役に立つかわからんのう。カミさんには"研究費"と言って小遣いの値上げ交渉をしてみるかの。……まあ、無理じゃろうが」</div>
+
+
+      <!-- 関連書籍（Amazonアフィリエイト） -->
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4873117585?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📚</div>
+        <div class="book-info">
+          <div class="book-title">ゼロから作るDeep Learning</div>
+          <div class="book-author">斎藤康毅 著</div>
+          <div class="book-desc">機械学習の仕組みをコードで理解する名著。AIが何をしているか根本から理解できる。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4873119286?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover">📚</div>
+        <div class="book-info">
+          <div class="book-title">scikit-learn、Keras、TensorFlowによる実践機械学習 第3版</div>
+          <div class="book-author">Aurélien Géron 著</div>
+          <div class="book-desc">機械学習の理論から実装まで網羅した実践書。LightGBMなど勾配ブースティングの背景知識も得られる。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="../column.html" style="color:var(--primary);font-size:.9rem;">&larr; コラム一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:32px 20px;margin-top:60px;text-align:center;color:var(--muted);font-size:.82rem;">
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="../index.html" style="color:var(--primary);font-weight:bold;">DarkHorse AI</a></p>
+    <p style="margin-bottom:12px;">AIが分析する競馬万馬券予測サイト</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <a href="../disclaimer.html" style="color:var(--muted);">免責事項</a>
+      <a href="../privacy.html" style="color:var(--muted);">プライバシーポリシー</a>
+      <a href="../contact.html" style="color:var(--muted);">お問い合わせ</a>
+    </div>
+    <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
