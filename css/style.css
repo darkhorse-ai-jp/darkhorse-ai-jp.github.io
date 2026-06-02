@@ -917,3 +917,206 @@ body.menu-open { overflow: hidden; }
   visibility: visible;
 }
 #back-to-top:hover { background: var(--primary-dark); }
+
+/* ===== AdSense 広告エリア ===== */
+/* 広告コンテナ共通ベース */
+.ad-unit {
+  text-align: center;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+}
+/* 広告ラベル（任意表示用） */
+.ad-unit::before {
+  content: attr(data-label);
+  display: block;
+  font-size: .68rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 4px;
+  line-height: 1;
+  letter-spacing: .05em;
+}
+/* ヘッダー下・ファーストビュー直下の横長バナー */
+.ad-banner-top {
+  margin: 16px auto 8px;
+  max-width: 728px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* コンテンツ中間のレクタングル */
+.ad-mid {
+  margin: 20px auto;
+  max-width: 336px;
+  min-height: 280px;
+}
+/* コンテンツ下部 */
+.ad-bottom {
+  margin: 24px auto;
+  max-width: 336px;
+  min-height: 280px;
+}
+/* サイドバー（将来の2カラム化時に使用） */
+.ad-sidebar {
+  max-width: 300px;
+  min-height: 250px;
+  margin: 0 auto;
+}
+/* コラム本文内インライン広告 */
+.ad-col-inline {
+  margin: 24px auto;
+  max-width: 100%;
+}
+/* モバイル：バナーをレスポンシブに */
+@media (max-width: 768px) {
+  .ad-banner-top {
+    max-width: 100%;
+    min-height: 50px;
+  }
+  .ad-mid,
+  .ad-bottom {
+    max-width: 100%;
+    min-height: 250px;
+  }
+}
+
+/* ===== アフィリエイトCTA（.book-btn）hover 効果強化 ===== */
+.book-btn {
+  /* 既存スタイルを上書き強化 */
+  display: block;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #ff9900 0%, #e07800 100%);
+  color: #fff !important;
+  font-size: .82rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 40px;
+  line-height: 20px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 8px rgba(255,153,0,.3);
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+.book-btn:hover {
+  background: linear-gradient(135deg, #ffaa1a 0%, #f08800 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255,153,0,.45);
+  text-decoration: none;
+  color: #fff !important;
+  opacity: 1;
+}
+/* 書籍カード全体の hover 強化 */
+.book-card {
+  border-radius: 10px;
+  padding: 14px 12px;
+  transition: box-shadow .2s, background .2s;
+}
+.book-card:hover {
+  background: #f4f7fb;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  opacity: 1;
+}
+
+/* ===== SNSシェア・フォロー誘導ブロック ===== */
+/* 予測ランキング付近のシェアブロック */
+.sns-share-block {
+  background: linear-gradient(135deg, #f8f9fc 0%, #eef2f8 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+.sns-share-lead {
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+/* シェアボタンのフレックスコンテナ */
+.sns-share {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/* SNSボタン共通 */
+.sns-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 22px;
+  font-size: .85rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s, box-shadow .2s;
+  white-space: nowrap;
+  min-height: 44px;
+  letter-spacing: .02em;
+}
+.sns-btn:hover {
+  opacity: .85;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+/* X(Twitter) */
+.sns-btn-x {
+  background: #000;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+.sns-btn-x:hover { color: #fff !important; }
+/* LINE */
+.sns-btn-line {
+  background: #06C755;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(6,199,85,.25);
+}
+.sns-btn-line:hover { color: #fff !important; }
+/* フォロー誘導ブロック */
+.sns-follow-block {
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  text-align: center;
+  margin: 20px 0 0;
+}
+.sns-follow-block p {
+  font-size: .9rem;
+  margin-bottom: 12px;
+  opacity: .9;
+}
+.sns-btn-x-follow {
+  background: #fff;
+  color: #000 !important;
+  padding: 10px 24px;
+  border-radius: 22px;
+  font-size: .85rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+  min-height: 44px;
+}
+.sns-btn-x-follow:hover {
+  opacity: .9;
+  text-decoration: none;
+  transform: translateY(-2px);
+  color: #000 !important;
+}
+@media (max-width: 768px) {
+  .sns-share { gap: 8px; }
+  .sns-btn { padding: 10px 16px; font-size: .82rem; }
+  .sns-follow-block { padding: 16px; }
+}

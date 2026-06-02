@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>競馬コラム | DarkHorse AI</title>
-  <meta name="description" content="競馬のデータ分析・万馬券の傾向・AI予測の解説など、競馬をデータで楽しむためのコラムを掲載。">
+  <title>競馬データ分析・馬券戦略コラム一覧（全36本） | DarkHorse AI</title>
+  <meta name="description" content="競馬データ分析・三連複万馬券戦略・AI予測の解説コラム全36本を無料公開。穴馬の見つけ方・波乱が起きやすい条件・LightGBM競馬AIの仕組みをわかりやすく解説。">
+  <meta property="og:title" content="競馬データ分析・馬券戦略コラム一覧（全36本） | DarkHorse AI">
+  <meta property="og:description" content="競馬データ分析・三連複万馬券戦略・AI予測の解説コラム全36本を無料公開。穴馬の見つけ方から波乱の条件まで、データで競馬を楽しむコラム集。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://darkhorse-ai-jp.github.io/column.html">
+  <meta property="og:site_name" content="DarkHorse AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="競馬データ分析・馬券戦略コラム一覧（全36本） | DarkHorse AI">
+  <meta name="twitter:description" content="競馬データ分析・三連複万馬券戦略・AI予測の解説コラム全36本を無料公開。穴馬の見つけ方から波乱の条件まで。">
+  <link rel="canonical" href="https://darkhorse-ai-jp.github.io/column.html">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .col-filter-btn {
@@ -68,6 +77,7 @@
       <button class="col-filter-btn" data-cat="馬券戦略" onclick="filterColumns('馬券戦略',this)">馬券戦略</button>
       <button class="col-filter-btn" data-cat="AI解説" onclick="filterColumns('AI解説',this)">AI解説</button>
       <button class="col-filter-btn" data-cat="おやじの独り言" onclick="filterColumns('おやじの独り言',this)">おやじの独り言</button>
+      <button class="col-filter-btn" data-cat="レース回顧" onclick="filterColumns('レース回顧',this)">レース回顧</button>
     </div>
 
     <!-- 公開済み記事 -->
@@ -579,6 +589,28 @@
         </div>
       </div>
     </a>
+
+    <!-- 関連ページへの誘導 -->
+    <div style="margin-top:32px;padding:24px;background:linear-gradient(135deg,#f0f4ff,#f8f9fc);border-radius:12px;border:1px solid var(--border);">
+      <div style="font-size:.85rem;font-weight:bold;color:var(--primary);margin-bottom:14px;">コラムを読んだら次はこちら</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="prediction.html" style="flex:1;min-width:200px;display:block;background:#fff;border:2px solid var(--primary);border-radius:10px;padding:14px 18px;text-decoration:none;color:inherit;transition:box-shadow .2s;">
+          <div style="font-size:.78rem;color:var(--primary);font-weight:bold;margin-bottom:4px;">毎週金曜更新</div>
+          <div style="font-size:1rem;font-weight:bold;color:var(--text);margin-bottom:4px;">今週の波乱レース予測</div>
+          <div style="font-size:.82rem;color:var(--muted);">AIが選んだ三連複万馬券候補を無料公開。軸馬・穴馬候補も表示。</div>
+        </a>
+        <a href="results.html" style="flex:1;min-width:200px;display:block;background:#fff;border:2px solid var(--accent);border-radius:10px;padding:14px 18px;text-decoration:none;color:inherit;transition:box-shadow .2s;">
+          <div style="font-size:.78rem;color:var(--accent);font-weight:bold;margin-bottom:4px;">透明性高く公開</div>
+          <div style="font-size:1rem;font-weight:bold;color:var(--text);margin-bottom:4px;">バックテスト成績・月次回収率</div>
+          <div style="font-size:.82rem;color:var(--muted);">AIの過去成績を月次で公開。テストデータROI 151.7%の根拠も確認できます。</div>
+        </a>
+        <a href="about.html" style="flex:1;min-width:200px;display:block;background:#fff;border:2px solid #10b981;border-radius:10px;padding:14px 18px;text-decoration:none;color:inherit;transition:box-shadow .2s;">
+          <div style="font-size:.78rem;color:#059669;font-weight:bold;margin-bottom:4px;">予測ロジック</div>
+          <div style="font-size:1rem;font-weight:bold;color:var(--text);margin-bottom:4px;">LightGBM AIの仕組みを解説</div>
+          <div style="font-size:.82rem;color:var(--muted);">特徴量・データリーク防止・モデル精度（AUC 0.75）の仕組みを公開。</div>
+        </a>
+      </div>
+    </div>
 
   </div>
 </main>

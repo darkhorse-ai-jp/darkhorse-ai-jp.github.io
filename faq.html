@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>よくある質問（FAQ） | DarkHorse AI – AI競馬予測</title>
   <meta name="description" content="DarkHorse AIのよくある質問。波乱確率の見方・三連複ボックスの買い方・LightGBMとは何か・バックテスト結果の解釈など、初心者の疑問に答えます。">
-  <meta property="og:title" content="よくある質問（FAQ） | DarkHorse AI">
+  <meta property="og:title" content="よくある質問（FAQ） | DarkHorse AI – AI競馬予測">
+  <meta property="og:description" content="DarkHorse AIのよくある質問。波乱確率の見方・三連複ボックスの買い方・LightGBMとは何か・バックテスト結果の解釈・万馬券の出やすい条件など、初心者の疑問に答えます。">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://darkhorse-ai-jp.github.io/faq.html">
+  <meta property="og:site_name" content="DarkHorse AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="よくある質問（FAQ） | DarkHorse AI – AI競馬予測">
+  <meta name="twitter:description" content="波乱確率の見方・三連複ボックスの買い方・LightGBMとは・バックテスト結果の解釈・万馬券が出やすい条件など、初心者の疑問に答えるFAQ。">
 
   <!-- FAQ構造化データ（Googleリッチリザルト狙い） -->
   <script type="application/ld+json">
@@ -69,6 +74,38 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "AIの学習に「将来の情報」を誤って混入させてしまうことです。競馬AIでは特に注意が必要で、DarkHorse AIでは時系列分割と累積統計量の適切な計算により防いでいます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "三連複で万馬券が出やすい条件はありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DarkHorse AIの14,117レースのデータ分析によると、①出走頭数が16頭以上、②1番人気の単勝オッズが5倍以上（信頼度低い）、③重・不良馬場、④ハンデ戦、⑤ローカル開催（函館・福島など）の5条件がそろうと万馬券出現率が高まることがわかっています。複数条件が重なるほど高配当になる傾向があります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "競馬AIの回収率が100%を超えることは本当に可能ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "理論上は可能ですが、非常に難しいです。JRAの馬券控除率は約25%のため、平均回収率は75%程度になります。DarkHorse AIのテストデータにおける推奨戦略（1800m以上・東京京都除外・閾値35%以上）のROIは151.7%ですが、これはバックテストの結果であり、将来の成績を保証するものではありません。継続的に100%超えを達成するには、特定の条件に絞り込む戦略の厳守が重要です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "三連複の軸+穴流しとボックスはどちらが良いですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DarkHorse AIのバックテストでは「軸（1〜2番人気）＋穴（6〜15番人気）流し」のほうがボックスより高いROIを示しました。ボックスは点数が多く投資額が増えますが、軸＋穴流しは点数を絞ることで投資効率が上がります。ただし軸馬が3着以内に入ることが前提なので、軸選びの精度が成否を左右します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1番人気が飛びやすいレースを見分けるにはどうすればよいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DarkHorse AIが注目する「1番人気が信頼できないレース」のシグナルは主に4つです。①1番人気の単勝オッズが4倍以上（信頼度が低い）、②各馬のオッズが拮抗している（混戦）、③頭数が多い（15頭以上）、④馬場が重・不良。これらの条件が複数重なるレースでは、1番人気が2〜3着以内に入らない確率が統計的に高まります。詳しくはコラム「1番人気が飛ぶのはどんなとき？」をご覧ください。"
         }
       }
     ]
@@ -173,6 +210,58 @@
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">AUC-ROCとは何ですか？</button>
           <div class="faq-a">分類モデルの予測精度を示す指標です。0.5〜1.0の値を取り、1.0に近いほど精度が高いことを意味します。完全にランダムな予測は0.5、DarkHorse AIのモデルはAUC約0.77で、「波乱が起きやすいレース」をランダムより有意に識別できていることを示します。</div>
+        </div>
+      </div>
+
+      <h2>馬券戦略・万馬券の条件</h2>
+      <div id="faq-strategy">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">三連複で万馬券が出やすい条件はありますか？</button>
+          <div class="faq-a">DarkHorse AIの14,117レースのデータ分析によると、以下の5条件が重なるレースで万馬券出現率が高まることがわかっています。<br><br>
+            <ol style="margin:8px 0 0 20px;line-height:2;">
+              <li>出走頭数が16頭以上（多頭数）</li>
+              <li>1番人気の単勝オッズが5倍以上（信頼度が低い）</li>
+              <li>重・不良馬場</li>
+              <li>ハンデ戦</li>
+              <li>ローカル開催（函館・福島・小倉など）</li>
+            </ol>
+            <br>複数条件が重なるほど高配当になる傾向があります。詳しくは<a href="columns/column-01.html">「万馬券が出やすいレースの5つの条件」</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">競馬AIの回収率が100%を超えることは本当に可能ですか？</button>
+          <div class="faq-a">理論上は可能ですが、非常に難しいです。JRAの馬券控除率は約25%のため、何も考えずに買い続けると平均回収率は75%程度になります。<br><br>DarkHorse AIのテストデータにおける推奨戦略（1800m以上・東京京都除外・波乱確率35%以上）のROIは151.7%ですが、これはバックテスト（過去データ検証）の結果であり、将来の成績を保証するものではありません。<br><br>継続的に100%超えを目指すには、<strong>特定の条件に絞り込む戦略の厳守</strong>と<strong>長期間の検証</strong>が不可欠です。詳しくは<a href="results.html">バックテスト成績</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">三連複の軸+穴流しとボックスはどちらが良いですか？</button>
+          <div class="faq-a">DarkHorse AIのバックテストでは「軸（1〜2番人気）＋穴（6〜15番人気）流し」のほうがボックスよりも高いROIを示しました。<br><br>
+            <ul style="margin:8px 0 0 20px;line-height:2;">
+              <li><strong>ボックス：</strong>選んだ馬が全て3着以内に入れば的中。点数が多く投資額が増える</li>
+              <li><strong>軸＋穴流し：</strong>軸馬（人気馬）が3着以内に入ることを前提に、穴馬との組み合わせのみ購入。点数を絞ることで投資効率が上がる</li>
+            </ul>
+            <br>軸馬が飛ぶリスクはありますが、実データではROIで約10〜15ポイント軸流しが優れていました。詳しくは<a href="columns/column-02.html">「三連複ボックスで万馬券を狙う戦略」</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">1番人気が飛びやすいレースを見分けるには？</button>
+          <div class="faq-a">DarkHorse AIが注目する「1番人気が信頼できないレース」のシグナルは主に4つです。<br><br>
+            <ol style="margin:8px 0 0 20px;line-height:2;">
+              <li>1番人気の単勝オッズが4倍以上（相対的に信頼度が低い）</li>
+              <li>各馬のオッズが拮抗している（混戦状態）</li>
+              <li>出走頭数が多い（15頭以上）</li>
+              <li>馬場が重・不良</li>
+            </ol>
+            <br>これらの条件が複数重なるレースでは、1番人気が3着以内に入らない確率が統計的に高まります。詳しくは<a href="columns/column-04.html">「1番人気が飛ぶのはどんなとき？」</a>をご覧ください。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">穴馬（6番人気以下）を三連複に絡めるコツは？</button>
+          <div class="faq-a">DarkHorse AIが穴馬選定に使っているスコアリング指標は以下の通りです。<br><br>
+            <ul style="margin:8px 0 0 20px;line-height:2;">
+              <li><strong>近3走の人気超え実績：</strong>人気より上の着順を出した実績がある馬</li>
+              <li><strong>上昇トレンド：</strong>直近3走で着順が改善されている馬</li>
+              <li><strong>距離・馬場適性：</strong>そのコース条件に実績がある馬</li>
+              <li><strong>騎手変更：</strong>格上の騎手（トップジョッキー）に乗り替わった馬</li>
+              <li><strong>適切な休養間隔：</strong>5〜10週程度の理想的なローテーション</li>
+            </ul>
+            <br>これらのスコアが高い6〜15番人気の馬が「AIおすすめ穴馬」として表示されます。<a href="prediction.html">今週の予測</a>をご確認ください。</div>
         </div>
       </div>
 
