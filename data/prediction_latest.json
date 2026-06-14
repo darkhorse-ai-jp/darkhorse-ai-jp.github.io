@@ -1,1495 +1,1007 @@
 [
   {
-    "race_id": "202602010211",
-    "race_date": "2026-06-14",
-    "venue": "02",
+    "race_id": "202410010611",
+    "race_date": "2024-01-28",
+    "venue": "06",
     "race_number": 11,
-    "race_name": "函館日刊スポーツ杯",
+    "race_name": "巌流島S",
     "grade": "",
     "surface": "芝",
     "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 16,
-    "prob": 69.8,
+    "head_count": 18,
+    "prob": 73.6,
     "upset_level": "高",
     "horses": [
-      {
-        "num": 1,
-        "post": 1,
-        "name": "ハリウッドメモリー",
-        "jockey": "横山和",
-        "popularity": 2,
-        "odds": 4.7,
-        "role": "anchor",
-        "score": 2.64,
-        "top3_rate": 0.533,
-        "reasons": [
-          "騎手強化(横山和)"
-        ]
-      },
       {
         "num": 7,
         "post": 4,
-        "name": "リリーフィールド",
-        "jockey": "佐々木",
-        "popularity": 4,
-        "odds": 7.3,
-        "role": "anchor",
-        "score": 2.36,
-        "top3_rate": 0.462,
-        "reasons": [
-          "騎手強化(佐々木)",
-          "最適間隔(42日)"
-        ]
-      },
-      {
-        "num": 11,
-        "post": 6,
-        "name": "エクセルゴールド",
-        "jockey": "小林美",
-        "popularity": 12,
-        "odds": 45.4,
-        "role": "upset",
-        "score": 14.37,
-        "top3_rate": null,
-        "reasons": [
-          "近走5.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(42日)",
-          "前走激走(+9)"
-        ]
-      },
-      {
-        "num": 13,
-        "post": 7,
-        "name": "ヴィヴァクラウン",
-        "jockey": "横山琉",
-        "popularity": 10,
-        "odds": 20.2,
-        "role": "upset",
-        "score": 8.04,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(57日)",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 6,
-        "post": 3,
-        "name": "ライツユーアップ",
-        "jockey": "吉田隼",
-        "popularity": 6,
-        "odds": 14.5,
-        "role": "upset",
-        "score": 6.12,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り",
-          "騎手強化(吉田隼)",
-          "最適間隔(49日)"
-        ]
-      }
-    ],
-    "buy_str": "軸1・7 ／ 穴11・13・6",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 4.2
-  },
-  {
-    "race_id": "202609030410",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 10,
-    "race_name": "花のみちS",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1600,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 14,
-    "prob": 65.8,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 10,
-        "post": 6,
-        "name": "アウフヘーベン",
-        "jockey": "レーン",
-        "popularity": 1,
-        "odds": 4.3,
-        "role": "anchor",
-        "score": 3.79,
-        "top3_rate": 0.577,
-        "reasons": [
-          "最適間隔(36日)"
-        ]
-      },
-      {
-        "num": 3,
-        "post": 3,
-        "name": "テラメリタ",
-        "jockey": "川田",
-        "popularity": 4,
-        "odds": 9.9,
-        "role": "anchor",
-        "score": 3.25,
-        "top3_rate": 0.45,
-        "reasons": [
-          "上昇トレンド",
-          "最適間隔(84日)"
-        ]
-      },
-      {
-        "num": 13,
-        "post": 8,
-        "name": "ワイドアラジン",
-        "jockey": "横山武",
-        "popularity": 14,
-        "odds": 52.4,
-        "role": "upset",
-        "score": 7.57,
-        "top3_rate": null,
-        "reasons": [
-          "近走1.3人気上回り",
-          "上昇トレンド",
-          "騎手強化(横山武)",
-          "前走激走(+6)"
-        ]
-      },
-      {
-        "num": 14,
-        "post": 8,
-        "name": "ゼンダンハヤブサ",
-        "jockey": "酒井",
-        "popularity": 12,
-        "odds": 23.5,
-        "role": "upset",
-        "score": 7.33,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.7人気上回り"
-        ]
-      },
-      {
-        "num": 1,
-        "post": 1,
-        "name": "サンタンカ",
-        "jockey": "松山",
-        "popularity": 11,
-        "odds": 19.0,
-        "role": "upset",
-        "score": 4.23,
-        "top3_rate": null,
-        "reasons": [
-          "騎手強化(松山)",
-          "前走激走(+5)"
-        ]
-      }
-    ],
-    "buy_str": "軸10・3 ／ 穴13・14・1",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 4.3
-  },
-  {
-    "race_id": "202605030410",
-    "race_date": "2026-06-14",
-    "venue": "05",
-    "race_number": 10,
-    "race_name": "江の島S",
-    "grade": "",
-    "surface": "芝",
-    "distance": 2400,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 14,
-    "prob": 65.0,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 12,
-        "post": 7,
-        "name": "オストラヴァ",
-        "jockey": "津村",
-        "popularity": 2,
-        "odds": 5.2,
-        "role": "anchor",
-        "score": 5.25,
-        "top3_rate": 1.0,
-        "reasons": [
-          "上昇トレンド",
-          "最適間隔(70日)"
-        ]
-      },
-      {
-        "num": 1,
-        "post": 1,
-        "name": "ベトルス",
-        "jockey": "ディー",
-        "popularity": 1,
-        "odds": 3.9,
-        "role": "anchor",
-        "score": 4.8,
-        "top3_rate": 0.8,
-        "reasons": [
-          "最適間隔(35日)"
-        ]
-      },
-      {
-        "num": 7,
-        "post": 5,
-        "name": "エコロレイズ",
-        "jockey": "菊沢",
-        "popularity": 11,
-        "odds": 31.8,
-        "role": "upset",
-        "score": 10.38,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.0人気上回り",
-          "最適間隔(56日)",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 9,
-        "post": 6,
-        "name": "ウインルーティン",
-        "jockey": "松岡",
-        "popularity": 12,
-        "odds": 35.6,
-        "role": "upset",
-        "score": 6.13,
-        "top3_rate": null,
-        "reasons": [
-          "近走1.7人気上回り",
-          "上昇トレンド",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 14,
-        "post": 8,
-        "name": "キントリヒ",
-        "jockey": "原",
-        "popularity": 14,
-        "odds": 55.4,
-        "role": "upset",
-        "score": 5.8,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "前走激走(+3)"
-        ]
-      }
-    ],
-    "buy_str": "軸12・1 ／ 穴7・9・14",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 3.9
-  },
-  {
-    "race_id": "202605030411",
-    "race_date": "2026-06-14",
-    "venue": "05",
-    "race_number": 11,
-    "race_name": "パラダイスS",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1400,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 14,
-    "prob": 63.8,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 8,
-        "post": 5,
-        "name": "カンシン",
-        "jockey": "ゴンサルベ",
-        "popularity": 2,
-        "odds": 5.5,
-        "role": "anchor",
-        "score": 4.0,
-        "top3_rate": 0.667,
-        "reasons": [
-          "近走1.7人気上回り",
-          "上昇トレンド",
-          "最適間隔(49日)",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 11,
-        "post": 7,
-        "name": "マイネルチケット",
-        "jockey": "津村",
-        "popularity": 1,
-        "odds": 3.9,
-        "role": "anchor",
-        "score": 3.66,
-        "top3_rate": 0.692,
-        "reasons": [
-          "上昇トレンド",
-          "最適間隔(43日)",
-          "前走激走(+4)"
-        ]
-      },
-      {
-        "num": 1,
-        "post": 1,
-        "name": "ラケマーダ",
-        "jockey": "原",
-        "popularity": 7,
-        "odds": 14.9,
-        "role": "upset",
-        "score": 17.21,
-        "top3_rate": null,
-        "reasons": [
-          "近走6.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(43日)",
-          "前走激走(+14)"
-        ]
-      },
-      {
-        "num": 13,
-        "post": 8,
-        "name": "アクートゥス",
-        "jockey": "ディー",
-        "popularity": 8,
-        "odds": 18.2,
-        "role": "upset",
-        "score": 12.51,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.0人気上回り",
-          "上昇トレンド",
-          "最適間隔(35日)",
-          "前走激走(+8)"
-        ]
-      },
-      {
-        "num": 6,
-        "post": 4,
-        "name": "マサノカナリア",
-        "jockey": "吉田豊",
-        "popularity": 10,
-        "odds": 22.7,
-        "role": "upset",
-        "score": 10.0,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.0人気上回り",
-          "上昇トレンド",
-          "最適間隔(35日)",
-          "前走激走(+9)"
-        ]
-      }
-    ],
-    "buy_str": "軸8・11 ／ 穴1・13・6",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 3.9
-  },
-  {
-    "race_id": "202602010204",
-    "race_date": "2026-06-14",
-    "venue": "02",
-    "race_number": 4,
-    "race_name": "3歳未勝利",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1800,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 57.6,
-    "upset_level": "中",
-    "horses": [
-      {
-        "num": 1,
-        "post": 1,
-        "name": "アイムイン",
+        "name": "アドマイヤラヴィ",
         "jockey": "鮫島駿",
         "popularity": 1,
-        "odds": 3.7,
-        "role": "anchor",
-        "score": 4.02,
-        "top3_rate": 0.8,
-        "reasons": [
-          "上昇トレンド",
-          "最適間隔(64日)"
-        ]
-      },
-      {
-        "num": 10,
-        "post": 5,
-        "name": "ショウナンアワード",
-        "jockey": "池添",
-        "popularity": 2,
-        "odds": 7.6,
-        "role": "anchor",
-        "score": 2.75,
-        "top3_rate": 0.286,
-        "reasons": [
-          "近走3.0人気上回り",
-          "上昇トレンド",
-          "距離適性○(1.8着改善)",
-          "馬場適性○",
-          "騎手強化(池添)"
-        ]
-      },
-      {
-        "num": 2,
-        "post": 1,
-        "name": "レガリーノ",
-        "jockey": "横山和",
-        "popularity": 11,
-        "odds": 20.7,
-        "role": "upset",
-        "score": 11.41,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.0人気上回り",
-          "上昇トレンド",
-          "騎手強化(横山和)",
-          "前走激走(+5)"
-        ]
-      },
-      {
-        "num": 8,
-        "post": 4,
-        "name": "アート",
-        "jockey": "△舟山",
-        "popularity": 10,
-        "odds": 16.7,
-        "role": "upset",
-        "score": 7.57,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.0人気上回り",
-          "騎手強化(△舟山)"
-        ]
-      },
-      {
-        "num": 15,
-        "post": 8,
-        "name": "ココソラーレ",
-        "jockey": "△鷲頭",
-        "popularity": 13,
-        "odds": 36.0,
-        "role": "upset",
-        "score": 6.84,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.7人気上回り",
-          "最適間隔(84日)"
-        ]
-      }
-    ],
-    "buy_str": "軸1・10 ／ 穴2・8・15",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 3.7
-  },
-  {
-    "race_id": "202605030406",
-    "race_date": "2026-06-14",
-    "venue": "05",
-    "race_number": 6,
-    "race_name": "3歳以上1勝クラス",
-    "grade": "",
-    "surface": "ダート",
-    "distance": 2100,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 56.5,
-    "upset_level": "中",
-    "horses": [
-      {
-        "num": 13,
-        "post": 7,
-        "name": "マッドゲイル",
-        "jockey": "石橋脩",
-        "popularity": 5,
-        "odds": 10.8,
-        "role": "anchor",
-        "score": 4.1,
-        "top3_rate": 0.857,
-        "reasons": [
-          "近走1.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(35日)",
-          "前走激走(+4)"
-        ]
-      },
-      {
-        "num": 10,
-        "post": 5,
-        "name": "ジェイエルモーダル",
-        "jockey": "丸山",
-        "popularity": 1,
-        "odds": 2.8,
-        "role": "anchor",
-        "score": 3.71,
-        "top3_rate": 0.5,
-        "reasons": [
-          "近走4.7人気上回り",
-          "上昇トレンド",
-          "最適間隔(43日)",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 16,
-        "post": 8,
-        "name": "タイキフィアリーベ",
-        "jockey": "木幡巧",
-        "popularity": 12,
-        "odds": 29.7,
-        "role": "upset",
-        "score": 12.97,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.7人気上回り",
-          "上昇トレンド",
-          "最適間隔(57日)",
-          "前走激走(+7)"
-        ]
+        "odds": 4.6,
+        "role": "anchor"
       },
       {
         "num": 12,
         "post": 6,
-        "name": "ブルージャイアント",
-        "jockey": "江田照",
-        "popularity": 6,
-        "odds": 13.2,
-        "role": "upset",
-        "score": 9.52,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り",
-          "上昇トレンド",
-          "前走激走(+7)"
-        ]
+        "name": "ピンクマクフィー",
+        "jockey": "北村友",
+        "popularity": 2,
+        "odds": 5.3,
+        "role": "anchor"
       },
       {
-        "num": 3,
-        "post": 2,
-        "name": "ミアルーチェ",
-        "jockey": "ゴンサルベ",
+        "num": 13,
+        "post": 7,
+        "name": "ハギノモーリス",
+        "jockey": "藤懸",
+        "popularity": 6,
+        "odds": 13.6,
+        "role": "upset"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ヤクシマ",
+        "jockey": "丹内",
         "popularity": 7,
-        "odds": 14.3,
-        "role": "upset",
-        "score": 7.17,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(43日)"
-        ]
+        "odds": 13.7,
+        "role": "upset"
+      },
+      {
+        "num": 1,
+        "post": 1,
+        "name": "グランレイ",
+        "jockey": "斎藤",
+        "popularity": 8,
+        "odds": 14.8,
+        "role": "upset"
       }
     ],
-    "buy_str": "軸13・10 ／ 穴16・12・3",
+    "buy_str": "軸7・12 ／ 穴13・11・1",
     "buy_points": 3,
     "bet_amount": 900,
     "hyakuman_flag": false,
-    "top1_odds": 2.8
+    "top1_odds": 4.6
   },
   {
-    "race_id": "202609030406",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 6,
-    "race_name": "3歳以上1勝クラス",
+    "race_id": "202310010611",
+    "race_date": "2023-01-29",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "巌流島S",
     "grade": "",
-    "surface": "ダート",
+    "surface": "芝",
     "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 16,
-    "prob": 54.5,
-    "upset_level": "中",
+    "head_count": 18,
+    "prob": 73.2,
+    "upset_level": "高",
     "horses": [
-      {
-        "num": 11,
-        "post": 6,
-        "name": "アームズレジェンド",
-        "jockey": "岩田望",
-        "popularity": 1,
-        "odds": 2.9,
-        "role": "anchor",
-        "score": 5.34,
-        "top3_rate": 1.0,
-        "reasons": [
-          "最適間隔(77日)"
-        ]
-      },
       {
         "num": 12,
         "post": 6,
-        "name": "レッドレベンディス",
-        "jockey": "武豊",
-        "popularity": 3,
-        "odds": 7.2,
-        "role": "anchor",
-        "score": 4.34,
-        "top3_rate": 0.714,
-        "reasons": [
-          "近走2.0人気上回り",
-          "上昇トレンド",
-          "最適間隔(78日)"
-        ]
+        "name": "ドグマ",
+        "jockey": "西村淳",
+        "popularity": 1,
+        "odds": 4.1,
+        "role": "anchor"
       },
       {
-        "num": 5,
-        "post": 3,
-        "name": "オースミライト",
-        "jockey": "加藤",
-        "popularity": 14,
-        "odds": 59.1,
-        "role": "upset",
-        "score": 13.47,
-        "top3_rate": null,
-        "reasons": [
-          "近走5.0人気上回り",
-          "上昇トレンド",
-          "前走激走(+5)"
-        ]
+        "num": 18,
+        "post": 8,
+        "name": "スンリ",
+        "jockey": "ムルザ",
+        "popularity": 2,
+        "odds": 5.7,
+        "role": "anchor"
       },
       {
-        "num": 6,
-        "post": 3,
-        "name": "ディーエストッキー",
-        "jockey": "幸",
-        "popularity": 10,
-        "odds": 24.8,
-        "role": "upset",
-        "score": 9.54,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.3人気上回り",
-          "上昇トレンド",
-          "騎手強化(幸)",
-          "前走激走(+6)"
-        ]
+        "num": 17,
+        "post": 8,
+        "name": "ファイアダンサー",
+        "jockey": "丹内",
+        "popularity": 6,
+        "odds": 11.6,
+        "role": "upset"
       },
       {
-        "num": 2,
+        "num": 1,
         "post": 1,
-        "name": "モズイージス",
-        "jockey": "◇永島",
-        "popularity": 13,
-        "odds": 45.6,
-        "role": "upset",
-        "score": 6.79,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.0人気上回り",
-          "上昇トレンド"
-        ]
+        "name": "ビアイ",
+        "jockey": "菱田",
+        "popularity": 7,
+        "odds": 17.7,
+        "role": "upset"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "グランレイ",
+        "jockey": "北村友",
+        "popularity": 8,
+        "odds": 24.1,
+        "role": "upset"
       }
     ],
-    "buy_str": "軸11・12 ／ 穴5・6・2",
+    "buy_str": "軸12・18 ／ 穴17・1・11",
     "buy_points": 3,
     "bet_amount": 900,
     "hyakuman_flag": false,
-    "top1_odds": 2.9
+    "top1_odds": 4.1
   },
   {
-    "race_id": "202609030404",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 4,
-    "race_name": "3歳未勝利",
+    "race_id": "202210040809",
+    "race_date": "2022-09-04",
+    "venue": "08",
+    "race_number": 9,
+    "race_name": "宗像特別",
     "grade": "",
     "surface": "芝",
-    "distance": 2200,
+    "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 17,
-    "prob": 46.7,
-    "upset_level": "中",
+    "head_count": 18,
+    "prob": 72.6,
+    "upset_level": "高",
     "horses": [
+      {
+        "num": 7,
+        "post": 4,
+        "name": "カイカノキセキ",
+        "jockey": "坂井",
+        "popularity": 1,
+        "odds": 4.5,
+        "role": "anchor"
+      },
+      {
+        "num": 18,
+        "post": 8,
+        "name": "エイシンスポッター",
+        "jockey": "角田河",
+        "popularity": 2,
+        "odds": 6.0,
+        "role": "anchor"
+      },
       {
         "num": 6,
         "post": 3,
-        "name": "チェルヴァーラ",
-        "jockey": "西村淳",
-        "popularity": 2,
-        "odds": 3.8,
-        "role": "anchor",
-        "score": 5.31,
-        "top3_rate": 1.0,
-        "reasons": [
-          "上昇トレンド",
-          "騎手強化(西村淳)"
-        ]
-      },
-      {
-        "num": 15,
-        "post": 8,
-        "name": "ミエノクラウン",
-        "jockey": "レーン",
-        "popularity": 1,
-        "odds": 3.7,
-        "role": "anchor",
-        "score": 5.0,
-        "top3_rate": 0.5,
-        "reasons": [
-          "近走2.7人気上回り",
-          "距離適性○(4.8着改善)",
-          "騎手強化(レーン)",
-          "最適間隔(56日)"
-        ]
-      },
-      {
-        "num": 7,
-        "post": 4,
-        "name": "レットミーテイク",
-        "jockey": "加藤",
-        "popularity": 12,
-        "odds": 70.8,
-        "role": "upset",
-        "score": 9.5,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.0人気上回り",
-          "前走激走(+4)"
-        ]
-      },
-      {
-        "num": 11,
-        "post": 6,
-        "name": "パゴスピグイノス",
-        "jockey": "角田和",
-        "popularity": 9,
-        "odds": 57.9,
-        "role": "upset",
-        "score": 7.4,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "距離適性○(2.7着改善)",
-          "最適間隔(57日)"
-        ]
-      },
-      {
-        "num": 3,
-        "post": 2,
-        "name": "スーパービジー",
-        "jockey": "幸",
-        "popularity": 11,
-        "odds": 60.0,
-        "role": "upset",
-        "score": 7.34,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "上昇トレンド",
-          "最適間隔(43日)"
-        ]
-      }
-    ],
-    "buy_str": "軸6・15 ／ 穴7・11・3",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 3.7
-  },
-  {
-    "race_id": "202609030402",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 2,
-    "race_name": "3歳未勝利",
-    "grade": "",
-    "surface": "ダート",
-    "distance": 1400,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 45.9,
-    "upset_level": "中",
-    "horses": [
-      {
-        "num": 4,
-        "post": 2,
-        "name": "ウイルソン",
-        "jockey": "松山",
-        "popularity": 3,
-        "odds": 4.2,
-        "role": "anchor",
-        "score": 5.36,
-        "top3_rate": 1.0,
-        "reasons": []
-      },
-      {
-        "num": 13,
-        "post": 7,
-        "name": "タガノプディング",
-        "jockey": "横山典",
-        "popularity": 1,
-        "odds": 3.2,
-        "role": "anchor",
-        "score": 3.61,
-        "top3_rate": 0.667,
-        "reasons": [
-          "近走1.3人気上回り",
-          "上昇トレンド"
-        ]
-      },
-      {
-        "num": 3,
-        "post": 2,
-        "name": "チョウスター",
-        "jockey": "幸",
-        "popularity": 8,
-        "odds": 29.0,
-        "role": "upset",
-        "score": 12.39,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.7人気上回り",
-          "騎手強化(幸)",
-          "最適間隔(63日)",
-          "前走激走(+4)"
-        ]
-      },
-      {
-        "num": 8,
-        "post": 4,
-        "name": "ファツアップ",
-        "jockey": "古川吉",
-        "popularity": 6,
-        "odds": 17.4,
-        "role": "upset",
-        "score": 3.67,
-        "top3_rate": null,
-        "reasons": [
-          "距離適性○(1.7着改善)"
-        ]
-      },
-      {
-        "num": 15,
-        "post": 8,
-        "name": "リザレクティア",
+        "name": "シゲルカチョウ",
         "jockey": "酒井",
-        "popularity": 13,
-        "odds": 99.2,
-        "role": "upset",
-        "score": 1.0,
-        "top3_rate": null,
-        "reasons": [
-          "最適間隔(36日)"
-        ]
-      }
-    ],
-    "buy_str": "軸4・13 ／ 穴3・8・15",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 3.2
-  },
-  {
-    "race_id": "202602010210",
-    "race_date": "2026-06-14",
-    "venue": "02",
-    "race_number": 10,
-    "race_name": "津軽海峡特別",
-    "grade": "",
-    "surface": "ダート",
-    "distance": 1700,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 12,
-    "prob": 44.5,
-    "upset_level": "低",
-    "horses": [
+        "popularity": 6,
+        "odds": 9.9,
+        "role": "upset"
+      },
+      {
+        "num": 15,
+        "post": 7,
+        "name": "カジュフェイス",
+        "jockey": "今村",
+        "popularity": 7,
+        "odds": 10.2,
+        "role": "upset"
+      },
       {
         "num": 4,
-        "post": 4,
-        "name": "ディアウス",
-        "jockey": "吉田隼",
-        "popularity": 1,
-        "odds": 4.5,
-        "role": "anchor",
-        "score": 3.96,
-        "top3_rate": 0.778,
-        "reasons": [
-          "上昇トレンド"
-        ]
-      },
-      {
-        "num": 5,
-        "post": 5,
-        "name": "エアニゲラ",
-        "jockey": "舟山",
-        "popularity": 4,
-        "odds": 8.6,
-        "role": "anchor",
-        "score": 3.36,
-        "top3_rate": 0.5,
-        "reasons": [
-          "最適間隔(64日)"
-        ]
-      },
-      {
-        "num": 7,
-        "post": 6,
-        "name": "タイヨウフレア",
-        "jockey": "横山琉",
-        "popularity": 11,
-        "odds": 32.5,
-        "role": "upset",
-        "score": 5.17,
-        "top3_rate": null,
-        "reasons": [
-          "近走1.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(56日)"
-        ]
-      },
-      {
-        "num": 2,
         "post": 2,
-        "name": "フェスタリア",
-        "jockey": "今村",
-        "popularity": 6,
-        "odds": 9.2,
-        "role": "upset",
-        "score": 4.0,
-        "top3_rate": null,
-        "reasons": [
-          "最適間隔(56日)"
-        ]
-      },
-      {
-        "num": 11,
-        "post": 8,
-        "name": "マーウォルス",
-        "jockey": "佐々木",
-        "popularity": 9,
-        "odds": 11.6,
-        "role": "upset",
-        "score": 4.0,
-        "top3_rate": null,
-        "reasons": [
-          "騎手強化(佐々木)",
-          "最適間隔(49日)"
-        ]
+        "name": "カーフライターク",
+        "jockey": "福永",
+        "popularity": 8,
+        "odds": 15.5,
+        "role": "upset"
       }
     ],
-    "buy_str": "軸4・5 ／ 穴7・2・11",
+    "buy_str": "軸7・18 ／ 穴6・15・4",
     "buy_points": 3,
     "bet_amount": 900,
     "hyakuman_flag": false,
     "top1_odds": 4.5
   },
   {
-    "race_id": "202602010206",
-    "race_date": "2026-06-14",
-    "venue": "02",
-    "race_number": 6,
-    "race_name": "3歳未勝利",
+    "race_id": "202304040611",
+    "race_date": "2023-10-29",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "ルミエールAD",
     "grade": "",
     "surface": "芝",
-    "distance": 2000,
+    "distance": 1000,
     "weather": "",
     "track_cond": "",
-    "head_count": 16,
-    "prob": 42.8,
-    "upset_level": "低",
+    "head_count": 18,
+    "prob": 72.6,
+    "upset_level": "高",
     "horses": [
-      {
-        "num": 8,
-        "post": 4,
-        "name": "フローレンスフーガ",
-        "jockey": "横山和",
-        "popularity": 5,
-        "odds": 8.6,
-        "role": "anchor",
-        "score": 5.3,
-        "top3_rate": 1.0,
-        "reasons": [
-          "近走2.0人気上回り",
-          "騎手強化(横山和)",
-          "最適間隔(36日)"
-        ]
-      },
-      {
-        "num": 2,
-        "post": 1,
-        "name": "マテンロウオリジン",
-        "jockey": "池添",
-        "popularity": 1,
-        "odds": 2.4,
-        "role": "anchor",
-        "score": 5.26,
-        "top3_rate": 1.0,
-        "reasons": []
-      },
-      {
-        "num": 12,
-        "post": 6,
-        "name": "ヴァールザーゲン",
-        "jockey": "斎藤",
-        "popularity": 13,
-        "odds": 59.4,
-        "role": "upset",
-        "score": 14.87,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.3人気上回り",
-          "上昇トレンド",
-          "距離適性○(5.2着改善)",
-          "前走激走(+6)"
-        ]
-      },
-      {
-        "num": 9,
-        "post": 5,
-        "name": "ヒメヒオウギ",
-        "jockey": "△柴田裕",
-        "popularity": 10,
-        "odds": 34.0,
-        "role": "upset",
-        "score": 10.16,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.0人気上回り",
-          "距離適性○(1.7着改善)",
-          "最適間隔(36日)",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 5,
-        "post": 3,
-        "name": "ハルノアメ",
-        "jockey": "★河原田",
-        "popularity": 14,
-        "odds": 60.1,
-        "role": "upset",
-        "score": 7.41,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "最適間隔(49日)",
-          "前走激走(+5)"
-        ]
-      }
-    ],
-    "buy_str": "軸8・2 ／ 穴12・9・5",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 2.4
-  },
-  {
-    "race_id": "202609030403",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 3,
-    "race_name": "3歳未勝利",
-    "grade": "",
-    "surface": "ダート",
-    "distance": 1800,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 41.2,
-    "upset_level": "低",
-    "horses": [
-      {
-        "num": 1,
-        "post": 1,
-        "name": "アルジェンタム",
-        "jockey": "高杉",
-        "popularity": 1,
-        "odds": 2.3,
-        "role": "anchor",
-        "score": 5.25,
-        "top3_rate": 1.0,
-        "reasons": [
-          "近走4.0人気上回り",
-          "前走激走(+4)"
-        ]
-      },
       {
         "num": 16,
         "post": 8,
-        "name": "キタノトレボーネ",
-        "jockey": "中井",
-        "popularity": 5,
-        "odds": 10.0,
-        "role": "anchor",
-        "score": 2.63,
-        "top3_rate": 0.5,
-        "reasons": [
-          "近走5.0人気上回り"
-        ]
-      },
-      {
-        "num": 11,
-        "post": 6,
-        "name": "レヴロード",
-        "jockey": "▲和田陽",
-        "popularity": 15,
-        "odds": 122.5,
-        "role": "upset",
-        "score": 6.04,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り",
-          "最適間隔(70日)"
-        ]
-      },
-      {
-        "num": 13,
-        "post": 7,
-        "name": "カセノコンコルド",
-        "jockey": "国分優",
-        "popularity": 9,
-        "odds": 31.6,
-        "role": "upset",
-        "score": 5.9,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.3人気上回り"
-        ]
-      },
-      {
-        "num": 10,
-        "post": 5,
-        "name": "ジェンティール",
-        "jockey": "△田山",
-        "popularity": 8,
-        "odds": 24.9,
-        "role": "upset",
-        "score": 5.17,
-        "top3_rate": null,
-        "reasons": [
-          "近走1.3人気上回り",
-          "最適間隔(71日)",
-          "前走激走(+3)"
-        ]
-      }
-    ],
-    "buy_str": "軸1・16 ／ 穴11・13・10",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 2.3
-  },
-  {
-    "race_id": "202609030412",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 12,
-    "race_name": "リボン賞",
-    "grade": "",
-    "surface": "ダート",
-    "distance": 1200,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 16,
-    "prob": 40.5,
-    "upset_level": "低",
-    "horses": [
-      {
-        "num": 15,
-        "post": 8,
-        "name": "ルクスデイジー",
-        "jockey": "川田",
-        "popularity": 2,
-        "odds": 4.9,
-        "role": "anchor",
-        "score": 5.28,
-        "top3_rate": 0.8,
-        "reasons": [
-          "近走1.3人気上回り",
-          "騎手強化(川田)",
-          "前走激走(+4)"
-        ]
-      },
-      {
-        "num": 1,
-        "post": 1,
-        "name": "ニューオーリンズ",
-        "jockey": "和田陽",
+        "name": "アジアノジュンシン",
+        "jockey": "永島",
         "popularity": 1,
-        "odds": 4.3,
-        "role": "anchor",
-        "score": 3.27,
-        "top3_rate": 0.556,
-        "reasons": [
-          "最適間隔(70日)"
-        ]
+        "odds": 4.2,
+        "role": "anchor"
       },
       {
         "num": 7,
         "post": 4,
-        "name": "サンダーバース",
-        "jockey": "幸",
-        "popularity": 11,
-        "odds": 36.4,
-        "role": "upset",
-        "score": 13.71,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(42日)",
-          "前走激走(+10)"
-        ]
-      },
-      {
-        "num": 5,
-        "post": 3,
-        "name": "ライジン",
-        "jockey": "岩田望",
-        "popularity": 7,
-        "odds": 14.3,
-        "role": "upset",
-        "score": 12.79,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.0人気上回り",
-          "上昇トレンド",
-          "騎手強化(岩田望)",
-          "最適間隔(56日)",
-          "前走激走(+4)"
-        ]
+        "name": "マイヨアポア",
+        "jockey": "津村",
+        "popularity": 2,
+        "odds": 5.8,
+        "role": "anchor"
       },
       {
         "num": 8,
         "post": 4,
-        "name": "ディニトーソ",
-        "jockey": "吉村",
-        "popularity": 12,
-        "odds": 40.5,
-        "role": "upset",
-        "score": 11.68,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.3人気上回り",
-          "上昇トレンド",
-          "最適間隔(56日)"
-        ]
+        "name": "シンシティ",
+        "jockey": "富田",
+        "popularity": 6,
+        "odds": 15.3,
+        "role": "upset"
+      },
+      {
+        "num": 9,
+        "post": 5,
+        "name": "ハギノメーテル",
+        "jockey": "藤懸",
+        "popularity": 7,
+        "odds": 15.9,
+        "role": "upset"
+      },
+      {
+        "num": 18,
+        "post": 8,
+        "name": "レジェーロ",
+        "jockey": "丸山",
+        "popularity": 8,
+        "odds": 16.6,
+        "role": "upset"
       }
     ],
-    "buy_str": "軸15・1 ／ 穴7・5・8",
+    "buy_str": "軸16・7 ／ 穴8・9・18",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.2
+  },
+  {
+    "race_id": "202610010810",
+    "race_date": "2026-02-15",
+    "venue": "08",
+    "race_number": 10,
+    "race_name": "大濠特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 72.4,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 7,
+        "post": 4,
+        "name": "ハリウッドメモリー",
+        "jockey": "横山琉",
+        "popularity": 1,
+        "odds": 4.1,
+        "role": "anchor"
+      },
+      {
+        "num": 5,
+        "post": 3,
+        "name": "インブロリオ",
+        "jockey": "丹内",
+        "popularity": 2,
+        "odds": 5.5,
+        "role": "anchor"
+      },
+      {
+        "num": 1,
+        "post": 1,
+        "name": "ロードトレゾール",
+        "jockey": "田山",
+        "popularity": 6,
+        "odds": 11.3,
+        "role": "upset"
+      },
+      {
+        "num": 9,
+        "post": 5,
+        "name": "イグニション",
+        "jockey": "松若",
+        "popularity": 7,
+        "odds": 19.6,
+        "role": "upset"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "トウカイエルデ",
+        "jockey": "富田",
+        "popularity": 8,
+        "odds": 20.0,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸7・5 ／ 穴1・9・11",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.1
+  },
+  {
+    "race_id": "202310020110",
+    "race_date": "2023-02-11",
+    "venue": "01",
+    "race_number": 10,
+    "race_name": "大濠特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 72.4,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 1,
+        "post": 1,
+        "name": "マイネルレノン",
+        "jockey": "泉谷",
+        "popularity": 1,
+        "odds": 5.2,
+        "role": "anchor"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ワンダーカタリナ",
+        "jockey": "富田",
+        "popularity": 2,
+        "odds": 5.8,
+        "role": "anchor"
+      },
+      {
+        "num": 6,
+        "post": 3,
+        "name": "タッカーシルバー",
+        "jockey": "西村淳",
+        "popularity": 6,
+        "odds": 10.1,
+        "role": "upset"
+      },
+      {
+        "num": 5,
+        "post": 3,
+        "name": "ロードラスター",
+        "jockey": "松若",
+        "popularity": 7,
+        "odds": 13.0,
+        "role": "upset"
+      },
+      {
+        "num": 7,
+        "post": 4,
+        "name": "アスクキングコング",
+        "jockey": "荻野琢",
+        "popularity": 8,
+        "odds": 13.9,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸1・11 ／ 穴6・5・7",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 5.2
+  },
+  {
+    "race_id": "202510020411",
+    "race_date": "2025-07-06",
+    "venue": "04",
+    "race_number": 11,
+    "race_name": "北九州記念",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 72.2,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 9,
+        "post": 5,
+        "name": "ヤマニンアルリフラ",
+        "jockey": "団野",
+        "popularity": 1,
+        "odds": 5.7,
+        "role": "anchor"
+      },
+      {
+        "num": 15,
+        "post": 7,
+        "name": "ロードフォアエース",
+        "jockey": "川田",
+        "popularity": 2,
+        "odds": 5.8,
+        "role": "anchor"
+      },
+      {
+        "num": 7,
+        "post": 4,
+        "name": "クラスペディア",
+        "jockey": "小崎",
+        "popularity": 6,
+        "odds": 11.1,
+        "role": "upset"
+      },
+      {
+        "num": 14,
+        "post": 7,
+        "name": "アブキールベイ",
+        "jockey": "坂井",
+        "popularity": 7,
+        "odds": 14.3,
+        "role": "upset"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ドロップオブライト",
+        "jockey": "小沢",
+        "popularity": 8,
+        "odds": 19.1,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸9・15 ／ 穴7・14・11",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 5.7
+  },
+  {
+    "race_id": "202210020611",
+    "race_date": "2022-02-27",
+    "venue": "06",
+    "race_number": 11,
+    "race_name": "下関S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 71.3,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 3,
+        "post": 2,
+        "name": "グランレイ",
+        "jockey": "藤懸",
+        "popularity": 1,
+        "odds": 4.1,
+        "role": "anchor"
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "ダノンシティ",
+        "jockey": "浜中",
+        "popularity": 2,
+        "odds": 4.8,
+        "role": "anchor"
+      },
+      {
+        "num": 8,
+        "post": 4,
+        "name": "メメントモリ",
+        "jockey": "荻野極",
+        "popularity": 6,
+        "odds": 17.0,
+        "role": "upset"
+      },
+      {
+        "num": 5,
+        "post": 3,
+        "name": "カワキタアジン",
+        "jockey": "泉谷",
+        "popularity": 7,
+        "odds": 22.0,
+        "role": "upset"
+      },
+      {
+        "num": 12,
+        "post": 6,
+        "name": "エグレムニ",
+        "jockey": "丹内",
+        "popularity": 8,
+        "odds": 22.1,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸3・16 ／ 穴8・5・12",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.1
+  },
+  {
+    "race_id": "202304040311",
+    "race_date": "2023-10-21",
+    "venue": "03",
+    "race_number": 11,
+    "race_name": "北陸S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 70.9,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 2,
+        "post": 1,
+        "name": "サンティーテソーロ",
+        "jockey": "佐々木",
+        "popularity": 1,
+        "odds": 4.0,
+        "role": "anchor"
+      },
+      {
+        "num": 17,
+        "post": 8,
+        "name": "ブッシュガーデン",
+        "jockey": "富田",
+        "popularity": 2,
+        "odds": 6.6,
+        "role": "anchor"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ラキエータ",
+        "jockey": "北村友",
+        "popularity": 6,
+        "odds": 12.7,
+        "role": "upset"
+      },
+      {
+        "num": 18,
+        "post": 8,
+        "name": "ロードラスター",
+        "jockey": "三浦",
+        "popularity": 7,
+        "odds": 14.4,
+        "role": "upset"
+      },
+      {
+        "num": 15,
+        "post": 7,
+        "name": "ウィリン",
+        "jockey": "丹内",
+        "popularity": 8,
+        "odds": 16.0,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸2・17 ／ 穴11・18・15",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.0
+  },
+  {
+    "race_id": "202404010711",
+    "race_date": "2024-05-18",
+    "venue": "07",
+    "race_number": 11,
+    "race_name": "大日岳特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 70.6,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 2,
+        "post": 1,
+        "name": "コスモアディラート",
+        "jockey": "丹内",
+        "popularity": 1,
+        "odds": 4.5,
+        "role": "anchor"
+      },
+      {
+        "num": 13,
+        "post": 7,
+        "name": "ガリレイ",
+        "jockey": "角田河",
+        "popularity": 2,
+        "odds": 5.7,
+        "role": "anchor"
+      },
+      {
+        "num": 12,
+        "post": 6,
+        "name": "ディオアステリア",
+        "jockey": "小林勝",
+        "popularity": 6,
+        "odds": 14.3,
+        "role": "upset"
+      },
+      {
+        "num": 14,
+        "post": 7,
+        "name": "イズンシーラブリー",
+        "jockey": "丸山",
+        "popularity": 7,
+        "odds": 15.0,
+        "role": "upset"
+      },
+      {
+        "num": 6,
+        "post": 3,
+        "name": "トーセンサンダー",
+        "jockey": "佐藤",
+        "popularity": 8,
+        "odds": 15.8,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸2・13 ／ 穴12・14・6",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.5
+  },
+  {
+    "race_id": "202303030511",
+    "race_date": "2023-11-18",
+    "venue": "05",
+    "race_number": 11,
+    "race_name": "キビタキS",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 70.5,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 9,
+        "post": 5,
+        "name": "アドマイヤラヴィ",
+        "jockey": "Ｈドイ",
+        "popularity": 1,
+        "odds": 4.3,
+        "role": "anchor"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ドーバーホーク",
+        "jockey": "原",
+        "popularity": 2,
+        "odds": 6.3,
+        "role": "anchor"
+      },
+      {
+        "num": 7,
+        "post": 4,
+        "name": "クールムーア",
+        "jockey": "丹内",
+        "popularity": 6,
+        "odds": 11.2,
+        "role": "upset"
+      },
+      {
+        "num": 8,
+        "post": 4,
+        "name": "エイシンフェンサー",
+        "jockey": "川又",
+        "popularity": 7,
+        "odds": 13.3,
+        "role": "upset"
+      },
+      {
+        "num": 15,
+        "post": 8,
+        "name": "アメトリーチェ",
+        "jockey": "小林勝",
+        "popularity": 8,
+        "odds": 15.6,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸9・11 ／ 穴7・8・15",
     "buy_points": 3,
     "bet_amount": 900,
     "hyakuman_flag": false,
     "top1_odds": 4.3
   },
   {
-    "race_id": "202602010208",
-    "race_date": "2026-06-14",
-    "venue": "02",
-    "race_number": 8,
-    "race_name": "3歳以上1勝クラス",
+    "race_id": "202510010412",
+    "race_date": "2025-02-02",
+    "venue": "04",
+    "race_number": 12,
+    "race_name": "4歳以上1勝クラス",
     "grade": "",
     "surface": "芝",
     "distance": 1200,
     "weather": "",
     "track_cond": "",
-    "head_count": 13,
-    "prob": 38.6,
-    "upset_level": "低",
+    "head_count": 18,
+    "prob": 70.4,
+    "upset_level": "高",
     "horses": [
       {
-        "num": 13,
+        "num": 17,
         "post": 8,
-        "name": "プリンセスモコ",
+        "name": "ラブディーヴァ",
+        "jockey": "☆小沢",
+        "popularity": 1,
+        "odds": 4.6,
+        "role": "anchor"
+      },
+      {
+        "num": 1,
+        "post": 1,
+        "name": "シルバーダイヤ",
         "jockey": "佐々木",
-        "popularity": 1,
-        "odds": 2.3,
-        "role": "anchor",
-        "score": 3.7,
-        "top3_rate": 0.75,
-        "reasons": [
-          "騎手強化(佐々木)",
-          "最適間隔(85日)"
-        ]
-      },
-      {
-        "num": 3,
-        "post": 3,
-        "name": "マジェステラ",
-        "jockey": "鮫島駿",
         "popularity": 2,
-        "odds": 6.2,
-        "role": "anchor",
-        "score": 3.16,
-        "top3_rate": 0.429,
-        "reasons": [
-          "近走1.7人気上回り"
-        ]
+        "odds": 5.0,
+        "role": "anchor"
       },
       {
-        "num": 7,
-        "post": 5,
-        "name": "アートフォーム",
-        "jockey": "△柴田裕",
-        "popularity": 13,
-        "odds": 59.5,
-        "role": "upset",
-        "score": 8.25,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.3人気上回り",
-          "最適間隔(64日)"
-        ]
-      },
-      {
-        "num": 4,
-        "post": 4,
-        "name": "スプリングデイ",
-        "jockey": "黛",
-        "popularity": 9,
-        "odds": 29.0,
-        "role": "upset",
-        "score": 7.49,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "上昇トレンド",
-          "前走激走(+3)"
-        ]
-      },
-      {
-        "num": 9,
-        "post": 6,
-        "name": "フレンドモナコ",
-        "jockey": "▲遠藤",
-        "popularity": 12,
-        "odds": 39.8,
-        "role": "upset",
-        "score": 6.7,
-        "top3_rate": null,
-        "reasons": [
-          "近走2.0人気上回り",
-          "最適間隔(43日)",
-          "前走激走(+4)"
-        ]
-      }
-    ],
-    "buy_str": "軸13・3 ／ 穴7・4・9",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 2.3
-  },
-  {
-    "race_id": "202609030409",
-    "race_date": "2026-06-14",
-    "venue": "09",
-    "race_number": 9,
-    "race_name": "武庫川特別",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1200,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 14,
-    "prob": 38.5,
-    "upset_level": "低",
-    "horses": [
-      {
-        "num": 14,
-        "post": 8,
-        "name": "マーゴットミスト",
-        "jockey": "吉村",
-        "popularity": 1,
-        "odds": 4.4,
-        "role": "anchor",
-        "score": 2.53,
-        "top3_rate": 0.556,
-        "reasons": [
-          "上昇トレンド"
-        ]
-      },
-      {
-        "num": 7,
-        "post": 5,
-        "name": "マキシマムドライブ",
-        "jockey": "横山典",
-        "popularity": 4,
-        "odds": 6.5,
-        "role": "anchor",
-        "score": 1.55,
-        "top3_rate": 0.2,
-        "reasons": [
-          "上昇トレンド",
-          "騎手強化(横山典)",
-          "最適間隔(49日)"
-        ]
-      },
-      {
-        "num": 12,
-        "post": 7,
-        "name": "ピースフルナイト",
-        "jockey": "酒井",
-        "popularity": 13,
-        "odds": 35.4,
-        "role": "upset",
-        "score": 9.29,
-        "top3_rate": null,
-        "reasons": [
-          "近走4.7人気上回り"
-        ]
+        "num": 2,
+        "post": 1,
+        "name": "ドナヴィーナス",
+        "jockey": "鮫島駿",
+        "popularity": 6,
+        "odds": 11.5,
+        "role": "upset"
       },
       {
         "num": 8,
-        "post": 5,
-        "name": "スネーフリンガ",
-        "jockey": "幸",
-        "popularity": 12,
-        "odds": 31.3,
-        "role": "upset",
-        "score": 9.14,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.7人気上回り",
-          "最適間隔(50日)"
-        ]
+        "post": 4,
+        "name": "ミライハーモニー",
+        "jockey": "▲今村",
+        "popularity": 7,
+        "odds": 12.8,
+        "role": "upset"
       },
       {
-        "num": 6,
-        "post": 4,
-        "name": "ミロワール",
-        "jockey": "古川吉",
-        "popularity": 7,
-        "odds": 13.9,
-        "role": "upset",
-        "score": 8.82,
-        "top3_rate": null,
-        "reasons": [
-          "近走3.3人気上回り",
-          "最適間隔(42日)",
-          "前走激走(+7)"
-        ]
+        "num": 9,
+        "post": 5,
+        "name": "ナムライリス",
+        "jockey": "▲柴田裕",
+        "popularity": 8,
+        "odds": 25.9,
+        "role": "upset"
       }
     ],
-    "buy_str": "軸14・7 ／ 穴12・8・6",
+    "buy_str": "軸17・1 ／ 穴2・8・9",
     "buy_points": 3,
     "bet_amount": 900,
     "hyakuman_flag": false,
-    "top1_odds": 4.4
+    "top1_odds": 4.6
+  },
+  {
+    "race_id": "202410020412",
+    "race_date": "2024-02-18",
+    "venue": "04",
+    "race_number": 12,
+    "race_name": "4歳以上1勝クラス",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 70.4,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 3,
+        "post": 2,
+        "name": "ヴァルトラウテ",
+        "jockey": "鮫島駿",
+        "popularity": 1,
+        "odds": 5.7,
+        "role": "anchor"
+      },
+      {
+        "num": 10,
+        "post": 5,
+        "name": "タガノスペルノヴァ",
+        "jockey": "吉田隼",
+        "popularity": 2,
+        "odds": 6.2,
+        "role": "anchor"
+      },
+      {
+        "num": 7,
+        "post": 4,
+        "name": "シンデレラスマイル",
+        "jockey": "菱田",
+        "popularity": 6,
+        "odds": 11.6,
+        "role": "upset"
+      },
+      {
+        "num": 8,
+        "post": 4,
+        "name": "トリップトゥムーン",
+        "jockey": "☆松本",
+        "popularity": 7,
+        "odds": 12.2,
+        "role": "upset"
+      },
+      {
+        "num": 1,
+        "post": 1,
+        "name": "デイトンウェイ",
+        "jockey": "△西塚",
+        "popularity": 8,
+        "odds": 15.3,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸3・10 ／ 穴7・8・1",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 5.7
+  },
+  {
+    "race_id": "202410020410",
+    "race_date": "2024-02-18",
+    "venue": "04",
+    "race_number": 10,
+    "race_name": "唐戸特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 18,
+    "prob": 70.3,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 3,
+        "post": 2,
+        "name": "アルーリングビュー",
+        "jockey": "佐々木",
+        "popularity": 1,
+        "odds": 4.1,
+        "role": "anchor"
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "プリモカリーナ",
+        "jockey": "斎藤",
+        "popularity": 2,
+        "odds": 5.1,
+        "role": "anchor"
+      },
+      {
+        "num": 2,
+        "post": 1,
+        "name": "ラウラーナ",
+        "jockey": "浜中",
+        "popularity": 6,
+        "odds": 13.1,
+        "role": "upset"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "ヨール",
+        "jockey": "丹内",
+        "popularity": 7,
+        "odds": 14.4,
+        "role": "upset"
+      },
+      {
+        "num": 12,
+        "post": 6,
+        "name": "ジョリダム",
+        "jockey": "富田",
+        "popularity": 8,
+        "odds": 19.6,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸3・16 ／ 穴2・11・12",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.1
+  },
+  {
+    "race_id": "202207030812",
+    "race_date": "2022-05-29",
+    "venue": "08",
+    "race_number": 12,
+    "race_name": "朱雀S",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 70.2,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 16,
+        "post": 8,
+        "name": "マリーナ",
+        "jockey": "坂井",
+        "popularity": 1,
+        "odds": 4.3,
+        "role": "anchor"
+      },
+      {
+        "num": 6,
+        "post": 3,
+        "name": "オパールシャルム",
+        "jockey": "江田照",
+        "popularity": 2,
+        "odds": 6.0,
+        "role": "anchor"
+      },
+      {
+        "num": 11,
+        "post": 6,
+        "name": "テーオーマルクス",
+        "jockey": "藤懸",
+        "popularity": 6,
+        "odds": 12.8,
+        "role": "upset"
+      },
+      {
+        "num": 2,
+        "post": 1,
+        "name": "フォイアーロート",
+        "jockey": "松若",
+        "popularity": 7,
+        "odds": 13.9,
+        "role": "upset"
+      },
+      {
+        "num": 15,
+        "post": 8,
+        "name": "ディモールト",
+        "jockey": "古川吉",
+        "popularity": 8,
+        "odds": 14.4,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸16・6 ／ 穴11・2・15",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.3
   }
 ]
