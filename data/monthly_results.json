@@ -409,10 +409,18 @@
   },
   {
     "year_month": "2026-06",
-    "total_bet": 80100,
-    "total_payout": 33480,
-    "n_races": 89,
-    "n_hit": 5,
-    "roi": 0.41797752808988764
+    "total_bet": 106200,
+    "total_payout": 182760,
+    "n_races": 118,
+    "n_hit": 12,
+    "roi": 1.72090395480226
+  },
+  {
+    "year_month": "2026-07",
+    "total_bet": 30600,
+    "total_payout": 20840,
+    "n_races": 34,
+    "n_hit": 3,
+    "roi": 0.681045751633987
   }
 ]
