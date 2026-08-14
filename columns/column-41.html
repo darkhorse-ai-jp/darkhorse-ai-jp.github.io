@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有馬記念の万馬券は偶然か 過去10年の共通パターン | DarkHorse AI コラム</title>
+  <meta name="description" content="過去10年の有馬記念で波乱が起きた年に共通する3つの条件を、中山2500mの構造・年末ローテ・オッズ分散という切り口でDarkHorse AIのデータとともに振り返る。">
+  <meta property="og:title" content="有馬記念の万馬券は偶然か 過去10年の共通パターン | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .oyaji-bubble { background: #fff3cd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; position: relative; border: 1px solid #ffc107; font-style: italic; line-height: 1.8; }
+    .oyaji-bubble::before { content: "AIおやじ"; display: block; font-size: .75rem; font-weight: bold; color: #e67e00; margin-bottom: 6px; font-style: normal; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "有馬記念の万馬券は偶然か 過去10年の共通パターン",
+    "description": "過去10年の有馬記念で波乱が起きた年に共通する3つの条件を、中山2500mの構造・年末ローテ・オッズ分散という切り口でDarkHorse AIのデータとともに振り返る。",
+    "datePublished": "2026-08-01",
+    "dateModified": "2026-08-01",
+    "url": "https://darkhorse-ai-jp.github.io/columns/column-41.html",
+    "inLanguage": "ja",
+    "author": {
+      "@type": "Person",
+      "name": "AIおやじ（丸山源三）"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/"
+    },
+    "articleSection": "レース回顧",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://darkhorse-ai-jp.github.io/columns/column-41.html"
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="../index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="../prediction.html">今週の予測</a>
+      <a href="../results.html">過去の成績</a>
+      <a href="../about.html">予測ロジック</a>
+      <a href="../column.html">コラム</a>
+      <a href="../faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../index.html">トップ</a>
+    <a href="../prediction.html">今週の予測</a>
+    <a href="../results.html">過去の成績</a>
+    <a href="../about.html">予測ロジック</a>
+    <a href="../column.html">コラム</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="../column.html">コラム</a> &gt; レース回顧</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+        <span style="display:inline-block;background:#fff3e0;color:#e65100;font-size:.75rem;padding:2px 8px;border-radius:10px;">レース回顧</span>
+        <span style="font-size:.78rem;color:var(--muted);">2026年8月</span>
+      </div>
+      <h1 style="font-size:1.55rem;line-height:1.4;margin-bottom:24px;">有馬記念の万馬券は偶然か 過去10年の共通パターン</h1>
+
+<h2>年末の中山は、なぜ毎年ざわつくのか</h2>
+<p>有馬記念はファン投票で選ばれた実力馬が集う、一年の総決算じゃ。ところが「実力馬が揃う＝堅い」とならんのがこのレースの厄介なところでな。過去10年を振り返ると、三連複が万馬券に届いた年が忘れた頃にきっちり現れておる。2015年のゴールドアクター、2018年のブラストワンピース、そして2024年のレガレイラ。GI級の顔ぶれが揃っとるのに荒れる。これは偶然で片付けてええ話ではない。</p>
+<p>DarkHorse AIは14,117レース分の結果を学習しとる。そのうち「波乱が起きやすいレースかどうか」を判別するモデルのAUCは0.755。完璧には程遠いが、勘やコイン投げよりははるかにマシな水準じゃ。そのモデルに有馬記念級の条件を食わせると、毎回似たようなシグナルが点灯する。共通パターンがあるということじゃな。</p>
+<div class='oyaji-bubble'>「有馬は当たらん当たらんと40年言うてきたが、<strong>当たらん理由をデータで説明できた</strong>のは今年が初めてじゃ。進歩じゃのう…」</div>
+
+<h2>パターン①：中山2500mというクセの強い舞台</h2>
+<p>まず舞台そのものが特殊じゃ。中山2500mはスタート直後にいきなり急坂を上り、コーナーを6回も回る。そのくせ最後の直線は310mちょっとしかない。つまり「後方でじっくり脚をためて直線一気」という、東京コースで通用する王道の勝ち方が通りにくい。</p>
+<p>結果として浮上するのは、道中でポジションを取れる馬、器用に立ち回れる馬。逆に沈むのは末脚一辺倒の人気馬じゃ。波乱が起きた年の勝ち馬を並べてみると、その多くが道中で好位〜中団の内を確保しとる。DarkHorse AIの特徴量でも「コーナー通過順の安定度」は上位の効き方をしとって、これが伏兵の激走と静かに結びついておる。</p>
+
+<h2>パターン②：年末ローテーションの落とし穴</h2>
+<p>二つ目はローテーションじゃ。有馬記念に集まる馬は、ジャパンC組、天皇賞（秋）組、エリザベス女王杯組、ステイヤーズS組、香港帰り…とバラバラ。間隔も中3週から中5週まで揃っとらん。</p>
+<p>ここで効いてくるのが「使い詰めの人気馬」と「余力を残した伏兵」の差じゃ。秋に激走を続けた馬ほど人気を背負い、そして年末に沈む。逆に、格下条件からの臨戦で疲れの薄い馬が3着に飛び込んでくる。三連複の配当を跳ね上げるのは、たいていこの3着馬なんじゃよ。</p>
+<div class='oyaji-bubble'>「人間は<strong>前走で強かった馬</strong>を買う。AIは<strong>前走で消耗した馬</strong>を疑う。──この差なんじゃなあ。ワシは40年、前者しかやっとらんかった」</div>
+
+<h2>パターン③：オッズが割れた年ほど跳ねる</h2>
+<p>三つ目がいちばん実務的じゃ。単勝オッズの分布を見ればええ。1番人気が3倍を超え、上位人気が団子状態になっとる年ほど、三連複の配当は素直に跳ね上がる。要するに「本命不在」の年じゃな。</p>
+<p>DarkHorse AIは出走全頭のオッズ分散を波乱指標として持っとる。この分散が大きいレースだけに絞ってバックテストを回すと、回収率は151.7%まで伸びた。ただしこれは過去データ上の数字で、しかも該当するレースは全体のごく一部。年間を通して買えるものではない。「いつでも儲かる」ではなく「荒れそうな日だけ張る」ための道具じゃ。</p>
+
+<div class='point-box'><strong>ポイント</strong><br>①中山2500mは立ち回り勝負。末脚一辺倒の人気馬は取りこぼす<br>②秋に使い詰めた人気馬より、余力のある伏兵が3着に来る<br>③1番人気が3倍超え＝本命不在の年は、配当が跳ねる可能性が高い</div>
+
+<h2>で、今年の有馬記念はどう見るか</h2>
+<p>この3つが同時に揃った年は、過去10年でも数えるほどしかない。だが揃った年は、ほぼ例外なく荒れとる。逆に言えば、揃っていない年に無理して穴を狙うのは、ただの寄付じゃ。データは嘘をつかんらしいが、データが「今日は静かにしとれ」と言うとる日に暴れるのは、人間の側の弱さなんじゃよ。</p>
+<p>12月まではまだ時間がある。それまでにワシは、有馬記念の過去10年分をもう一度、AIと一緒に数えなおすつもりじゃ。今回はちゃんと理屈がある。</p>
+<div class='oyaji-bubble'>「…とは言うたが、有馬記念は<strong>ワシの年間収支が確定する日</strong>でもあってな。カミさんへの説明が待っとるんじゃ。今年こそ胸を張って年を越したいのう」</div>
+
+      <!-- AdSense広告：記事本文下（審査通過後にコメント解除） -->
+      <!-- ================================================
+      <div class="ad-unit ad-col-inline" data-label="スポンサー">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4265350416312017"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      ================================================ -->
+
+      <!-- 関連書籍（Amazonアフィリエイト） -->
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4861914043?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4861914043.01.L.jpg" alt="超万馬券を10点以内で当て続ける方法" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">超万馬券を10点以内で当て続ける方法</div>
+          <div class="book-author">亀谷敬正 著</div>
+          <div class="book-desc">過去の万馬券レースを分析した視点が満載。「あのレースはこう見ていれば獲れた」という回顧に使える一冊。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4867103411?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4867103411.01.L.jpg" alt="血統&ジョッキー偏差値2024-2025 ～儲かる種牡馬・騎手ランキング～" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">血統&ジョッキー偏差値2024-2025 ～儲かる種牡馬・騎手ランキング～</div>
+          <div class="book-author">伊吹 雅也 著</div>
+          <div class="book-desc">騎手と血統を組み合わせてコース別に分析。過去の波乱レースを振り返る際の強力な参考書。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="../column.html" style="color:var(--primary);font-size:.9rem;">&larr; コラム一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:32px 20px;margin-top:60px;text-align:center;color:var(--muted);font-size:.82rem;">
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="../index.html" style="color:var(--primary);font-weight:bold;">DarkHorse AI</a></p>
+    <p style="margin-bottom:12px;">AIが分析する競馬万馬券予測サイト</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <a href="../disclaimer.html" style="color:var(--muted);">免責事項</a>
+      <a href="../privacy.html" style="color:var(--muted);">プライバシーポリシー</a>
+      <a href="../contact.html" style="color:var(--muted);">お問い合わせ</a>
+    </div>
+    <p>&copy; 2024 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
