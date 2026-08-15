@@ -43,12 +43,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-02.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-03.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -79,12 +73,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-08.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-09.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -92,12 +80,6 @@
   </url>
   <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-10.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-11.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -115,25 +97,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-14.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-15.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-16.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-17.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -151,19 +115,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-20.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-21.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-22.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -193,31 +145,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-27.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-28.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-29.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-30.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-31.html</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -235,50 +163,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-34.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-35.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-36.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-37.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-38.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-39.html</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://darkhorse-ai-jp.github.io/columns/column-40.html</loc>
     <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://darkhorse-ai-jp.github.io/columns/column-41.html</loc>
-    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
