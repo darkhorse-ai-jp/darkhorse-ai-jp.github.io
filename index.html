@@ -503,21 +503,28 @@
       const top3 = data.slice(0, 3);
 
       // データの鮮度を判定してステータスバナーを表示
-      const today = new Date();
-      const raceDate = data[0].race_date ? new Date(data[0].race_date) : null;
-      // Math.round でタイムゾーンズレを防ぐ
-      const diffDays = raceDate ? Math.round((today - raceDate) / 86400000) : 9999;
+      // 配列は波乱確率の降順なので、data[0] は最新レースではない。最大値で判定する。
+      const latestStr = data.map(r => r.race_date || '').sort().pop() || '';
+      const today     = new Date(new Date().toDateString());
+      const raceDate  = latestStr ? new Date(latestStr) : null;
+      const diffDays  = raceDate ? Math.round((today - raceDate) / 86400000) : 9999;
       const statusEl   = document.getElementById('js-data-status');
       const subtitleEl = document.getElementById('js-preview-subtitle');
       const bannerTitle = document.getElementById('js-banner-title');
-      if (diffDays > 14) {
+      if (diffDays > 10) {
+        // 想定外の状態。過去の検証データを「今週の予測」として見せない。
         if (bannerTitle) bannerTitle.textContent = '参考データ表示中（過去の検証データ）';
-        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '📋 <strong>参考データを表示中</strong>（' + data[0].race_date + '前後）— リアルタイム予測は毎週金曜更新予定'; }
-        if (subtitleEl) subtitleEl.textContent = '参考：過去の検証データ（' + data[0].race_date + '前後）';
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '📋 <strong>参考データを表示中</strong>（' + latestStr + '前後）— 今週末の予測ではありません。予測は毎週金曜の夜に更新されます'; }
+        if (subtitleEl) subtitleEl.textContent = '参考：過去の検証データ（' + latestStr + '前後）';
+      } else if (diffDays > 0) {
+        // 開催が終わった直後。次の金曜までは先週末の予測がそのまま残る。
+        if (bannerTitle) bannerTitle.textContent = '先週末の予測を表示中';
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '🕒 <strong>先週末（' + latestStr + 'まで）の予測</strong>です。今週末分は金曜の夜に更新されます'; statusEl.style.background = '#fff8e1'; statusEl.style.borderColor = '#f0ad4e'; }
+        if (subtitleEl) subtitleEl.textContent = '先週末（' + latestStr + 'まで）の予測（上位3件）';
       } else {
         if (bannerTitle) bannerTitle.textContent = '最新予測データ公開中';
-        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '🟢 <strong>最新データ</strong>（' + data[0].race_date + '前後）'; statusEl.style.background = '#e9f7ef'; statusEl.style.borderColor = '#27ae60'; }
-        if (subtitleEl) subtitleEl.textContent = data[0].race_date + ' のレース予測（上位3件）';
+        if (statusEl)  { statusEl.style.display = ''; statusEl.innerHTML = '🟢 <strong>今週末の予測</strong>（' + latestStr + 'まで）'; statusEl.style.background = '#e9f7ef'; statusEl.style.borderColor = '#27ae60'; }
+        if (subtitleEl) subtitleEl.textContent = '今週末（' + latestStr + 'まで）のレース予測（上位3件）';
       }
 
       const VENUE_CLASS_MAP = {
@@ -535,8 +542,11 @@
         const levelColor = level === '高' ? '#e74c3c' : level === '中' ? '#e8a020' : '#27ae60';
         // 人気・オッズが1頭でも確定しているか判定
         const isConfirmed = (r.horses || []).some(h => h.popularity != null || h.odds != null);
-        const topHorse = isConfirmed && r.horses && r.horses[0] ? r.horses[0] : null;
-        const upsetHorse = isConfirmed ? (r.horses || []).find(h => h.popularity != null && h.popularity >= 4) : null;
+        // 軸・穴は role で選ぶ。人気順のしきい値で選ぶと、軸が4番人気のとき
+        // 注目馬と穴に同じ馬が出てしまう。
+        const horses = isConfirmed ? (r.horses || []) : [];
+        const topHorse = horses.find(h => h.role === 'anchor') || horses[0] || null;
+        const upsetHorse = horses.find(h => h.role === 'upset' && h !== topHorse) || null;
         // 買い目表示（未確定時はグレーアウト）
         const buyHtml = isConfirmed
           ? `<div style="background:#f8f9fc;border-radius:6px;padding:8px 12px;font-size:.82rem;">
