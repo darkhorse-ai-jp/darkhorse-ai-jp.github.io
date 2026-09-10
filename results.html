@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI競馬予測バックテスト成績・月次回収率を公開 | DarkHorse AI</title>
-  <meta name="description" content="DarkHorse AI（LightGBM競馬AI）のバックテスト成績を完全公開。三連複軸+穴流し戦略の月次回収率・的中率・最大ドローダウンを透明性高く掲載。テストデータROI 151.7%。">
+  <meta name="description" content="DarkHorse AI（LightGBM競馬AI）のバックテスト成績を完全公開。三連複軸+穴流し戦略の月次回収率・的中率・最大ドローダウンを透明性高く掲載。未学習期間のROI 106.2%。">
   <meta property="og:title" content="AI競馬予測バックテスト成績・月次回収率を公開 | DarkHorse AI">
   <meta property="og:description" content="LightGBM競馬AIのバックテスト成績を完全公開。三連複軸+穴流し戦略の月次回収率・的中率・最大ドローダウンをデータで公開。">
   <meta property="og:type" content="article">
@@ -56,19 +56,19 @@
     <!-- バックテスト サマリー -->
     <div class="card-grid">
       <div class="stat-card">
-        <div class="stat-value" id="js-roi"><!--S:js-roi-->89.5%<!--/S:js-roi--></div>
+        <div class="stat-value" id="js-roi"><!--S:js-roi-->106.2%<!--/S:js-roi--></div>
         <div class="stat-label">バックテスト回収率</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value" id="js-auc"><!--S:js-auc-->0.748<!--/S:js-auc--></div>
+        <div class="stat-value" id="js-auc"><!--S:js-auc-->0.711<!--/S:js-auc--></div>
         <div class="stat-label">モデル精度（AUC-ROC）</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value" id="js-hit-rate"><!--S:js-hit-rate-->9.7%<!--/S:js-hit-rate--></div>
+        <div class="stat-value" id="js-hit-rate"><!--S:js-hit-rate-->10.4%<!--/S:js-hit-rate--></div>
         <div class="stat-label">的中率</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value" id="js-drawdown"><!--S:js-drawdown-->14.3%<!--/S:js-drawdown--></div>
+        <div class="stat-value" id="js-drawdown"><!--S:js-drawdown-->7.7%<!--/S:js-drawdown--></div>
         <div class="stat-label">最大ドローダウン</div>
       </div>
     </div>
@@ -78,30 +78,38 @@
       <div style="font-size:.8rem;font-weight:bold;color:#7c3aed;margin-bottom:8px;">💡 推奨戦略（条件絞り込み）</div>
       <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
         <div style="text-align:center;">
-          <div id="js-opt-roi" style="font-size:2rem;font-weight:bold;color:#7c3aed;"><!--S:js-opt-roi-->102.0%<!--/S:js-opt-roi--></div>
-          <div style="font-size:.75rem;color:#6d28d9;">全期間 回収率</div>
-        </div>
-        <div id="js-opt-test-block" style="text-align:center;">
-          <div id="js-opt-test-roi" style="font-size:2rem;font-weight:bold;color:#059669;"><!--S:js-opt-test-roi-->177.4%<!--/S:js-opt-test-roi--></div>
-          <div style="font-size:.75rem;color:#047857;">テストデータ 回収率</div>
+          <div id="js-opt-roi" style="font-size:2rem;font-weight:bold;color:#7c3aed;"><!--S:js-opt-roi-->165.9%<!--/S:js-opt-roi--></div>
+          <div style="font-size:.75rem;color:#6d28d9;">回収率</div>
         </div>
         <div style="font-size:.82rem;color:#4c1d95;line-height:1.8;">
           <span id="js-opt-strategy"><!--S:js-opt-strategy-->軸+穴流し・1800m以上・東京京都除外・閾値35%<!--/S:js-opt-strategy--></span><br>
-          <span style="font-size:.75rem;color:#6d28d9;">参加 <span id="js-opt-count"><!--S:js-opt-count-->1549<!--/S:js-opt-count--></span>件 ／ 最大DD <span id="js-opt-dd"><!--S:js-opt-dd-->20.4%<!--/S:js-opt-dd--></span></span><br>
-          <span id="js-opt-test-note" style="font-size:.72rem;color:#047857;">テストデータ（未来相当） <span id="js-opt-test-count"><!--S:js-opt-test-count-->352<!--/S:js-opt-test-count--></span>件参加</span>
+          <span style="font-size:.75rem;color:#6d28d9;">参加 <span id="js-opt-count"><!--S:js-opt-count-->348<!--/S:js-opt-count--></span>件 ／ 最大DD <span id="js-opt-dd"><!--S:js-opt-dd-->11.4%<!--/S:js-opt-dd--></span></span><br>
+          <span style="font-size:.72rem;color:#6d28d9;">条件を絞る分、参加レースが少なく数字がぶれやすい点に注意してください。</span>
         </div>
       </div>
     </div>
 
     <!-- 注意書き -->
     <div style="background:#e8f4fd;border-left:4px solid #2980b9;padding:12px 16px;border-radius:4px;margin-bottom:24px;font-size:.85rem;">
-      📌 バックテストは過去データによる検証結果です。将来の成績を保証するものではありません。
+      📌 バックテストは過去データによる検証結果です。将来の成績を保証するものではありません。<br>
+      <span id="js-eval-scope"><!--S:js-eval-scope-->学習に使っていない期間（2025-10-18以降）の2,776レースで集計。2023-08・2023-09 は未収集のため含みません<!--/S:js-eval-scope--></span>
+      <span id="js-data-gap" style="display:none;color:#b45309;"></span>
     </div>
 
     <!-- 月次成績 -->
     <div class="card">
       <div class="section-title">月次回収率</div>
-      <div class="table-wrap" id="js-monthly-table"><!--S:js-monthly-table--><p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">※ 現在のバックテスト期間: 〜<strong>2026-09</strong>。2024年以降のデータを順次追加予定。</p><table><thead><tr><th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th></tr></thead><tbody><tr><td>2026-09</td><td>35件</td><td>2件</td><td>31,500円</td><td>13,920円</td><td class="miss">44.2%</td></tr><tr><td>2026-08</td><td>164件</td><td>17件</td><td>147,600円</td><td>92,360円</td><td class="miss">62.6%</td></tr><tr><td>2026-07</td><td>130件</td><td>13件</td><td>117,000円</td><td>135,770円</td><td class="hit">116.0%</td></tr><tr><td>2026-06</td><td>118件</td><td>12件</td><td>106,200円</td><td>182,760円</td><td class="hit">172.1%</td></tr><tr><td>2026-05</td><td>192件</td><td>20件</td><td>172,800円</td><td>165,830円</td><td class="miss">96.0%</td></tr><tr><td>2026-04</td><td>154件</td><td>15件</td><td>138,600円</td><td>131,830円</td><td class="miss">95.1%</td></tr><tr><td>2026-03</td><td>143件</td><td>14件</td><td>128,700円</td><td>129,010円</td><td class="hit">100.2%</td></tr><tr><td>2026-02</td><td>156件</td><td>17件</td><td>140,400円</td><td>208,420円</td><td class="hit">148.4%</td></tr><tr><td>2026-01</td><td>152件</td><td>17件</td><td>136,800円</td><td>202,240円</td><td class="hit">147.8%</td></tr><tr><td>2025-12</td><td>158件</td><td>20件</td><td>142,200円</td><td>128,540円</td><td class="miss">90.4%</td></tr><tr><td>2025-11</td><td>160件</td><td>16件</td><td>144,000円</td><td>101,420円</td><td class="miss">70.4%</td></tr><tr><td>2025-10</td><td>137件</td><td>8件</td><td>123,300円</td><td>87,240円</td><td class="miss">70.8%</td></tr><tr><td>2025-09</td><td>103件</td><td>12件</td><td>92,700円</td><td>62,510円</td><td class="miss">67.4%</td></tr><tr><td>2025-08</td><td>167件</td><td>24件</td><td>150,300円</td><td>185,620円</td><td class="hit">123.5%</td></tr><tr><td>2025-07</td><td>141件</td><td>10件</td><td>126,900円</td><td>138,350円</td><td class="hit">109.0%</td></tr><tr><td>2025-06</td><td>144件</td><td>15件</td><td>129,600円</td><td>94,590円</td><td class="miss">73.0%</td></tr><tr><td>2025-05</td><td>164件</td><td>7件</td><td>147,600円</td><td>29,420円</td><td class="miss">19.9%</td></tr><tr><td>2025-04</td><td>142件</td><td>16件</td><td>127,800円</td><td>94,830円</td><td class="miss">74.2%</td></tr><tr><td>2025-03</td><td>176件</td><td>19件</td><td>158,400円</td><td>132,980円</td><td class="miss">84.0%</td></tr><tr><td>2025-02</td><td>171件</td><td>21件</td><td>153,900円</td><td>162,100円</td><td class="hit">105.3%</td></tr><tr><td>2025-01</td><td>154件</td><td>9件</td><td>138,600円</td><td>38,580円</td><td class="miss">27.8%</td></tr><tr><td>2024-12</td><td>148件</td><td>13件</td><td>133,200円</td><td>101,170円</td><td class="miss">76.0%</td></tr><tr><td>2024-11</td><td>159件</td><td>18件</td><td>143,100円</td><td>216,080円</td><td class="hit">151.0%</td></tr><tr><td>2024-10</td><td>124件</td><td>14件</td><td>111,600円</td><td>59,360円</td><td class="miss">53.2%</td></tr><tr><td>2024-09</td><td>110件</td><td>12件</td><td>99,000円</td><td>77,330円</td><td class="miss">78.1%</td></tr><tr><td>2024-08</td><td>138件</td><td>11件</td><td>124,200円</td><td>157,340円</td><td class="hit">126.7%</td></tr><tr><td>2024-07</td><td>126件</td><td>13件</td><td>113,400円</td><td>91,550円</td><td class="miss">80.7%</td></tr><tr><td>2024-06</td><td>155件</td><td>17件</td><td>139,500円</td><td>156,670円</td><td class="hit">112.3%</td></tr><tr><td>2024-05</td><td>133件</td><td>14件</td><td>119,700円</td><td>142,410円</td><td class="hit">119.0%</td></tr><tr><td>2024-04</td><td>130件</td><td>10件</td><td>117,000円</td><td>58,100円</td><td class="miss">49.7%</td></tr><tr><td>2024-03</td><td>120件</td><td>13件</td><td>108,000円</td><td>61,450円</td><td class="miss">56.9%</td></tr><tr><td>2024-02</td><td>124件</td><td>15件</td><td>111,600円</td><td>103,000円</td><td class="miss">92.3%</td></tr><tr><td>2024-01</td><td>148件</td><td>12件</td><td>133,200円</td><td>113,250円</td><td class="miss">85.0%</td></tr><tr><td>2023-12</td><td>153件</td><td>14件</td><td>137,700円</td><td>91,680円</td><td class="miss">66.6%</td></tr><tr><td>2023-11</td><td>129件</td><td>9件</td><td>116,100円</td><td>58,700円</td><td class="miss">50.6%</td></tr><tr><td>2023-10</td><td>139件</td><td>14件</td><td>125,100円</td><td>139,750円</td><td class="hit">111.7%</td></tr><tr><td>2023-07</td><td>158件</td><td>14件</td><td>142,200円</td><td>105,390円</td><td class="miss">74.1%</td></tr><tr><td>2023-06</td><td>127件</td><td>9件</td><td>114,300円</td><td>72,920円</td><td class="miss">63.8%</td></tr><tr><td>2023-05</td><td>129件</td><td>9件</td><td>116,100円</td><td>77,470円</td><td class="miss">66.7%</td></tr><tr><td>2023-04</td><td>160件</td><td>11件</td><td>144,000円</td><td>79,350円</td><td class="miss">55.1%</td></tr><tr><td>2023-03</td><td>125件</td><td>8件</td><td>112,500円</td><td>109,110円</td><td class="miss">97.0%</td></tr><tr><td>2023-02</td><td>148件</td><td>11件</td><td>133,200円</td><td>68,930円</td><td class="miss">51.7%</td></tr><tr><td>2023-01</td><td>169件</td><td>24件</td><td>152,100円</td><td>179,900円</td><td class="hit">118.3%</td></tr><tr><td>2022-12</td><td>161件</td><td>11件</td><td>144,900円</td><td>71,300円</td><td class="miss">49.2%</td></tr><tr><td>2022-11</td><td>140件</td><td>12件</td><td>126,000円</td><td>88,240円</td><td class="miss">70.0%</td></tr><tr><td>2022-10</td><td>161件</td><td>16件</td><td>144,900円</td><td>95,770円</td><td class="miss">66.1%</td></tr><tr><td>2022-09</td><td>125件</td><td>17件</td><td>112,500円</td><td>245,420円</td><td class="hit">218.2%</td></tr><tr><td>2022-08</td><td>145件</td><td>15件</td><td>130,500円</td><td>90,240円</td><td class="miss">69.1%</td></tr><tr><td>2022-07</td><td>156件</td><td>22件</td><td>140,400円</td><td>139,230円</td><td class="miss">99.2%</td></tr><tr><td>2022-06</td><td>132件</td><td>11件</td><td>118,800円</td><td>193,380円</td><td class="hit">162.8%</td></tr><tr><td>2022-05</td><td>152件</td><td>17件</td><td>136,800円</td><td>119,740円</td><td class="miss">87.5%</td></tr><tr><td>2022-04</td><td>148件</td><td>14件</td><td>133,200円</td><td>138,250円</td><td class="hit">103.8%</td></tr><tr><td>2022-03</td><td>127件</td><td>11件</td><td>114,300円</td><td>74,730円</td><td class="miss">65.4%</td></tr><tr><td>2022-02</td><td>140件</td><td>14件</td><td>126,000円</td><td>86,430円</td><td class="miss">68.6%</td></tr><tr><td>2022-01</td><td>133件</td><td>11件</td><td>119,700円</td><td>125,040円</td><td class="hit">104.5%</td></tr></tbody></table><!--/S:js-monthly-table--></div>
+      <div class="table-wrap" id="js-monthly-table"><!--S:js-monthly-table--><p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">※ 掲載しているのは、モデルが学習に使っていない期間（2025-10-18以降）の成績です。</p><table><thead><tr><th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th></tr></thead><tbody><tr><td>2026-09</td><td>29件</td><td>2件</td><td>26,100円</td><td>13,920円</td><td class="miss">53.3%</td></tr><tr><td>2026-08</td><td>159件</td><td>17件</td><td>143,100円</td><td>87,940円</td><td class="miss">61.5%</td></tr><tr><td>2026-07</td><td>124件</td><td>12件</td><td>111,600円</td><td>130,780円</td><td class="hit">117.2%</td></tr><tr><td>2026-06</td><td>124件</td><td>15件</td><td>111,600円</td><td>200,610円</td><td class="hit">179.8%</td></tr><tr><td>2026-05</td><td>196件</td><td>20件</td><td>176,400円</td><td>162,340円</td><td class="miss">92.0%</td></tr><tr><td>2026-04</td><td>159件</td><td>18件</td><td>143,100円</td><td>174,800円</td><td class="hit">122.2%</td></tr><tr><td>2026-03</td><td>147件</td><td>16件</td><td>132,300円</td><td>135,790円</td><td class="hit">102.6%</td></tr><tr><td>2026-02</td><td>145件</td><td>18件</td><td>130,500円</td><td>215,920円</td><td class="hit">165.5%</td></tr><tr><td>2026-01</td><td>124件</td><td>12件</td><td>111,600円</td><td>131,030円</td><td class="hit">117.4%</td></tr><tr><td>2025-12</td><td>119件</td><td>12件</td><td>107,100円</td><td>86,790円</td><td class="miss">81.0%</td></tr><tr><td>2025-11</td><td>153件</td><td>16件</td><td>137,700円</td><td>101,080円</td><td class="miss">73.4%</td></tr><tr><td>2025-10</td><td>48件</td><td>1件</td><td>43,200円</td><td>17,910円</td><td class="miss">41.5%</td></tr></tbody></table><!--/S:js-monthly-table--></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">月次回収率（参考・学習期間を含む全期間）</div>
+      <p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">
+        こちらは<strong>モデルが学習に使った期間も含めた</strong>全期間の推移です。
+        学習済みのレースに対する予測が混ざるため、上の表より成績の読み方に注意が必要です。
+        長期の傾向を見る参考としてのみ掲載しています。
+      </p>
+      <div class="table-wrap" id="js-monthly-all-table"><!--S:js-monthly-all-table--><p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">※ 掲載しているのは、モデルが学習に使っていない期間の成績です。</p><table><thead><tr><th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th></tr></thead><tbody><tr><td>2026-09</td><td>29件</td><td>2件</td><td>26,100円</td><td>13,920円</td><td class="miss">53.3%</td></tr><tr><td>2026-08</td><td>159件</td><td>17件</td><td>143,100円</td><td>87,940円</td><td class="miss">61.5%</td></tr><tr><td>2026-07</td><td>124件</td><td>12件</td><td>111,600円</td><td>130,780円</td><td class="hit">117.2%</td></tr><tr><td>2026-06</td><td>124件</td><td>15件</td><td>111,600円</td><td>200,610円</td><td class="hit">179.8%</td></tr><tr><td>2026-05</td><td>196件</td><td>20件</td><td>176,400円</td><td>162,340円</td><td class="miss">92.0%</td></tr><tr><td>2026-04</td><td>159件</td><td>18件</td><td>143,100円</td><td>174,800円</td><td class="hit">122.2%</td></tr><tr><td>2026-03</td><td>147件</td><td>16件</td><td>132,300円</td><td>135,790円</td><td class="hit">102.6%</td></tr><tr><td>2026-02</td><td>145件</td><td>18件</td><td>130,500円</td><td>215,920円</td><td class="hit">165.5%</td></tr><tr><td>2026-01</td><td>124件</td><td>12件</td><td>111,600円</td><td>131,030円</td><td class="hit">117.4%</td></tr><tr><td>2025-12</td><td>119件</td><td>12件</td><td>107,100円</td><td>86,790円</td><td class="miss">81.0%</td></tr><tr><td>2025-11</td><td>153件</td><td>16件</td><td>137,700円</td><td>101,080円</td><td class="miss">73.4%</td></tr><tr><td>2025-10</td><td>108件</td><td>6件</td><td>97,200円</td><td>67,880円</td><td class="miss">69.8%</td></tr><tr><td>2025-09</td><td>94件</td><td>10件</td><td>84,600円</td><td>54,590円</td><td class="miss">64.5%</td></tr><tr><td>2025-08</td><td>160件</td><td>21件</td><td>144,000円</td><td>158,560円</td><td class="hit">110.1%</td></tr><tr><td>2025-07</td><td>141件</td><td>11件</td><td>126,900円</td><td>160,950円</td><td class="hit">126.8%</td></tr><tr><td>2025-06</td><td>152件</td><td>18件</td><td>136,800円</td><td>137,190円</td><td class="hit">100.3%</td></tr><tr><td>2025-05</td><td>170件</td><td>8件</td><td>153,000円</td><td>46,740円</td><td class="miss">30.5%</td></tr><tr><td>2025-04</td><td>142件</td><td>13件</td><td>127,800円</td><td>84,160円</td><td class="miss">65.9%</td></tr><tr><td>2025-03</td><td>175件</td><td>18件</td><td>157,500円</td><td>180,070円</td><td class="hit">114.3%</td></tr><tr><td>2025-02</td><td>139件</td><td>15件</td><td>125,100円</td><td>128,040円</td><td class="hit">102.4%</td></tr><tr><td>2025-01</td><td>128件</td><td>7件</td><td>115,200円</td><td>23,410円</td><td class="miss">20.3%</td></tr><tr><td>2024-12</td><td>121件</td><td>11件</td><td>108,900円</td><td>96,310円</td><td class="miss">88.4%</td></tr><tr><td>2024-11</td><td>138件</td><td>16件</td><td>124,200円</td><td>210,470円</td><td class="hit">169.5%</td></tr><tr><td>2024-10</td><td>99件</td><td>8件</td><td>89,100円</td><td>49,330円</td><td class="miss">55.4%</td></tr><tr><td>2024-09</td><td>99件</td><td>10件</td><td>89,100円</td><td>67,760円</td><td class="miss">76.0%</td></tr><tr><td>2024-08</td><td>131件</td><td>10件</td><td>117,900円</td><td>138,910円</td><td class="hit">117.8%</td></tr><tr><td>2024-07</td><td>126件</td><td>12件</td><td>113,400円</td><td>79,610円</td><td class="miss">70.2%</td></tr><tr><td>2024-06</td><td>160件</td><td>18件</td><td>144,000円</td><td>150,930円</td><td class="hit">104.8%</td></tr><tr><td>2024-05</td><td>134件</td><td>15件</td><td>120,600円</td><td>145,720円</td><td class="hit">120.8%</td></tr><tr><td>2024-04</td><td>124件</td><td>11件</td><td>111,600円</td><td>58,910円</td><td class="miss">52.8%</td></tr><tr><td>2024-03</td><td>124件</td><td>15件</td><td>111,600円</td><td>75,060円</td><td class="miss">67.3%</td></tr><tr><td>2024-02</td><td>113件</td><td>15件</td><td>101,700円</td><td>105,620円</td><td class="hit">103.9%</td></tr><tr><td>2024-01</td><td>124件</td><td>12件</td><td>111,600円</td><td>110,240円</td><td class="miss">98.8%</td></tr><tr><td>2023-12</td><td>114件</td><td>11件</td><td>102,600円</td><td>88,100円</td><td class="miss">85.9%</td></tr><tr><td>2023-11</td><td>115件</td><td>9件</td><td>103,500円</td><td>59,660円</td><td class="miss">57.6%</td></tr><tr><td>2023-10</td><td>109件</td><td>12件</td><td>98,100円</td><td>133,780円</td><td class="hit">136.4%</td></tr><tr><td>2023-07</td><td>146件</td><td>11件</td><td>131,400円</td><td>63,940円</td><td class="miss">48.7%</td></tr><tr><td>2023-06</td><td>125件</td><td>10件</td><td>112,500円</td><td>80,220円</td><td class="miss">71.3%</td></tr><tr><td>2023-05</td><td>134件</td><td>13件</td><td>120,600円</td><td>90,530円</td><td class="miss">75.1%</td></tr><tr><td>2023-04</td><td>153件</td><td>13件</td><td>137,700円</td><td>95,010円</td><td class="miss">69.0%</td></tr><tr><td>2023-03</td><td>126件</td><td>8件</td><td>113,400円</td><td>93,280円</td><td class="miss">82.3%</td></tr><tr><td>2023-02</td><td>142件</td><td>11件</td><td>127,800円</td><td>64,890円</td><td class="miss">50.8%</td></tr><tr><td>2023-01</td><td>136件</td><td>20件</td><td>122,400円</td><td>161,160円</td><td class="hit">131.7%</td></tr><tr><td>2022-12</td><td>124件</td><td>12件</td><td>111,600円</td><td>70,700円</td><td class="miss">63.4%</td></tr><tr><td>2022-11</td><td>128件</td><td>9件</td><td>115,200円</td><td>106,530円</td><td class="miss">92.5%</td></tr><tr><td>2022-10</td><td>128件</td><td>10件</td><td>115,200円</td><td>78,630円</td><td class="miss">68.3%</td></tr><tr><td>2022-09</td><td>105件</td><td>12件</td><td>94,500円</td><td>201,550円</td><td class="hit">213.3%</td></tr><tr><td>2022-08</td><td>132件</td><td>14件</td><td>118,800円</td><td>70,970円</td><td class="miss">59.7%</td></tr><tr><td>2022-07</td><td>153件</td><td>15件</td><td>137,700円</td><td>71,970円</td><td class="miss">52.3%</td></tr><tr><td>2022-06</td><td>135件</td><td>13件</td><td>121,500円</td><td>191,660円</td><td class="hit">157.7%</td></tr><tr><td>2022-05</td><td>148件</td><td>18件</td><td>133,200円</td><td>126,590円</td><td class="miss">95.0%</td></tr><tr><td>2022-04</td><td>147件</td><td>14件</td><td>132,300円</td><td>137,960円</td><td class="hit">104.3%</td></tr><tr><td>2022-03</td><td>125件</td><td>11件</td><td>112,500円</td><td>74,350円</td><td class="miss">66.1%</td></tr><tr><td>2022-02</td><td>135件</td><td>11件</td><td>121,500円</td><td>75,910円</td><td class="miss">62.5%</td></tr><tr><td>2022-01</td><td>108件</td><td>7件</td><td>97,200円</td><td>41,300円</td><td class="miss">42.5%</td></tr></tbody></table><!--/S:js-monthly-all-table--></div>
     </div>
 
     <!-- 関連ページへの誘導 -->
@@ -114,7 +122,7 @@
           <div style="font-size:.8rem;color:var(--muted);">万馬券候補・穴馬を無料公開</div>
         </a>
         <a href="column.html" style="flex:1;min-width:180px;display:block;background:#fff;border:2px solid var(--accent);border-radius:8px;padding:12px 16px;text-decoration:none;color:inherit;">
-          <div style="font-size:.75rem;color:var(--accent);font-weight:bold;margin-bottom:3px;">全36本無料</div>
+          <div style="font-size:.75rem;color:var(--accent);font-weight:bold;margin-bottom:3px;">全<span id="js-column-count">23</span>本無料</div>
           <div style="font-size:.95rem;font-weight:bold;color:var(--text);margin-bottom:3px;">競馬データ分析コラム</div>
           <div style="font-size:.8rem;color:var(--muted);">万馬券の条件・穴馬の見つけ方</div>
         </a>
@@ -127,9 +135,10 @@
       <table style="font-size:.9rem;" id="js-conditions-table">
         <tbody>
           <tr><td><strong>対象レース</strong></td><td>JRAレース全般（新馬戦・障害除く）</td></tr>
-          <tr><td><strong>馬券種</strong></td><td>三連複 軸（1〜2番人気）＋穴（4〜12番人気）流し</td></tr>
+          <tr><td><strong>馬券種</strong></td><td>三連複 軸（1〜2番人気の2頭）＋穴（6〜15番人気の上位3頭。3頭に満たない場合は4〜15番人気）流し</td></tr>
           <tr><td><strong>賭け金</strong></td><td>1点300円（軸2頭×穴3頭=3点・900円/レース）</td></tr>
           <tr><td><strong>参加基準</strong></td><td id="js-threshold"><!--S:js-threshold-->波乱確率 30% 以上のレースのみ参加<!--/S:js-threshold--></td></tr>
+          <tr><td><strong>除外レース</strong></td><td>新馬戦・障害レース（過去実績が乏しく予測精度が低いため）</td></tr>
           <tr><td><strong>データ期間</strong></td><td id="js-data-range"><!--S:js-data-range-->2022年01月〜2026年09月<!--/S:js-data-range--></td></tr>
           <tr><td><strong>学習データ</strong></td><td id="js-train-period"><!--S:js-train-period-->2022年01月〜2025年10月<!--/S:js-train-period--></td></tr>
           <tr><td><strong>検証データ</strong></td><td id="js-test-period"><!--S:js-test-period-->2025年10月〜2026年09月<!--/S:js-test-period--></td></tr>
@@ -169,24 +178,29 @@ fetch('data/stats.json')
       document.getElementById('js-opt-strategy').textContent = d.opt_strategy || '—';
       document.getElementById('js-opt-count').textContent    = d.opt_participated || '—';
       document.getElementById('js-opt-dd').textContent       = (d.opt_max_drawdown || 0).toFixed(1) + '%';
-      if (d.opt_test_roi) {
-        document.getElementById('js-opt-test-block').style.display = '';
-        document.getElementById('js-opt-test-roi').textContent     = d.opt_test_roi.toFixed(1) + '%';
-        document.getElementById('js-opt-test-note').style.display  = '';
-        document.getElementById('js-opt-test-count').textContent   = d.opt_test_participated || '—';
-      }
     }
+    // 成績の集計範囲と、収集できていない月を明示する
+    const scope = document.getElementById('js-eval-scope');
+    if (scope) {
+      scope.textContent = `学習に使っていない期間（${d.train_end_date}以降）の${(d.eval_races || 0).toLocaleString()}レースで集計`;
+    }
+    const gap = document.getElementById('js-data-gap');
+    if (gap && d.missing_months && d.missing_months.length) {
+      gap.style.display = '';
+      gap.textContent = `※ ${d.missing_months.join('・')} は未収集のため集計に含まれていません。`;
+    }
+    window.__trainEnd = d.train_end_date;
   })
   .catch(() => {});
 
 fetch('data/monthly_results.json')
   .then(r => r.json())
   .then(data => {
-    const latest = data.length > 0 ? data[data.length - 1].year_month : null;
+    const trainEnd = window.__trainEnd || '';
     let notice = '';
-    if (latest) {
+    if (data.length > 0) {
       notice = `<p style="font-size:.82rem;color:#64748b;margin-bottom:10px;">
-        ※ 現在のバックテスト期間: 〜<strong>${latest}</strong>。2024年以降のデータを順次追加予定。
+        ※ 掲載しているのは、モデルが学習に使っていない期間${trainEnd ? `（${trainEnd}以降）` : ''}の成績です。
       </p>`;
     }
     let html = notice + '<table><thead><tr>'
@@ -207,6 +221,26 @@ fetch('data/monthly_results.json')
     });
     html += '</tbody></table>';
     document.getElementById('js-monthly-table').innerHTML = html;
+  })
+  .catch(() => {});
+
+fetch('data/monthly_results_all.json')
+  .then(r => r.json())
+  .then(data => {
+    if (!data.length) return;
+    let html = '<table><thead><tr>'
+      + '<th>年月</th><th>参加レース数</th><th>的中数</th><th>投資額</th><th>払戻額</th><th>回収率</th>'
+      + '</tr></thead><tbody>';
+    [...data].reverse().forEach(r => {
+      const roiPct = (r.roi * 100).toFixed(1);
+      const roiClass = r.roi >= 1 ? 'hit' : 'miss';
+      const nHit = r.n_hit != null ? r.n_hit + '件' : '—';
+      html += `<tr><td>${r.year_month}</td><td>${r.n_races}件</td><td>${nHit}</td>`
+        + `<td>${r.total_bet.toLocaleString()}円</td><td>${r.total_payout.toLocaleString()}円</td>`
+        + `<td class="${roiClass}">${roiPct}%</td></tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('js-monthly-all-table').innerHTML = html;
   })
   .catch(() => {
     document.getElementById('js-monthly-table').innerHTML =
