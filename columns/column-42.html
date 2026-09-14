@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特徴量エンジニアリング入門：競馬AIが見る指標 | DarkHorse AI コラム</title>
+  <meta name="description" content="競馬AIの精度を左右する特徴量エンジニアリングを解説。オッズや近走成績などの代表的な指標と、データリークという落とし穴、DarkHorse AIの実測値を紹介します。">
+  <meta property="og:title" content="特徴量エンジニアリング入門：競馬AIが見る指標 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .oyaji-bubble { background: #fff3cd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; position: relative; border: 1px solid #ffc107; font-style: italic; line-height: 1.8; }
+    .oyaji-bubble::before { content: "AIおやじ"; display: block; font-size: .75rem; font-weight: bold; color: #e67e00; margin-bottom: 6px; font-style: normal; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "特徴量エンジニアリング入門：競馬AIが見る指標",
+    "description": "競馬AIの精度を左右する特徴量エンジニアリングを解説。オッズや近走成績などの代表的な指標と、データリークという落とし穴、DarkHorse AIの実測値を紹介します。",
+    "datePublished": "2026-09-01",
+    "dateModified": "2026-09-01",
+    "url": "https://darkhorse-ai-jp.github.io/columns/column-42.html",
+    "inLanguage": "ja",
+    "author": {
+      "@type": "Person",
+      "name": "AIおやじ（丸山源三）"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/"
+    },
+    "articleSection": "AI解説",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://darkhorse-ai-jp.github.io/columns/column-42.html"
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="../index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="../prediction.html">今週の予測</a>
+      <a href="../results.html">過去の成績</a>
+      <a href="../about.html">予測ロジック</a>
+      <a href="../column.html">コラム</a>
+      <a href="../faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../index.html">トップ</a>
+    <a href="../prediction.html">今週の予測</a>
+    <a href="../results.html">過去の成績</a>
+    <a href="../about.html">予測ロジック</a>
+    <a href="../column.html">コラム</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="../column.html">コラム</a> &gt; AI解説</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+        <span style="display:inline-block;background:#e8eaf6;color:#3949ab;font-size:.75rem;padding:2px 8px;border-radius:10px;">AI解説</span>
+        <span style="font-size:.78rem;color:var(--muted);">2026年9月</span>
+      </div>
+      <h1 style="font-size:1.55rem;line-height:1.4;margin-bottom:24px;">特徴量エンジニアリング入門：競馬AIが見る指標</h1>
+
+<h2>特徴量とは「馬を見る目」を数字にしたもの</h2><p>競馬AIの性能を左右するのは、モデルの種類よりも「何を入力するか」です。DarkHorse AIでは、表形式のデータに強いLightGBMを使っています。ただ、馬柱をそのまま渡しても意味のある予測はできません。着順、タイム、騎手、馬場状態といった生のデータを、AIが比べて学習できる形に加工する必要があります。この作業を「特徴量エンジニアリング」と呼びます。</p><p>ベテランの競馬ファンは、新聞を見ながら「前走は不利があった」「この距離は得意」と頭の中で考えています。特徴量エンジニアリングは、その考えを一つずつ数値のルールに置き換える作業だと考えると分かりやすいでしょう。</p><div class='oyaji-bubble'>わしが赤ペンで馬柱に丸をつけとったのも、言うてみれば特徴量づくりじゃったんじゃのう。ただ、わしの丸はその日の気分で増えたり減ったりしとった。AIはそこがブレんのじゃ。</div><h2>競馬データで注目される指標</h2><p>競馬の予測でよく使われる特徴量は、大きく次の4つに分けられます。</p><p><strong>市場の評価</strong>：単勝オッズや人気順です。大勢の予想が集まった情報なので、これだけでも強い手がかりになります。ただし人気薄ばかりを狙うと、穴馬ほど実力以上に買われやすい「Favorite-Longshot Bias（人気薄の過大評価）」に飲み込まれがちです。</p><p><strong>馬の実力と調子</strong>：近走の着順、上がりタイム、休み明けかどうかなど。</p><p><strong>人の要素</strong>：騎手や調教師の成績です。後で説明するとおり、扱い方に注意が必要です。</p><p><strong>条件への適性</strong>：コース、距離、芝・ダート、馬場状態、出走頭数など。</p><p>万馬券を狙うなら、「どの馬が勝つか」だけでなく「そのレースが荒れやすいか」を見ることが大切です。そこでDarkHorse AIでは、レースの波乱を判定する役割と、狙う馬を選ぶ役割を分けて考えています。</p><h2>最大の落とし穴は「未来の情報」</h2><p>特徴量づくりで一番怖いのがデータリークです。予測する時点では知り得ない情報が、入力に紛れ込んでしまうことを指します。たとえば騎手の成績を「その年の最終成績」で計算すると、レース当日にはまだ出ていない結果を使うことになります。過去データでは驚くほど当たるのに、実際の運用では通用しない。これが典型的な失敗パターンです。</p><p>そのため、成績を集計する特徴量は、そのレースより前のデータだけで計算した累積値を使います。学習と検証も時期で分けています。学習データは2022年01月〜2025年10月、検証データは2025年10月〜2026年09月です。</p><div class='oyaji-bubble'>レースが終わってから「やっぱりこの馬じゃったか」と言うのは、わしの得意技じゃ。じゃが、それをAIにやらせたら反則なんじゃと。後出しジャンケンは、かみさんにも通用せんからのう……。</div><h2>数字で見る現在地</h2><p>2026年9月14日時点の実測値を紹介します。分析の対象は13,909レースで、波乱の発生率は31.9%でした。モデルのAUCは0.7109です。荒れるレースと荒れないレースをある程度は見分けられていますが、万能な精度とは言えません。</p><p>波乱確率の閾値は0.3を採用しています。バックテストでは参加レース数1,527、的中率10.4%、回収率106.2%、最大ドローダウン7.7%でした。回収率は100%を上回りましたが、あくまで過去データで試した結果です。将来も同じ成績になるとは限りません。的中率が低いため、外れが続く期間があることも覚悟しておく必要があります。</p><p>条件を最適化した場合は、回収率165.9%、的中率10.6%という数値も出ています。ただ、過去データに合わせて条件を調整するほど、見かけの成績は良くなりやすいものです。この数値は参考値として慎重に扱うべきでしょう。</p><div class='oyaji-bubble'>165.9%という数字だけ見たら、小遣いの前借りを頼みたくなるわい。じゃが、過去に合わせて調整した数字は割り引いて見るもんらしい。データは嘘をつかんらしいが、都合よく読んでしまうのは人間のほうなんじゃのう。</div><div class='point-box'><strong>ポイント</strong><br>・特徴量とは、競馬ファンの「見る目」を数値のルールにしたもの<br>・代表的な指標は、オッズ・人気、近走成績、騎手・調教師、条件への適性<br>・成績の集計はレース前のデータだけで行い、時期を分けて検証する<br>・回収率106.2%は過去データでの結果で、将来の利益を保証するものではない<br>・最適化条件での165.9%は、過去データへの当てはめすぎも疑って参考値として見る</div>
+
+      <!-- AdSense広告：記事本文下（審査通過後にコメント解除） -->
+      <!-- ================================================
+      <div class="ad-unit ad-col-inline" data-label="スポンサー">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4265350416312017"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      ================================================ -->
+
+      <!-- 関連書籍（Amazonアフィリエイト） -->
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4867100110?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4867100110.01.L.jpg" alt="AI競馬 人工知能は馬券を制することができるか？" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">AI競馬 人工知能は馬券を制することができるか？</div>
+          <div class="book-author">城崎 哲 著</div>
+          <div class="book-desc">競馬AIの開発者たちへのインタビューが中心。難しい数学不要で、AIが競馬予測をどう活用しているか読めばわかる一冊。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4865358633?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4865358633.01.L.jpg" alt="競馬力を上げる馬券統計学の教科書" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">競馬力を上げる馬券統計学の教科書</div>
+          <div class="book-author">大谷 清文 著</div>
+          <div class="book-desc">AIが学習するのと同じ統計的アプローチを、プログラミング不要で学べる。AI予測の「なぜ」を理解できるようになる。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="../column.html" style="color:var(--primary);font-size:.9rem;">&larr; コラム一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:32px 20px;margin-top:60px;text-align:center;color:var(--muted);font-size:.82rem;">
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="../index.html" style="color:var(--primary);font-weight:bold;">DarkHorse AI</a></p>
+    <p style="margin-bottom:12px;">AIが分析する競馬万馬券予測サイト</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <a href="../disclaimer.html" style="color:var(--muted);">免責事項</a>
+      <a href="../privacy.html" style="color:var(--muted);">プライバシーポリシー</a>
+      <a href="../contact.html" style="color:var(--muted);">お問い合わせ</a>
+    </div>
+    <p>&copy; 2026 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
