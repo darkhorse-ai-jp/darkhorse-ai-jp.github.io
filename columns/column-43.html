@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春G1の穴馬傾向をデータで考える馬券戦略 | DarkHorse AI コラム</title>
+  <meta name="description" content="春のG1で穴馬をどう考えるか。DarkHorse AIの検証データ（回収率105.6%・的中率10.5%）をもとに、波乱の見極め方と大舞台での買い方の注意点をAIおやじと考えます。">
+  <meta property="og:title" content="春G1の穴馬傾向をデータで考える馬券戦略 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .oyaji-bubble { background: #fff3cd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; position: relative; border: 1px solid #ffc107; font-style: italic; line-height: 1.8; }
+    .oyaji-bubble::before { content: "AIおやじ"; display: block; font-size: .75rem; font-weight: bold; color: #e67e00; margin-bottom: 6px; font-style: normal; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "春G1の穴馬傾向をデータで考える馬券戦略",
+    "description": "春のG1で穴馬をどう考えるか。DarkHorse AIの検証データ（回収率105.6%・的中率10.5%）をもとに、波乱の見極め方と大舞台での買い方の注意点をAIおやじと考えます。",
+    "datePublished": "2026-10-01",
+    "dateModified": "2026-10-01",
+    "url": "https://darkhorse-ai-jp.github.io/columns/column-43.html",
+    "inLanguage": "ja",
+    "author": {
+      "@type": "Person",
+      "name": "AIおやじ（丸山源三）"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/"
+    },
+    "articleSection": "馬券戦略",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://darkhorse-ai-jp.github.io/columns/column-43.html"
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="../index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="../prediction.html">今週の予測</a>
+      <a href="../results.html">過去の成績</a>
+      <a href="../about.html">予測ロジック</a>
+      <a href="../column.html">コラム</a>
+      <a href="../faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../index.html">トップ</a>
+    <a href="../prediction.html">今週の予測</a>
+    <a href="../results.html">過去の成績</a>
+    <a href="../about.html">予測ロジック</a>
+    <a href="../column.html">コラム</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="../column.html">コラム</a> &gt; 馬券戦略</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+        <span style="display:inline-block;background:#e8f5e9;color:var(--hit);font-size:.75rem;padding:2px 8px;border-radius:10px;">馬券戦略</span>
+        <span style="font-size:.78rem;color:var(--muted);">2026年10月</span>
+      </div>
+      <h1 style="font-size:1.55rem;line-height:1.4;margin-bottom:24px;">春G1の穴馬傾向をデータで考える馬券戦略</h1>
+
+<h2>秋のG1を前に、春の大舞台を考え直す</h2><p>10月に入り、秋のG1シーズンが近づいてきました。少し季節外れですが、今回はあえて「春のG1」をテーマにします。春は世代の頂点を決めるレースや古馬の大一番が続き、人気が一部の有力馬に集まりやすい時期です。そうした大舞台で穴馬をどう考えればよいのか、DarkHorse AIのデータの見方を中心に整理します。</p><p>最初にお断りしておくと、DarkHorse AIはG1だけを対象にしたモデルではありません。分析対象は13987レースで、G1はその中のごく一部です。ですから本稿では「春G1の穴馬はこう来る」と言い切るのではなく、データから言えることと言えないことを分けて考えます。</p><div class='oyaji-bubble'>春のG1言うたら、ワシは毎年つい人気の馬に目が行ってしまうんじゃ。じゃが今回はちゃんと理屈がある。まずは数字の全体像からじゃのう。</div><h2>波乱は「3レースに1回」起きている</h2><p>DarkHorse AIの集計では、分析対象レースのうち波乱の発生率は31.9%でした。つまり、およそ3レースに1回は人気どおりに決まっていません。「大舞台は堅く収まる」という印象を持つ人は多いですが、レース全体で見ると波乱は決して珍しくありません。</p><p>ただし、ここで「では穴を買い続ければいい」とはなりません。人気薄の馬は実力に対して過大に買われやすい傾向（Favorite-Longshot Bias）があり、手当たり次第に穴を狙うと長い目で見て負けやすいとされています。大事なのは、波乱が起きそうなレースを<strong>選ぶ</strong>ことです。</p><p>DarkHorse AIは、レースごとに波乱が起きる確率を予測し、その値が閾値0.3以上のレースだけに参加します。モデルのAUCは0.7125で、ランダムな予想（0.5）よりは波乱レースを見分けられていますが、完璧からは程遠い水準です。</p><div class='oyaji-bubble'>データは嘘をつかんらしい。3回に1回は荒れとるのに、ワシは毎回「今日こそ荒れる」と思うて全部買うとった。そりゃ小遣いが持たんわけじゃ……。</div><h2>検証期間の成績と、その読み方</h2><p>学習データは2022年01月〜2025年10月、成績はその後の2025年10月〜2026年09月の検証データで測っています。学習に使っていない期間で測ることで、「過去問を覚えただけ」の成績にならないようにしています。</p><p>検証期間の参加レース数は1573、的中率は10.5%、バックテスト回収率は105.6%、最大ドローダウンは7.5%でした。回収率は100%を上回りましたが、あくまで過去データでの検証結果です。的中率10.5%ということは、10回買っておよそ9回は外れる計算で、ハズレが長く続く時期も当然あります。</p><p>もう一つ、条件を絞り込んだ「最適化条件」では回収率162.2%という数字も出ています。ただし、これは過去データに合わせて条件を選んだ結果であり、将来も同じ成績になるとは考えないほうが安全です。条件を後から選べば数字が良く見えるのは当然なので、DarkHorse AIでは基本の105.6%を実力の目安として見ています。</p><div class='oyaji-bubble'>162.2%と聞いて、ワシは思わず赤ペンを落としたわい。じゃが「後から都合のええ条件を選んだ数字」と聞いて目が覚めた。母ちゃんに見せるのは105.6%のほうにしとくわい。</div><h2>春G1で穴馬を考えるときの心構え</h2><p>データから導ける大舞台での考え方は、次の3つです。第一に、G1だからと特別扱いせず、波乱が起きそうなレースかどうかで参加を決めること。第二に、穴馬は「人気がないから」ではなく、根拠があるときだけ買い目に入れること。第三に、外れが続く前提で、1レースに使う金額を抑えることです。</p><p>G1は注目度が高いぶん、つい熱くなって予算を超えがちです。秋のG1でも、同じ心構えで臨むのがよさそうです。</p><div class='point-box'><strong>ポイント</strong><br>・分析対象13987レースのうち、波乱の発生率は31.9%<br>・波乱確率が閾値0.3以上のレースに絞って参加（検証期間は1573レース）<br>・検証期間の回収率は105.6%、的中率は10.5%、最大ドローダウンは7.5%。過去の検証結果であり、将来の成績を保証するものではない<br>・最適化条件の162.2%は後から条件を選んだ数値のため、実力の目安にはしない<br>・G1でも予算を決めて、無理のない範囲で楽しむ</div>
+
+      <!-- AdSense広告：記事本文下（審査通過後にコメント解除） -->
+      <!-- ================================================
+      <div class="ad-unit ad-col-inline" data-label="スポンサー">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4265350416312017"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      ================================================ -->
+
+      <!-- 関連書籍（Amazonアフィリエイト） -->
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/479807425X?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/479807425X.01.L.jpg" alt="馬券のサバイバル・スキル こんな人気馬は買うな！" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">馬券のサバイバル・スキル こんな人気馬は買うな！</div>
+          <div class="book-author">安井 涼太 著</div>
+          <div class="book-desc">「切る」技術こそが万馬券への近道。データで人気馬の消し方・軸馬の見極め方を丁寧に解説。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4262144682?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4262144682.01.L.jpg" alt="勝ち方がわかる 馬券の教科書" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">勝ち方がわかる 馬券の教科書</div>
+          <div class="book-author">じゃい・亀谷 敬正 著</div>
+          <div class="book-desc">お笑い芸人・馬券師「じゃい」とデータのプロ亀谷氏がタッグ。感覚とデータを融合した実践的馬券術。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="../column.html" style="color:var(--primary);font-size:.9rem;">&larr; コラム一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:32px 20px;margin-top:60px;text-align:center;color:var(--muted);font-size:.82rem;">
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="../index.html" style="color:var(--primary);font-weight:bold;">DarkHorse AI</a></p>
+    <p style="margin-bottom:12px;">AIが分析する競馬万馬券予測サイト</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <a href="../disclaimer.html" style="color:var(--muted);">免責事項</a>
+      <a href="../privacy.html" style="color:var(--muted);">プライバシーポリシー</a>
+      <a href="../contact.html" style="color:var(--muted);">お問い合わせ</a>
+    </div>
+    <p>&copy; 2026 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
