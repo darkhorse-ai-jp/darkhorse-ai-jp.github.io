@@ -804,6 +804,73 @@
     "top1_odds": 5.0
   },
   {
+    "race_id": "202606040810",
+    "race_date": "2026-09-26",
+    "venue": "08",
+    "race_number": 10,
+    "race_name": "勝浦特別",
+    "grade": "",
+    "surface": "芝",
+    "distance": 1200,
+    "weather": "",
+    "track_cond": "",
+    "head_count": 16,
+    "prob": 70.5,
+    "upset_level": "高",
+    "horses": [
+      {
+        "num": 7,
+        "post": 4,
+        "name": "ドリーミングアップ",
+        "jockey": "横山武",
+        "popularity": 1,
+        "odds": 4.9,
+        "role": "anchor"
+      },
+      {
+        "num": 2,
+        "post": 1,
+        "name": "イゾラフェリーチェ",
+        "jockey": "津村",
+        "popularity": 2,
+        "odds": 4.9,
+        "role": "anchor"
+      },
+      {
+        "num": 8,
+        "post": 4,
+        "name": "レオアジャイル",
+        "jockey": "原",
+        "popularity": 6,
+        "odds": 8.9,
+        "role": "upset"
+      },
+      {
+        "num": 12,
+        "post": 6,
+        "name": "アイムインディ",
+        "jockey": "丹内",
+        "popularity": 7,
+        "odds": 16.1,
+        "role": "upset"
+      },
+      {
+        "num": 16,
+        "post": 8,
+        "name": "ピコアーガイル",
+        "jockey": "小林美",
+        "popularity": 8,
+        "odds": 19.9,
+        "role": "upset"
+      }
+    ],
+    "buy_str": "軸7・2 ／ 穴8・12・16",
+    "buy_points": 3,
+    "bet_amount": 900,
+    "hyakuman_flag": false,
+    "top1_odds": 4.9
+  },
+  {
     "race_id": "202609030409",
     "race_date": "2026-06-14",
     "venue": "04",
@@ -936,72 +1003,5 @@
     "bet_amount": 900,
     "hyakuman_flag": false,
     "top1_odds": 3.8
-  },
-  {
-    "race_id": "202609010511",
-    "race_date": "2026-03-07",
-    "venue": "05",
-    "race_number": 11,
-    "race_name": "フィリーズレビュー",
-    "grade": "",
-    "surface": "芝",
-    "distance": 1400,
-    "weather": "",
-    "track_cond": "",
-    "head_count": 18,
-    "prob": 70.3,
-    "upset_level": "高",
-    "horses": [
-      {
-        "num": 4,
-        "post": 2,
-        "name": "ショウナンカリス",
-        "jockey": "池添",
-        "popularity": 1,
-        "odds": 5.3,
-        "role": "anchor"
-      },
-      {
-        "num": 17,
-        "post": 8,
-        "name": "サンアントワーヌ",
-        "jockey": "荻野極",
-        "popularity": 2,
-        "odds": 5.4,
-        "role": "anchor"
-      },
-      {
-        "num": 8,
-        "post": 4,
-        "name": "ルージュサウダージ",
-        "jockey": "斎藤",
-        "popularity": 6,
-        "odds": 16.2,
-        "role": "upset"
-      },
-      {
-        "num": 3,
-        "post": 2,
-        "name": "プレセピオ",
-        "jockey": "富田",
-        "popularity": 7,
-        "odds": 16.4,
-        "role": "upset"
-      },
-      {
-        "num": 14,
-        "post": 7,
-        "name": "コラルリーフ",
-        "jockey": "鮫島駿",
-        "popularity": 8,
-        "odds": 19.5,
-        "role": "upset"
-      }
-    ],
-    "buy_str": "軸4・17 ／ 穴8・3・14",
-    "buy_points": 3,
-    "bet_amount": 900,
-    "hyakuman_flag": false,
-    "top1_odds": 5.3
   }
 ]
