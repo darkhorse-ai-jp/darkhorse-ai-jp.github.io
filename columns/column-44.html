@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>夏競馬はなぜ荒れる？函館・福島・小倉を検証 | DarkHorse AI コラム</title>
+  <meta name="description" content="「夏のローカルは荒れる」は本当か。函館・福島・小倉で万馬券が出やすいと言われる理由を整理し、DarkHorse AIの実測値をもとに、データで確かめる手順と数字の読み方を解説します。">
+  <meta property="og:title" content="夏競馬はなぜ荒れる？函館・福島・小倉を検証 | DarkHorse AI">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 32px 0 14px; }
+    .article-body p { margin-bottom: 14px; line-height: 1.8; }
+    .article-body ul, .article-body ol { margin: 10px 0 16px 20px; line-height: 2; }
+    .point-box { background: #f0f4f8; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .oyaji-bubble { background: #fff3cd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; position: relative; border: 1px solid #ffc107; font-style: italic; line-height: 1.8; }
+    .oyaji-bubble::before { content: "AIおやじ"; display: block; font-size: .75rem; font-weight: bold; color: #e67e00; margin-bottom: 6px; font-style: normal; }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4265350416312017" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "夏競馬はなぜ荒れる？函館・福島・小倉を検証",
+    "description": "「夏のローカルは荒れる」は本当か。函館・福島・小倉で万馬券が出やすいと言われる理由を整理し、DarkHorse AIの実測値をもとに、データで確かめる手順と数字の読み方を解説します。",
+    "datePublished": "2026-10-01",
+    "dateModified": "2026-10-01",
+    "url": "https://darkhorse-ai-jp.github.io/columns/column-44.html",
+    "inLanguage": "ja",
+    "author": {
+      "@type": "Person",
+      "name": "AIおやじ（丸山源三）"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DarkHorse AI",
+      "url": "https://darkhorse-ai-jp.github.io/"
+    },
+    "articleSection": "データ分析",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://darkhorse-ai-jp.github.io/columns/column-44.html"
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="../index.html">🐴 DarkHorse <span>AI</span></a>
+    <nav>
+      <a href="../prediction.html">今週の予測</a>
+      <a href="../results.html">過去の成績</a>
+      <a href="../about.html">予測ロジック</a>
+      <a href="../column.html">コラム</a>
+      <a href="../faq.html">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../index.html">トップ</a>
+    <a href="../prediction.html">今週の予測</a>
+    <a href="../results.html">過去の成績</a>
+    <a href="../about.html">予測ロジック</a>
+    <a href="../column.html">コラム</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="article-body" style="padding:32px 0;">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:8px;"><a href="../column.html">コラム</a> &gt; データ分析</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+        <span style="display:inline-block;background:#fde8e8;color:var(--miss);font-size:.75rem;padding:2px 8px;border-radius:10px;">データ分析</span>
+        <span style="font-size:.78rem;color:var(--muted);">2026年10月</span>
+      </div>
+      <h1 style="font-size:1.55rem;line-height:1.4;margin-bottom:24px;">夏競馬はなぜ荒れる？函館・福島・小倉を検証</h1>
+
+<h2>「夏は荒れる」は本当か</h2><p>「夏競馬は荒れる」というのは、競馬ファンの間で昔から言われてきたことです。函館・福島・小倉のローカル開催では、人気薄の馬が馬券に絡んで三連複が万馬券になる場面を見た方も多いでしょう。ただ、人の記憶には驚いた結果ほど残りやすく、平凡な決着はすぐに忘れられます。「荒れた気がする」と「実際に荒れている」は別の話です。</p><p>比べるための基準として、全体の数字を確認しておきます。DarkHorse AIが分析対象にしている14,081レースでは、波乱の発生率は31.9%でした。だいたい3レースに1回です。「夏のローカルは荒れる」と言うためには、この全体平均よりはっきり高いことを示す必要があります。</p><div class='oyaji-bubble'>わしは40年、夏は荒れると信じて穴を買い続けてきたんじゃが……全体でも3回に1回は荒れとるとはのう。わしの「夏は荒れる」は、ただの思い出補正だったかもしれん。</div><h2>荒れる理由として考えられる仮説</h2><p>夏のローカルで波乱が起きやすいと言われる理由は、主に次のようなものです。</p><p><strong>1. コースの形</strong>：小回りで直線が短いコースでは、位置取りや展開の紛れが結果に響きやすく、能力どおりに決まらない場面が増えると言われます。</p><p><strong>2. 芝の違い</strong>：函館は洋芝で時計がかかりやすく、中央の主要場とは求められる適性が違います。他場での実績が当てになりにくい可能性があります。</p><p><strong>3. メンバーの顔ぶれ</strong>：一線級の馬は夏に休むことが多く、条件戦が中心になります。実力が近い馬どうしの争いになり、3歳馬と古馬が初めてぶつかる時期でもあるため、力関係が読みにくくなります。</p><p><strong>4. 馬場と暑さ</strong>：開催が進むと内側の芝が傷み、有利な進路が変わります。暑さによる体調の変化も予想を難しくします。</p><h2>数字で確かめるための手順</h2><p>ここで正直にお伝えすると、DarkHorse AIが現時点で公開している実測値は全体の集計で、<strong>競馬場別・季節別の内訳はまだ出していません</strong>。そのため、この記事では「夏のローカルは何％荒れる」とは書きません。かわりに、確かめるための手順を示します。</p><p>まず、競馬場と月の組み合わせごとに波乱の発生率を集計し、全体の31.9%と比べます。次に、<strong>頭数やクラスを揃えて比べること</strong>が大切です。出走頭数が多いほど組み合わせが増えて荒れやすくなるため、頭数の違いを無視すると「競馬場のせい」と「頭数のせい」を見分けられません。さらに、学習データ（2022年01月〜2025年10月）で見つけた傾向が、検証データ（2025年10月〜2026年10月）でも続いているかを確認します。片方の期間だけで見つかった傾向は、たまたまの偏りかもしれません。</p><div class='oyaji-bubble'>なるほどのう、頭数を揃えんと比べたことにならんのか。今回はちゃんと理屈がある。データは嘘をつかんらしいが、比べ方を間違えると人間のほうが嘘をつくんじゃな。</div><h2>モデルの成績と、その読み方</h2><p>参考までに、DarkHorse AIの現在の成績です。モデルのAUCは0.713。波乱確率が0.3以上のレースに絞って参加したバックテストでは、参加レース数は1,627、的中率は10.6%、回収率は106.5%、最大ドローダウンは7.2%でした。</p><p>回収率は100%を超えていますが、これは過去のデータで試した結果で、これから先も同じ成績になる保証はありません。また、条件を最適化した場合の回収率は163.2%になりますが、これは結果を見てから条件を絞り込んだ数字なので、たまたま過去に合っていただけ（過学習）の可能性があります。この数字をそのまま期待するのは危険です。</p><p>「夏だから」という印象だけで人気薄を買うのもおすすめできません。人気薄の馬券はもともと割に合わない値段になりやすい（フェイバリット・ロングショット・バイアス）と知られており、根拠のない穴狙いは不利になりがちです。</p><div class='oyaji-bubble'>的中は10回に1回くらいか……。母ちゃんに小遣いを前借りして夏の小倉に突っ込む前に、まずは数字を確かめるとするかのう。耳の赤ペンは、メモ用にとっておくわい。</div><div class='point-box'><strong>ポイント</strong><br>・全体の波乱発生率は31.9%。「夏は荒れる」と言うには、これより高いことを示す必要がある<br>・荒れる理由の仮説は、コースの形・洋芝・メンバーの顔ぶれ・馬場と暑さ<br>・競馬場別の内訳はまだ未公開。比べるときは頭数・クラスを揃え、検証期間でも確かめる<br>・バックテストの回収率106.5%は将来を保証しない。最適化条件の163.2%は過学習に注意</div>
+
+      <!-- AdSense広告：記事本文下（審査通過後にコメント解除） -->
+      <!-- ================================================
+      <div class="ad-unit ad-col-inline" data-label="スポンサー">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4265350416312017"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      ================================================ -->
+
+      <!-- 関連書籍（Amazonアフィリエイト） -->
+      <div class="affiliate-books">
+        <h3>📚 関連書籍 <span class="pr-badge">PR / Amazon</span></h3>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4867100099?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4867100099.01.L.jpg" alt="血統偏差値 JRA全103コース「儲かる種牡馬」ランキング" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">血統偏差値 JRA全103コース「儲かる種牡馬」ランキング</div>
+          <div class="book-author">伊吹 雅也 著</div>
+          <div class="book-desc">JRA全103コースで「儲かる種牡馬」を偏差値で数値化。AIが注目する血統・コース適性データを先取りできる一冊。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+      <a class="book-card" href="https://www.amazon.co.jp/dp/4867103411?tag=msalpha0123-22" target="_blank" rel="noopener sponsored">
+        <div class="book-cover"><img src="https://m.media-amazon.com/images/P/4867103411.01.L.jpg" alt="血統&ジョッキー偏差値2024-2025 ～儲かる種牡馬・騎手ランキング～" loading="lazy" onerror="this.src='';this.parentElement.innerHTML='📚'"></div>
+        <div class="book-info">
+          <div class="book-title">血統&ジョッキー偏差値2024-2025 ～儲かる種牡馬・騎手ランキング～</div>
+          <div class="book-author">伊吹 雅也 著</div>
+          <div class="book-desc">種牡馬と騎手を偏差値でランキング。データで「乗り替わり」「血統変化」を読む手法はAI予測とも相性抜群。</div>
+          <span class="book-btn">Amazonで見る →</span>
+        </div>
+      </a>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">※Amazonアソシエイト・プログラムに基づく広告を含みます。</p>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="../column.html" style="color:var(--primary);font-size:.9rem;">&larr; コラム一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:32px 20px;margin-top:60px;text-align:center;color:var(--muted);font-size:.82rem;">
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="../index.html" style="color:var(--primary);font-weight:bold;">DarkHorse AI</a></p>
+    <p style="margin-bottom:12px;">AIが分析する競馬万馬券予測サイト</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <a href="../disclaimer.html" style="color:var(--muted);">免責事項</a>
+      <a href="../privacy.html" style="color:var(--muted);">プライバシーポリシー</a>
+      <a href="../contact.html" style="color:var(--muted);">お問い合わせ</a>
+    </div>
+    <p>&copy; 2026 DarkHorse AI. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
